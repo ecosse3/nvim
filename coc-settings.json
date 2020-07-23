@@ -1,4 +1,9 @@
 {
-    "explorer.width": 30,
-    "explorer.icon.enableNerdfont": true
+  "eslint.autoFixOnSave": true,
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote":  true,
+  "prettier.trailingComma": "es5",
+  "prettier.jsxBracketSameLine": true
 }
