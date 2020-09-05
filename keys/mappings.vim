@@ -55,7 +55,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-map <silent> <c-e> :CocCommand explorer --position floating<CR>
+map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
 
 nmap <C-Space> <Plug>(coc-codeaction)
 
