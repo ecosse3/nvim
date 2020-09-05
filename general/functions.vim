@@ -37,6 +37,8 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
+nnoremap <silent>K :call <SID>show_documentation()<CR>
+
 " Show documentation in preview window
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)

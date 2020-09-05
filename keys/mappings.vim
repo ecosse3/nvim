@@ -66,8 +66,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 
-nnoremap <silent>K :call <SID>show_documentation()<CR>
-
 " Introduce function text object
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
