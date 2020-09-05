@@ -38,6 +38,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'sheerun/vim-polyglot'
 Plug 'jparise/vim-graphql'
+Plug 'liuchengxu/vista.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
