@@ -1,8 +1,8 @@
 " --------------------- Mappings ---------------------
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
 
 " Save by CTRL-S
 nnoremap <silent> <c-s> :w<CR>
