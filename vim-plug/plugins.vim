@@ -16,6 +16,7 @@ Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'liuchengxu/vim-which-key'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'turbio/bracey.vim'
+Plug 'voldikss/vim-floaterm'
 
 " Snippets & Language
 Plug 'honza/vim-snippets'
@@ -64,35 +65,5 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'airblade/vim-rooter'
-"{{{
-    let $FZF_DEFAULT_COMMAND="fd --hidden --type f --exclude .git"
-    let $FZF_DEFAULT_OPTS="--reverse || --preview '[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null'"
-    let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-    let g:fzf_nvim_statusline = 0
-    let g:fzf_branch_actions = {
-      \ 'track': {
-      \   'prompt': 'Track> ',
-      \   'execute': 'echo system("{git} checkout --track {branch}")',
-      \   'multiple': v:false,
-      \   'keymap': 'ctrl-t',
-      \   'required': ['branch'],
-      \   'confirm': v:false,
-      \ },
-      \}
-    let g:fzf_colors =
-    \ { 'fg':      ['fg', 'Normal'],
-      \ 'bg':      ['bg', 'Normal'],
-      \ 'hl':      ['fg', 'Comment'],
-      \ 'fg+':     ['fg', 'Conditional', 'CursorColumn', 'Normal'],
-      \ 'bg+':     ['bg', 'Conditional', 'Conditional'],
-      \ 'hl+':     ['fg', 'Statement'],
-      \ 'info':    ['fg', 'PreProc'],
-      \ 'border':  ['fg', 'Ignore'],
-      \ 'prompt':  ['fg', 'Conditional'],
-      \ 'pointer': ['fg', 'Exception'],
-      \ 'marker':  ['fg', 'Keyword'],
-      \ 'spinner': ['fg', 'Label'],
-      \ 'header':  ['fg', 'Comment'] }
-"}}}
 
 call plug#end()
