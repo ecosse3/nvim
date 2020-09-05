@@ -126,6 +126,18 @@ let g:which_key_map.g.l = {
       \ 'c' : [':Git log -- %'         , 'log current file'],
       \ }
 
+" p is for project
+let g:which_key_map.p = {
+      \ 'name' : '+project' ,
+      \ }
+"
+let g:which_key_map.p.r = {
+      \ 'name' : '+refactor' ,
+      \ }
+
+let g:which_key_map['p']['w'] = 'find word'
+let g:which_key_map['p']['r']['w'] = 'refactor word'
+
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
@@ -155,17 +167,13 @@ let g:which_key_map.s = {
       \ 'z' : [':FZF'                   , 'FZF'],
       \ }
 
-" p is for project
-let g:which_key_map.p = {
-      \ 'name' : '+project' ,
-      \ }
-"
-let g:which_key_map.p.r = {
-      \ 'name' : '+refactor' ,
+" t is for tablemode
+let g:which_key_map.t = {
+      \ 'name' : '+table_mode' ,
       \ }
 
-let g:which_key_map['p']['w'] = 'find word'
-let g:which_key_map['p']['r']['w'] = 'refactor word'
+let g:which_key_map['t']['m'] = 'toggle table mode'
+let g:which_key_map['t']['t'] = 'tableize'
 
 
 " Register which key map
