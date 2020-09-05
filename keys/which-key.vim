@@ -122,8 +122,9 @@ let g:which_key_map.g = {
 
 let g:which_key_map.g.l = {
       \ 'name' : '+log' ,
-      \ 'a' : [':Git log'              , 'log all'],
-      \ 'c' : [':Git log -- %'         , 'log current file'],
+      \ 'a' : [':Commits'              , 'log all'],
+      \ 'c' : [':BCommits'             , 'log current file'],
+      \ 'l' : [':Gclog -- %'           , 'classic log all'],
       \ }
 
 " p is for project
