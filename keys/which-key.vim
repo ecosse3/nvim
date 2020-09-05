@@ -77,6 +77,7 @@ let g:which_key_map.c = {
       \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
       \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
       \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+      \ 'c' : [':GCommit -m "'                       , 'commit'],
       \ 'e' : [':CocCommand explorer'                , 'explorer'],
       \ 'f' : ['<Plug>(coc-format-selected)'         , 'format selected'],
       \ 'F' : ['<Plug>(coc-format)'                  , 'format'],
@@ -90,6 +91,9 @@ let g:which_key_map.c = {
       \ 'z' : [':CocDisable'                         , 'disable CoC'],
       \ 'Z' : [':CocEnable'                          , 'enable CoC'],
       \ }
+
+" Hide git commit cc mapping
+let g:which_key_map['c']['c'] = 'which_key_ignore'
 
 " g is for git
 let g:which_key_map.g = {
@@ -114,6 +118,12 @@ let g:which_key_map.g = {
       \ 's' : [':Gstatus'                          , 'status'],
       \ 'v' : [':GV'                               , 'view commits'],
       \ 'V' : [':GV!'                              , 'view buffer commits'],
+      \ }
+
+let g:which_key_map.g.l = {
+      \ 'name' : '+log' ,
+      \ 'a' : [':Git log'              , 'log all'],
+      \ 'c' : [':Git log -- %'         , 'log current file'],
       \ }
 
 " s is for search
