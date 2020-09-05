@@ -14,6 +14,7 @@ Plug 'mhinz/vim-startify'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'liuchengxu/vim-which-key'
+Plug 'iamcco/markdown-preview.vim'
 
 " Snippets & Language
 Plug 'honza/vim-snippets'
