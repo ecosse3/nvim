@@ -40,6 +40,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'sheerun/vim-polyglot'
 Plug 'jparise/vim-graphql'
 Plug 'liuchengxu/vista.vim'
+Plug 'SirVer/ultisnips'
 
 " Git
 Plug 'tpope/vim-fugitive'

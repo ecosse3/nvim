@@ -20,6 +20,8 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 let g:better_whitespace_enabled = 0
 
+let g:UltiSnipsExpandTrigger="<C-l>"
+
 lua <<
 if jit ~= nil then
     require'colorizer'.setup()
