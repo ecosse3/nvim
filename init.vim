@@ -16,3 +16,4 @@ source $HOME/.config/nvim/keys/which-key.vim          " Which Key
 source $HOME/.config/nvim/vim-plug/startify.vim       " Startify
 source $HOME/.config/nvim/vim-plug/fzf.vim						" Fzf
 source $HOME/.config/nvim/vim-plug/ranger.vim					" Ranger
+source $HOME/.config/nvim/vim-plug/vista.vim					" Vista
