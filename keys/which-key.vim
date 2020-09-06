@@ -59,9 +59,7 @@ let g:which_key_map.a = {
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ '1' : ['b1'        , 'buffer 1'],
-      \ '2' : ['b2'        , 'buffer 2'],
-      \ 'd' : [':Bdelete'  , 'delete-buffer'],
+      \ 'd' : ['bd'        , 'delete-buffer'],
       \ 'f' : ['bfirst'    , 'first-buffer'],
       \ 'h' : ['Startify'  , 'home-buffer'],
       \ 'l' : ['blast'     , 'last-buffer'],
@@ -125,7 +123,7 @@ let g:which_key_map.g.l = {
       \ 'name' : '+log' ,
       \ 'a' : [':Commits'              , 'log all'],
       \ 'c' : [':BCommits'             , 'log current file'],
-      \ 'l' : [':Gclog -- %'           , 'classic log all'],
+      \ 'l' : [':Gclog --'           , 'classic log all'],
       \ }
 
 " p is for project
