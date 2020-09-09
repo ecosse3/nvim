@@ -83,3 +83,6 @@ nnoremap x "_x
 nnoremap X "_X
 vnoremap x "_x
 vnoremap X "_X
+
+" Yank until the end of line
+nnoremap Y y$
