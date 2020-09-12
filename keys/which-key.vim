@@ -29,6 +29,17 @@ let g:which_key_map['j'] = 'which_key_ignore'
 let g:which_key_map['k'] = 'which_key_ignore'
 let g:which_key_map['l'] = 'which_key_ignore'
 
+" Hide airline tab mappings
+let g:which_key_map['1'] = 'which_key_ignore'
+let g:which_key_map['2'] = 'which_key_ignore'
+let g:which_key_map['3'] = 'which_key_ignore'
+let g:which_key_map['4'] = 'which_key_ignore'
+let g:which_key_map['5'] = 'which_key_ignore'
+let g:which_key_map['6'] = 'which_key_ignore'
+let g:which_key_map['7'] = 'which_key_ignore'
+let g:which_key_map['8'] = 'which_key_ignore'
+let g:which_key_map['9'] = 'which_key_ignore'
+
 " Single mappings
 let g:which_key_map['+'] = [ ':vertical resize +2'               , 'resize +2' ]
 let g:which_key_map['-'] = [ ':vertical resize -2'               , 'resize -2' ]
