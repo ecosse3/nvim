@@ -101,3 +101,4 @@ nnoremap Y y$
 " Floaterm
 nnoremap <silent> <F12> :FloatermToggle<CR>
 tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <F11> <C-\><C-n>:FloatermNext<CR>
