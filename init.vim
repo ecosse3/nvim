@@ -17,3 +17,4 @@ source $HOME/.config/nvim/vim-plug/startify.vim       " Startify
 source $HOME/.config/nvim/vim-plug/fzf.vim						" Fzf
 source $HOME/.config/nvim/vim-plug/ranger.vim					" Ranger
 source $HOME/.config/nvim/vim-plug/vista.vim					" Vista
+source $HOME/.config/nvim/vim-plug/nvim-colorizer.vim	" Colorizer

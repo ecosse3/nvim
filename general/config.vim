@@ -22,12 +22,6 @@ let g:better_whitespace_enabled = 0
 
 let g:UltiSnipsExpandTrigger="<C-l>"
 
-lua <<
-if jit ~= nil then
-    require'colorizer'.setup()
-end
-.
-
 " --------------------- Neoformat ------------------
 autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
 autocmd FileType javascriptreact setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
