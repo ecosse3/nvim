@@ -137,6 +137,20 @@ let g:which_key_map.g.l = {
       \ 'l' : [':Gclog --'           , 'classic log all'],
       \ }
 
+" i is for auto import
+let g:which_key_map.i = {
+      \ 'name' : '+import' ,
+      \ }
+
+let g:which_key_map['i']['f'] = 'import file'
+let g:which_key_map['i']['F'] = 'import file list'
+let g:which_key_map['i']['g'] = 'go to definition'
+let g:which_key_map['i']['G'] = 'which_key_ignore'
+let g:which_key_map['i']['p'] = 'prompt'
+let g:which_key_map['i']['u'] = 'find usage'
+let g:which_key_map['i']['s'] = 'sort'
+let g:which_key_map['i']['c'] = 'fix'
+
 " p is for project
 let g:which_key_map.p = {
       \ 'name' : '+project' ,

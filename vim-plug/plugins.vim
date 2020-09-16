@@ -41,6 +41,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jparise/vim-graphql'
 Plug 'liuchengxu/vista.vim'
 Plug 'SirVer/ultisnips'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 
 " Git
 Plug 'tpope/vim-fugitive'
