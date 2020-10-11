@@ -63,7 +63,7 @@ let g:which_key_map.a = {
       \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
       \ 'p' : ['<Plug>Prettier'          , 'prettify file'],
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
+      \ 't' : [':FloatermNew'            , 'terminal'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
