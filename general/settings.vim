@@ -27,6 +27,7 @@ set noerrorbells                " Disables sound effect for errors
 set nowrap                      " Display long lines as just one line
 set nobackup                    " Recommended by coc
 set noswapfile                  " Recommended by coc
+set noemoji                     " Fix emoji display
 set undodir=~/.vim/undodir      " Dir for undos
 set undofile                    " Sets undo to file
 set incsearch                   " Start searching before pressing enter
