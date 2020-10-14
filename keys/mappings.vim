@@ -76,6 +76,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
 
 " Introduce function text object
 xmap if <Plug>(coc-funcobj-i)

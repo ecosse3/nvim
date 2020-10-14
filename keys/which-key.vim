@@ -63,7 +63,7 @@ let g:which_key_map.a = {
       \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
       \ 'p' : ['<Plug>Prettier'          , 'prettify file'],
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermNew'            , 'terminal'],
+      \ 't' : [':FloatermNew'         , 'terminal'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -161,6 +161,7 @@ let g:which_key_map.p.r = {
       \ }
 
 let g:which_key_map['p']['w'] = 'find word'
+let g:which_key_map['p']['f'] = 'find file'
 let g:which_key_map['p']['r']['w'] = 'refactor word'
 
 " s is for search
