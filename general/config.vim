@@ -9,7 +9,7 @@ let g:netrw_winsize = 25
 
 let g:rainbow_active = 1
 
-let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-emmet', 'coc-prettier', 'coc-angular', 'coc-snippets', 'coc-styled-components', 'coc-css', 'coc-html']
+let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-emmet', 'coc-prettier', 'coc-angular', 'coc-snippets', 'coc-styled-components', 'coc-css', 'coc-html', 'coc-markdownlint']
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 let g:closetag_filenames = '*.html,*.xhtml,*.js,*.jsx,*.tsx,*.xml'
