@@ -1,13 +1,14 @@
 {
+  "codeLens.enable":  true,
   "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
   "eslint.autoFixOnSave": true,
-  "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote":  true,
-  "prettier.trailingComma": "es5",
+  "explorer.width": 30,
   "prettier.jsxBracketSameLine": true,
+  "prettier.jsxSingleQuote":  true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
   "tsserver.enableJavascript": false
 }
