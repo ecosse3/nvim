@@ -22,6 +22,8 @@ let g:better_whitespace_enabled = 0
 
 let g:UltiSnipsExpandTrigger="<C-l>"
 
+let g:js_file_import_use_fzf = 1
+
 " --------------------- Neoformat ------------------
 autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
 autocmd FileType javascriptreact setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
