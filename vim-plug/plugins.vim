@@ -58,8 +58,10 @@ Plug 'joshdick/onedark.vim'
 Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'mhartington/oceanic-next'
 Plug 'skbolton/embark'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 " Colorscheme
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'powerline/powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
