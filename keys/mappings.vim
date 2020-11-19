@@ -35,8 +35,8 @@ nnoremap <silent> <s-p> :Rg<CR>
 nnoremap <Leader>cc :Gcommit -m "
 
 "Tabs
-nnoremap H gT
-nnoremap L gt
+" nnoremap H gT
+" nnoremap L gt
 
 "Buffers
 nnoremap <silent> <c-b> :Buffers<CR>
