@@ -24,17 +24,4 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 
 let g:js_file_import_use_fzf = 1
 
-" --------------------- Neoformat ------------------
-autocmd FileType javascript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-autocmd FileType javascriptreact setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-autocmd FileType javascript.jsx setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-
-autocmd FileType typescript setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-autocmd FileType typescriptreact setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-autocmd FileType typescript.tsx setlocal formatprg=prettier\ --single-quote\ --trailing-comma\ es6
-
-let g:neoformat_enabled_javascript = ['prettier-eslint', 'prettier']
-let g:neoformat_enabled_typescript = ['prettier', 'tslint']
-let g:neoformat_enabled_css = ['prettier-eslint', 'prettier']
-let g:neoformat_enabled_json = ['prettier-eslint', 'prettier']
-let g:neoformat_try_formatprg = 1 " Use formatprg when available
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
