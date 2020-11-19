@@ -1,14 +1,20 @@
 {
   "codeLens.enable":  true,
+  "typescript.referencesCodeLens.enable": false,
   "diagnostic.errorSign": "✘",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "eslint.autoFixOnSave": true,
   "explorer.icon.enableNerdfont": true,
+  "explorer.file.showHiddenFiles": true,
   "explorer.width": 30,
   "prettier.jsxBracketSameLine": true,
   "prettier.jsxSingleQuote":  true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
-  "tsserver.enableJavascript": false
+  "tsserver.enableJavascript": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.updateImportsOnFileMove.enable": true,
+  "javascript.updateImportsOnFileMove.enable": true,
+  "snippets.priority": 100
 }
