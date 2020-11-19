@@ -39,6 +39,7 @@ set t_Co=256                        " Support 256 colors
 set backspace=indent,eol,start      " Making sure backspace works
 "set autowriteall                   " Auto-saves buffers
 set wildignore+=*node_modules/**    " Don't search inside Node.js modules (works for gutentag)
+set lazyredraw                      " Makes macros faster & prevent errors in complicated mappings
 
 " Check if terminal has 24-bit color support
 if (has("termguicolors"))
