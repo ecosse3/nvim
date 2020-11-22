@@ -25,3 +25,7 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 let g:js_file_import_use_fzf = 1
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+let g:switch_mapping = ""
+
+let g:speeddating_no_mappings = 1

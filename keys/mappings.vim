@@ -103,3 +103,13 @@ nnoremap Y y$
 nnoremap <silent> <F12> :FloatermToggle<CR>
 tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
 tnoremap <silent> <F11> <C-\><C-n>:FloatermNext<CR>
+
+" Avoid issues because of us remapping <c-a> and <c-x> below
+nnoremap <Plug>SpeedDatingFallbackUp <c-a>
+nnoremap <Plug>SpeedDatingFallbackDown <c-x>
+
+" Manually invoke speeddating in case switch.vim didn't work
+nnoremap <silent> <C-a> :if !switch#Switch() <bar>
+      \ call speeddating#increment(v:count1) <bar> endif<CR>
+nnoremap <silent> <C-x> :if !switch#Switch({'reverse': 1}) <bar>
+      \ call speeddating#increment(-v:count1) <bar> endif<CR>
