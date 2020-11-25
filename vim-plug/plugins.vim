@@ -6,6 +6,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'luochen1990/rainbow'
 Plug 'AndrewRadev/switch.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'tpope/vim-commentary'
