@@ -45,7 +45,7 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ianks/vim-tsx'
 
 " Git
-Plug 'f-person/git-blame.nvim'
+Plug 'f-person/git-blame.nvim', { 'branch': 'file-open-performance' }
 Plug 'mhinz/vim-signify'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'rhysd/git-messenger.vim'
