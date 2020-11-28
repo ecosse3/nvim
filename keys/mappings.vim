@@ -39,7 +39,6 @@ nnoremap <Leader>cc :Gcommit -m "
 " nnoremap L gt
 
 "Buffers
-nnoremap <silent> <c-b> :Buffers<CR>
 nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> gn :bn<CR>
 nnoremap <silent> <S-Tab> :bp<CR>
@@ -72,6 +71,13 @@ nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
@@ -111,5 +117,5 @@ nnoremap <Plug>SpeedDatingFallbackDown <c-x>
 " Manually invoke speeddating in case switch.vim didn't work
 nnoremap <silent> <C-a> :if !switch#Switch() <bar>
       \ call speeddating#increment(v:count1) <bar> endif<CR>
-nnoremap <silent> <C-x> :if !switch#Switch({'reverse': 1}) <bar>
+nnoremap <C-x> :if !switch#Switch({'reverse': 1}) <bar>
       \ call speeddating#increment(-v:count1) <bar> endif<CR>
