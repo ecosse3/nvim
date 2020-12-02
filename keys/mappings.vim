@@ -62,12 +62,10 @@ nnoremap <silent> <CR> :noh<CR><CR>
 "CoC
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
-
-nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

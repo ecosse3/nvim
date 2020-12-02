@@ -15,6 +15,5 @@
   "tsserver.enableJavascript": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.updateImportsOnFileMove.enable": true,
-  "javascript.updateImportsOnFileMove.enable": true,
-  "snippets.priority": 100
+  "javascript.updateImportsOnFileMove.enable": true
 }
