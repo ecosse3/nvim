@@ -99,6 +99,7 @@ let g:which_key_map.c = {
       \ 't' : ['<Plug>(coc-type-definition)'                       , 'type definition'],
       \ 'U' : [':CocUpdate'                                        , 'update CoC'],
       \ 'v' : [':Vista!!'                                          , 'tag viewer'],
+      \ 'y' : [':CocFzfList yank'                                  , 'yanks'],
       \ 'z' : [':CocDisable'                                       , 'disable CoC'],
       \ 'Z' : [':CocEnable'                                        , 'enable CoC'],
       \ }
