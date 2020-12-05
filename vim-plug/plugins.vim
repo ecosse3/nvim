@@ -29,20 +29,24 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'liuchengxu/vista.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 " React Development
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
-Plug 'mxw/vim-jsx'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ianks/vim-tsx'
+Plug 'neoclide/vim-jsx-improve'
+" Disabled due to vim-jsx-improve
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'maxmellon/vim-jsx-pretty'
 
 " Git
 Plug 'f-person/git-blame.nvim', { 'branch': 'file-open-performance' }
