@@ -76,6 +76,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
 
+nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
