@@ -100,10 +100,23 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " GoTo code navigation.
-nmap <buffer> gd <Plug>(coc-definition)
-nmap <buffer> gy <Plug>(coc-type-definition)
-nmap <buffer> gi <Plug>(coc-implementation)
-nmap <buffer> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+function! s:GoToDefinition()
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
+
+  let ret = execute("silent! normal \<C-]>")
+  if ret =~ "Error" || ret =~ "错误"
+    call searchdecl(expand('<cword>'))
+  endif
+endfunction
+
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
 
 " Don't yank on delete char
 nnoremap x "_x
