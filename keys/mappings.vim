@@ -43,7 +43,7 @@ nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> gn :bn<CR>
 nnoremap <silent> <S-Tab> :bp<CR>
 nnoremap <silent> gp :bp<CR>
-nnoremap <silent> <s-q> :bd<CR>
+nnoremap <silent> <s-q> :Bdelete<CR>
 
 " Move between airline tabs
 nmap <leader>1 <Plug>AirlineSelectTab1
@@ -111,7 +111,7 @@ function! s:GoToDefinition()
   endif
 
   let ret = execute("silent! normal \<C-]>")
-  if ret =~ "Error" || ret =~ "错误"
+  if ret =~ "Error"
     call searchdecl(expand('<cword>'))
   endif
 endfunction

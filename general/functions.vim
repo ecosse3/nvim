@@ -1,5 +1,5 @@
 "map :q to buffer delete
-cnoreabbrev <expr> q getcmdtype() == ":" && (getcmdline() == 'q' && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1) ? 'bd' : 'q'
+cnoreabbrev <expr> q getcmdtype() == ":" && (getcmdline() == 'q' && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1) ? ':Bdelete' : 'q'
 
 fun! TrimWhitespace()
     let l:save = winsaveview()

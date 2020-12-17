@@ -70,7 +70,7 @@ let g:which_key_map.a = {
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ 'd' : ['bd'        , 'delete-buffer'],
+      \ 'd' : [':Bdelete'  , 'delete-buffer'],
       \ 'f' : ['bfirst'    , 'first-buffer'],
       \ 'h' : ['Startify'  , 'home-buffer'],
       \ 'l' : ['blast'     , 'last-buffer'],

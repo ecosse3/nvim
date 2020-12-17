@@ -13,6 +13,14 @@ let g:fzf_branch_actions = {
   \   'required': ['branch'],
   \   'confirm': v:false,
   \ },
+  \ 'diff': {
+  \   'prompt': 'Diff> ',
+  \   'execute': 'Git diff {branch}',
+  \   'multiple': v:false,
+  \   'keymap': 'ctrl-f',
+  \   'required': ['branch'],
+  \   'confirm': v:false,
+  \ },
   \}
 
 let g:fzf_colors =
