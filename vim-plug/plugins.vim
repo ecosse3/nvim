@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'liuchengxu/vim-which-key'
+Plug 'moll/vim-bbye'
 
 " Snippets & Language
 Plug 'jiangmiao/auto-pairs'
