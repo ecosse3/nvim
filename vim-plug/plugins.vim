@@ -2,13 +2,12 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'turbio/bracey.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'luochen1990/rainbow'
 Plug 'AndrewRadev/switch.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree'
-Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'voldikss/vim-floaterm'
@@ -20,6 +19,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'liuchengxu/vim-which-key'
 Plug 'moll/vim-bbye'
+Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 
 " Snippets & Language
 Plug 'jiangmiao/auto-pairs'
@@ -51,10 +51,12 @@ Plug 'neoclide/vim-jsx-improve'
 
 " Git
 Plug 'f-person/git-blame.nvim', { 'branch': 'file-open-performance' }
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 " Themes - keep only currently used for performance
 Plug 'bluz71/vim-nightfly-guicolors'
@@ -74,9 +76,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
 " Tabline
-Plug 'vim-airline/vim-airline'
-" Plug 'romgrk/barbar.nvim'
-" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'vim-airline/vim-airline'
+Plug 'romgrk/barbar.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Fzf
 Plug 'antoinemadec/coc-fzf'
@@ -88,8 +90,5 @@ Plug 'airblade/vim-rooter'
 " Ranger
 Plug 'rbgrouleff/bclose.vim'
 Plug 'francoiscabrol/ranger.vim'
-
-" Firenvim
-" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 call plug#end()
