@@ -6,7 +6,7 @@ let bufferline = {}
 let bufferline.animation = v:true
 
 " Enable/disable auto-hiding the tab bar when there is a single buffer
-let bufferline.auto_hide = v:true
+let bufferline.auto_hide = v:false
 
 " Enable/disable icons
 " if set to 'numbers', will show buffer index in the tabline
