@@ -2,7 +2,7 @@ let s:cache = {'branch': ''}
 
 augroup custom_statusline
   autocmd!
-  autocmd VimEnter * silent! call FugitiveDetect(expand('<afile>')) | let s:cache.branch = fugitive#head()
+  autocmd BufEnter * silent! call FugitiveDetect(expand('<afile>')) | let s:cache.branch = fugitive#head()
   autocmd BufEnter,WinEnter * setlocal statusline=%!Statusline()
   autocmd BufLeave,WinLeave * setlocal statusline=%f\ %y\ %m
   autocmd User FugitiveChanged let s:cache.branch = fugitive#head()
