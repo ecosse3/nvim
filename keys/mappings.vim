@@ -46,15 +46,15 @@ nnoremap <silent> gp :bp<CR>
 nnoremap <silent> <s-q> :BufferClose<CR>
 
 " Move between airline tabs
-nmap <leader>1 <Plug>:BufferGoto 1<CR>
-nmap <leader>2 <Plug>:BufferGoto 2<CR>
-nmap <leader>3 <Plug>:BufferGoto 3<CR>
-nmap <leader>4 <Plug>:BufferGoto 4<CR>
-nmap <leader>5 <Plug>:BufferGoto 5<CR>
-nmap <leader>6 <Plug>:BufferGoto 6<CR>
-nmap <leader>7 <Plug>:BufferGoto 7<CR>
-nmap <leader>8 <Plug>:BufferGoto 8<CR>
-nmap <leader>9 <Plug>:BufferGoto 9<CR>
+nmap <silent> <leader>1 :BufferGoto 1<CR>
+nmap <silent> <leader>2 :BufferGoto 2<CR>
+nmap <silent> <leader>3 :BufferGoto 3<CR>
+nmap <silent> <leader>4 :BufferGoto 4<CR>
+nmap <silent> <leader>5 :BufferGoto 5<CR>
+nmap <silent> <leader>6 :BufferGoto 6<CR>
+nmap <silent> <leader>7 :BufferGoto 7<CR>
+nmap <silent> <leader>8 :BufferGoto 8<CR>
+nmap <silent> <leader>9 :BufferGoto 9<CR>
 
 "Remove highlights
 nnoremap <silent> <CR> :noh<CR><CR>
