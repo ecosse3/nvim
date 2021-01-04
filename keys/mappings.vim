@@ -39,22 +39,22 @@ nnoremap <Leader>cc :Gcommit -m "
 " nnoremap L gt
 
 "Buffers
-nnoremap <silent> <Tab> :bn<CR>
+nnoremap <silent> <Tab> :BufferNext<CR>
 nnoremap <silent> gn :bn<CR>
-nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <S-Tab> :BufferPrevious<CR>
 nnoremap <silent> gp :bp<CR>
-nnoremap <silent> <s-q> :Bdelete<CR>
+nnoremap <silent> <s-q> :BufferClose<CR>
 
 " Move between airline tabs
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>1 <Plug>:BufferGoto 1<CR>
+nmap <leader>2 <Plug>:BufferGoto 2<CR>
+nmap <leader>3 <Plug>:BufferGoto 3<CR>
+nmap <leader>4 <Plug>:BufferGoto 4<CR>
+nmap <leader>5 <Plug>:BufferGoto 5<CR>
+nmap <leader>6 <Plug>:BufferGoto 6<CR>
+nmap <leader>7 <Plug>:BufferGoto 7<CR>
+nmap <leader>8 <Plug>:BufferGoto 8<CR>
+nmap <leader>9 <Plug>:BufferGoto 9<CR>
 
 "Remove highlights
 nnoremap <silent> <CR> :noh<CR><CR>
@@ -72,7 +72,7 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
 

@@ -70,13 +70,15 @@ let g:which_key_map.a = {
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ 'd' : [':Bdelete'  , 'delete-buffer'],
-      \ 'f' : ['bfirst'    , 'first-buffer'],
-      \ 'h' : ['Startify'  , 'home-buffer'],
-      \ 'l' : ['blast'     , 'last-buffer'],
-      \ 'n' : ['bnext'     , 'next-buffer'],
-      \ 'p' : ['bprevious' , 'previous-buffer'],
-      \ '?' : ['Buffers'   , 'fzf-buffer'],
+      \ 'b' : [':BufferMovePrevious'  , 'Move back'],
+      \ 'c' : [':BufferClose'  , 'Close buffer'],
+      \ 'd' : [':BufferOrderByDirectory'  , 'Order by directory'],
+      \ 'f' : ['bfirst'    , 'First buffer'],
+      \ 'h' : ['Startify'  , 'Home Buffer'],
+      \ 'l' : ['blast'     , 'Last Buffer'],
+      \ 'n' : [':BufferMoveNext'     , 'Move next'],
+      \ 'p' : [':BufferPick' , 'Pick Buffer'],
+      \ '?' : ['Buffers'   , 'FZF Buffers'],
       \ }
 
 " c is for CoC
@@ -130,6 +132,16 @@ let g:which_key_map.g = {
       \ 'v' : [':GV'                                   , 'view commits'],
       \ 'V' : [':GV!'                                  , 'view buffer commits'],
       \ }
+
+let g:which_key_map.g.h = {
+      \ 'name' : '+hunk' ,
+      \ }
+
+let g:which_key_map['g']['h']['s'] = 'stage hunk'
+let g:which_key_map['g']['h']['u'] = 'undo stage hunk'
+let g:which_key_map['g']['h']['r'] = 'reset hunk'
+let g:which_key_map['g']['h']['p'] = 'preview hunk'
+let g:which_key_map['g']['h']['b'] = 'blame line'
 
 let g:which_key_map.g.l = {
       \ 'name' : '+log' ,
