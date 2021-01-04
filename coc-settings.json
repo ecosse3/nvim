@@ -1,5 +1,4 @@
 {
-  "codeLens.enable":  true,
   "diagnostic.errorSign": "✘",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
