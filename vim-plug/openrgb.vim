@@ -23,6 +23,7 @@ endfor
 "           led_colors are used
 " -- normal
 "
+"
 let g:openrgb_mode_dict['n']['main_color'] = '#ffff00'
 let g:openrgb_mode_dict['n']['led_names'] = [
       \ ['Key: Right Arrow', 'Key: Left Arrow', 'Key: Up Arrow', 'Key: Down Arrow'],
@@ -47,6 +48,11 @@ let g:openrgb_mode_dict['i']['led_colors'] = [
       \ '#0000ff',
       \ '#ffff00'
       \ ]
+
+" -- visual
+"
+"
+let g:openrgb_mode_dict['v']['main_color'] = '#fe8019'
 
 function OpenRGBStatuslineFunc()
   if g:openrgb_is_ready
