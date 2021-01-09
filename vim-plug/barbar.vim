@@ -9,8 +9,7 @@ let bufferline.animation = v:true
 let bufferline.auto_hide = v:false
 
 " Enable/disable icons
-" if set to 'numbers', will show buffer index in the tabline
-" if set to 'both', will show buffer index and icons in the tabline
+" if set to 'numbers', will show buffer index in the tabline if set to 'both', will show buffer index and icons in the tabline
 let bufferline.icons = 'both'
 
 " Configure icons on the bufferline.

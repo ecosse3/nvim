@@ -47,11 +47,11 @@ function! s:sep(item, ...) abort
   endif
 
   if l:no_before
-    let l:sep_before = ''
+    let l:sep_before = ' '
   endif
 
   if l:no_after
-    let l:sep_after = ''
+    let l:sep_after = ' '
   endif
 
   return l:sep_color.l:sep_before.l:color.a:item.l:sep_color.l:sep_after.'%*'
