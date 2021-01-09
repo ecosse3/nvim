@@ -41,3 +41,7 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
   autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
 augroup END
+
+" Toggle Limelight with Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
