@@ -112,6 +112,23 @@ let g:which_key_map.c = {
 " Hide git commit cc mapping
 let g:which_key_map['c']['c'] = 'which_key_ignore'
 
+" d is for debug
+let g:which_key_map.d = {
+      \ 'name' : '+debug' ,
+      \ 'b' : ['<Plug>VimspectorToggleBreakpoint'              , 'breakpoint'],
+      \ 'B' : ['<Plug>VimspectorToggleConditionalBreakpoint'   , 'conditional breakpoint'],
+      \ 'c' : ['<Plug>VimspectorRunToCursor'                   , 'run to cursor'],
+      \ 'd' : ['<Plug>VimspectorContinue'                      , 'continue'],
+      \ 'f' : ['<Plug>VimspectorAddFunctionBreakpoint'         , 'function breakpoint'],
+      \ 'm' : [':MaximizerToggle'                              , 'maximize window'],
+      \ 'o' : ['<Plug>VimspectorStepOver'                      , 'step over'],
+      \ 'O' : ['<Plug>VimspectorStepOut'                       , 'step out'],
+      \ 'i' : ['<Plug>VimspectorStepInto'                      , 'step into'],
+      \ 'p' : ['<Plug>VimspectorPause'                         , 'pause'],
+      \ 'r' : ['<Plug>VimspectorRestart'                       , 'restart'],
+      \ 's' : ['<Plug>VimspectorStop'                          , 'stop'],
+      \ }
+
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
