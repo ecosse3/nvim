@@ -18,8 +18,10 @@ Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'liuchengxu/vim-which-key'
-Plug 'moll/vim-bbye'
+" Plug 'moll/vim-bbye'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Snippets & Language
 Plug 'jiangmiao/auto-pairs'
@@ -50,8 +52,7 @@ Plug 'neoclide/vim-jsx-improve'
 " Plug 'maxmellon/vim-jsx-pretty'
 
 " Git
-Plug 'f-person/git-blame.nvim', { 'branch': 'file-open-performance' }
-" Plug 'mhinz/vim-signify'
+Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
@@ -72,8 +73,8 @@ Plug 'bluz71/vim-nightfly-guicolors'
 " Colorscheme
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'powerline/powerline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+" Plug 'vim-airline/vim-airline-themes'
 
 " Tabline
 " Plug 'vim-airline/vim-airline'
