@@ -41,6 +41,7 @@ let g:which_key_map['8'] = 'which_key_ignore'
 let g:which_key_map['9'] = 'which_key_ignore'
 
 " Single mappings
+let g:which_key_map['.'] = [ ':e $MYVIMRC'                       , 'open init' ]
 let g:which_key_map['+'] = [ ':vertical resize +2'               , 'resize +2' ]
 let g:which_key_map['-'] = [ ':vertical resize -2'               , 'resize -2' ]
 let g:which_key_map['='] = [ '<C-W>='                            , 'balance windows' ]
@@ -48,6 +49,8 @@ let g:which_key_map['e'] = [ '<Plug>(easymotion-bd-w)'           , 'easymotion' 
 let g:which_key_map['S'] = [ 'Startify'                          , 'startify' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                   , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                            , 'split right']
+let g:which_key_map['V'] = [ '<C-W>s'                            , 'split below']
+let g:which_key_map['z'] = [ 'Goyo'                              , 'zen' ]
 
 " Group mappings
 
