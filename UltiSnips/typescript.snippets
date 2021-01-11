@@ -1,0 +1,19 @@
+snippet atom "Creates an exportable recoil atom" b
+export const $1State = atom${2:<Type>}({
+	key: '$1State',
+	default: ${3:null}
+});
+endsnippet
+
+snippet selector "Creates an exportable recoil selector" b
+export const $1Selector = selector({
+  key: '$1Selector',
+  get: ({ get }) => {
+    const ${2:variable} = get(${3:someState})$4;
+
+    return {
+      ${2:variable}
+    };
+  }
+});
+endsnippet
