@@ -7,8 +7,11 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 
-autocmd BufWritePre * :call TrimWhitespace() " trim white-spaces on entry
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif " close coc-explorer if it's last active window
+augroup ECOSSE
+  autocmd!
+  autocmd BufWritePre * :call TrimWhitespace() " trim white-spaces on entry
+  autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif " close coc-explorer if it's last active window
+augroup END
 
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
@@ -43,5 +46,8 @@ augroup ReactFiletypes
 augroup END
 
 " Toggle Limelight with Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+augroup GoyoLimelight
+  autocmd!
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
+augroup END
