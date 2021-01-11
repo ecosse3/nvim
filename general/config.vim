@@ -10,21 +10,24 @@ let g:netrw_winsize = 25
 let g:rainbow_active = 1
 
 let g:coc_global_extensions =
-      \ ['coc-explorer',
-      \ 'coc-tabnine',
-      \ 'coc-json',
-      \ 'coc-tsserver',
-      \ 'coc-eslint',
-      \ 'coc-emmet',
-      \ 'coc-prettier',
+      \ [
       \ 'coc-angular',
-      \ 'coc-snippets',
-      \ 'coc-styled-components',
       \ 'coc-css',
+      \ 'coc-db',
+      \ 'coc-emmet',
+      \ 'coc-eslint',
+      \ 'coc-explorer',
+      \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-import-cost',
+      \ 'coc-json',
+      \ 'coc-prettier',
+      \ 'coc-snippets',
+      \ 'coc-styled-components',
+      \ 'coc-tabnine',
+      \ 'coc-tsserver',
       \ 'coc-yank',
-      \ 'coc-db']
+      \ ]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 

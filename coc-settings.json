@@ -1,4 +1,5 @@
 {
+  "coc.preferences.extensionUpdateCheck": "daily",
   "diagnostic.errorSign": "✘",
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
