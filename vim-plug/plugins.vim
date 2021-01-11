@@ -87,6 +87,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 " Ranger
 Plug 'rbgrouleff/bclose.vim'

@@ -27,8 +27,8 @@ map F <Plug>(easymotion-linebackward)
 "Prettier
 nmap <Leader>ap <Plug>(Prettier)
 
-"Fzf
-nnoremap <silent> <c-p> :Files<CR>
+"Fzf-Preview
+nnoremap <silent> <c-p> :FzfPreviewProjectFilesRpc<CR>
 nnoremap <silent> <s-p> :Rg<CR>
 
 "Git
@@ -90,7 +90,7 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>pw :FzfPreviewProjectGrepRpc <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
 
 " Introduce function text object
@@ -100,7 +100,7 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
