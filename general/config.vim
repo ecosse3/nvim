@@ -22,6 +22,7 @@ let g:coc_global_extensions =
       \ 'coc-import-cost',
       \ 'coc-json',
       \ 'coc-prettier',
+      \ 'coc-sh',
       \ 'coc-snippets',
       \ 'coc-styled-components',
       \ 'coc-tabnine',
