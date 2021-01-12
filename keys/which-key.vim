@@ -138,14 +138,12 @@ let g:which_key_map.g = {
       \ 'D' : [':Gdiffsplit'                                     , 'diff split'],
       \ 'f' : [':diffget //2'                                    , 'get left'],
       \ 'g' : [':FloatermNew --height=1.0 --width=1.0 lazygit'   , 'lazygit'],
-      \ 'G' : [':Gstatus'                                        , 'status'],
       \ 'i' : [':Gist -b'                                        , 'post gist'],
       \ 'j' : [':diffget //3'                                    , 'get right'],
-      \ 'l' : [':Git log'                                        , 'log'],
       \ 'm' : ['<Plug>(git-messenger)'                           , 'message'],
       \ 'P' : [':Git push'                                       , 'push'],
       \ 'p' : [':Git pull'                                       , 'pull'],
-      \ 's' : [':Gstatus'                                        , 'status'],
+      \ 's' : [':FzfPreviewGitStatusRpc'                         , 'status'],
       \ 'v' : [':GV'                                             , 'view commits'],
       \ 'V' : [':GV!'                                            , 'view buffer commits'],
       \ }
@@ -162,8 +160,8 @@ let g:which_key_map['g']['h']['b'] = 'blame line'
 
 let g:which_key_map.g.l = {
       \ 'name' : '+log' ,
-      \ 'a' : [':Commits'              , 'log all'],
-      \ 'c' : [':BCommits'             , 'log current file'],
+      \ 'a' : [':FzfPreviewGitLogsRpc'              , 'log all'],
+      \ 'c' : [':FzfPreviewGitCurrentLogsRpc'             , 'log current file'],
       \ 'l' : [':Gclog --'           , 'classic log all'],
       \ }
 
