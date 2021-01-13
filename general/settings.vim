@@ -8,7 +8,9 @@ set encoding=utf-8                  " The encoding displayed
 set fileencoding=utf-8              " The encoding written to file
 set cmdheight=2                     " Give more space for displaying messages
 set splitright                      " Vertical splits will automatically be to the right
-set updatetime=200                  " Faster completion set timeoutlen=500                  " Faster completion set clipboard=unnamedplus           " Copy-paste between vim and everything else
+set updatetime=200                  " Faster completion
+set timeoutlen=500                  " Faster completion
+set clipboard^=unnamed,unnamedplus  " Copy-paste between vim and everything else
 set mouse=a                         " Enable mouse
 set tabstop=2 softtabstop=2         " Insert 2 spaces for a tab
 set shiftwidth=2                    " Change a number of space characeters inseted for indentation
