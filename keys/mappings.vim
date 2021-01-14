@@ -28,8 +28,8 @@ map F <Plug>(easymotion-linebackward)
 nmap <Leader>ap <Plug>(Prettier)
 
 "Fzf-Preview
-nnoremap <silent> <c-p> :FzfPreviewProjectFilesRpc<CR>
-nnoremap <silent> <s-p> :Rg<CR>
+nnoremap <silent> <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
+nnoremap <silent> <s-p> :CocCommand fzf-preview.ProjectGrep .<CR>
 
 "Git
 nnoremap <Leader>cc :Gcommit -m "
@@ -90,7 +90,7 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pw :FzfPreviewProjectGrepRpc <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>pw :CocCommand fzf-preview.ProjectGrep <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
 
 " Introduce function text object

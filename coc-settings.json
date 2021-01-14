@@ -4,6 +4,8 @@
   "diagnostic.infoSign": "",
   "diagnostic.warningSign": "",
   "eslint.autoFixOnSave": true,
+  "eslint.run": "onType",
+  "eslint.format.enable": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 30,
