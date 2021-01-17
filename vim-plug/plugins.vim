@@ -52,12 +52,12 @@ Plug 'neoclide/vim-jsx-improve'
 " Plug 'maxmellon/vim-jsx-pretty'
 
 " Git
-Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
 
 " Themes - keep only currently used for performance
 Plug 'bluz71/vim-nightfly-guicolors'
