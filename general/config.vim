@@ -45,7 +45,9 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 
 let g:js_file_import_use_fzf = 1
 
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_char_list = ['|', '¦']
+let g:indentLine_setColors = 0
+let g:indentLine_fileTypeExclude = [ 'startify' ]
 
 let g:switch_mapping = ""
 
