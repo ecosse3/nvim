@@ -45,9 +45,20 @@ augroup ReactFiletypes
   autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
 augroup END
 
+" Limelight enter and leave
+function! s:goyo_enter()
+  Limelight
+  IndentLinesDisable
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  IndentLinesEnable
+endfunction
+
 " Toggle Limelight with Goyo
 augroup GoyoLimelight
   autocmd!
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
+  autocmd! User GoyoEnter call <SID>goyo_enter()
+  autocmd! User GoyoLeave call <SID>goyo_leave()
 augroup END
