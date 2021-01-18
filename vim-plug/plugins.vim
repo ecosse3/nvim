@@ -18,7 +18,6 @@ Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'liuchengxu/vim-which-key'
-" Plug 'moll/vim-bbye'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -59,22 +58,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
 
-" Themes - keep only currently used for performance
+" Themes
 Plug 'bluz71/vim-nightfly-guicolors'
-" Plug 'skbolton/embark'
-" Plug 'morhetz/gruvbox'
-" Plug 'christianchiarulli/nvcode-color-schemes.vim'
-" Plug 'mhartington/oceanic-next'
-" Plug 'joshdick/onedark.vim'
-" Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'dracula/vim', {'as': 'dracula'}
-" Plug 'bluz71/vim-moonfly-colors'
 
 " Colorscheme
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'powerline/powerline'
 Plug 'ryanoasis/vim-devicons'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Tabline
 " Plug 'vim-airline/vim-airline'
