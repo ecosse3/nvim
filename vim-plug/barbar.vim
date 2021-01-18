@@ -1,5 +1,6 @@
 " NOTE: This variable doesn't exist before barbar runs. Create it before
 "       setting any option.
+
 let bufferline = {}
 
 " Enable/disable animations
@@ -19,7 +20,7 @@ let bufferline.icon_close_tab = ''
 let bufferline.icon_close_tab_modified = '●'
 
 " Enable/disable close button
-let bufferline.closable = v:true
+let bufferline.closable = v:false
 
 " Enables/disable clickable tabs
 "  - left-click: go to buffer
@@ -39,4 +40,4 @@ let bufferline.letters =
   \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
 
 " Sets the maximum padding width with which to surround each tab
-let bufferline.maximum_padding = 4
+let bufferline.maximum_padding = 2
