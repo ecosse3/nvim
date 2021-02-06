@@ -38,13 +38,6 @@ augroup END
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Change jsx/tsx filetypes
-augroup ReactFiletypes
-  autocmd!
-  autocmd BufRead,BufNewFile *.jsx set filetype=javascriptreact
-  autocmd BufRead,BufNewFile *.tsx set filetype=typescriptreact
-augroup END
-
 " Limelight enter and leave
 function! s:goyo_enter()
   Limelight
