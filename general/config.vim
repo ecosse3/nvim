@@ -42,6 +42,8 @@ let g:vim_jsx_pretty_colorful_config = 1
 let g:better_whitespace_enabled = 0
 
 let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 
 let g:js_file_import_use_fzf = 1
 
@@ -94,3 +96,6 @@ lua << EOF
     status_formatter = nil, -- Use default
   }
 EOF
+
+" tsconfig.json is actually jsonc, help TypeScript set the correct filetype
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
