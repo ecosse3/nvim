@@ -22,6 +22,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'puremourning/vimspector'
 
 " Snippets & Language
 Plug 'jiangmiao/auto-pairs'
