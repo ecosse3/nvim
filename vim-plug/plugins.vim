@@ -23,6 +23,7 @@ Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 " Snippets & Language
 Plug 'jiangmiao/auto-pairs'
