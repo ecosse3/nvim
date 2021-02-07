@@ -1,5 +1,6 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript.jsx", "typescript.tsx", "javascriptreact", "typescriptreact"],
   "codeLens.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.infoSign": "",
@@ -17,6 +18,8 @@
   "prettier.jsxSingleQuote":  true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true,
+  "prettier.requireConfig": true,
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "suggest.removeDuplicateItems": true,
