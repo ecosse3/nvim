@@ -55,3 +55,10 @@ augroup GoyoLimelight
   autocmd! User GoyoEnter call <SID>goyo_enter()
   autocmd! User GoyoLeave call <SID>goyo_leave()
 augroup END
+
+" Add variable under cursor to vimspector watch list
+nnoremap <Leader>d? :call AddToWatch()<CR>
+func! AddToWatch()
+  let word = expand("<cexpr>")
+  call vimspector#AddWatch(word)
+endfunction

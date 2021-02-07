@@ -127,6 +127,8 @@ let g:which_key_map.d = {
       \ 's' : ['<Plug>VimspectorStop'                          , 'stop'],
       \ }
 
+let g:which_key_map['d']['?'] = 'add to watch'
+
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
