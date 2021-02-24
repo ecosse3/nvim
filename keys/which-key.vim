@@ -74,15 +74,16 @@ let g:which_key_map.a = {
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
-      \ 'b' : [':BufferMovePrevious'  , 'Move back'],
-      \ 'c' : [':BufferClose'  , 'Close buffer'],
-      \ 'd' : [':BufferOrderByDirectory'  , 'Order by directory'],
-      \ 'f' : ['bfirst'    , 'First buffer'],
-      \ 'h' : ['Startify'  , 'Home Buffer'],
-      \ 'l' : ['blast'     , 'Last Buffer'],
-      \ 'n' : [':BufferMoveNext'     , 'Move next'],
-      \ 'p' : [':BufferPick' , 'Pick Buffer'],
-      \ '?' : ['Buffers'   , 'FZF Buffers'],
+      \ 'b' : [':BufferMovePrevious'          , 'Move back'],
+      \ 'c' : [':BufferCloseAllButCurrent'    , 'Close but current'],
+      \ 'd' : [':BufferOrderByDirectory'      , 'Order by directory'],
+      \ 'f' : ['bfirst'                       , 'First buffer'],
+      \ 'h' : ['Startify'                     , 'Home Buffer'],
+      \ 'l' : [':BufferCloseBuffersLeft'      , 'Close Left'],
+      \ 'r' : [':BufferCloseBuffersRight'     , 'Close Right'],
+      \ 'n' : [':BufferMoveNext'              , 'Move next'],
+      \ 'p' : [':BufferPick'                  , 'Pick Buffer'],
+      \ '?' : ['Buffers'                      , 'FZF Buffers'],
       \ }
 
 " c is for CoC
