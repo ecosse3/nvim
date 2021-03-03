@@ -23,11 +23,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 interface ${1/\w+\s*/\u$0/g}State {
-	${2:value: number}
+	${2:value: number};
+	loading: boolean;
+	error: string | undefined;
 };
 
 const initialState = {
-	${3:value: 0}
+	${3:value: 0},
+	loading: false,
+	error: ''
 } as ${1/\w+\s*/\u$0/g}State
 
 const ${1:name}Slice = createSlice({
