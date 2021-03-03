@@ -83,7 +83,7 @@ let g:which_key_map.b = {
       \ 'r' : [':BufferCloseBuffersRight'     , 'Close Right'],
       \ 'n' : [':BufferMoveNext'              , 'Move next'],
       \ 'p' : [':BufferPick'                  , 'Pick Buffer'],
-      \ '?' : ['Buffers'                      , 'FZF Buffers'],
+      \ '?' : [':Telescope buffers'           , 'Search buffers'],
       \ }
 
 " c is for CoC
@@ -203,25 +203,22 @@ let g:which_key_map.s = {
       \ ';' : [':Commands'                        , 'commands'],
       \ 'a' : [':Ag'                              , 'text Ag'],
       \ 'b' : [':BLines'                          , 'current buffer'],
-      \ 'B' : [':Buffers'                         , 'open buffers'],
+      \ 'B' : [':Telescope buffers'               , 'open buffers'],
       \ 'c' : [':Commits'                         , 'commits'],
       \ 'C' : [':BCommits'                        , 'buffer commits'],
       \ 'f' : [':Files'                           , 'files'],
       \ 'g' : [':CocCommand fzf-preview.GitFiles' , 'git files'],
       \ 'G' : [':GFiles?'                         , 'modified git files'],
-      \ 'h' : [':History'                         , 'file history'],
-      \ 'H' : [':History:'                        , 'command history'],
+      \ 'h' : [':Telescope oldfiles'              , 'file history'],
+      \ 'H' : [':Telescope command_history'       , 'command history'],
       \ 'l' : [':Lines'                           , 'lines'] ,
-      \ 'm' : [':Marks'                           , 'marks'] ,
+      \ 'm' : [':Telescope marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                            , 'normal maps'] ,
       \ 'p' : [':Helptags'                        , 'help tags'] ,
       \ 'P' : [':Tags'                            , 'project tags'],
-      \ 's' : [':Colors'                          , 'color schemes'],
-      \ 't' : [':Rg'                              , 'text Rg'],
+      \ 's' : [':Telescope colorscheme'           , 'color schemes'],
       \ 'T' : [':BTags'                           , 'buffer tags'],
-      \ 'w' : [':Windows'                         , 'search windows'],
       \ 'y' : [':Filetypes'                       , 'file types'],
-      \ 'z' : [':FZF'                             , 'FZF'],
       \ }
 
 " t is for tablemode

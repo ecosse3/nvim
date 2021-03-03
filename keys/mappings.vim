@@ -28,8 +28,12 @@ map F <Plug>(easymotion-linebackward)
 nmap <Leader>ap <Plug>(Prettier)
 
 "Fzf-Preview
-nnoremap <silent> <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
-nnoremap <silent> <s-p> :CocCommand fzf-preview.ProjectGrep .<CR>
+" nnoremap <silent> <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
+" nnoremap <silent> <s-p> :CocCommand fzf-preview.ProjectGrep .<CR>
+
+"Telescope
+nnoremap <c-p> <cmd>Telescope find_files<CR>
+nnoremap <s-p> <cmd>Telescope live_grep<CR>
 
 "Git
 nnoremap <Leader>cc :Gcommit -m "
@@ -90,8 +94,10 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pw :CocCommand fzf-preview.ProjectGrep <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <Leader>pw :CocCommand fzf-preview.ProjectGrep <C-R>=expand("<cword>")<CR><CR>
+" nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>pf yiw<cmd>Telescope find_files<CR><C-r>+<ESC>
+nnoremap <Leader>pw <cmd>Telescope grep_string <CR><ESC>
 
 " Introduce function text object
 xmap if <Plug>(coc-funcobj-i)
