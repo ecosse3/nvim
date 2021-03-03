@@ -21,3 +21,10 @@ source $HOME/.config/nvim/vim-plug/vista.vim					" Vista
 source $HOME/.config/nvim/vim-plug/nvim-colorizer.vim	" Colorizer
 source $HOME/.config/nvim/vim-plug/openrgb.vim	      " OpenRGB
 source $HOME/.config/nvim/vim-plug/barbar.vim	        " Barbar
+
+
+" Lua require
+
+lua << EOF
+  require('ecosse/telescope')
+EOF
