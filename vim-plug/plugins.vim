@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 " General
-Plug 'turbio/bracey.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'luochen1990/rainbow'
@@ -33,7 +32,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
@@ -48,13 +46,8 @@ Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ianks/vim-tsx'
 Plug 'neoclide/vim-jsx-improve'
-" Disabled due to vim-jsx-improve
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
-" Plug 'maxmellon/vim-jsx-pretty'
 
 " Git
-Plug 'rhysd/conflict-marker.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
@@ -70,14 +63,13 @@ Plug 'powerline/powerline'
 Plug 'ryanoasis/vim-devicons'
 
 " Tabline
-" Plug 'vim-airline/vim-airline'
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Fzf
 Plug 'antoinemadec/coc-fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'stsewd/fzf-checkout.vim'
+" Plug 'stsewd/fzf-checkout.vim' " Not using it since lazygit
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
