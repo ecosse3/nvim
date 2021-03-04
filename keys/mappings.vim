@@ -27,10 +27,6 @@ map F <Plug>(easymotion-linebackward)
 "Prettier
 nmap <Leader>ap <Plug>(Prettier)
 
-"Fzf-Preview
-" nnoremap <silent> <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
-" nnoremap <silent> <s-p> :CocCommand fzf-preview.ProjectGrep .<CR>
-
 "Telescope
 nnoremap <c-p> <cmd>Telescope find_files<CR>
 nnoremap <s-p> <cmd>Telescope live_grep<CR>
@@ -81,7 +77,7 @@ endfunction
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
-map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
+map <silent> <c-e> :FloatermNew --height=0.8 --width=0.8 ranger<CR>
 
 nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
@@ -97,8 +93,6 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-" nnoremap <Leader>pw :CocCommand fzf-preview.ProjectGrep <C-R>=expand("<cword>")<CR><CR>
-" nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>pf yiw<cmd>Telescope find_files<CR><C-r>+<ESC>
 nnoremap <Leader>pw <cmd>Telescope grep_string <CR><ESC>
 

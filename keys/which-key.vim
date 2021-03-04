@@ -209,7 +209,7 @@ let g:which_key_map.s = {
       \ 'c' : [':Commits'                         , 'commits'],
       \ 'C' : [':BCommits'                        , 'buffer commits'],
       \ 'f' : [':Files'                           , 'files'],
-      \ 'g' : [':CocCommand fzf-preview.GitFiles' , 'git files'],
+      \ 'g' : [':Telescope git_files'             , 'git files'],
       \ 'G' : [':GFiles?'                         , 'modified git files'],
       \ 'h' : [':Telescope oldfiles'              , 'file history'],
       \ 'H' : [':Telescope command_history'       , 'command history'],
