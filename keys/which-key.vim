@@ -147,10 +147,11 @@ let g:which_key_map.g = {
       \ 'm' : ['<Plug>(git-messenger)'                           , 'message'],
       \ 'P' : [':Git push'                                       , 'push'],
       \ 'p' : [':Git pull'                                       , 'pull'],
-      \ 's' : [':CocCommand fzf-preview.GitStatus'               , 'status'],
       \ 'v' : [':GV'                                             , 'view commits'],
       \ 'V' : [':GV!'                                            , 'view buffer commits'],
       \ }
+
+let g:which_key_map['g']['s'] = 'status'
 
 let g:which_key_map.g.h = {
       \ 'name' : '+hunk' ,
@@ -163,11 +164,12 @@ let g:which_key_map['g']['h']['p'] = 'preview hunk'
 let g:which_key_map['g']['h']['b'] = 'blame line'
 
 let g:which_key_map.g.l = {
-      \ 'name' : '+log' ,
-      \ 'a' : [':CocCommand fzf-preview.GitLogs'              , 'log all'],
-      \ 'c' : [':CocCommand fzf-preview.GitCurrentLogs'       , 'log current file'],
+      \ 'name' : '+log',
       \ 'l' : [':Gclog --'                                    , 'classic log all'],
       \ }
+
+let g:which_key_map['g']['l']['a'] = 'log all'
+let g:which_key_map['g']['l']['c'] = 'log current file'
 
 " i is for auto import
 let g:which_key_map.i = {

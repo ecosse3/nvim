@@ -37,6 +37,9 @@ nnoremap <s-p> <cmd>Telescope live_grep<CR>
 
 "Git
 nnoremap <Leader>cc :Gcommit -m "
+nnoremap <silent> <Leader>gla <cmd>lua require('ecosse.telescope').my_git_commits()<CR>
+nnoremap <silent> <Leader>glc <cmd>lua require('ecosse.telescope').my_git_bcommits()<CR>
+nnoremap <silent> <Leader>gs <cmd>lua require('ecosse.telescope').my_git_status()<CR>
 
 "Tabs
 " nnoremap H gT
