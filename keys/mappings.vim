@@ -48,9 +48,10 @@ nnoremap <silent> <S-Tab> :BufferPrevious<CR>
 nnoremap <silent> gp :bp<CR>
 nnoremap <silent> <s-q> :BufferClose<CR>
 
-" Move between airline tabs
+" Move between barbar buffers
 nmap <silent> <leader>1 :BufferGoto 1<CR>
 nmap <silent> <leader>2 :BufferGoto 2<CR>
+nmap <silent> <leader>3 :BufferGoto 3<CR>
 nmap <silent> <leader>3 :BufferGoto 3<CR>
 nmap <silent> <leader>4 :BufferGoto 4<CR>
 nmap <silent> <leader>5 :BufferGoto 5<CR>
@@ -58,6 +59,17 @@ nmap <silent> <leader>6 :BufferGoto 6<CR>
 nmap <silent> <leader>7 :BufferGoto 7<CR>
 nmap <silent> <leader>8 :BufferGoto 8<CR>
 nmap <silent> <leader>9 :BufferGoto 9<CR>
+
+nmap <silent> <A-1> :BufferGoto 1<CR>
+nmap <silent> <A-2> :BufferGoto 2<CR>
+nmap <silent> <A-3> :BufferGoto 3<CR>
+nmap <silent> <A-3> :BufferGoto 3<CR>
+nmap <silent> <A-4> :BufferGoto 4<CR>
+nmap <silent> <A-5> :BufferGoto 5<CR>
+nmap <silent> <A-6> :BufferGoto 6<CR>
+nmap <silent> <A-7> :BufferGoto 7<CR>
+nmap <silent> <A-8> :BufferGoto 8<CR>
+nmap <silent> <A-9> :BufferGoto 9<CR>
 
 " Remove highlights
 nnoremap <silent> <CR> :noh<CR><CR>
