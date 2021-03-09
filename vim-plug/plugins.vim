@@ -44,7 +44,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'ianks/vim-tsx'
 Plug 'neoclide/vim-jsx-improve'
 
 " Git
