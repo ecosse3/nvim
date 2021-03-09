@@ -25,7 +25,8 @@ require('telescope').setup {
             i = {
                 ["<C-x>"] = false,
                 ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-q>"] = actions.send_to_qflist
             },
         }
     },
@@ -45,7 +46,7 @@ require('telescope').load_extension('fzy_native')
 local previewers = require('telescope.previewers')
 local builtin = require('telescope.builtin')
 local conf = require('telescope.config')
-local E = {}
+local M = {}
 
 local delta = previewers.new_termopen_previewer {
   get_command = function(entry)
@@ -63,25 +64,25 @@ local delta = previewers.new_termopen_previewer {
   end
 }
 
-E.my_git_commits = function(opts)
+M.my_git_commits = function(opts)
   opts = opts or {}
   opts.previewer = delta
 
   builtin.git_commits(opts)
 end
 
-E.my_git_bcommits = function(opts)
+M.my_git_bcommits = function(opts)
   opts = opts or {}
   opts.previewer = delta
 
   builtin.git_bcommits(opts)
 end
 
-E.my_git_status = function(opts)
+M.my_git_status = function(opts)
   opts = opts or {}
   opts.previewer = delta
 
   builtin.git_status(opts)
 end
 
-return E
+return M
