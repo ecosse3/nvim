@@ -41,7 +41,7 @@ let g:which_key_map['8'] = 'which_key_ignore'
 let g:which_key_map['9'] = 'which_key_ignore'
 
 " Single mappings
-let g:which_key_map['.'] = [ ':e $MYVIMRC'                       , 'open init' ]
+let g:which_key_map['/'] = [ ':e $MYVIMRC'                       , 'open init' ]
 let g:which_key_map['+'] = [ ':vertical resize +2'               , 'resize +2' ]
 let g:which_key_map['-'] = [ ':vertical resize -2'               , 'resize -2' ]
 let g:which_key_map['='] = [ '<C-W>='                            , 'balance windows' ]
@@ -95,7 +95,7 @@ let g:which_key_map.c = {
       \ 'A' : ['<Plug>(coc-codeaction-selected)'                   , 'selected action'],
       \ 'c' : [':CocCommand tsserver.goToProjectConfig'            , 'project config'],
       \ 'd' : [':CocFzfList diagnostics'                           , 'diagnostics'],
-      \ 'e' : [':CocCommand explorer --sources=file+'              , 'explorer'],
+      \ 'e' : [':CocCommand explorer --sources=file+ --width 45'   , 'explorer'],
       \ 'f' : ['<Plug>(coc-format-selected)'                       , 'format selected'],
       \ 'F' : ['<Plug>(coc-format)'                                , 'format'],
       \ 'q' : ['<Plug>(coc-fix-current)'                           , 'quick fix'],

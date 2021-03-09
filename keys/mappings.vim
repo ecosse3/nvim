@@ -12,36 +12,36 @@ inoremap <silent> <c-s> <ESC> :w<CR>
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<ESC>
 
-"Move selected lines up-down
+" Move selected lines up-down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"Keep visual mode indenting
+" Keep visual mode indenting
 vnoremap < <gv
 vnoremap > >gv
 
-"Easymotion
+" Easymotion
 map f <Plug>(easymotion-bd-f)
 map F <Plug>(easymotion-linebackward)
 
-"Prettier
+" Prettier
 nmap <Leader>ap <Plug>(Prettier)
 
-"Telescope
+" Telescope
 nnoremap <c-p> <cmd>Telescope find_files<CR>
 nnoremap <s-p> <cmd>Telescope live_grep<CR>
 
-"Git
+" Git
 nnoremap <Leader>cc :Gcommit -m "
 nnoremap <silent> <Leader>gla <cmd>lua require('ecosse.telescope').my_git_commits()<CR>
 nnoremap <silent> <Leader>glc <cmd>lua require('ecosse.telescope').my_git_bcommits()<CR>
 nnoremap <silent> <Leader>gs <cmd>lua require('ecosse.telescope').my_git_status()<CR>
 
-"Tabs
+" Tabs
 " nnoremap H gT
 " nnoremap L gt
 
-"Buffers
+" Buffers
 nnoremap <silent> <Tab> :BufferNext<CR>
 nnoremap <silent> gn :bn<CR>
 nnoremap <silent> <S-Tab> :BufferPrevious<CR>
@@ -59,10 +59,10 @@ nmap <silent> <leader>7 :BufferGoto 7<CR>
 nmap <silent> <leader>8 :BufferGoto 8<CR>
 nmap <silent> <leader>9 :BufferGoto 9<CR>
 
-"Remove highlights
+" Remove highlights
 nnoremap <silent> <CR> :noh<CR><CR>
 
-"CoC
+" CoC
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -77,7 +77,7 @@ endfunction
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
-map <silent> <c-e> :FloatermNew --height=0.8 --width=0.8 ranger<CR>
+map <silent> <c-e> :CocCommand explorer --position floating --floating-width 200 --sources=file+<CR>
 
 nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
@@ -142,3 +142,7 @@ nnoremap <silent> <C-a> :if !switch#Switch() <bar>
       \ call speeddating#increment(v:count1) <bar> endif<CR>
 nnoremap <C-x> :if !switch#Switch({'reverse': 1}) <bar>
       \ call speeddating#increment(-v:count1) <bar> endif<CR>
+
+" Quickfix
+nmap <silent> <Leader>, :cp<CR>
+nmap <silent> <Leader>. :cn<CR>
