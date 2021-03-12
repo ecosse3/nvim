@@ -41,7 +41,7 @@ let g:which_key_map['8'] = 'which_key_ignore'
 let g:which_key_map['9'] = 'which_key_ignore'
 
 " Single mappings
-let g:which_key_map['.'] = [ ':e $MYVIMRC'                       , 'open init' ]
+let g:which_key_map['/'] = [ ':e $MYVIMRC'                       , 'open init' ]
 let g:which_key_map['+'] = [ ':vertical resize +2'               , 'resize +2' ]
 let g:which_key_map['-'] = [ ':vertical resize -2'               , 'resize -2' ]
 let g:which_key_map['='] = [ '<C-W>='                            , 'balance windows' ]
@@ -83,7 +83,7 @@ let g:which_key_map.b = {
       \ 'r' : [':BufferCloseBuffersRight'     , 'Close Right'],
       \ 'n' : [':BufferMoveNext'              , 'Move next'],
       \ 'p' : [':BufferPick'                  , 'Pick Buffer'],
-      \ '?' : ['Buffers'                      , 'FZF Buffers'],
+      \ '?' : [':Telescope buffers'           , 'Search buffers'],
       \ }
 
 " c is for CoC
@@ -95,7 +95,7 @@ let g:which_key_map.c = {
       \ 'A' : ['<Plug>(coc-codeaction-selected)'                   , 'selected action'],
       \ 'c' : [':CocCommand tsserver.goToProjectConfig'            , 'project config'],
       \ 'd' : [':CocFzfList diagnostics'                           , 'diagnostics'],
-      \ 'e' : [':CocCommand explorer --sources=file+'              , 'explorer'],
+      \ 'e' : [':CocCommand explorer --sources=file+ --width 45'   , 'explorer'],
       \ 'f' : ['<Plug>(coc-format-selected)'                       , 'format selected'],
       \ 'F' : ['<Plug>(coc-format)'                                , 'format'],
       \ 'q' : ['<Plug>(coc-fix-current)'                           , 'quick fix'],
@@ -147,10 +147,11 @@ let g:which_key_map.g = {
       \ 'm' : ['<Plug>(git-messenger)'                           , 'message'],
       \ 'P' : [':Git push'                                       , 'push'],
       \ 'p' : [':Git pull'                                       , 'pull'],
-      \ 's' : [':CocCommand fzf-preview.GitStatus'               , 'status'],
       \ 'v' : [':GV'                                             , 'view commits'],
       \ 'V' : [':GV!'                                            , 'view buffer commits'],
       \ }
+
+let g:which_key_map['g']['s'] = 'status'
 
 let g:which_key_map.g.h = {
       \ 'name' : '+hunk' ,
@@ -163,11 +164,12 @@ let g:which_key_map['g']['h']['p'] = 'preview hunk'
 let g:which_key_map['g']['h']['b'] = 'blame line'
 
 let g:which_key_map.g.l = {
-      \ 'name' : '+log' ,
-      \ 'a' : [':CocCommand fzf-preview.GitLogs'              , 'log all'],
-      \ 'c' : [':CocCommand fzf-preview.GitCurrentLogs'       , 'log current file'],
+      \ 'name' : '+log',
       \ 'l' : [':Gclog --'                                    , 'classic log all'],
       \ }
+
+let g:which_key_map['g']['l']['a'] = 'log all'
+let g:which_key_map['g']['l']['c'] = 'log current file'
 
 " i is for auto import
 let g:which_key_map.i = {
@@ -203,25 +205,22 @@ let g:which_key_map.s = {
       \ ';' : [':Commands'                        , 'commands'],
       \ 'a' : [':Ag'                              , 'text Ag'],
       \ 'b' : [':BLines'                          , 'current buffer'],
-      \ 'B' : [':Buffers'                         , 'open buffers'],
+      \ 'B' : [':Telescope buffers'               , 'open buffers'],
       \ 'c' : [':Commits'                         , 'commits'],
       \ 'C' : [':BCommits'                        , 'buffer commits'],
       \ 'f' : [':Files'                           , 'files'],
-      \ 'g' : [':CocCommand fzf-preview.GitFiles' , 'git files'],
+      \ 'g' : [':Telescope git_files'             , 'git files'],
       \ 'G' : [':GFiles?'                         , 'modified git files'],
-      \ 'h' : [':History'                         , 'file history'],
-      \ 'H' : [':History:'                        , 'command history'],
+      \ 'h' : [':Telescope oldfiles'              , 'file history'],
+      \ 'H' : [':Telescope command_history'       , 'command history'],
       \ 'l' : [':Lines'                           , 'lines'] ,
-      \ 'm' : [':Marks'                           , 'marks'] ,
+      \ 'm' : [':Telescope marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                            , 'normal maps'] ,
       \ 'p' : [':Helptags'                        , 'help tags'] ,
       \ 'P' : [':Tags'                            , 'project tags'],
-      \ 's' : [':Colors'                          , 'color schemes'],
-      \ 't' : [':Rg'                              , 'text Rg'],
+      \ 's' : [':Telescope colorscheme'           , 'color schemes'],
       \ 'T' : [':BTags'                           , 'buffer tags'],
-      \ 'w' : [':Windows'                         , 'search windows'],
       \ 'y' : [':Filetypes'                       , 'file types'],
-      \ 'z' : [':FZF'                             , 'FZF'],
       \ }
 
 " t is for tablemode

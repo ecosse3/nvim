@@ -55,47 +55,7 @@ let g:switch_mapping = ""
 
 let g:speeddating_no_mappings = 1
 
-" ---- Fzf Preview ----
-
-let g:fzf_preview_command = 'bat --color=always --plain {-1}'
-let g:fzf_preview_git_status_preview_command =
-  \ "[[ $(git diff --cached -- {-1}) != \"\" ]] && git diff --cached --color=always -- {-1} | delta || " .
-  \ "[[ $(git diff -- {-1}) != \"\" ]] && git diff --color=always -- {-1} | delta || " .
-  \ g:fzf_preview_command
-
-" ---- Git Signs ----
-
-lua << EOF
-  require('gitsigns').setup {
-    signs = {
-      add          = {hl = '', text = '+', numhl='GitSignsAddNr'},
-      change       = {hl = '', text = '!', numhl='GitSignsChangeNr'},
-      delete       = {hl = '', text = '_', numhl='GitSignsDeleteNr'},
-      topdelete    = {hl = '', text = '‾', numhl='GitSignsDeleteNr'},
-      changedelete = {hl = '', text = '!-', numhl='GitSignsChangeNr'},
-    },
-    numhl = false,
-    keymaps = {
-      -- Default keymap options
-      noremap = true,
-      buffer = true,
-
-      ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
-      ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
-
-      ['n <leader>ghs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-      ['n <leader>ghu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-      ['n <leader>ghr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-      ['n <leader>ghp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ['n <leader>ghb'] = '<cmd>lua require"gitsigns".blame_line()<CR>',
-    },
-    watch_index = {
-      interval = 700
-    },
-    sign_priority = 6,
-    status_formatter = nil, -- Use default
-  }
-EOF
+let g:typescript_indent_disable = 1
 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc

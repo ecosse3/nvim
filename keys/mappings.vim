@@ -12,42 +12,46 @@ inoremap <silent> <c-s> <ESC> :w<CR>
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<ESC>
 
-"Move selected lines up-down
+" Move selected lines up-down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"Keep visual mode indenting
+" Keep visual mode indenting
 vnoremap < <gv
 vnoremap > >gv
 
-"Easymotion
+" Easymotion
 map f <Plug>(easymotion-bd-f)
 map F <Plug>(easymotion-linebackward)
 
-"Prettier
+" Prettier
 nmap <Leader>ap <Plug>(Prettier)
 
-"Fzf-Preview
-nnoremap <silent> <c-p> :CocCommand fzf-preview.ProjectFiles<CR>
-nnoremap <silent> <s-p> :CocCommand fzf-preview.ProjectGrep .<CR>
+" Telescope
+nnoremap <c-p> <cmd>Telescope find_files<CR>
+nnoremap <s-p> <cmd>Telescope live_grep<CR>
 
-"Git
+" Git
 nnoremap <Leader>cc :Gcommit -m "
+nnoremap <silent> <Leader>gla <cmd>lua require('ecosse.telescope').my_git_commits()<CR>
+nnoremap <silent> <Leader>glc <cmd>lua require('ecosse.telescope').my_git_bcommits()<CR>
+nnoremap <silent> <Leader>gs <cmd>lua require('ecosse.telescope').my_git_status()<CR>
 
-"Tabs
+" Tabs
 " nnoremap H gT
 " nnoremap L gt
 
-"Buffers
+" Buffers
 nnoremap <silent> <Tab> :BufferNext<CR>
 nnoremap <silent> gn :bn<CR>
 nnoremap <silent> <S-Tab> :BufferPrevious<CR>
 nnoremap <silent> gp :bp<CR>
 nnoremap <silent> <s-q> :BufferClose<CR>
 
-" Move between airline tabs
+" Move between barbar buffers
 nmap <silent> <leader>1 :BufferGoto 1<CR>
 nmap <silent> <leader>2 :BufferGoto 2<CR>
+nmap <silent> <leader>3 :BufferGoto 3<CR>
 nmap <silent> <leader>3 :BufferGoto 3<CR>
 nmap <silent> <leader>4 :BufferGoto 4<CR>
 nmap <silent> <leader>5 :BufferGoto 5<CR>
@@ -56,10 +60,21 @@ nmap <silent> <leader>7 :BufferGoto 7<CR>
 nmap <silent> <leader>8 :BufferGoto 8<CR>
 nmap <silent> <leader>9 :BufferGoto 9<CR>
 
-"Remove highlights
+nmap <silent> <A-1> :BufferGoto 1<CR>
+nmap <silent> <A-2> :BufferGoto 2<CR>
+nmap <silent> <A-3> :BufferGoto 3<CR>
+nmap <silent> <A-3> :BufferGoto 3<CR>
+nmap <silent> <A-4> :BufferGoto 4<CR>
+nmap <silent> <A-5> :BufferGoto 5<CR>
+nmap <silent> <A-6> :BufferGoto 6<CR>
+nmap <silent> <A-7> :BufferGoto 7<CR>
+nmap <silent> <A-8> :BufferGoto 8<CR>
+nmap <silent> <A-9> :BufferGoto 9<CR>
+
+" Remove highlights
 nnoremap <silent> <CR> :noh<CR><CR>
 
-"CoC
+" CoC
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -74,7 +89,7 @@ endfunction
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
-map <silent> <c-e> :CocCommand explorer --position floating --sources=file+<CR>
+map <silent> <c-e> :CocCommand explorer --position floating --floating-width 200 --sources=file+<CR>
 
 nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
@@ -90,8 +105,8 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pw :CocCommand fzf-preview.ProjectGrep <C-R>=expand("<cword>")<CR><CR>
-nnoremap <Leader>pf :FZF -q <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>pf yiw<cmd>Telescope find_files<CR><C-r>+<ESC>
+nnoremap <Leader>pw <cmd>Telescope grep_string <CR><ESC>
 
 " Introduce function text object
 xmap if <Plug>(coc-funcobj-i)
@@ -139,3 +154,7 @@ nnoremap <silent> <C-a> :if !switch#Switch() <bar>
       \ call speeddating#increment(v:count1) <bar> endif<CR>
 nnoremap <C-x> :if !switch#Switch({'reverse': 1}) <bar>
       \ call speeddating#increment(-v:count1) <bar> endif<CR>
+
+" Quickfix
+nmap <silent> <Leader>, :cp<CR>
+nmap <silent> <Leader>. :cn<CR>

@@ -44,7 +44,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'ianks/vim-tsx'
 Plug 'neoclide/vim-jsx-improve'
 
 " Git
@@ -72,6 +71,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'stsewd/fzf-checkout.vim' " Not using it since lazygit
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Ranger
 Plug 'rbgrouleff/bclose.vim'
