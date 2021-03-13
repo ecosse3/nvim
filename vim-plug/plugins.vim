@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " General
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'luochen1990/rainbow'
 Plug 'AndrewRadev/switch.vim'
@@ -35,6 +35,17 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 
+" Lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
+Plug 'kosayoda/nvim-lightbulb'
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
+" Explorer
+Plug 'kyazdani42/nvim-tree.lua'
+
 " React Development
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
@@ -66,10 +77,10 @@ Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Fzf
-Plug 'antoinemadec/coc-fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'antoinemadec/coc-fzf'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'stsewd/fzf-checkout.vim' " Not using it since lazygit
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 
 " Telescope
