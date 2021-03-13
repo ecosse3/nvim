@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 " General
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'luochen1990/rainbow'
 Plug 'AndrewRadev/switch.vim'
@@ -31,9 +30,10 @@ Plug 'potatoesmaster/i3-vim-syntax'
 Plug 'Yggdroot/indentLine'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
@@ -48,11 +48,11 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " React Development
 Plug 'leafgarland/typescript-vim'
-Plug 'jparise/vim-graphql'
+" Plug 'jparise/vim-graphql'
 Plug 'yuezk/vim-js'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'neoclide/vim-jsx-improve'
@@ -76,11 +76,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
-" Fzf
-" Plug 'antoinemadec/coc-fzf'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'stsewd/fzf-checkout.vim' " Not using it since lazygit
-" Plug 'junegunn/fzf.vim'
+" Project Tracker
 Plug 'airblade/vim-rooter'
 
 " Telescope
