@@ -9,14 +9,14 @@
 ![Neovim](./screenshots/1.png)
 ![Neovim](./screenshots/2.png)
 
-New screenshots soon!
-
 ## Todo
 
-| Description                             | Progress                                                           |
-|-----------------------------------------|--------------------------------------------------------------------|
-| Rewrite most config to lua              | ![10%](https://progress-bar.dev/10/?title=progress)                |
-| Replace coc-explorer with nvim-tree.lua | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Replace coc.nvim with Native LSP        | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Change fzf.nvim to telescope.nvim       | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Description                                  | Progress                                                           |
+|----------------------------------------------|--------------------------------------------------------------------|
+| Rewrite most config to lua                   | ![10%](https://progress-bar.dev/10/?title=progress)                |
+| Update statusline to support LSP diagnostics | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Provide current screenshots                  | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Replace coc-explorer with nvim-tree.lua      | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 
