@@ -1,0 +1,6 @@
+version: 2
+log-file: "/tmp/efm.log"
+log-level: 4
+root-markers:
+  - .git/
+  - package.json

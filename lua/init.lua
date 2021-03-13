@@ -9,3 +9,7 @@ require('plugins/kind')
 require('plugins/saga')
 
 require('lsp/config')
+require('lsp/efm')
+require('lsp/tsserver')
+require('lsp/graphql')
+require('lsp/html')
