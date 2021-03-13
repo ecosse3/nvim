@@ -86,6 +86,7 @@ function! Statusline() abort
   let l:statusline .= s:sep(l:ft, extend({'side': 'right'}, s:sec_2), !empty(l:ft))
   let l:statusline .= s:sep(': %c', s:st_mode_right)
   let l:statusline .= s:sep(': %l/%L', s:st_mode_right)
+  let l:statusline .= s:sep('%p%%', extend({'no_after': 1}, s:st_mode_right))
   " let l:statusline .= s:sep('%p%%', extend({'no_after': empty(coc#status())}, s:st_mode_right))
   " let l:statusline .= s:sep(coc#status(), extend({ 'no_after': !empty(coc#status()) }, s:st_err_right), !empty(coc#status()))
   let l:statusline .= '%<'
