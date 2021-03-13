@@ -77,8 +77,8 @@ function! Statusline() abort
   let l:statusline .= s:sep('%w', {}, &previewwindow)
   let l:statusline .= s:sep('%r', {}, &readonly)
   let l:statusline .= s:sep('%q', {}, &buftype ==? 'quickfix')
-  let l:position = get(b:, 'coc_current_function', '')
-  let l:statusline .= s:sep(l:position, s:sec_2, !empty(l:position))
+  " let l:position = get(b:, 'coc_current_function', '')
+  " let l:statusline .= s:sep(l:position, s:sec_2, !empty(l:position))
   let l:statusline .= '%='
   let l:anzu = exists('*anzu#search_status') ? anzu#search_status() : ''
   let l:statusline .= s:sep(l:anzu, extend({'side': 'right'}, s:sec_2), !empty(l:anzu))
@@ -86,8 +86,8 @@ function! Statusline() abort
   let l:statusline .= s:sep(l:ft, extend({'side': 'right'}, s:sec_2), !empty(l:ft))
   let l:statusline .= s:sep(': %c', s:st_mode_right)
   let l:statusline .= s:sep(': %l/%L', s:st_mode_right)
-  let l:statusline .= s:sep('%p%%', extend({'no_after': empty(coc#status())}, s:st_mode_right))
-  let l:statusline .= s:sep(coc#status(), extend({ 'no_after': !empty(coc#status()) }, s:st_err_right), !empty(coc#status()))
+  " let l:statusline .= s:sep('%p%%', extend({'no_after': empty(coc#status())}, s:st_mode_right))
+  " let l:statusline .= s:sep(coc#status(), extend({ 'no_after': !empty(coc#status()) }, s:st_err_right), !empty(coc#status()))
   let l:statusline .= '%<'
   let l:statusline .= OpenRGBStatuslineFunc()
   return l:statusline

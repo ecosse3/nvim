@@ -18,16 +18,16 @@ if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
 endif
 
-nnoremap <silent>K :call <SID>show_documentation()<CR>
+" nnoremap <silent>K :call <SID>show_documentation()<CR>
 
 " Show documentation in preview window
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+" function! s:show_documentation()
+"     if (index(['vim','help'], &filetype) >= 0)
+"         execute 'h '.expand('<cword>')
+"     else
+"         call CocAction('doHover')
+"     endif
+" endfunction
 
 " Highlight on yank
 augroup highlight_yank
@@ -36,7 +36,7 @@ augroup highlight_yank
 augroup END
 
 " Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Limelight enter and leave
 function! s:goyo_enter()

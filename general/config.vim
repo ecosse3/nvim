@@ -45,7 +45,8 @@ let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 
-let g:js_file_import_use_fzf = 1
+let g:js_file_import_use_fzf = 0
+let g:js_file_import_use_telescope = 1
 
 let g:indentLine_char_list = ['|', '¦']
 let g:indentLine_setColors = 0
