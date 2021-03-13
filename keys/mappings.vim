@@ -75,33 +75,33 @@ nmap <silent> <A-9> :BufferGoto 9<CR>
 nnoremap <silent> <CR> :noh<CR><CR>
 
 " CoC
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1] =~# '\s'
+" endfunction
 
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <silent><expr> <C-Space> coc#refresh()
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <silent><expr> <C-Space> coc#refresh()
 
-map <silent> <c-e> :CocCommand explorer --position floating --floating-width 200 --sources=file+<CR>
+" map <silent> <c-e> :CocCommand explorer --position floating --floating-width 200 --sources=file+<CR>
 
-nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
+" nmap <silent> <C-Space> v<Plug>(coc-codeaction-selected)
 
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+" nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+" inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+" inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+" vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+" vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
 " Refactor / Find word across project
 nnoremap <Leader>prw :CocSearch <C-R>=expand("<cword>")<CR><CR>
@@ -109,27 +109,27 @@ nnoremap <Leader>pf yiw<cmd>Telescope find_files<CR><C-r>+<ESC>
 nnoremap <Leader>pw <cmd>Telescope grep_string <CR><ESC>
 
 " Introduce function text object
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
+" xmap if <Plug>(coc-funcobj-i)
+" xmap af <Plug>(coc-funcobj-a)
+" omap if <Plug>(coc-funcobj-i)
+" omap af <Plug>(coc-funcobj-a)
 
 " GoTo code navigation.
-nmap <silent> gd :call <SID>GoToDefinition()<CR>
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd :call <SID>GoToDefinition()<CR>
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
-function! s:GoToDefinition()
-  if CocAction('jumpDefinition')
-    return v:true
-  endif
+" function! s:GoToDefinition()
+"   if CocAction('jumpDefinition')
+"     return v:true
+"   endif
 
-  let ret = execute("silent! normal \<C-]>")
-  if ret =~ "Error"
-    call searchdecl(expand('<cword>'))
-  endif
-endfunction
+"   let ret = execute("silent! normal \<C-]>")
+"   if ret =~ "Error"
+"     call searchdecl(expand('<cword>'))
+"   endif
+" endfunction
 
 " Don't yank on delete char
 nnoremap x "_x
