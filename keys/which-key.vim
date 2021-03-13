@@ -88,28 +88,20 @@ let g:which_key_map.b = {
 
 " c is for CoC
 let g:which_key_map.c = {
-      \ 'name' : '+coc' ,
-      \ '.' : [':CocConfig'                                        , 'config'],
+      \ 'name' : '+lsp' ,
       \ ';' : ['<Plug>(coc-refactor)'                              , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'                            , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'                   , 'selected action'],
-      \ 'c' : [':CocCommand tsserver.goToProjectConfig'            , 'project config'],
       \ 'd' : [':CocFzfList diagnostics'                           , 'diagnostics'],
       \ 'e' : [':CocCommand explorer --sources=file+ --width 45'   , 'explorer'],
-      \ 'f' : ['<Plug>(coc-format-selected)'                       , 'format selected'],
-      \ 'F' : ['<Plug>(coc-format)'                                , 'format'],
       \ 'q' : ['<Plug>(coc-fix-current)'                           , 'quick fix'],
-      \ 'r' : ['<Plug>(coc-rename)'                                , 'rename'],
       \ 'R' : ['<Plug>(coc-references)'                            , 'references'],
       \ 's' : [':CocList -I symbols'                               , 'symbols'],
-      \ 'S' : [':CocFzfList snippets'                              , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'                       , 'type definition'],
-      \ 'U' : [':CocUpdate'                                        , 'update CoC'],
-      \ 'v' : [':Vista!!'                                          , 'tag viewer'],
+      \ 'S' : [':Snippets'                                         , 'snippets'],
       \ 'y' : [':CocFzfList yank'                                  , 'yanks'],
-      \ 'z' : [':CocDisable'                                       , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                                        , 'enable CoC'],
       \ }
+
+let g:which_key_map['c']['a'] = 'code action'
+let g:which_key_map['c']['r'] = 'rename'
+let g:which_key_map['c']['f'] = 'format'
 
 " d is for debug
 let g:which_key_map.d = {
