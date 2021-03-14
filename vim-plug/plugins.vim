@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'iamcco/markdown-preview.vim'
-Plug 'luochen1990/rainbow'
 Plug 'AndrewRadev/switch.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree'
@@ -23,8 +22,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 
-" Snippets & Language
-Plug 'jiangmiao/auto-pairs'
+" Snippets & Language & Syntax
+Plug 'windwp/nvim-autopairs'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'potatoesmaster/i3-vim-syntax'
 Plug 'Yggdroot/indentLine'
@@ -33,11 +33,16 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+" Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'kitagry/vs-snippets'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'kosayoda/nvim-lightbulb'
@@ -59,7 +64,7 @@ Plug 'neoclide/vim-jsx-improve'
 
 " Git
 Plug 'rhysd/git-messenger.vim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
