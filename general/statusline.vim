@@ -1,11 +1,9 @@
-let s:cache = {'branch': ''}
+" let s:cache = {'branch': ''}
 
 augroup custom_statusline
   autocmd!
-  autocmd BufEnter * silent! call FugitiveDetect(expand('<afile>')) | let s:cache.branch = fugitive#head()
   autocmd BufEnter,WinEnter * setlocal statusline=%!Statusline()
   autocmd BufLeave,WinLeave * setlocal statusline=%f\ %y\ %m
-  autocmd User FugitiveChanged let s:cache.branch = fugitive#head()
   autocmd VimEnter,ColorScheme * call s:set_statusline_colors()
 augroup END
 
@@ -69,7 +67,6 @@ function! Statusline() abort
   let l:statusline = s:sep(l:mode, s:st_mode)
   let l:git_status = s:git_statusline()
   let l:statusline .= '%<'
-  " let l:statusline .= s:sep(fugitive#head(), s:sec_2, !empty(FugitiveStatusline()))
   let l:statusline .= s:sep(l:git_status, s:sec_2, !empty(l:git_status))
   let l:statusline .= s:sep(s:get_path(), &modified ? s:st_err : s:sec_2)
   let l:statusline .= s:sep(' + ', s:st_err, &modified)
@@ -77,8 +74,6 @@ function! Statusline() abort
   let l:statusline .= s:sep('%w', {}, &previewwindow)
   let l:statusline .= s:sep('%r', {}, &readonly)
   let l:statusline .= s:sep('%q', {}, &buftype ==? 'quickfix')
-  " let l:position = get(b:, 'coc_current_function', '')
-  " let l:statusline .= s:sep(l:position, s:sec_2, !empty(l:position))
   let l:statusline .= '%='
   let l:anzu = exists('*anzu#search_status') ? anzu#search_status() : ''
   let l:statusline .= s:sep(l:anzu, extend({'side': 'right'}, s:sec_2), !empty(l:anzu))
@@ -96,9 +91,9 @@ endfunction
 
 function! s:git_statusline() abort
   if !exists('b:gitsigns_status')
-    return s:with_icon(s:cache.branch, "\ue0a0")
+    return s:with_icon(get(b:, 'gitsigns_head',''), "\ue0a0")
   endif
-  let l:result = join(filter([s:cache.branch, b:gitsigns_status], {-> !empty(v:val) }), ' ')
+  let l:result = join(filter([b:gitsigns_head, b:gitsigns_status], {-> !empty(v:val) }), ' ')
   return s:with_icon(l:result, "\ue0a0")
 endfunction
 

@@ -10,29 +10,6 @@ let g:netrw_winsize = 25
 
 let g:rainbow_active = 1
 
-let g:coc_global_extensions =
-      \ [
-      \ 'coc-angular',
-      \ 'coc-css',
-      \ 'coc-db',
-      \ 'coc-emmet',
-      \ 'coc-eslint',
-      \ 'coc-explorer',
-      \ 'coc-highlight',
-      \ 'coc-html',
-      \ 'coc-import-cost',
-      \ 'coc-json',
-      \ 'coc-prettier',
-      \ 'coc-sh',
-      \ 'coc-snippets',
-      \ 'coc-styled-components',
-      \ 'coc-tabnine',
-      \ 'coc-tsserver',
-      \ 'coc-yank',
-      \ ]
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 let g:closetag_filenames = '*.html,*.xhtml,*.js,*.jsx,*.tsx,*.xml'
 
 let g:signify_sign_delete = '-'
@@ -50,7 +27,7 @@ let g:js_file_import_use_telescope = 1
 
 let g:indentLine_char_list = ['|', '¦']
 let g:indentLine_setColors = 0
-let g:indentLine_fileTypeExclude = [ 'startify', 'coc-explorer' ]
+let g:indentLine_fileTypeExclude = [ 'startify' ]
 
 let g:switch_mapping = ""
 
