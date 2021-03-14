@@ -1,15 +1,6 @@
-" Mappings
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-" nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-" nnoremap <silent> <leader>cr :lua vim.lsp.buf.rename()<CR>
-" nnoremap <silent> <leader>ca :lua vim.lsp.buf.code_action()<CR>
-
 " Saga
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua require'lspsaga.provider'.preview_definition()<CR>
 nnoremap <silent> gr <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 nmap <silent> <C-Space> <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 nnoremap <silent> <Leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
