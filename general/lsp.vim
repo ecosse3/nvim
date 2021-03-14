@@ -3,13 +3,11 @@ nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 " nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 " nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 " nnoremap <silent> [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 " nnoremap <silent> ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 " nnoremap <silent> <leader>cr :lua vim.lsp.buf.rename()<CR>
 " nnoremap <silent> <leader>ca :lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent> <leader>ch :lua vim.lsp.buf.hover()<CR>
 
 " Saga
 nnoremap <silent> gr <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
@@ -18,7 +16,7 @@ nnoremap <silent> <Leader>ca <cmd>lua require('lspsaga.codeaction').code_action(
 vnoremap <silent> <Leader>ca <cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>
 nnoremap <silent> <Leader>cr <cmd>lua require('lspsaga.rename').rename()<CR>
 nnoremap <silent> <Leader>cf <cmd>lua vim.lsp.buf.formatting()<CR>
-" vnoremap <silent> <Leader>cf <cmd>lua vim.lsp.buf.range_formatting()<CR>
+vnoremap <silent> <Leader>cf <cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>
 nnoremap <silent> K <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
 nnoremap <silent> <C-k> <cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>
 nnoremap <silent> [g <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>

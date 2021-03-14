@@ -65,9 +65,8 @@ let g:which_key_map.a = {
       \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
       \ 'n' : [':set nonumber!'          , 'line-numbers'],
       \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 'p' : ['<Plug>Prettier'          , 'prettify file'],
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermNew'         , 'terminal'],
+      \ 't' : [':FloatermNew'            , 'terminal'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -86,17 +85,13 @@ let g:which_key_map.b = {
       \ '?' : [':Telescope buffers'           , 'Search buffers'],
       \ }
 
-" c is for CoC
+" c is for LSP (because I've used to it from coc)
 let g:which_key_map.c = {
       \ 'name' : '+lsp' ,
-      \ ';' : ['<Plug>(coc-refactor)'                              , 'refactor'],
-      \ 'd' : [':CocFzfList diagnostics'                           , 'diagnostics'],
-      \ 'e' : [':CocCommand explorer --sources=file+ --width 45'   , 'explorer'],
-      \ 'q' : ['<Plug>(coc-fix-current)'                           , 'quick fix'],
-      \ 'R' : ['<Plug>(coc-references)'                            , 'references'],
-      \ 's' : [':CocList -I symbols'                               , 'symbols'],
-      \ 'S' : [':Snippets'                                         , 'snippets'],
-      \ 'y' : [':CocFzfList yank'                                  , 'yanks'],
+      \ 'd' : [':Telescope lsp_workspace_diagnostics'              , 'diagnostics'],
+      \ 'D' : [':Telescope lsp_document_diagnostics'               , 'diagnostics'],
+      \ 'q' : [':Lspsaga code_action<CR>'                              , 'quick fix'],
+      \ 's' : [':Telescope symbols'                                , 'symbols'],
       \ }
 
 let g:which_key_map['c']['a'] = 'code action'
