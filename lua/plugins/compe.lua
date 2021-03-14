@@ -12,7 +12,7 @@ require'compe'.setup {
   max_abbr_width = 100;
   max_kind_width = 100;
   max_menu_width = 100;
-  documentation = false;
+  documentation = true;
 
   source = {
     path = true;
@@ -25,9 +25,8 @@ require'compe'.setup {
     tags = true;
     snippets_nvim = false;
     treesitter = true;
-    tabnine = {
-      max_num_results = 3;
-    };
+    tabnine = true;
+    ultisnips = true;
   };
 }
 
@@ -50,8 +49,8 @@ end
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  --[[ elseif vim.fn.call("vsnip#available", {1}) == 1 then
-    return t "<Plug>(vsnip-expand-or-jump)" ]]
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
     return t "<Tab>"
   else
