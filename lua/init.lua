@@ -7,6 +7,7 @@ require('plugins/tree')
 require('plugins/lightbulb')
 require('plugins/kind')
 require('plugins/saga')
+require('plugins/autopairs')
 
 require('lsp/config')
 require('lsp/efm')
