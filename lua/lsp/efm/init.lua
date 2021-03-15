@@ -12,8 +12,10 @@ local efm_languages = {
   markdown = { prettier },
   javascript = { eslint, prettier },
   javascriptreact = { eslint, prettier },
+  ["javascript.jsx"] = { eslint, prettier },
   typescript = { eslint, prettier },
   typescriptreact = { eslint, prettier },
+  ["typescript.tsx"] = { eslint, prettier },
   css = { prettier },
   scss = { prettier },
   sass = { prettier },
@@ -32,7 +34,7 @@ lsp_config.efm.setup({
     "-logfile",
     efm_log_dir .. "efm.log"
   },
-  filetype = {
+  filetypes = {
     'javascript',
     'javascriptreact',
     'javascript.jsx',
