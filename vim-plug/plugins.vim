@@ -45,7 +45,6 @@ Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
-Plug 'kosayoda/nvim-lightbulb'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 
 " Explorer

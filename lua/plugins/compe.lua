@@ -22,7 +22,7 @@ require'compe'.setup {
     nvim_lsp = true;
     nvim_lua = false;
     spell = true;
-    tags = true;
+    tags = false;
     snippets_nvim = false;
     treesitter = true;
     tabnine = true;
