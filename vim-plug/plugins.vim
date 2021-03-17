@@ -22,6 +22,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'liuchengxu/vista.vim'
+Plug 'junegunn/vim-easy-align'
 
 " Snippets & Language & Syntax
 Plug 'windwp/nvim-autopairs'
