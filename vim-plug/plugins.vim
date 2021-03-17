@@ -21,6 +21,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
+Plug 'liuchengxu/vista.vim'
 
 " Snippets & Language & Syntax
 Plug 'windwp/nvim-autopairs'

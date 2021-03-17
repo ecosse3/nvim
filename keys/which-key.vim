@@ -90,8 +90,9 @@ let g:which_key_map.c = {
       \ 'name' : '+lsp' ,
       \ 'd' : [':Telescope lsp_workspace_diagnostics'              , 'diagnostics'],
       \ 'D' : [':Telescope lsp_document_diagnostics'               , 'diagnostics'],
-      \ 'q' : [':Lspsaga code_action<CR>'                              , 'quick fix'],
+      \ 'q' : [':Lspsaga code_action<CR>'                          , 'quick fix'],
       \ 's' : [':Telescope symbols'                                , 'symbols'],
+      \ 'v' : [':Vista!!'                                          , 'vista'],
       \ }
 
 let g:which_key_map['c']['a'] = 'code action'
