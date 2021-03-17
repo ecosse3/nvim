@@ -16,7 +16,6 @@ source $HOME/.config/nvim/keys/mappings.vim           " Mappings
 source $HOME/.config/nvim/keys/which-key.vim          " Which Key
 
 source $HOME/.config/nvim/vim-plug/startify.vim       " Startify
-source $HOME/.config/nvim/vim-plug/ranger.vim					" Ranger
 source $HOME/.config/nvim/vim-plug/openrgb.vim	      " OpenRGB
 source $HOME/.config/nvim/vim-plug/barbar.vim	        " Barbar
 source $HOME/.config/nvim/vim-plug/nvim-tree.vim	    " File Explorer
