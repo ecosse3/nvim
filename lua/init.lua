@@ -1,3 +1,5 @@
+require('settings')
+
 require('plugins/telescope')
 require('plugins/colorizer')
 require('plugins/gitsigns')
