@@ -20,7 +20,7 @@ require'compe'.setup {
     calc = true;
     vsnip = true;
     nvim_lsp = true;
-    nvim_lua = false;
+    nvim_lua = true;
     spell = true;
     tags = false;
     snippets_nvim = false;
