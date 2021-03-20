@@ -96,6 +96,7 @@ let g:which_key_map.c = {
       \ }
 
 let g:which_key_map['c']['a'] = 'code action'
+let g:which_key_map['c']['l'] = 'line diagnostics'
 let g:which_key_map['c']['r'] = 'rename'
 let g:which_key_map['c']['f'] = 'format'
 
