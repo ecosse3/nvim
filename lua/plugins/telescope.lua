@@ -45,7 +45,6 @@ require('telescope').load_extension('fzy_native')
 
 local previewers = require('telescope.previewers')
 local builtin = require('telescope.builtin')
-local conf = require('telescope.config')
 local M = {}
 
 local delta = previewers.new_termopen_previewer {
