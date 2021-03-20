@@ -9,7 +9,6 @@ vim.o.clipboard       = "unnamed,unnamedplus"       --- Copy-paste between vim a
 vim.o.mouse           = "a"                         --- Enable mouse
 vim.o.smartcase       = true                        --- Uses case in search
 vim.o.smarttab        = true                        --- Makes tabbing smarter will realize you have 2 vs 4
-vim.bo.expandtab      = true                        --- Converts tab to spaces
 vim.bo.smartindent    = true                        --- Makes indenting smart
 vim.bo.shiftwidth     = 2                           --- Change a number of space characeters inseted for indentation
 vim.o.shiftwidth      = 2                           --- Change a number of space characeters inseted for indentation
@@ -46,3 +45,4 @@ vim.cmd('set shortmess+=c')          --- " Don't pass messages to |ins-completio
 vim.cmd('set formatoptions-=c')      --- " Stop newline continuation of comments
 vim.cmd('set formatoptions-=r')
 vim.cmd('set formatoptions-=o')
+vim.cmd('set expandtab')             --- Converts tab to spaces
