@@ -20,7 +20,6 @@ local efm_languages = {
   scss = { prettier },
   sass = { prettier },
   less = { prettier },
-  json = { prettier },
   graphql = { prettier },
   vue = { prettier },
   html = { prettier }
