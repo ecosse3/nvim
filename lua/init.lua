@@ -10,6 +10,7 @@ require('plugins/kind')
 require('plugins/saga')
 require('plugins/autopairs')
 require('plugins/rnvimr')
+require('plugins/kommentary')
 
 require('lsp/config')
 require('lsp/efm')
