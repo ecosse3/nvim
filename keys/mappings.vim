@@ -100,7 +100,7 @@ nnoremap <Plug>SpeedDatingFallbackDown <c-x>
 " Manually invoke speeddating in case switch.vim didn't work
 nnoremap <silent> <C-a> :if !switch#Switch() <bar>
       \ call speeddating#increment(v:count1) <bar> endif<CR>
-nnoremap <C-x> :if !switch#Switch({'reverse': 1}) <bar>
+nnoremap <silent> <C-x> :if !switch#Switch({'reverse': 1}) <bar>
       \ call speeddating#increment(-v:count1) <bar> endif<CR>
 
 " Quickfix
