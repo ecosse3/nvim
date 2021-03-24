@@ -20,9 +20,8 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap < <gv
 vnoremap > >gv
 
-" Easymotion
-map f <Plug>(easymotion-bd-f)
-map F <Plug>(easymotion-linebackward)
+" Hop
+map <silent>f :HopChar1<CR>
 
 " Prettier
 nmap <Leader>ap <Plug>(Prettier)
@@ -121,3 +120,6 @@ nmap ga <Plug>(EasyAlign)
 
 " Close quickfix window
 nmap <silent> <leader>cc :cclose<CR>
+
+" Replace <C-W> with s
+nnoremap s <C-W>
