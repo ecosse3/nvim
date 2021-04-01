@@ -21,7 +21,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Hop
-map <silent>f :HopChar1<CR>
+map <silent>f :HopChar2<CR>
 
 " Prettier
 nmap <Leader>ap <Plug>(Prettier)
