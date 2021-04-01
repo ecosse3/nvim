@@ -54,18 +54,16 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " React Development
 Plug 'leafgarland/typescript-vim'
-" Plug 'jparise/vim-graphql'
 Plug 'yuezk/vim-js'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'peitalin/vim-jsx-typescript'
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mlaursen/vim-react-snippets'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'neoclide/vim-jsx-improve'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 " Git
 Plug 'rhysd/git-messenger.vim'
-" Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
