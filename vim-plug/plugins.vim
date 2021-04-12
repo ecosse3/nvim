@@ -23,6 +23,7 @@ Plug 'szw/vim-maximizer'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'nacro90/numb.nvim'
 
 " Snippets & Language & Syntax
 Plug 'windwp/nvim-autopairs'

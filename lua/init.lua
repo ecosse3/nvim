@@ -11,6 +11,7 @@ require('plugins/saga')
 require('plugins/autopairs')
 require('plugins/rnvimr')
 require('plugins/kommentary')
+require('plugins/numb')
 
 require('lsp/config')
 require('lsp/efm')
