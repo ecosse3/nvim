@@ -6,8 +6,9 @@ let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last
 let g:nvim_tree_auto_ignore_ft = 'startify'
 let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
 let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the three. See :help nvim_tree_lsp_diagnostics
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
 " let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
@@ -33,7 +34,9 @@ let g:nvim_tree_icons = {
     \   'staged': "✓",
     \   'unmerged': "",
     \   'renamed': "➜",
-    \   'untracked': "★"
+    \   'untracked': "★",
+    \   'deleted': "",
+    \   'ignored': "◌"
     \   },
     \ 'folder': {
     \   'default': "",
