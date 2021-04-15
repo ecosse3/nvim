@@ -87,7 +87,7 @@ Plug 'airblade/vim-rooter'
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'on': 'make' }
 
 " Ranger
 Plug 'kevinhwang91/rnvimr'
