@@ -4,6 +4,11 @@ nnoremap <silent> <leader>j :wincmd j<CR>
 nnoremap <silent> <leader>k :wincmd k<CR>
 nnoremap <silent> <leader>l :wincmd l<CR>
 
+nnoremap <silent> H :wincmd h<CR>
+nnoremap <silent> J :wincmd j<CR>
+nnoremap <silent> K :wincmd k<CR>
+nnoremap <silent> L :wincmd l<CR>
+
 " Save by CTRL-S
 nnoremap <silent> <c-s> :w<CR>
 inoremap <silent> <c-s> <ESC> :w<CR>
