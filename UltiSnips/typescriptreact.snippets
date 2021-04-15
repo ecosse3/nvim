@@ -1,0 +1,16 @@
+snippet rfcp "React FC with IProps" b
+import React from 'react';
+
+interface IProps {
+	$2
+}
+
+const ${1:Component} = ({ $3 }: IProps) => {
+	return (
+		<${4:div}>
+		</${4:div}>
+	)
+}
+
+export default ${1:Component};
+endsnippet
