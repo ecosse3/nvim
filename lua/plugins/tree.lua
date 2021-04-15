@@ -1,7 +1,7 @@
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
   vim.g.nvim_tree_bindings = {
     -- ["<CR>"] = ":YourVimFunction()<cr>",
-    -- ["u"] = ":lua require'some_module'.some_function()<cr>",
+    ["yp"] = ":lua require'utils'.copy_path_to_clipboard()<cr>",
 
     -- default mappings
     ["<CR>"]           = tree_cb("edit"),
@@ -26,7 +26,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
     ["<C-r>"]          = tree_cb("full_rename"),
     ["x"]              = tree_cb("cut"),
     ["c"]              = tree_cb("copy"),
-    ["yy"]              = tree_cb("copy"),
+    ["yy"]             = tree_cb("copy"),
     ["p"]              = tree_cb("paste"),
     ["[c"]             = tree_cb("prev_git_item"),
     ["]c"]             = tree_cb("next_git_item"),
