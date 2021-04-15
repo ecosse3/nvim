@@ -25,7 +25,12 @@ require'compe'.setup {
     tags = false;
     snippets_nvim = false;
     treesitter = true;
-    tabnine = true;
+    tabnine = {
+      priority = 50,
+      max_num_results = 3,
+      sort = true,
+      show_prediction_strength = true
+    };
     ultisnips = true;
   };
 }
