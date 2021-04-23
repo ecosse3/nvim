@@ -24,7 +24,7 @@ require'compe'.setup {
     spell = true;
     tags = false;
     snippets_nvim = false;
-    treesitter = true;
+    treesitter = false;
     tabnine = {
       priority = 50,
       max_num_results = 3,
