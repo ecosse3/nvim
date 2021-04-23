@@ -12,6 +12,7 @@ require('plugins/autopairs')
 require('plugins/rnvimr')
 require('plugins/kommentary')
 require('plugins/numb')
+require('plugins/trouble')
 
 require('lsp/config')
 require('lsp/efm')

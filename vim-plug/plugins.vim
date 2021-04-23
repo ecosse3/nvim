@@ -49,6 +49,7 @@ Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+Plug 'folke/lsp-trouble.nvim'
 
 " Explorer
 Plug 'kyazdani42/nvim-tree.lua'

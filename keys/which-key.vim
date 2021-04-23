@@ -88,11 +88,11 @@ let g:which_key_map.b = {
 " c is for LSP (because I've used to it from coc)
 let g:which_key_map.c = {
       \ 'name' : '+lsp' ,
-      \ 'd' : [':Telescope lsp_workspace_diagnostics', 'diagnostics'],
-      \ 'D' : [':Telescope lsp_document_diagnostics',  'diagnostics'],
-      \ 'q' : [':Lspsaga code_action<CR>',             'quick fix'],
-      \ 's' : [':Telescope symbols',                   'symbols'],
-      \ 'v' : [':Vista!!',                             'vista'],
+      \ 'd' : [':LspTroubleToggle',                   'diagnostics'],
+      \ 'D' : [':Telescope lsp_document_diagnostics', 'diagnostics'],
+      \ 'q' : [':Lspsaga code_action<CR>',            'quick fix'],
+      \ 's' : [':Telescope symbols',                  'symbols'],
+      \ 'v' : [':Vista!!',                            'vista'],
       \ }
 
 let g:which_key_map['c']['a'] = 'code action'
