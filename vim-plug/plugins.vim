@@ -24,6 +24,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nacro90/numb.nvim'
+Plug 'yamatsum/nvim-cursorline'
 
 " Snippets & Language & Syntax
 Plug 'windwp/nvim-autopairs'
