@@ -10,5 +10,5 @@ saga.init_lsp_saga {
     virtual_text = false,
   },
   code_action_keys = { quit = {'q', '<ESC>'}, exec = '<CR>' },
-  border_style = 2,
+  border_style = "round",
 }
