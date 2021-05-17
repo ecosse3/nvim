@@ -10,6 +10,7 @@ endfun
 augroup ECOSSE
   autocmd!
   autocmd BufWritePre * :call TrimWhitespace() " trim white-spaces on entry
+  autocmd BufEnter,WinEnter node_modules/*/** :LspStop
 augroup END
 
 " after a re-source, fix syntax matching issues (concealing brackets):

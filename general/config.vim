@@ -44,3 +44,6 @@ let g:git_messenger_popup_content_margins = v:true
 
 " tsconfig.json is actually jsonc, help TypeScript set the correct filetype
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+
+autocmd BufRead,BufNewFile */node_modules/* :LspStop
+autocmd BufLeave */node_modules/* :LspStart
