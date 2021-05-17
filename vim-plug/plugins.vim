@@ -51,6 +51,7 @@ Plug 'glepnir/lspsaga.nvim'
 Plug 'onsails/lspkind-nvim'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'folke/lsp-trouble.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 " Explorer
 Plug 'kyazdani42/nvim-tree.lua'
