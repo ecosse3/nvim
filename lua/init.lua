@@ -13,6 +13,7 @@ require('plugins/rnvimr')
 require('plugins/kommentary')
 require('plugins/numb')
 require('plugins/trouble')
+require('plugins/signature')
 
 require('lsp/config')
 require('lsp/efm')
