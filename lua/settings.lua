@@ -32,13 +32,13 @@ vim.o.undodir         = "/home/ecosse/.vim/undodir" --- Dir for undos
 vim.o.undofile        = true                        --- Sets undo to file
 vim.o.incsearch       = true                        --- Start searching before pressing enter
 vim.o.conceallevel    = 0                           --- Show `` in markdown files
-vim.o.t_Co            = "256"                       --- Support 256 colors
 vim.o.backspace       = "indent,eol,start"          --- Making sure backspace works
 vim.o.lazyredraw      = true                        --- Makes macros faster & prevent errors in complicated mappings
 vim.o.wildignore      = "*node_modules/**"          --- Don't search inside Node.js modules (works for gutentag)
 vim.o.scrolloff       = 8                           --- Always keep space when scrolling to bottom/top edge
 vim.o.viminfo         = "'1000"                     --- Increase the size of file history
 vim.o.termguicolors   = true                        --- Correct terminal colors
+vim.o.signcolumn      = "yes"
 
 vim.cmd('filetype plugin indent on') --- " Enables plugin & indent
 vim.cmd('set shortmess+=c')          --- " Don't pass messages to |ins-completion-menu|
@@ -46,3 +46,4 @@ vim.cmd('set formatoptions-=c')      --- " Stop newline continuation of comments
 vim.cmd('set formatoptions-=r')
 vim.cmd('set formatoptions-=o')
 vim.cmd('set expandtab')             --- Converts tab to spaces
+vim.cmd('set completeopt=menuone,noselect')
