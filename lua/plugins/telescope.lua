@@ -1,6 +1,11 @@
 local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
+        layout_defaults = {
+          horizontal = {
+            width_padding = 0.1
+          }
+        },
         vimgrep_arguments = {
           'rg',
           '--color=never',
@@ -26,8 +31,14 @@ require('telescope').setup {
                 ["<C-x>"] = false,
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous,
-                ["<C-q>"] = actions.send_to_qflist
+                ["<C-q>"] = actions.send_to_qflist,
+                ["<C-s>"] = actions.cycle_previewers_next,
+                ["<C-a>"] = actions.cycle_previewers_prev,
             },
+            n = {
+                ["<C-s>"] = actions.cycle_previewers_next,
+                ["<C-a>"] = actions.cycle_previewers_prev,
+            }
         }
     },
     extensions = {
@@ -51,20 +62,27 @@ local M = {}
 local delta = previewers.new_termopen_previewer {
   get_command = function(entry)
     return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!' }
-
   end
 }
 
 M.my_git_commits = function(opts)
   opts = opts or {}
-  opts.previewer = delta
+  opts.previewer = {
+    delta,
+    previewers.git_commit_message.new(opts),
+    previewers.git_commit_diff_as_was.new(opts),
+  }
 
   builtin.git_commits(opts)
 end
 
 M.my_git_bcommits = function(opts)
   opts = opts or {}
-  opts.previewer = delta
+  opts.previewer = {
+    delta,
+    previewers.git_commit_message.new(opts),
+    previewers.git_commit_diff_as_was.new(opts),
+  }
 
   builtin.git_bcommits(opts)
 end
