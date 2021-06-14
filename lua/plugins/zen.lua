@@ -1,0 +1,1 @@
+require('zen-mode').setup {}
