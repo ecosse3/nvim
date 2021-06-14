@@ -18,21 +18,26 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nacro90/numb.nvim'
-Plug 'yamatsum/nvim-cursorline'
+" Plug 'yamatsum/nvim-cursorline'
 Plug 'folke/todo-comments.nvim'
+Plug 'folke/zen-mode.nvim'
+
+" Debug
+" Plug 'mfussenegger/nvim-dap'
+" Plug 'rcarriga/nvim-dap-ui'
 
 " Snippets & Language & Syntax
 Plug 'windwp/nvim-autopairs'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'potatoesmaster/i3-vim-syntax'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dadbod'
@@ -88,11 +93,14 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Project Tracker
 Plug 'airblade/vim-rooter'
+" Plug 'ahmedkhalf/lsp-rooter.nvim'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'on': 'make' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
+" Plug 'Conni2461/telescope.nvim', { 'branch': 'cycle_previewers' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
 
 " Ranger
 Plug 'kevinhwang91/rnvimr'
