@@ -134,13 +134,12 @@ let g:which_key_map.g = {
       \ 'i' : [':Gist -b',                                      'post gist'],
       \ 'j' : [':diffget //3',                                  'get right'],
       \ 'm' : ['<Plug>(git-messenger)',                         'message'],
+      \ 's' : [':Telescope git_status',                         'status'],
       \ 'P' : [':Git push',                                     'push'],
       \ 'p' : [':Git pull',                                     'pull'],
       \ 'v' : [':GV',                                           'view commits'],
       \ 'V' : [':GV!',                                          'view buffer commits'],
       \ }
-
-let g:which_key_map['g']['s'] = 'status'
 
 let g:which_key_map.g.h = {
       \ 'name' : '+hunk' ,
