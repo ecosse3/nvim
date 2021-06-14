@@ -1,3 +1,4 @@
+set termguicolors
 colorscheme nightfly
 
 hi Comment cterm=italic

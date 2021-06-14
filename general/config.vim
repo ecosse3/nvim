@@ -23,9 +23,11 @@ let g:UltiSnipsJumpBackwardTrigger="<C-b>"
 let g:js_file_import_use_fzf = 0
 let g:js_file_import_use_telescope = 1
 
-let g:indentLine_char_list = ['|', '¦']
-let g:indentLine_setColors = 0
-let g:indentLine_fileTypeExclude = [ 'startify' ]
+" let g:indentLine_char_list = ['|', '¦']
+" let g:indentLine_setColors = 0
+" let g:indentLine_fileTypeExclude = [ 'startify' ]
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_show_current_context = v:true
 
 let g:switch_mapping = ""
 
