@@ -15,6 +15,7 @@ require('plugins/numb')
 require('plugins/trouble')
 require('plugins/signature')
 
+require('lsp/install')
 require('lsp/config')
 require('lsp/efm')
 require('lsp/tsserver')
