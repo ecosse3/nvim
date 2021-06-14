@@ -43,6 +43,7 @@ Plug 'kitagry/vs-snippets'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 Plug 'hrsh7th/nvim-compe'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
