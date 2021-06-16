@@ -1,11 +1,6 @@
 local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
-        layout_defaults = {
-          horizontal = {
-            width_padding = 0.1
-          }
-        },
         vimgrep_arguments = {
           'rg',
           '--color=never',
