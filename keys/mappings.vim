@@ -91,6 +91,10 @@ vnoremap X "_X
 " Yank until the end of line
 nnoremap Y y$
 
+" Paste always from 0 register
+nnoremap p "0p
+vnoremap p "0p
+
 " Floaterm
 nnoremap <silent> <F12> :FloatermToggle<CR>
 tnoremap <silent> <F12> <C-\><C-n>:FloatermToggle<CR>
