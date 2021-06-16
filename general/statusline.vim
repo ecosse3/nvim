@@ -59,7 +59,7 @@ let s:st_mode = {'color': '%#StMode#', 'sep_color': '%#StModeSep#', 'no_before':
 let s:st_err = {'color': '%#StErr#', 'sep_color': '%#StErrSep#'}
 let s:st_mode_right = extend(copy(s:st_mode), { 'side': 'right', 'no_before': 0 })
 let s:st_err_right = extend(copy(s:st_err), {'side': 'right'})
-let s:st_warn = {'color': '%#StWarn#', 'sep_color': '%#StWarnSep#', 'side': 'right', 'no_after': 1}
+let s:st_warn = {'color': '%#StWarn#', 'sep_color': '%#StWarnSep#'}
 let s:sec_2 = {'color': '%#StItem2#', 'sep_color': '%#StSep2#'}
 
 function! Statusline() abort
@@ -77,6 +77,8 @@ function! Statusline() abort
   let l:statusline .= '%='
   let l:anzu = exists('*anzu#search_status') ? anzu#search_status() : ''
   let l:statusline .= s:sep(l:anzu, extend({'side': 'right'}, s:sec_2), !empty(l:anzu))
+  let l:statusline .= s:sep(' %{lsp#get_buffer_diagnostics_counts()["error"]}', extend({'side': 'right'}, s:st_err))
+  let l:statusline .= s:sep(' %{lsp#get_buffer_diagnostics_counts()["warning"]}', extend({'side': 'right'}, s:st_warn))
   let l:ft = &filetype
   let l:statusline .= s:sep(l:ft, extend({'side': 'right'}, s:sec_2), !empty(l:ft))
   let l:statusline .= s:sep(': %c', s:st_mode_right)
