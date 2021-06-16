@@ -26,7 +26,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Hop
-map <silent>f :HopChar2<CR>
+" map <silent>f :HopChar2<CR>
 
 " Prettier
 nmap <Leader>ap <Plug>(Prettier)
@@ -126,4 +126,4 @@ nmap ga <Plug>(EasyAlign)
 nmap <silent> <leader>cc :cclose<CR>
 
 " Replace <C-W> with s
-nnoremap s <C-W>
+" nnoremap s <C-W>
