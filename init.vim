@@ -14,7 +14,6 @@ source $HOME/.config/nvim/general/config.vim      " Config
 source $HOME/.config/nvim/general/functions.vim   " Functions
 source $HOME/.config/nvim/general/statusline.vim  " Statusline
 source $HOME/.config/nvim/general/lsp.vim         " LSP
-source $HOME/.config/nvim/keys/mappings.vim       " Mappings
 source $HOME/.config/nvim/keys/which-key.vim      " Which Key
 
 source $HOME/.config/nvim/vim-plug/startify.vim   " Startify

@@ -1,4 +1,5 @@
 require('settings')
+require('keymappings')
 
 require('plugins/telescope')
 require('plugins/colorizer')
