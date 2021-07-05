@@ -1,5 +1,4 @@
-" NOTE: This variable doesn't exist before barbar runs. Create it before
-"       setting any option.
+" NOTE: This variable doesn't exist before barbar runs. Create it before setting any option.
 
 let bufferline = {}
 

@@ -38,7 +38,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'potatoesmaster/i3-vim-syntax'
-Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dadbod'
@@ -60,6 +60,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'folke/lsp-trouble.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " Explorer
 Plug 'kyazdani42/nvim-tree.lua'

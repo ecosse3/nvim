@@ -77,8 +77,8 @@ function! Statusline() abort
   let l:statusline .= '%='
   let l:anzu = exists('*anzu#search_status') ? anzu#search_status() : ''
   let l:statusline .= s:sep(l:anzu, extend({'side': 'right'}, s:sec_2), !empty(l:anzu))
-  let l:statusline .= s:sep(' %{lsp#get_buffer_diagnostics_counts()["error"]}', extend({'side': 'right'}, s:st_err))
-  let l:statusline .= s:sep(' %{lsp#get_buffer_diagnostics_counts()["warning"]}', extend({'side': 'right'}, s:st_warn))
+  let l:statusline .= s:sep(LspStatusErrors(), extend({'side': 'right'}, s:st_err))
+  let l:statusline .= s:sep(LspStatusWarnings(), extend({'side': 'right'}, s:st_warn))
   let l:ft = &filetype
   let l:statusline .= s:sep(l:ft, extend({'side': 'right'}, s:sec_2), !empty(l:ft))
   let l:statusline .= s:sep(': %c', s:st_mode_right)
@@ -89,6 +89,22 @@ function! Statusline() abort
   let l:statusline .= '%<'
   let l:statusline .= OpenRGBStatuslineFunc()
   return l:statusline
+endfunction
+
+function! LspStatusErrors() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("' ' .. require('lsp-status').diagnostics()['errors']")
+  endif
+
+  return 0
+endfunction
+
+function! LspStatusWarnings() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("' ' .. require('lsp-status').diagnostics()['warnings']")
+  endif
+
+  return 0
 endfunction
 
 function! s:git_statusline() abort
