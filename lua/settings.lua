@@ -39,6 +39,7 @@ vim.o.scrolloff       = 8                           --- Always keep space when s
 vim.o.viminfo         = "'1000"                     --- Increase the size of file history
 vim.o.termguicolors   = true                        --- Correct terminal colors
 vim.o.signcolumn      = "yes"
+vim.o.completeopt     = "menuone,noselect"
 
 vim.cmd('filetype plugin indent on') --- " Enables plugin & indent
 vim.cmd('set shortmess+=c')          --- " Don't pass messages to |ins-completion-menu|
