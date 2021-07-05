@@ -10,11 +10,19 @@ require('telescope').setup {
           '--column',
           '--smart-case'
         },
+        layout_config = {
+          horizontal = {
+            mirror = false,
+          },
+          vertical = {
+            mirror = false,
+          },
+          prompt_position = "top",
+        },
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' 🔍 ',
         color_devicons = true,
 
-        prompt_position = "top",
         sorting_strategy = "ascending",
 
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
