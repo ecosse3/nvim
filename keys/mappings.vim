@@ -92,8 +92,8 @@ vnoremap X "_X
 nnoremap Y y$
 
 " Paste always from 0 register
-nnoremap p "0p
-vnoremap p "0p
+" nnoremap p "0p
+" vnoremap p "0p
 
 " Floaterm
 nnoremap <silent> <F12> :FloatermToggle<CR>
