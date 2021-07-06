@@ -15,6 +15,7 @@ require('plugins/kommentary')
 require('plugins/numb')
 require('plugins/trouble')
 require('plugins/signature')
+require('plugins/galaxyline')
 
 require('lsp/install')
 require('lsp/config')

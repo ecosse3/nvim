@@ -6,7 +6,6 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mbbill/undotree'
 Plug 'b3nj5m1n/kommentary'
-" Plug 'phaazon/hop.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
@@ -18,13 +17,11 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-" Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nacro90/numb.nvim'
-" Plug 'yamatsum/nvim-cursorline'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/zen-mode.nvim'
 Plug 'ggandor/lightspeed.nvim'
@@ -44,7 +41,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'hrsh7th/vim-vsnip'
-" Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'kitagry/vs-snippets'
 
 " Lsp
@@ -88,6 +84,7 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'powerline/powerline'
 Plug 'ryanoasis/vim-devicons'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
 " Tabline
 Plug 'romgrk/barbar.nvim'
@@ -100,7 +97,6 @@ Plug 'airblade/vim-rooter'
 " Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
-" Plug 'Conni2461/telescope.nvim', { 'branch': 'cycle_previewers' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
 
