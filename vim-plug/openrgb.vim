@@ -61,9 +61,9 @@ function OpenRGBStatuslineFunc()
   return ''
 endfunction
 
-if empty(&statusline)
-  set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-endif
-set statusline+=%{OpenRGBStatuslineFunc()}
+" if empty(&statusline)
+"   set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" endif
+" set statusline+=%{OpenRGBStatuslineFunc()}
 
 autocmd FocusGained * call OpenRGBChangeColorFromMode(mode(), 1)
