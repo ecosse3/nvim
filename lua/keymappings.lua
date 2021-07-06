@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>Telescope find_files<CR>", { noremap
 vim.api.nvim_set_keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap = true })
 
 -- Remove highlights
-vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true, silent = true })
 
 -- Find word/file across project
 vim.api.nvim_set_keymap("n", "<Space>pf", "yiw<CMD>Telescope find_files<CR><C-r>+<ESC>", { noremap = true })
