@@ -13,11 +13,6 @@ augroup ECOSSE
   autocmd BufEnter,WinEnter node_modules/*/** :LspStop
 augroup END
 
-" after a re-source, fix syntax matching issues (concealing brackets):
-if exists('g:loaded_webdevicons')
-    call webdevicons#refresh()
-endif
-
 " Highlight on yank
 augroup highlight_yank
   autocmd!
