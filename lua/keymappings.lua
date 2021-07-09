@@ -13,8 +13,8 @@ vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
 -- Save file by CTRL-S
-vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-s>", "<ESC> :w<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-s>", "<ESC> :w<CR>", { noremap = true, silent = true })
 
 -- Make work uppercase
 vim.api.nvim_set_keymap("n", "<C-u>", "viwU<ESC>", { noremap = true })
