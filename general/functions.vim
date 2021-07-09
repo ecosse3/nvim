@@ -43,3 +43,7 @@ func! AddToWatch()
   let word = expand("<cexpr>")
   call vimspector#AddWatch(word)
 endfunction
+
+function! CustomFold()
+	return printf('   %-6d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
+endfunction
