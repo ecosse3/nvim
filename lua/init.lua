@@ -1,6 +1,7 @@
 require('settings')
 require('keymappings')
 
+require('plugins/which-key')
 require('plugins/telescope')
 require('plugins/galaxyline')
 require('plugins/colorizer')

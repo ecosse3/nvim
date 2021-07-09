@@ -13,18 +13,18 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'szw/vim-maximizer'
-Plug 'liuchengxu/vista.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nacro90/numb.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/zen-mode.nvim'
 Plug 'ggandor/lightspeed.nvim'
+Plug 'folke/which-key.nvim'
 
 " Debug
 " Plug 'mfussenegger/nvim-dap'
