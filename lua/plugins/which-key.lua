@@ -40,7 +40,7 @@ require'which-key'.setup {
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 3, -- spacing between columns
+    spacing = 4, -- spacing between columns
     align = "left", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
@@ -81,60 +81,60 @@ local mappings = {
   ["9"] = "which_key_ignore",
 
   -- single
-  ["/"] = { ':e $MYVIMRC<CR>',         'open init' },
-  ["+"] = { ':vertical resize +2<CR>', 'resize +2' },
-  ["-"] = { ':vertical resize -2<CR>', 'resize +2' },
-  ["="] = { '<C-W>=',                  'balance windows' },
-  ["S"] = { ':Startify<CR>',           'startify' },
-  ["u"] = { ':UndotreeToggle<CR>',     'undo tree' },
-  ["v"] = { '<C-W>v',                  'split right' },
-  ["V"] = { '<C-W>s',                  'split below' },
+  ["/"] = { ':e $MYVIMRC<CR>',                                     'open init' },
+  ["+"] = { '<cmd>vertical resize +2<CR>',                         'resize +2' },
+  ["-"] = { '<cmd>vertical resize -2<CR>',                         'resize +2' },
+  ["="] = { '<C-W>=',                                              'balance windows' },
+  ["S"] = { '<cmd>Startify<CR>',                                   'startify' },
+  ["u"] = { '<cmd>UndotreeToggle<CR>',                             'undo tree' },
+  ["v"] = { '<C-W>v',                                              'split right' },
+  ["V"] = { '<C-W>s',                                              'split below' },
 
   a = {
     name = "Actions",
-    c = { ':ColorizerToggle<CR>',   'colorizer' },
-    l = { ':Bracey<CR>',            'start live server' },
-    L = { ':BraceyStop<CR>',        'stop live server' },
-    m = { ':MarkdownPreview',       'markdown preview' },
-    M = { ':MarkdownPreviewStop',   'markdown preview stop' },
-    n = { ':set nonumber!',         'line numbers' },
-    r = { ':set norelativenumber!', 'relative number' },
-    t = { ':FloatermNew<CR>',       'terminal' },
+    c = { '<cmd>ColorizerToggle<CR>',                              'colorizer' },
+    l = { '<cmd>Bracey<CR>',                                       'start live server' },
+    L = { '<cmd>BraceyStop<CR>',                                   'stop live server' },
+    m = { '<cmd>MarkdownPreview',                                  'markdown preview' },
+    M = { '<cmd>MarkdownPreviewStop',                              'markdown preview stop' },
+    n = { '<cmd>set nonumber!',                                    'line numbers' },
+    r = { '<cmd>set norelativenumber!',                            'relative number' },
+    t = { '<cmd>FloatermNew<CR>',                                  'terminal' },
   },
 
   b = {
     name = "Buffer",
-    b = { ':BufferMovePrevious<CR>',       'Move back' },
-    c = { ':BufferCloseAllButCurrent<CR>', 'Close but current' },
-    d = { ':BufferOrderByDirectory<CR>',   'Order by directory' },
-    f = { ':bfirst<CR>',                   'First buffer' },
-    h = { ':Startify<CR>',                 'Home Buffer' },
-    l = { ':BufferCloseBuffersLeft<CR>',   'Close Left' },
-    r = { ':BufferCloseBuffersRight<CR>',  'Close Right' },
-    n = { ':BufferMoveNext<CR>',           'Move next' },
-    p = { ':BufferPick<CR>',               'Pick Buffer' },
+    b = { '<cmd>BufferMovePrevious<CR>',                           'Move back' },
+    c = { '<cmd>BufferCloseAllButCurrent<CR>',                     'Close but current' },
+    d = { '<cmd>BufferOrderByDirectory<CR>',                       'Order by directory' },
+    f = { '<cmd>bfirst<CR>',                                       'First buffer' },
+    h = { '<cmd>Startify<CR>',                                     'Home Buffer' },
+    l = { '<cmd>BufferCloseBuffersLeft<CR>',                       'Close Left' },
+    r = { '<cmd>BufferCloseBuffersRight<CR>',                      'Close Right' },
+    n = { '<cmd>BufferMoveNext<CR>',                               'Move next' },
+    p = { '<cmd>BufferPick<CR>',                                   'Pick Buffer' },
   },
 
   c = {
     name = "LSP",
     a = { 'code action' },
     c = "which_key_ignore",
-    d = { ':LspTroubleToggle<CR>',                   'local diagnostics' },
-    D = { ':Telescope lsp_document_diagnostics<CR>', 'diagnostics' },
+    d = { '<cmd>LspTroubleToggle<CR>',                             'local diagnostics' },
+    D = { '<cmd>Telescope lsp_document_diagnostics<CR>',           'diagnostics' },
     f = { 'format' },
     l = { 'line diagnostics ' },
     r = { 'rename' },
-    q = { ':Lspsaga code_action<CR>',                'quick fix' },
-    s = { ':Telescope symbols',                      'symbols' },
+    q = { '<cmd>Lspsaga code_action<CR>',                          'quick fix' },
+    s = { '<cmd>Telescope symbols',                                'symbols' },
   },
 
   g = {
     name = "Git",
-    a = { ':!git add %:p<CR>',                                 'add current' },
-    A = { ':!git add .<CR>',                                   'add all' },
-    b = { ':GitBlameToggle<CR>',                               'toggle blame' },
-    d = { ':Gitsigns diffthis<CR>',                            'diff' },
-    g = { ':FloatermNew --height=1.0 --width=1.0 lazygit<CR>', 'lazygit' },
+    a = { '<cmd>!git add %:p<CR>',                                 'add current' },
+    A = { '<cmd>!git add .<CR>',                                   'add all' },
+    b = { '<cmd>GitBlameToggle<CR>',                               'toggle blame' },
+    d = { '<cmd>Gitsigns diffthis<CR>',                            'diff' },
+    g = { '<cmd>FloatermNew --height=1.0 --width=1.0 lazygit<CR>', 'lazygit' },
     h = {
       name = "Hunk",
       b = "blame line",
@@ -148,22 +148,23 @@ local mappings = {
       a = "commits",
       c = "buffer commits",
     },
-    m = { '<Plug>(git-messenger)',                             'message' },
-    s = { ':Telescope git_status<CR>',                         'status' },
+    m = { '<Plug>(git-messenger)',                                 'message' },
+    s = { '<cmd>Telescope git_status<CR>',                         'status' },
   },
 
   p = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
+    l = { '<cmd>Telescope project<CR>',                            'list' }
   },
 
   s = {
     name = "Search",
-    c = { ':Telescope colorscheme<CR>',     'color schemes' },
-    h = { ':Telescope oldfiles<CR>',        'file history' },
-    H = { ':Telescope command_history<CR>', 'command history' },
-    s = { ':Telescope search_history<CR>',  'search history' },
+    c = { '<cmd>Telescope colorscheme<CR>',                        'color schemes' },
+    h = { '<cmd>Telescope oldfiles<CR>',                           'file history' },
+    H = { '<cmd>Telescope command_history<CR>',                    'command history' },
+    s = { '<cmd>Telescope search_history<CR>',                     'search history' },
   },
 
   t = {

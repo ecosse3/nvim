@@ -13,11 +13,9 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-" Plug 'liuchengxu/vim-which-key'
 Plug 'antoinemadec/openrgb.nvim', {'do': 'UpdateRemotePlugins'}
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'szw/vim-maximizer'
+" Plug 'junegunn/limelight.vim'
+" Plug 'szw/vim-maximizer'
 Plug 'junegunn/vim-easy-align'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nacro90/numb.nvim'
@@ -56,14 +54,14 @@ Plug 'onsails/lspkind-nvim'
 Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
 Plug 'folke/lsp-trouble.nvim'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+" Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Explorer
 Plug 'kyazdani42/nvim-tree.lua'
 
 " React Development
-Plug 'leafgarland/typescript-vim'
-Plug 'yuezk/vim-js'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'yuezk/vim-js'
 Plug 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'mlaursen/vim-react-snippets'
@@ -75,15 +73,15 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'rhysd/git-messenger.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
+" Plug 'f-person/git-blame.nvim', { 'branch': 'master' }
 
 " Themes
 Plug 'bluz71/vim-nightfly-guicolors'
 
 " Colorscheme
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'powerline/powerline'
-Plug 'ryanoasis/vim-devicons'
+" Plug 'powerline/powerline'
+" Plug 'ryanoasis/vim-devicons'
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 
 " Tabline
@@ -99,6 +97,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': 'master' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope-project.nvim'
 
 " Ranger
 Plug 'kevinhwang91/rnvimr'

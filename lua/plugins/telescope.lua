@@ -19,9 +19,9 @@ require('telescope').setup {
           },
           prompt_position = "top",
         },
-        file_sorter = require('telescope.sorters').get_fzy_sorter,
-        prompt_prefix = ' 🔍 ',
-        color_devicons = true,
+        file_sorter      = require('telescope.sorters').get_fzy_sorter,
+        prompt_prefix    = ' 🔍 ',
+        color_devicons   = true,
 
         sorting_strategy = "ascending",
 
@@ -54,12 +54,13 @@ require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('project')
 
 
 -- Implement delta as previewer for diffs
 
 local previewers = require('telescope.previewers')
-local builtin = require('telescope.builtin')
+local builtin    = require('telescope.builtin')
 local M = {}
 
 local delta = previewers.new_termopen_previewer {

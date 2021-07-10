@@ -166,10 +166,10 @@ local mode_map = {
 
 -- See: https://www.nerdfonts.com/cheat-sheet
 local icons = {
-    vim = u 'e62b',
-    dos = u 'e70f',
+    vim  = u 'e62b',
+    dos  = u 'e70f',
     unix = u 'f303',
-    mac = u 'f179',
+    mac  = u 'f179',
 }
 -- }}}2
 
@@ -247,7 +247,7 @@ gls.left =
         -- Git Branch Name {{{3
         {
             GitStart = {
-                provider = function() return leftbracket end,
+                provider  = function() return leftbracket end,
                 condition = condition.check_git_workspace,
                 highlight = {colors.giticon, colors.bg}
             }
@@ -256,24 +256,24 @@ gls.left =
                 provider = function()
                     return ' '
                 end,
-                condition = condition.check_git_workspace,
-                separator = '',
+                condition           = condition.check_git_workspace,
+                separator           = '',
                 separator_highlight = {'NONE', colors.giticon},
-                highlight = {colors.gitbg, colors.giticon}
+                highlight           = {colors.gitbg, colors.giticon}
             }
         }, {
             GitMid = {
-                provider = function() return rightbracket .. ' ' end,
+                provider  = function() return rightbracket .. ' ' end,
                 condition = condition.check_git_workspace,
                 highlight = {colors.giticon, colors.gitbg}
             }
         }, {
             GitBranch = {
-                provider = 'GitBranch',
-                condition = condition.check_git_workspace,
-                separator = ' ',
+                provider            = 'GitBranch',
+                condition           = condition.check_git_workspace,
+                separator           = ' ',
                 separator_highlight = {'NONE', colors.gitbg},
-                highlight = {colors.gittext, colors.gitbg}
+                highlight           = {colors.gittext, colors.gitbg}
             }
         },
         -- }}}3
@@ -281,35 +281,35 @@ gls.left =
         -- Git Changes {{{3
         {
             DiffAdd = {
-                provider = 'DiffAdd',
+                provider  = 'DiffAdd',
                 condition = condition.check_git_workspace,
-                -- icon = '  ',
-                icon = '  ',
+                -- icon   = '  ',
+                icon      = '  ',
                 highlight = {colors.green, colors.gitbg}
             }
         }, {
             DiffModified = {
-                provider = 'DiffModified',
+                provider  = 'DiffModified',
                 condition = condition.check_git_workspace,
-                -- icon = '  ',
-                icon = ' 柳',
+                -- icon   = '  ',
+                icon      = ' 柳',
                 highlight = {colors.blue, colors.gitbg}
             }
         }, {
             DiffRemove = {
-                provider = 'DiffRemove',
+                provider  = 'DiffRemove',
                 condition = condition.check_git_workspace,
-                -- icon = '  ',
-                icon = '  ',
+                -- icon   = '  ',
+                icon      = '  ',
                 highlight = {colors.red, colors.gitbg}
             }
         }, {
             EndGit = {
-                provider = function() return rightbracket end,
-                condition = condition.check_git_workspace,
-                separator = " ",
+                provider            = function() return rightbracket end,
+                condition           = condition.check_git_workspace,
+                separator           = " ",
                 separator_highlight = {colors.gitbg, colors.bg},
-                highlight = {colors.gitbg, colors.bg}
+                highlight           = {colors.gitbg, colors.bg}
             }
         },
         -- }}}3
@@ -321,7 +321,7 @@ gls.left =
         -- Lsp Client {{{3
         {
             LspStart = {
-                provider = function() return leftbracket end,
+                provider  = function() return leftbracket end,
                 highlight = {colors.lspicon, colors.bg}
             }
         }, {
@@ -339,17 +339,17 @@ gls.left =
             }
         }, {
             LspMid = {
-                provider = function() return rightbracket .. ' ' end,
+                provider  = function() return rightbracket .. ' ' end,
                 highlight = {colors.lspicon, colors.lspbg}
             }
         }, {
             ShowLspClient = {
-                provider = 'GetLspClient',
+                provider  = 'GetLspClient',
                 highlight = {colors.textbg, colors.lspbg}
             }
         }, {
             LspSpace = {
-                provider = function() return ' ' end,
+                provider  = function() return ' ' end,
                 highlight = {colors.lspicon, colors.lspbg}
             }
         },
@@ -358,33 +358,33 @@ gls.left =
         -- Diagnostics {{{3
         {
             DiagnosticError = {
-                provider = 'DiagnosticError',
-                icon = '  ',
+                provider            = 'DiagnosticError',
+                icon                = '  ',
                 separator_highlight = {colors.gitbg, colors.bg},
-                highlight = {colors.diagerror, colors.lspbg}
+                highlight           = {colors.diagerror, colors.lspbg}
             }
         }, {
             DiagnosticWarn = {
-                provider = 'DiagnosticWarn',
-                icon = '  ',
-                highlight = {colors.diagwarn, colors.lspbg}
+                provider   = 'DiagnosticWarn',
+                icon       = '  ',
+                highlight  = {colors.diagwarn, colors.lspbg}
             }
         }, {
             DiagnosticHint = {
-                provider = 'DiagnosticHint',
-                icon = '  ',
-                highlight = {colors.diaghint, colors.lspbg}
+                provider   = 'DiagnosticHint',
+                icon       = '  ',
+                highlight  = {colors.diaghint, colors.lspbg}
             }
         }, {
             DiagnosticInfo = {
-                provider = 'DiagnosticInfo',
-                icon = '  ',
-                highlight = {colors.diaginfo, colors.lspbg}
+                provider   = 'DiagnosticInfo',
+                icon       = '  ',
+                highlight  = {colors.diaginfo, colors.lspbg}
             }
         }, {
-            LspSectionEnd = {
-                provider = function() return rightbracket .. " " end,
-                highlight = {colors.lspbg, colors.bg}
+            LspSectionEnd  = {
+                provider   = function() return rightbracket .. " " end,
+                highlight  = {colors.lspbg, colors.bg}
             }
         }
 
@@ -405,7 +405,7 @@ gls.right  =
         -- Type {{{2
         {
             TypeStart = {
-                provider = function() return leftbracket end,
+                provider  = function() return leftbracket end,
                 highlight = {colors.typeicon, colors.bg}
             }
         }, {
@@ -418,7 +418,7 @@ gls.right  =
             }
         }, {
             TypeMid = {
-                provider = function() return rightbracket .. ' ' end,
+                provider  = function() return rightbracket .. ' ' end,
                 highlight = {colors.typeicon, colors.typebg}
             }
         } ,{
@@ -438,36 +438,36 @@ gls.right  =
             }
         },{
             FileIcon = {
-                provider = 'FileIcon',
+                provider  = 'FileIcon',
                 highlight = {colors.typeicon, colors.typebg}
             }
         }, {
             BufferType = {
-                provider = 'FileTypeName',
+                provider  = 'FileTypeName',
                 highlight = {colors.typetext, colors.typebg}
             }
         }, {
             FileSize = {
-                provider = 'FileSize',
-                separator = '  ',
+                provider            = 'FileSize',
+                separator           = '  ',
                 separator_highlight = {colors.typeicon, colors.typebg},
-                highlight = {colors.typetext, colors.typebg}
+                highlight           = {colors.typetext, colors.typebg}
             }
         }, {
             FileEncode = {
-                provider = 'FileEncode',
-                separator = '',
+                provider            = 'FileEncode',
+                separator           = '',
                 separator_highlight = {colors.typeicon, colors.typebg},
-                highlight = {colors.typetext, colors.typebg}
+                highlight           = {colors.typetext, colors.typebg}
             }
         }, {
             TypeSectionEnd = {
-                provider = function() return rightbracket end,
+                provider  = function() return rightbracket end,
                 highlight = {colors.typebg, colors.bg}
             }
         }, {
             Space = {
-                provider = function() return ' ' end,
+                provider  = function() return ' ' end,
                 highlight = {colors.typebg, colors.bg}
             }
         },
@@ -476,7 +476,7 @@ gls.right  =
         -- Cursor Position Section {{{2
         {
             StatsSectionStart = {
-                provider = function() return leftbracket end,
+                provider  = function() return leftbracket end,
                 highlight = {colors.statsicon, colors.bg}
             }
         }, {
@@ -488,12 +488,12 @@ gls.right  =
             }
         }, {
             StatsMid = {
-                provider = function() return rightbracket .. ' ' end,
+                provider  = function() return rightbracket .. ' ' end,
                 highlight = {colors.statsicon, colors.statsbg}
             }
         }, {
             PerCent = {
-                provider = 'LinePercent',
+                provider  = 'LinePercent',
                 highlight = {colors.statstext, colors.statsbg}
             }
         }, {
@@ -572,7 +572,7 @@ gls.right  =
             }
         }, {
             StatsSpcSectionEnd = {
-                provider = function() return rightbracket .. " " end,
+                provider  = function() return rightbracket .. " " end,
                 highlight = {colors.statsbg, colors.bg}
             }
         }
@@ -585,7 +585,7 @@ gls.short_line_left =
     {
         {
             ShortSectionStart = {
-                provider = function() return leftbracket  end,
+                provider  = function() return leftbracket  end,
                 highlight = {colors.shortbg, colors.bg}
             }
         },
@@ -596,27 +596,27 @@ gls.short_line_left =
         },
         {
             LeftShortName = {
-                provider = 'FileTypeName',
+                provider  = 'FileTypeName',
                 highlight = {colors.shorttext, colors.shortbg},
             }
         },
         {
             ShortSectionMid = {
-                provider = function() return " " end,
+                provider  = function() return " " end,
                 highlight = {colors.shortbg, colors.shortbg}
             }
         },
         {
             LeftShortFileName = {
-                provider = 'SFileName',
-                condition = condition.buffer_not_empty,
+                provider            = 'SFileName',
+                condition           = condition.buffer_not_empty,
                 separator_highlight = {colors.shorttext, colors.shortbg},
-                highlight = {colors.shorttext, colors.shortbg},
+                highlight           = {colors.shorttext, colors.shortbg},
             }
         },
         {
             ShortSectionEnd = {
-                provider = function() return rightbracket end,
+                provider  = function() return rightbracket end,
                 highlight = {colors.shortbg, colors.bg}
             }
         }
@@ -626,9 +626,9 @@ gls.short_line_left =
 -- Right Short {{{1
 gls.short_line_right = {
     BufferIcon = {
-        provider = 'BufferIcon',
+        provider            = 'BufferIcon',
         separator_highlight = {colors.shorttext, colors.bg},
-        highlight = {colors.shortrighttext, colors.bg}
+        highlight           = {colors.shortrighttext, colors.bg}
     }
 }
 -- }}}1
