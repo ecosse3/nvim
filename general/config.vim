@@ -1,21 +1,5 @@
 " --------------------- Config ---------------------
 
-let mapleader = "\<Space>"
-
-let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-let g:netrw_fastbrowse = 0
-let g:netrw_browse_split = 2
-let g:netrw_banner = 0
-let g:netrw_winsize = 25
-
-let g:closetag_filenames = '*.html,*.xhtml,*.js,*.jsx,*.tsx,*.xml'
-
-let g:signify_sign_delete = '-'
-
-let g:vim_jsx_pretty_colorful_config = 1
-
-let g:better_whitespace_enabled = 0
-
 let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<C-b>"
