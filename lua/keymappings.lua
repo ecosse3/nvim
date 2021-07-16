@@ -28,12 +28,12 @@ vim.api.nvim_set_keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap 
 vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true, silent = true })
 
 -- Find word/file across project
-vim.api.nvim_set_keymap("n", "<Space>pf", "yiw<CMD>Telescope find_files<CR><C-r>+<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Space>pw", "<CMD>Telescope grep_string<CR><ESC>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>pf", "yiw<CMD>Telescope find_files<CR><C-r>+<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>pw", "<CMD>Telescope grep_string<CR><ESC>", { noremap = true })
 
 -- Git
-vim.api.nvim_set_keymap("n", "<Space>gla", "<CMD>lua require('plugins.telescope').my_git_commits()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Space>glc", "<CMD>lua require('plugins.telescope').my_git_bcommits()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>gla", "<CMD>lua require('plugins.telescope').my_git_commits()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>glc", "<CMD>lua require('plugins.telescope').my_git_bcommits()<CR>", { noremap = true, silent = true })
 
 -- Buffers
 vim.api.nvim_set_keymap("n", "<Tab>", ":BufferNext<CR>", { noremap = true, silent = true })
@@ -71,11 +71,6 @@ vim.api.nvim_set_keymap("v", "X", '"_X', { noremap = true, silent = true })
 -- Yank until the end of line
 vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
 
--- Floaterm
-vim.api.nvim_set_keymap("n", "<F12>", "<CMD>FloatermToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<F12>", "<C-\\><C-n>:FloatermToggle<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<F11>", "<C-\\><C-n>:FloatermNext<CR>", { noremap = true, silent = true })
-
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd [[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
@@ -103,3 +98,21 @@ vim.cmd [[
 
 -- Space to NOP to prevent Leader issues
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
+
+-- Saga
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gD", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gr", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-Space>", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>ca", "<cmd>'<,'>lua require('lspsaga.codeaction').range_code_action()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua require('lspsaga.rename').rename()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-k>", "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[g", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]g", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cl", "<cmd>lua require'lspsaga.diagnostic'.show_line_diagnostics()<CR>", { noremap = true, silent = true })
