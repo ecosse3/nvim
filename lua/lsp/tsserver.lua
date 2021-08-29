@@ -1,7 +1,24 @@
 local on_attach = require('lsp.on_attach')
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup({
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false
     on_attach(client)
@@ -35,7 +52,7 @@ require'lspconfig'.tsserver.setup({
     ts_utils.setup {
         debug = false,
         disable_commands = false,
-        enable_import_on_completion = false,
+        enable_import_on_completion = true,
         import_all_timeout = 5000, -- ms
 
         -- eslint
@@ -47,7 +64,7 @@ require'lspconfig'.tsserver.setup({
 
         -- formatting
         enable_formatting = true,
-        formatter = 'prettier',
+        formatter = 'prettier_d_slim',
         formatter_config_fallback = nil,
 
         -- parentheses completion
@@ -63,7 +80,7 @@ require'lspconfig'.tsserver.setup({
     ts_utils.setup_client(client)
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>co", ":TSLspOrganize<CR>",   { silent = true })
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>",         { silent = true })
+    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>",         { silent = true })
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>cR", ":TSLspRenameFile<CR>", { silent = true })
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ci", ":TSLspImportAll<CR>",  { silent = true })
   end

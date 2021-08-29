@@ -1,4 +1,4 @@
 return {
-  formatCommand = 'prettier --find-config-path --stdin-filepath ${INPUT}',
+  formatCommand = 'prettier_d_slim --find-config-path --stdin --stdin-filepath ${INPUT}',
   formatStdin = true
 }
