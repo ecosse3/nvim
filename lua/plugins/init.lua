@@ -134,7 +134,6 @@ use {'kyazdani42/nvim-tree.lua',
 }
 
 -- React
-use {'kristijanhusak/vim-js-file-import', run = 'npm install'}
 use {'peitalin/vim-jsx-typescript'}
 use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
