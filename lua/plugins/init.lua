@@ -67,7 +67,7 @@ use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
 use {'nvim-telescope/telescope-project.nvim'}
 
 -- General
-use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+use {"ellisonleao/glow.nvim", run = "GlowInstall"}
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
 use {'mbbill/undotree'}
