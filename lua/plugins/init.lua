@@ -113,18 +113,25 @@ use {'kitagry/vs-snippets'}
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
 use {'kabouzeid/nvim-lspinstall', config = "require('lsp.install')", event = "VimEnter"}
-use {'hrsh7th/nvim-compe', config = "require('plugins.compe')"}
 use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
 use {'thomasfaingnaert/vim-lsp-ultisnips'}
 use {'glepnir/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
-use {'tzachar/compe-tabnine', run = './install.sh'}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'ray-x/lsp_signature.nvim'}
 use {'nvim-lua/popup.nvim'}
 
+-- LSP Cmp
+use {'hrsh7th/nvim-cmp', config = "require('plugins.cmp')"}
+use {'hrsh7th/cmp-vsnip', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
+use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'}
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua',
   requires = { 'kyazdani42/nvim-web-devicons'},
