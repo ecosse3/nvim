@@ -21,9 +21,7 @@ augroup END
 
 " Limelight enter and leave
 " function! s:goyo_enter()
-"   Limelight
-"   IndentLinesDisable
-" endfunction
+"   Limelight IndentLinesDisable endfunction
 
 " function! s:goyo_leave()
 "   Limelight!
@@ -47,3 +45,9 @@ augroup END
 function! CustomFold()
 	return printf('   %-6d%s', v:foldend - v:foldstart + 1, getline(v:foldstart))
 endfunction
+
+" Auto-format
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 100)
