@@ -89,12 +89,7 @@ use {'ggandor/lightspeed.nvim'}
 use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter"}
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}
 use {'romgrk/barbar.nvim'}
-use {
-  "folke/twilight.nvim",
-  config = function()
-    require("twilight").setup {}
-  end
-}
+use {'folke/twilight.nvim', config = function() require("twilight").setup {} end}
 
 -- Snippets & Language & Syntax
 use {'windwp/nvim-autopairs', config = "require('plugins.autopairs')", after = {'nvim-treesitter'}}
@@ -131,6 +126,7 @@ use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
 use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
 use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
 use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'}
+
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua',
   requires = { 'kyazdani42/nvim-web-devicons'},
