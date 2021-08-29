@@ -139,10 +139,11 @@ use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
 use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
+use {'vuki656/package-info.nvim', config = "require('plugins.package-info')"}
 
 -- Git
 
-use {'rhysd/git-messenger.vim'}
+use {'rhysd/git-messenger.vim', config = "require('plugins.git-messenger')"}
 use { 'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = "require('plugins.gitsigns')",
