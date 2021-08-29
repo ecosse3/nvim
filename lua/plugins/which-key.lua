@@ -125,7 +125,7 @@ local mappings = {
     l = { 'line diagnostics ' },
     r = { 'rename' },
     q = { '<cmd>Lspsaga code_action<CR>',                          'quick fix' },
-    s = { '<cmd>Telescope symbols',                                'symbols' },
+    s = { '<cmd>Telescope symbols<CR>',                                'symbols' },
   },
 
   g = {
