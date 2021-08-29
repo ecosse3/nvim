@@ -32,3 +32,4 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " Colorscheme config
 let g:nightflyCursorColor         = 0
 let g:nightflyUnderlineMatchParen = 0
+let g:nightflyNormalFloat         = 1
