@@ -89,7 +89,6 @@ use {'ggandor/lightspeed.nvim'}
 use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter"}
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}
 use {'romgrk/barbar.nvim'}
-use {'airblade/vim-rooter'}
 use {
   "folke/twilight.nvim",
   config = function()
