@@ -40,6 +40,7 @@ local use = packer.use
 use 'wbthomason/packer.nvim'
 
 -- Needed to load first
+use {'lewis6991/impatient.nvim', rocks = 'mpack'}
 use {'nvim-lua/plenary.nvim'}
 use {"kyazdani42/nvim-web-devicons"}
 
