@@ -39,7 +39,7 @@ cmp.setup {
     format = function(entry, vim_item)
       vim_item.kind = lspkind.presets.default[vim_item.kind]
       vim_item.menu = ({
-        cmp_tabnine = "[T9]",
+        cmp_tabnine = "[TN]",
         nvim_lsp = "[LSP]",
         buffer = "[B]",
       })[entry.source.name]
