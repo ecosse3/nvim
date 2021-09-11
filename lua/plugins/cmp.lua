@@ -1,6 +1,7 @@
 -- Setup global configuration. More on configuration below.
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+local tabnine = require('cmp_tabnine.config')
 
 cmp.setup {
   snippet = {
@@ -37,6 +38,11 @@ cmp.setup {
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = lspkind.presets.default[vim_item.kind]
+      vim_item.menu = ({
+        cmp_tabnine = "[T9]",
+        nvim_lsp = "[LSP]",
+        buffer = "[B]",
+      })[entry.source.name]
       return vim_item
     end
   },
@@ -47,8 +53,14 @@ cmp.setup {
     { name = 'buffer' },
     { name = 'path' },
     { name = 'calc' },
-    { name = 'cmp-tabnine' },
+    { name = 'cmp_tabnine' },
     { name = 'nvim_lua' },
     { name = 'vsnip' },
   },
 }
+
+tabnine:setup({
+        max_lines = 1000;
+        max_num_results = 3;
+        sort = true;
+})
