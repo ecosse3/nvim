@@ -22,7 +22,7 @@
       ['n <leader>ghu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
       ['n <leader>ghr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
       ['n <leader>ghp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ['n <leader>ghb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+      ['n <leader>gm']  = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
     },
     watch_index = {
       interval = 700,

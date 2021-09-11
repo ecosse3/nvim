@@ -144,7 +144,7 @@ use {'vuki656/package-info.nvim', config = "require('plugins.package-info')"}
 
 -- Git
 
-use {'rhysd/git-messenger.vim', config = "require('plugins.git-messenger')"}
+-- use {'rhysd/git-messenger.vim', config = "require('plugins.git-messenger')"}
 use { 'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = "require('plugins.gitsigns')",
