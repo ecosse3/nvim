@@ -3,6 +3,7 @@
 
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
+local gps = require("nvim-gps")
 
 -- Configuration {{{1
 
@@ -97,6 +98,9 @@ local colors = {
 
     shortrightbg    = '#3F3F3F',
     shortrighttext  = '#7C4C4E',
+
+    gpsbg           = '#5C00A3',
+    gpstext         = '#C5C5C5',
 
     red             = '#D16969',
     yellow          = '#DCDCAA',
@@ -375,6 +379,38 @@ table.insert(gls.left, {
     LspSectionEnd = {
         provider = function() return rightbracket .. " " end,
         highlight = {colors.lspbg, colors.bg}
+    }
+})
+-- }}}3
+
+-- GPS {{{3
+table.insert(gls.left, {
+    GPSectionStart = {
+      provider = function() return leftbracket end,
+      condition = function()
+        return gps.is_available()
+      end,
+      highlight = {colors.gpsbg, colors.bg}
+    }
+})
+table.insert(gls.left, {
+    nvimGPS = {
+      provider = function()
+        return gps.get_location()
+      end,
+      condition = function()
+        return gps.is_available()
+      end,
+      highlight = {colors.gpstext, colors.gpsbg}
+    }
+})
+table.insert(gls.left, {
+    GPSectionEnd = {
+      provider = function() return rightbracket .. " " end,
+      condition = function()
+        return gps.is_available()
+      end,
+      highlight = {colors.gpsbg, colors.bg}
     }
 })
 -- }}}3
