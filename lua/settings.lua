@@ -42,12 +42,13 @@ vim.o.signcolumn      = "yes"                       --- Add extra sign column ne
 vim.o.completeopt     = "menuone,noselect"          --- Better autocompletion
 vim.o.foldtext        = "CustomFold()"              --- Emit custom function for foldtext
 vim.g.mapleader       = " "                         --- Map leader key
+vim.o.shortmess       = vim.o.shortmess .. 'c'            --- Don't pass messages to |ins-completion-menu|
+vim.o.expandtab       = true
+vim.bo.expandtab      = true
 
 vim.cmd('filetype plugin indent on') --- " Enables plugin & indent
-vim.cmd('set shortmess+=c')          --- " Don't pass messages to |ins-completion-menu|
 vim.cmd('set formatoptions-=c')      --- " Stop newline continuation of comments
 vim.cmd('set formatoptions-=r')
 vim.cmd('set formatoptions-=o')
-vim.cmd('set expandtab')             --- Converts tab to spaces
 vim.cmd('set completeopt=menuone,noselect')
 vim.cmd('set fillchars=fold:\\ ')
