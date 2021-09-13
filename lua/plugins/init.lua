@@ -119,14 +119,14 @@ use {'ray-x/lsp_signature.nvim'}
 use {'nvim-lua/popup.nvim'}
 
 -- LSP Cmp
-use {'hrsh7th/nvim-cmp', config = "require('plugins.cmp')"}
-use {'hrsh7th/cmp-vsnip', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
-use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'}
+use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
+use {'hrsh7th/cmp-vsnip', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
+use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', after = 'nvim-cmp'}
 
 -- Nvim Tree
 use {'kyazdani42/nvim-tree.lua',
