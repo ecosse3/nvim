@@ -13,7 +13,7 @@
 
 | Description                                  | Progress                                                           |
 |----------------------------------------------|--------------------------------------------------------------------|
-| Rewrite most config to lua                   | ![85%](https://progress-bar.dev/85/?title=progress)                |
+| Rewrite most config to lua                   | ![95%](https://progress-bar.dev/95/?title=progress)                |
 | Provide current screenshots                  | ![50%](https://progress-bar.dev/50/?title=progress)                |
 | Find way to refactor words like in coc       | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | List all plugins I use in README             | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
