@@ -89,7 +89,7 @@ use {'folke/zen-mode.nvim', config = "require('plugins.zen')"}
 use {'ggandor/lightspeed.nvim'}
 use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter"}
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}
-use {'romgrk/barbar.nvim'}
+use {'romgrk/barbar.nvim', config = "require('plugins.barbar')"}
 use {'folke/twilight.nvim', config = function() require("twilight").setup {} end}
 use {'karb94/neoscroll.nvim', config = "require('plugins.neoscroll')"}
 use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
