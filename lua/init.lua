@@ -1,5 +1,5 @@
-require('plugins/init')
 require('default')
+require('plugins')
 require('settings')
 require('keymappings')
 require('lsp/efm')
