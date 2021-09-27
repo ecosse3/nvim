@@ -41,6 +41,7 @@ use 'wbthomason/packer.nvim'
 
 -- Needed to load first
 use {'lewis6991/impatient.nvim', rocks = 'mpack'}
+use {'nathom/filetype.nvim'}
 use {'nvim-lua/plenary.nvim'}
 use {'kyazdani42/nvim-web-devicons'}
 use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}

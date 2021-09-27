@@ -46,9 +46,11 @@ vim.o.shortmess       = vim.o.shortmess .. 'c'            --- Don't pass message
 vim.o.expandtab       = true
 vim.bo.expandtab      = true
 
+vim.g.did_load_filetyps = 1                         --- Do not source the default filetype.vim
+
 vim.cmd('colorscheme nightfly')
-vim.cmd('filetype plugin indent on') --- " Enables plugin & indent
-vim.cmd('set formatoptions-=c')      --- " Stop newline continuation of comments
+vim.cmd('filetype plugin indent on')                --- Enables plugin & indent
+vim.cmd('set formatoptions-=c')                     --- Stop newline continuation of comments
 vim.cmd('set formatoptions-=r')
 vim.cmd('set formatoptions-=o')
 vim.cmd('set completeopt=menuone,noselect')
