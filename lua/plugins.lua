@@ -69,12 +69,12 @@ use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
 use {'nvim-telescope/telescope-project.nvim'}
 
 -- General
-use {"ellisonleao/glow.nvim", run = "GlowInstall"}
+use {'ellisonleao/glow.nvim', run = "GlowInstall"}
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
 use {'mbbill/undotree'}
 use {'b3nj5m1n/kommentary', config = "require('plugins.kommentary')"}
-use {"akinsho/nvim-toggleterm.lua", config = "require('plugins.toggleterm')"}
+use {'akinsho/nvim-toggleterm.lua', config = "require('plugins.toggleterm')"}
 use {'tpope/vim-repeat'}
 use {'tpope/vim-speeddating'}
 use {'tpope/vim-surround'}
@@ -149,9 +149,7 @@ use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
 use {'mfussenegger/nvim-dap', config = "require('plugins.dap')"}
 
 -- Git
-
--- use {'rhysd/git-messenger.vim', config = "require('plugins.git-messenger')"}
-use { 'lewis6991/gitsigns.nvim',
+use {'lewis6991/gitsigns.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
     config = "require('plugins.gitsigns')",
     event = "BufRead"

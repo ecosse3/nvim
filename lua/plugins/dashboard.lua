@@ -1,5 +1,6 @@
 local icons = EcoVim.icons
 
+-- Created with figlet
 vim.g.dashboard_custom_header = {
 ' ██   ██                  ██             ',
 '░██  ██                  ░██      ██   ██',
