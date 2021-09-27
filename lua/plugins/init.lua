@@ -95,7 +95,7 @@ use {'karb94/neoscroll.nvim', config = "require('plugins.neoscroll')"}
 use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
 
 -- Snippets & Language & Syntax
-use {'windwp/nvim-autopairs', config = "require('plugins.autopairs')", after = {'nvim-treesitter'}}
+use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
 use {'p00f/nvim-ts-rainbow'}
 use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
