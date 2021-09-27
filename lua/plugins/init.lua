@@ -42,7 +42,8 @@ use 'wbthomason/packer.nvim'
 -- Needed to load first
 use {'lewis6991/impatient.nvim', rocks = 'mpack'}
 use {'nvim-lua/plenary.nvim'}
-use {"kyazdani42/nvim-web-devicons"}
+use {'kyazdani42/nvim-web-devicons'}
+use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}
 
 -- Themes
 use {'bluz71/vim-nightfly-guicolors'}
@@ -76,7 +77,6 @@ use {'b3nj5m1n/kommentary', config = "require('plugins.kommentary')"}
 use {"akinsho/nvim-toggleterm.lua", config = "require('plugins.toggleterm')"}
 use {'tpope/vim-repeat'}
 use {'tpope/vim-speeddating'}
-use {'mhinz/vim-startify'}
 use {'tpope/vim-surround'}
 use {'dhruvasagar/vim-table-mode'}
 use {'mg979/vim-visual-multi'}
