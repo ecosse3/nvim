@@ -117,7 +117,6 @@ use {'thomasfaingnaert/vim-lsp-ultisnips'}
 use {'glepnir/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
-use {'ray-x/lsp_signature.nvim'}
 use {'nvim-lua/popup.nvim'}
 
 -- LSP Cmp
