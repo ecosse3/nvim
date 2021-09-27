@@ -91,6 +91,8 @@ use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "B
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}
 use {'romgrk/barbar.nvim'}
 use {'folke/twilight.nvim', config = function() require("twilight").setup {} end}
+use {'karb94/neoscroll.nvim', config = "require('plugins.neoscroll')"}
+use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
 
 -- Snippets & Language & Syntax
 use {'windwp/nvim-autopairs', config = "require('plugins.autopairs')", after = {'nvim-treesitter'}}
