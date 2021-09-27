@@ -1,12 +1,12 @@
 local lsp_config = require('lspconfig')
-local on_attach = require('lsp.on_attach')
 local eslint = require('lsp.efm.eslint')
 local prettier = require('lsp.efm.prettier')
 
 local efm_config = os.getenv('HOME') .. '/.config/nvim/lua/lsp/efm/config.yaml'
 local efm_log_dir = '/tmp/'
 local efm_root_markers = { 'package.json', '.git/', '.zshrc' }
-local efm_languages = {
+
+local languages = {
   yaml               = { prettier },
   json               = { prettier },
   markdown           = { prettier },
@@ -25,6 +25,22 @@ local efm_languages = {
   html               = { prettier }
 }
 
+local rustywind = {
+  -- yarn global add rustywind
+  formatCommand = "rustywind --stdin",
+  formatStdin = true
+}
+
+local tailwind_fts = require"lspinstall/servers".tailwindcss.default_config
+                         .filetypes
+for _, filetype in ipairs(tailwind_fts) do
+  if languages[filetype] then
+    table.insert(languages[filetype], 1, rustywind)
+  else
+    languages[filetype] = { rustywind }
+  end
+end
+
 lsp_config.efm.setup({
   cmd = {
     "efm-langserver",
@@ -33,21 +49,23 @@ lsp_config.efm.setup({
     "-logfile",
     efm_log_dir .. "efm.log"
   },
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript',
-    'typescriptreact',
-    'typescript.tsx'
-  },
-  on_attach = on_attach,
+  filetypes = vim.tbl_keys(languages),
+  on_attach = function(bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+  end,
   root_dir  = lsp_config.util.root_pattern(unpack(efm_root_markers)),
   init_options = {
     documentFormatting = true
   },
   settings = {
     rootMarkers = efm_root_markers,
-    languages   = efm_languages
+    languages = languages
   }
 })
+
+return {
+  efm_log_dir,
+  efm_root_markers,
+  languages
+}
