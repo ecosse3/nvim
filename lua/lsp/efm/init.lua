@@ -31,15 +31,14 @@ local rustywind = {
   formatStdin = true
 }
 
-local tailwind_fts = require"lspinstall/servers".tailwindcss.default_config
-                         .filetypes
-for _, filetype in ipairs(tailwind_fts) do
-  if languages[filetype] then
-    table.insert(languages[filetype], 1, rustywind)
-  else
-    languages[filetype] = { rustywind }
-  end
-end
+-- local tailwind_fts = require"lspinstall/servers".tailwindcss.default_config.filetypes
+-- for _, filetype in ipairs(tailwind_fts) do
+--   if languages[filetype] then
+--     table.insert(languages[filetype], 1, rustywind)
+--   else
+--     languages[filetype] = { rustywind }
+--   end
+-- end
 
 lsp_config.efm.setup({
   cmd = {

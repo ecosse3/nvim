@@ -81,7 +81,6 @@ use {'tpope/vim-speeddating'}
 use {'tpope/vim-surround'}
 use {'dhruvasagar/vim-table-mode'}
 use {'mg979/vim-visual-multi'}
-use {'antoinemadec/openrgb.nvim', run = ':UpdateRemotePlugins'}
 use {'junegunn/vim-easy-align'}
 use {'JoosepAlviste/nvim-ts-context-commentstring'}
 use {'nacro90/numb.nvim', config = "require('plugins.numb')"}
