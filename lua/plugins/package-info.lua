@@ -1,3 +1,5 @@
+local icons = EcoVim.icons
+
 require('package-info').setup
 {
     colors = {
@@ -7,8 +9,8 @@ require('package-info').setup
     icons = {
         enable = true,                            -- Whether to display icons
         style = {
-            up_to_date = "  ",                   -- Icon for up to date packages
-            outdated = "  ",                     -- Icon for outdated packages
+            up_to_date = icons.checkSquare,                   -- Icon for up to date packages
+            outdated = icons.gitRemove,                     -- Icon for outdated packages
         },
     },
     autostart = true,                             -- Whether to autostart when `package.json` is opened
