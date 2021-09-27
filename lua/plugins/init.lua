@@ -141,7 +141,7 @@ use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
 use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
-use {'vuki656/package-info.nvim', config = "require('plugins.package-info')"}
+use {'vuki656/package-info.nvim', requires = "MunifTanjim/nui.nvim", config = "require('plugins.package-info')"}
 
 -- Git
 
