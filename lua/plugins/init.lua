@@ -118,6 +118,7 @@ use {'glepnir/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'nvim-lua/popup.nvim'}
+use {'SmiteshP/nvim-gps', config = "require('plugins.gps')", requires = 'nvim-treesitter/nvim-treesitter'}
 
 -- LSP Cmp
 use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
