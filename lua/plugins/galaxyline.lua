@@ -207,6 +207,7 @@ table.insert(gls.left, {
     ViModeIconAndText = {
         provider = function()
             highlight('GalaxyViMode', colors.modetext, mode_map[vim.fn.mode()][1])
+
             return icons['vim'] .. " " .. mode_map[vim.fn.mode()][2]
         end,
         highlight = 'GalaxyViMode'
@@ -268,8 +269,8 @@ table.insert(gls.left, {
     DiffAdd = {
         provider = 'DiffAdd',
         condition = condition.check_git_workspace,
-        icon = '  ',
-        -- icon = '  ',
+        -- icon = '  ',
+        icon = '  ',
         highlight = {colors.green, colors.gitbg}
     }
 })
@@ -277,8 +278,8 @@ table.insert(gls.left, {
     DiffModified = {
         provider = 'DiffModified',
         condition = condition.check_git_workspace,
-        icon = '  ',
-        -- icon = ' 柳',
+        -- icon = '  ',
+        icon = ' 柳',
         highlight = {colors.blue, colors.gitbg}
     }
 })
@@ -286,8 +287,8 @@ table.insert(gls.left, {
     DiffRemove = {
         provider = 'DiffRemove',
         condition = condition.check_git_workspace,
-        icon = '  ',
-        -- icon = '  ',
+        -- icon = '  ',
+        icon = '  ',
         highlight = {colors.red, colors.gitbg}
     }
 })
