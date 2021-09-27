@@ -144,6 +144,10 @@ use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
 use {'vuki656/package-info.nvim', requires = "MunifTanjim/nui.nvim", config = "require('plugins.package-info')"}
 
+-- Debug
+use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
+use {'mfussenegger/nvim-dap', config = "require('plugins.dap')"}
+
 -- Git
 
 -- use {'rhysd/git-messenger.vim', config = "require('plugins.git-messenger')"}
