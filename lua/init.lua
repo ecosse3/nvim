@@ -1,6 +1,6 @@
 require('default')
-require('settings')
 require('plugins')
+require('settings')
 require('keymappings')
 require('lsp/efm')
 require('lsp/tsserver')

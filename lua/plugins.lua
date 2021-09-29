@@ -47,7 +47,7 @@ use {'kyazdani42/nvim-web-devicons'}
 use {'glepnir/dashboard-nvim', config = "require('plugins.dashboard')"}
 
 -- Themes
-use {'bluz71/vim-nightfly-guicolors'}
+use {'folke/tokyonight.nvim'}
 
 -- Treesitter
 use {'nvim-treesitter/nvim-treesitter',

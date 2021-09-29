@@ -48,7 +48,7 @@ vim.bo.expandtab      = true
 
 vim.g.did_load_filetyps = 1                         --- Do not source the default filetype.vim
 
-vim.cmd('colorscheme nightfly')
+vim.cmd('colorscheme tokyonight')
 vim.cmd('filetype plugin indent on')                --- Enables plugin & indent
 vim.cmd('set formatoptions-=c')                     --- Stop newline continuation of comments
 vim.cmd('set formatoptions-=r')
