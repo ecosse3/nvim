@@ -115,7 +115,8 @@ use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
 use {'thomasfaingnaert/vim-lsp-ultisnips'}
-use {'ray-x/navigator.lua', config = "require('plugins.navigator')", requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+-- use {'ray-x/navigator.lua', config = "require('plugins.navigator')", requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'nvim-lua/popup.nvim'}
