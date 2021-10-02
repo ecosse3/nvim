@@ -1,3 +1,8 @@
+-- Better scape
+vim.api.nvim_set_keymap("n", "jk", "<Esc>", { noremap = true})
+vim.api.nvim_set_keymap("v", "jk", "<Esc>", { noremap = true})
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true})
+
 -- Better window movement
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { silent = true })
