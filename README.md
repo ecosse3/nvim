@@ -6,8 +6,7 @@
 
 ## Screenshots
 
-![Neovim](./screenshots/1n.png)
-![Neovim](./screenshots/2n.png)
+![Neovim](./screenshots/3-current.png)
 
 ## Todo
 
