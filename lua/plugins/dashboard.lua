@@ -16,6 +16,6 @@ vim.g.dashboard_custom_section = {
   d = {description = {icons.t ..            'Find Word          '}, command = 'Telescope live_grep'},
   e = {description = {icons.container ..    'Sync Plugins       '}, command = 'PackerSync'},
   f = {description = {icons.container ..    'Install Plugins    '}, command = 'PackerInstall'},
-  g = {description = {icons.container ..    'Settings           '}, command = 'edit $MYVIMRC'},
+  g = {description = {icons.vim ..          'Settings           '}, command = 'edit $MYVIMRC'},
   h = {description = {icons.container ..    'Exit               '}, command = 'exit'},
 }

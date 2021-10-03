@@ -101,7 +101,7 @@ use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
-use {'SirVer/ultisnips'}
+use {'SirVer/ultisnips', config ="require('plugins.ultisnips')"}
 use {'tpope/vim-dadbod'}
 use {'kristijanhusak/vim-dadbod-ui'}
 use {'hrsh7th/vim-vsnip'}
@@ -114,7 +114,8 @@ use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
 use {'thomasfaingnaert/vim-lsp-ultisnips'}
-use {'ray-x/navigator.lua', config = "require('plugins.navigator')", requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+-- use {'ray-x/navigator.lua', config = "require('plugins.navigator')", requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'nvim-lua/popup.nvim'}
@@ -135,6 +136,7 @@ use {'kyazdani42/nvim-tree.lua',
   requires = { 'kyazdani42/nvim-web-devicons'},
   config = "require('plugins.tree')"
 }
+use {'ygm2/rooter.nvim'}
 
 -- React
 use {'peitalin/vim-jsx-typescript'}

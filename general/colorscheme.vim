@@ -16,7 +16,7 @@ augroup CLClear
     autocmd! ColorScheme * hi clear CursorLine
 augroup END
 
-hi CursorLineNR cterm=bold guifg=Yellow ctermfg=Yellow
+hi CursorLineNR cterm=bold guifg=Yellow ctermfg=Yellow guibg=None
 augroup CLNRSet
     autocmd! ColorScheme * hi CursorLineNR cterm=bold guifg=Yellow ctermfg=Yellow
 augroup END

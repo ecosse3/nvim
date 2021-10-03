@@ -1,3 +1,5 @@
+local icons = EcoVim.icons
+
 require("trouble").setup {
   height      = 10, -- height of the trouble list
   icons       = true, -- use dev-icons for filenames
@@ -20,10 +22,10 @@ require("trouble").setup {
   auto_close   = false, -- automatically close the list when you have no diagnostics
   signs = {
       -- icons / text used for a diagnostic
-      error       = "",
-      warning     = "",
-      hint        = "",
-      information = ""
+      error       = icons.errorOutline,
+      warning     = icons.warningTriangleNoBg,
+      hint        = icons.lightbulbOutline,
+      information = icons.infoOutline,
   },
   use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 };
