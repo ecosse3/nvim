@@ -102,7 +102,7 @@ use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
-use {'SirVer/ultisnips'}
+use {'SirVer/ultisnips', config ="require('plugins.ultisnips')"}
 use {'tpope/vim-dadbod'}
 use {'kristijanhusak/vim-dadbod-ui'}
 use {'hrsh7th/vim-vsnip'}
@@ -137,6 +137,7 @@ use {'kyazdani42/nvim-tree.lua',
   requires = { 'kyazdani42/nvim-web-devicons'},
   config = "require('plugins.tree')"
 }
+use {'ygm2/rooter.nvim'}
 
 -- React
 use {'peitalin/vim-jsx-typescript'}
