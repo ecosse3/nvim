@@ -386,32 +386,14 @@ table.insert(gls.left, {
 
 -- GPS {{{3
 table.insert(gls.left, {
-    GPSectionStart = {
-      provider = function() return leftbracket end,
-      condition = function()
-        return gps.is_available()
-      end,
-      highlight = {colors.gpsbg, colors.bg}
-    }
-})
-table.insert(gls.left, {
     nvimGPS = {
       provider = function()
         return gps.get_location()
       end,
       condition = function()
-        return gps.is_available()
+        return gps.is_available() and #gps.get_location() > 0
       end,
-      highlight = {colors.gpstext, colors.gpsbg}
-    }
-})
-table.insert(gls.left, {
-    GPSectionEnd = {
-      provider = function() return rightbracket .. " " end,
-      condition = function()
-        return gps.is_available()
-      end,
-      highlight = {colors.gpsbg, colors.bg}
+      highlight = {colors.gpstext, colors.bg}
     }
 })
 -- }}}3
