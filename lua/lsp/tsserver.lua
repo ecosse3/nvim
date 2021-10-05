@@ -70,13 +70,12 @@ require'lspconfig'.tsserver.setup({
         update_imports_on_move = true,
         require_confirmation_on_move = true,
         watch_dir = nil,
+
+        -- filter diagnostics
+        filter_out_diagnostics_by_severity = { "hint" },
+        filter_out_diagnostics_by_code = {},
     }
 
     ts_utils.setup_client(client)
-
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>co", ":TSLspOrganize<CR>",   { silent = true })
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>",         { silent = true })
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>cR", ":TSLspRenameFile<CR>", { silent = true })
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>ci", ":TSLspImportAll<CR>",  { silent = true })
   end
 })
