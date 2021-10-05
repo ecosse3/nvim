@@ -138,12 +138,13 @@ use {'kyazdani42/nvim-tree.lua',
 }
 use {'ygm2/rooter.nvim'}
 
--- React
+-- React/TypeScript
 use {'peitalin/vim-jsx-typescript'}
 use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
 use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
+use {'jose-elias-alvarez/null-ls.nvim'}
 
 -- Debug
 use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
