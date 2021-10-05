@@ -1,12 +1,14 @@
 hi Comment cterm=italic
 
 " Errors in Red
-hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red gui=bold
+hi DiagnosticVirtualTextError guifg=Red ctermfg=Red gui=bold
 " Warnings in Yellow
 hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow
+hi DiagnosticVirtualTextWarning guifg=Yellow ctermfg=Yellow
 " Info and Hints in White
-hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White
-hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White
+hi DiagnosticVirtualTextInformation guifg=White ctermfg=White
+hi DiagnosticVirtualTextHint guifg=White ctermfg=White
 
 hi link gitmessengerPopupNormal LspSagaBorderTitle
 
