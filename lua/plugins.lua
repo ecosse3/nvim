@@ -114,7 +114,6 @@ use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
 use {'thomasfaingnaert/vim-lsp-ultisnips'}
--- use {'ray-x/navigator.lua', config = "require('plugins.navigator')", requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
 use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
@@ -138,13 +137,13 @@ use {'kyazdani42/nvim-tree.lua',
 }
 use {'ygm2/rooter.nvim'}
 
--- React
+-- React/TypeScript
 use {'peitalin/vim-jsx-typescript'}
 use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
 use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
-use {'vuki656/package-info.nvim', requires = "MunifTanjim/nui.nvim", config = "require('plugins.package-info')"}
+use {'jose-elias-alvarez/null-ls.nvim'}
 
 -- Debug
 use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
