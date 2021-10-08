@@ -1,4 +1,4 @@
-require('default')
+require('config')
 require('settings')
 require('plugins')
 require('keymappings')
