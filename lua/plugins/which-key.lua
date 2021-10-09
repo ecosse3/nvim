@@ -127,9 +127,11 @@ local mappings = {
     d = { '<cmd>LspTroubleToggle<CR>',                   'local diagnostics' },
     D = { '<cmd>Telescope lsp_document_diagnostics<CR>', 'diagnostics' },
     f = { 'format' },
-    l = { 'line diagnostics ' },
+    i = { '<cmd>TSLspImportAll<CR>',                     'import all'},
+    l = { 'line diagnostics' },
+    o = { '<cmd>TSLspOrganize<CR>',                      'organize imports'},
+    q = { '<cmd>TSLspFixCurrent<CR>',                    'quick fix' },
     r = { 'rename' },
-    q = { '<cmd>Lspsaga code_action<CR>',                'quick fix' },
     s = { '<cmd>Telescope symbols<CR>',                  'symbols' },
   },
 

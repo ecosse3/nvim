@@ -7,7 +7,7 @@ require("nvim-gps").setup({
 	-- Disable any languages individually over here
 	-- Any language not disabled here is enabled by default
 	languages = {
-		-- ["bash"] = false,
+		["html"] = false,
 		-- ["go"] = false,
 	},
 	separator = ' > ',

@@ -67,6 +67,74 @@ gls.left[5] = {
         provider = "DiagnosticWarn",
         icon = "  ",
         highlight = {colors.yellow}
+        provider = 'DiagnosticWarn',
+        icon = '  ',
+        highlight = {colors.diagwarn, colors.lspbg}
+    }
+})
+table.insert(gls.left, {
+    DiagnosticHint = {
+        provider = 'DiagnosticHint',
+        icon = '  ',
+        highlight = {colors.diaghint, colors.lspbg}
+    }
+})
+table.insert(gls.left, {
+    DiagnosticInfo = {
+        provider = 'DiagnosticInfo',
+        icon = '  ',
+        highlight = {colors.diaginfo, colors.lspbg}
+    }
+})
+table.insert(gls.left, {
+    LspSectionEnd = {
+        provider = function() return rightbracket .. " " end,
+        highlight = {colors.lspbg, colors.bg}
+    }
+})
+-- }}}3
+
+-- GPS {{{3
+table.insert(gls.left, {
+    nvimGPS = {
+      provider = function()
+        return gps.get_location()
+      end,
+      condition = function()
+        return gps.is_available() and #gps.get_location() > 0
+      end,
+      highlight = {colors.gpstext, colors.bg}
+    }
+})
+-- }}}3
+
+-- }}}2
+
+-- }}}1
+
+-- Right {{{1
+gls.right = {}
+
+-- Type {{{2
+table.insert(gls.right, {
+    TypeStart = {
+        provider = function() return leftbracket end,
+        highlight = {colors.typeicon, colors.bg}
+    }
+})
+table.insert(gls.right, {
+    TypeFileFormatIcon = {
+        provider = function()
+            local icon = icons[vim.bo.fileformat] or ''
+            return string.format(' %s', icon)
+        end,
+        highlight = {colors.typebg, colors.typeicon}
+    }
+})
+table.insert(gls.right, {
+    TypeMid = {
+        provider = function() return rightbracket .. ' ' end,
+        highlight = {colors.typeicon, colors.typebg}
     }
 }
 gls.right[1] = {
