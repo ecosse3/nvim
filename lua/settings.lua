@@ -46,8 +46,9 @@ vim.o.shortmess       = vim.o.shortmess .. 'c'            --- Don't pass message
 vim.o.expandtab       = true
 vim.bo.expandtab      = true
 
-vim.g.did_load_filetyps       = 1                   --- Do not source the default filetype.vim
-vim.g.speeddating_no_mappings = 1
+vim.g.did_load_filetyps           = 1               --- Do not source the default filetype.vim
+vim.g.speeddating_no_mappings     = 1
+vim.g.dashboard_default_executive = 'telescope'
 
 vim.cmd('colorscheme nightfly')
 vim.cmd('filetype plugin indent on')                --- Enables plugin & indent
