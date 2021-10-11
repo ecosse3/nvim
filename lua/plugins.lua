@@ -67,7 +67,9 @@ use {'nvim-telescope/telescope.nvim',
   }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
-use {'nvim-telescope/telescope-project.nvim'}
+use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{
+  ignore_lsp = {'null-ls'}
+} end}
 
 -- General
 use {'ellisonleao/glow.nvim', run = "GlowInstall"}
@@ -135,7 +137,6 @@ use {'kyazdani42/nvim-tree.lua',
   requires = { 'kyazdani42/nvim-web-devicons'},
   config = "require('plugins.tree')"
 }
-use {'ygm2/rooter.nvim'}
 
 -- React/TypeScript
 use {'peitalin/vim-jsx-typescript'}
