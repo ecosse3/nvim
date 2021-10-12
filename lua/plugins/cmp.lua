@@ -14,6 +14,7 @@ cmp.setup {
     expand = function(args)
       -- You must install `vim-vsnip` if you use the following as-is.
       vim.fn['vsnip#anonymous'](args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
     end
   },
 
@@ -65,6 +66,7 @@ cmp.setup {
     { name = 'cmp_tabnine' },
     { name = 'nvim_lua'    },
     { name = 'vsnip'       },
+    { name = 'ultisnips'   },
   },
 }
 
