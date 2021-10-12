@@ -103,7 +103,7 @@ use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
-use {'SirVer/ultisnips', config ="require('plugins.ultisnips')"}
+use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config ="require('plugins.ultisnips')"}
 use {'tpope/vim-dadbod'}
 use {'kristijanhusak/vim-dadbod-ui'}
 use {'hrsh7th/vim-vsnip'}
