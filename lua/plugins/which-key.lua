@@ -176,7 +176,7 @@ local mappings = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
-    l = { '<cmd>Telescope project<CR>',                  'list' },
+    l = { '<cmd>Telescope projects<CR>',                 'list' },
     t = { "<cmd>TodoTrouble<CR>",                        'todo' }
   },
 
