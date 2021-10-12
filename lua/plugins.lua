@@ -104,10 +104,11 @@ use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config ="require('plugins.ultisnips')"}
+use {'hrsh7th/vim-vsnip'}
+
+-- DB
 use {'tpope/vim-dadbod'}
 use {'kristijanhusak/vim-dadbod-ui'}
-use {'hrsh7th/vim-vsnip'}
-use {'kitagry/vs-snippets'}
 
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
