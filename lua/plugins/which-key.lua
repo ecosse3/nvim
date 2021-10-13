@@ -182,10 +182,11 @@ local mappings = {
 
   s = {
     name = "Search",
-    c = { '<cmd>Telescope colorscheme<CR>',              'color schemes' },
-    h = { '<cmd>Telescope oldfiles<CR>',                 'file history' },
-    H = { '<cmd>Telescope command_history<CR>',          'command history' },
-    s = { '<cmd>Telescope search_history<CR>',           'search history' },
+    c = { '<cmd>Telescope colorscheme<CR>',                          'color schemes' },
+    d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>', 'dotfiles' },
+    h = { '<cmd>Telescope oldfiles<CR>',                             'file history' },
+    H = { '<cmd>Telescope command_history<CR>',                      'command history' },
+    s = { '<cmd>Telescope search_history<CR>',                       'search history' },
   },
 
   t = {

@@ -1,4 +1,6 @@
-local actions = require('telescope.actions')
+local actions    = require('telescope.actions')
+local previewers = require('telescope.previewers')
+local builtin    = require('telescope.builtin')
 require('telescope').setup {
     defaults = {
         vimgrep_arguments = {
@@ -59,8 +61,6 @@ require('telescope').load_extension('projects')
 
 -- Implement delta as previewer for diffs
 
-local previewers = require('telescope.previewers')
-local builtin    = require('telescope.builtin')
 local M = {}
 
 local delta = previewers.new_termopen_previewer {
@@ -90,5 +90,24 @@ M.my_git_bcommits = function(opts)
 
   builtin.git_bcommits(opts)
 end
+
+M.edit_neovim = function()
+  builtin.git_files {
+    cwd = "~/.config/nvim",
+    prompt = "~ dotfiles ~",
+    color_devicons   = true,
+    sorting_strategy = "ascending",
+    layout_config = {
+      horizontal = {
+        mirror = false,
+      },
+      vertical = {
+        mirror = false,
+      },
+      prompt_position = "top",
+    },
+  }
+end
+
 
 return M
