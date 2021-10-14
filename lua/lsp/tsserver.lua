@@ -1,6 +1,6 @@
 local null_ls = require("null-ls")
 local ts_utils = require("nvim-lsp-ts-utils")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.preselectSupport = true
 capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
@@ -28,7 +28,9 @@ local sources = {
 null_ls.config({
   sources = sources
 })
-require("lspconfig")["null-ls"].setup({})
+require("lspconfig")["null-ls"].setup({
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+})
 
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup({
@@ -39,7 +41,6 @@ require'lspconfig'.tsserver.setup({
 
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-
 
     ts_utils.setup {
         debug = false,
@@ -53,6 +54,12 @@ require'lspconfig'.tsserver.setup({
         eslint_bin = 'eslint_d',
         eslint_config_fallback = nil,
         eslint_enable_diagnostics = true,
+        eslint_opts = {
+          -- diagnostics_format = "#{m} [#{c}]",
+          condition = function(utils)
+              return utils.root_has_file(".eslintrc.js")
+          end,
+        },
 
         -- formatting
         enable_formatting = false,
