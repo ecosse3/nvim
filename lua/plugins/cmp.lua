@@ -3,12 +3,6 @@ local cmp = require('cmp')
 local lspkind = require('lspkind')
 local tabnine = require('cmp_tabnine.config')
 
-local source_mapping = {
-  buffer      = "[B]",
-  nvim_lsp    = "[LSP]",
-  cmp_tabnine = "[TN]",
-}
-
 local has_any_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
     return false
@@ -58,7 +52,7 @@ cmp.setup {
   },
 
   formatting = {
-    format = function(entry, vim_item)
+    --[[ format = function(entry, vim_item)
       vim_item.kind = lspkind.presets.default[vim_item.kind]
       local menu = source_mapping[entry.source.name]
 
@@ -71,19 +65,30 @@ cmp.setup {
 
       vim_item.menu = menu
       return vim_item
-    end
+    end ]]
+    format = lspkind.cmp_format({with_text = true, maxwidth = 50, menu = ({
+      buffer      = EcoVim.icons.buffer,
+      nvim_lsp    = EcoVim.icons.warningTriangle,
+      nvim_lua    = EcoVim.icons.bomb,
+      path        = EcoVim.icons.folderOpen2,
+      spell       = EcoVim.icons.spell,
+      cmp_tabnine = EcoVim.icons.light,
+      treesitter  = EcoVim.icons.tree,
+      zsh         = EcoVim.icons.terminal,
+    })})
   },
 
   -- You should specify your *installed* sources.
   sources = {
-    { name = 'nvim_lsp'    },
     { name = 'buffer'      },
-    { name = 'path'        },
     { name = 'calc'        },
     { name = 'cmp_tabnine' },
+    { name = 'nvim_lsp'    },
     { name = 'nvim_lua'    },
-    { name = 'vsnip'       },
+    { name = 'path'        },
+    { name = 'spell'       },
     { name = 'ultisnips'   },
+    { name = 'vsnip'       },
   },
 }
 
