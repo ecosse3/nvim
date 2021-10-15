@@ -8,7 +8,6 @@ require("nvim-gps").setup({
 	-- Any language not disabled here is enabled by default
 	languages = {
 		["html"] = false,
-		-- ["go"] = false,
 	},
 	separator = ' > ',
 })
