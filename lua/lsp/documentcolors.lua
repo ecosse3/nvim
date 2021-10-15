@@ -93,7 +93,7 @@ end
 --- Can be called to manually update the color highlighting
 function M.update_highlight(bufnr, options)
   local params = { textDocument = vim.lsp.util.make_text_document_params() }
-  vim.lsp.buf_request(bufnr, "textDocument/documentColor", params, function(err, _, result, _, _, _)
+  vim.lsp.buf_request(bufnr, "textDocument/documentColor", params, function(err, result, _, _)
     if err == nil and result ~= nil then buf_set_highlights(bufnr, result, options) end
   end)
 end
