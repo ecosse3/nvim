@@ -105,6 +105,7 @@ use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config ="require('plugins.ultisnips')"}
 use {'hrsh7th/vim-vsnip'}
+use {'lpinilla/vim-codepainter'}
 
 -- DB
 use {'tpope/vim-dadbod'}
