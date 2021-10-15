@@ -65,7 +65,7 @@ vim.api.nvim_set_keymap("n", "<Leader>dh", "<CMD>lua require('dap.ui.variables')
 vim.api.nvim_set_keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>",           { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>",            { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>",           { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>ds", "<CMD>lua require('dap.ui.varaibles').scopes()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>ds", "<CMD>lua require('dap.ui.variables').scopes()<CR>", { noremap = true, silent = true })
 
 -- NODE / TYPESCRIPT
 dap.adapters.node2 = {
