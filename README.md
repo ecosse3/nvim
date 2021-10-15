@@ -14,6 +14,7 @@
 |----------------------------------------------|--------------------------------------------------------------------|
 | Rewrite most config to lua                   | ![95%](https://progress-bar.dev/95/?title=progress)                |
 | Provide current screenshots                  | ![50%](https://progress-bar.dev/50/?title=progress)                |
+| Create shell installer for Linux & macOS     | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Find way to refactor words like in coc       | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | List all plugins I use in README             | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Support for nvim-dap debugger for React      | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
