@@ -67,9 +67,7 @@ use {'nvim-telescope/telescope.nvim',
   }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
-use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{
-  ignore_lsp = {'null-ls'}
-} end}
+use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{} end}
 
 -- General
 use {'ellisonleao/glow.nvim', run = "GlowInstall"}
@@ -113,7 +111,7 @@ use {'kristijanhusak/vim-dadbod-ui'}
 
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
-use {'kabouzeid/nvim-lspinstall', config = "require('lsp.install')", event = "VimEnter"}
+use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
 use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
@@ -146,7 +144,6 @@ use {'mlaursen/vim-react-snippets'}
 use {'styled-components/vim-styled-components'}
 use {'neoclide/vim-jsx-improve'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
-use {'jose-elias-alvarez/null-ls.nvim'}
 
 -- Debug
 use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}

@@ -1,4 +1,3 @@
-local null_ls = require("null-ls")
 local ts_utils = require("nvim-lsp-ts-utils")
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -16,28 +15,12 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local sources = {
-  null_ls.builtins.diagnostics.eslint_d.with({
-    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
-    command = "eslint_d",
-    args = { "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" }
-  })
-}
-
---- null-ls
-null_ls.config({
-  sources = sources
-})
-require("lspconfig")["null-ls"].setup({
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-})
-
 -- npm install -g typescript typescript-language-server
 require'lspconfig'.tsserver.setup({
   capabilities = capabilities,
   on_attach = function(client, bufnr)
-    client.resolved_capabilities.document_formatting = true
-    client.resolved_capabilities.document_range_formatting = true
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
 
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -49,11 +32,11 @@ require'lspconfig'.tsserver.setup({
         import_all_timeout = 5000, -- ms
 
         -- eslint
-        eslint_enable_code_actions = true,
-        eslint_enable_disable_comments = true,
+        eslint_enable_code_actions = false,
+        eslint_enable_disable_comments = false,
         eslint_bin = 'eslint_d',
         eslint_config_fallback = nil,
-        eslint_enable_diagnostics = true,
+        eslint_enable_diagnostics = false,
         eslint_opts = {
           -- diagnostics_format = "#{m} [#{c}]",
           condition = function(utils)
