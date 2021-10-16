@@ -15,6 +15,18 @@ local press = function(key)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
 end
 
+local source_mapping = {
+  buffer      = EcoVim.icons.buffer,
+  cmp_tabnine = EcoVim.icons.light,
+  nvim_lsp    = EcoVim.icons.paragraph,
+  nvim_lua    = EcoVim.icons.bomb,
+  path        = EcoVim.icons.folderOpen2,
+  ultisnips   = EcoVim.icons.snippet,
+  spell       = EcoVim.icons.spell,
+  treesitter  = EcoVim.icons.tree,
+  zsh         = EcoVim.icons.terminal,
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -51,30 +63,22 @@ cmp.setup {
   },
 
   formatting = {
-    --[[ format = function(entry, vim_item)
-      vim_item.kind = lspkind.presets.default[vim_item.kind]
+    format = function(entry, vim_item)
+      vim_item.kind = lspkind.symbolic(vim_item.kind, { with_text = true })
       local menu = source_mapping[entry.source.name]
+      local maxwidth = 50
 
       if entry.source.name == 'cmp_tabnine' then
 				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
 					menu = menu .. ' ' .. entry.completion_item.data.detail
 				end
-				vim_item.kind = ''
 			end
 
       vim_item.menu = menu
+      vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+
       return vim_item
-    end ]]
-    format = lspkind.cmp_format({with_text = true, maxwidth = 50, menu = ({
-      buffer      = EcoVim.icons.buffer,
-      nvim_lsp    = EcoVim.icons.warningTriangle,
-      nvim_lua    = EcoVim.icons.bomb,
-      path        = EcoVim.icons.folderOpen2,
-      spell       = EcoVim.icons.spell,
-      cmp_tabnine = EcoVim.icons.light,
-      treesitter  = EcoVim.icons.tree,
-      zsh         = EcoVim.icons.terminal,
-    })})
+    end
   },
 
   -- You should specify your *installed* sources.
