@@ -55,6 +55,7 @@ local icons = {
   settings            = '  ',
   sort                = '  ',
   spell               = ' 暈',
+  snippet             = '  ',
   t                   = '  ',
   terminal            = '  ',
   threeDots           = '  ',
