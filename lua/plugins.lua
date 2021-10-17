@@ -74,7 +74,7 @@ use {'ellisonleao/glow.nvim', run = "GlowInstall"}
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
 use {'mbbill/undotree'}
-use {'b3nj5m1n/kommentary', config = "require('plugins.kommentary')"}
+use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
 use {'akinsho/nvim-toggleterm.lua', config = "require('plugins.toggleterm')"}
 use {'tpope/vim-repeat'}
 use {'tpope/vim-speeddating'}
@@ -82,7 +82,7 @@ use {'tpope/vim-surround'}
 use {'dhruvasagar/vim-table-mode'}
 use {'mg979/vim-visual-multi'}
 use {'junegunn/vim-easy-align'}
-use {'JoosepAlviste/nvim-ts-context-commentstring'}
+use {'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'}
 use {'nacro90/numb.nvim', config = "require('plugins.numb')"}
 use {'folke/todo-comments.nvim'}
 use {'folke/zen-mode.nvim', config = "require('plugins.zen')"}
