@@ -66,7 +66,6 @@ use {'nvim-telescope/telescope.nvim',
     }
   }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make' }
 use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{} end}
 
 -- General
