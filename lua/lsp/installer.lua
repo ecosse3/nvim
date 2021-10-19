@@ -28,7 +28,7 @@ lsp_installer.on_server_ready(function(server)
     if server.name == "tailwindcss" then
         opts.on_attach = function (client, bufnr)
             if client.server_capabilities.colorProvider then
-                require"lsp/documentcolors".buf_attach(bufnr, { single_column = true })
+                require"lsp/documentcolors".buf_attach(bufnr)
             end
             capabilities.textDocument.completion.completionItem.snippetSupport = true
             capabilities.textDocument.colorProvider = { dynamicRegistration = false }
