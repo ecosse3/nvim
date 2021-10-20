@@ -103,7 +103,6 @@ use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
 use {'hrsh7th/vim-vsnip'}
 use {'lpinilla/vim-codepainter'}
-use {'styled-components/vim-styled-components'} -- TODO: Make sure this works
 
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
