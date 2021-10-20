@@ -12,7 +12,6 @@
 
 | Description                                  | Progress                                                           |
 |----------------------------------------------|--------------------------------------------------------------------|
-| Rewrite most config to lua                   | ![95%](https://progress-bar.dev/95/?title=progress)                |
 | Provide current screenshots                  | ![50%](https://progress-bar.dev/50/?title=progress)                |
 | Support for nvim-dap debugger for React      | ![50%](https://progress-bar.dev/50/?title=progress)                |
 | Create shell installer for Linux & macOS     | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
@@ -23,4 +22,5 @@
 | Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Update statusline to support LSP diagnostics | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 
