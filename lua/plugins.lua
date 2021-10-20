@@ -103,15 +103,11 @@ use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
 use {'hrsh7th/vim-vsnip'}
 use {'lpinilla/vim-codepainter'}
-
--- DB
-use {'tpope/vim-dadbod'}
-use {'kristijanhusak/vim-dadbod-ui'}
+use {'styled-components/vim-styled-components'} -- TODO: Make sure this works
 
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
 use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
-use {'prabirshrestha/async.vim'}
 use {'prabirshrestha/vim-lsp'}
 use {'thomasfaingnaert/vim-lsp-snippets'}
 use {'thomasfaingnaert/vim-lsp-ultisnips'}
@@ -120,6 +116,7 @@ use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'nvim-lua/popup.nvim'}
 use {'SmiteshP/nvim-gps', config = "require('plugins.gps')", requires = 'nvim-treesitter/nvim-treesitter'}
+use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
 
 -- LSP Cmp
 use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
@@ -137,16 +134,10 @@ use {'kyazdani42/nvim-tree.lua',
   config = "require('plugins.tree')"
 }
 
--- React/TypeScript
-use {'peitalin/vim-jsx-typescript'}
-use {'mlaursen/vim-react-snippets'}
-use {'styled-components/vim-styled-components'}
-use {'neoclide/vim-jsx-improve'}
-use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
-
 -- Debug
-use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
-use {'mfussenegger/nvim-dap', config = "require('plugins.dap')"}
+-- TODO: Configure dap
+-- use {'rcarriga/nvim-dap-ui', requires = {"mfussenegger/nvim-dap"}}
+-- use {'mfussenegger/nvim-dap', config = "require('plugins.dap')"}
 
 -- Git
 use {'lewis6991/gitsigns.nvim',
