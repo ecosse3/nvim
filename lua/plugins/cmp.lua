@@ -16,15 +16,15 @@ local press = function(key)
 end
 
 local source_mapping = {
-  buffer      = EcoVim.icons.buffer,
+  buffer      = EcoVim.icons.buffer .. '[BUF]',
+  calc        = EcoVim.icons.calculator,
   cmp_tabnine = EcoVim.icons.light,
-  nvim_lsp    = EcoVim.icons.paragraph,
+  nvim_lsp    = EcoVim.icons.paragraph .. '[LSP]',
   nvim_lua    = EcoVim.icons.bomb,
   path        = EcoVim.icons.folderOpen2,
-  ultisnips   = EcoVim.icons.snippet,
-  spell       = EcoVim.icons.spell,
   treesitter  = EcoVim.icons.tree,
-  zsh         = EcoVim.icons.terminal,
+  ultisnips   = EcoVim.icons.snippet,
+  zsh         = EcoVim.icons.terminal .. '[ZSH]',
 }
 
 cmp.setup {
@@ -70,7 +70,7 @@ cmp.setup {
 
       if entry.source.name == 'cmp_tabnine' then
 				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-					menu = menu .. ' ' .. entry.completion_item.data.detail
+					menu = menu .. '[' .. entry.completion_item.data.detail .. ']'
 				end
 			end
 
@@ -83,16 +83,20 @@ cmp.setup {
 
   -- You should specify your *installed* sources.
   sources = {
-    { name = 'buffer'      },
-    { name = 'calc'        },
-    { name = 'cmp_tabnine' },
-    { name = 'nvim_lsp'    },
-    { name = 'nvim_lua'    },
-    { name = 'path'        },
-    { name = 'spell'       },
-    { name = 'ultisnips'   },
-    { name = 'vsnip'       },
+    { name = 'nvim_lsp'                        },
+    { name = 'cmp_tabnine', max_item_count = 3 },
+    { name = 'ultisnips'                       },
+    { name = 'vsnip'                           },
+    { name = 'buffer', keyword_length = 5      },
+    { name = 'path'                            },
+    { name = 'calc'                            },
+    { name = 'nvim_lua'                        },
   },
+
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  }
 }
 
 tabnine:setup({
