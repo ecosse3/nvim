@@ -140,7 +140,8 @@ use {'kyazdani42/nvim-tree.lua',
 
 -- Git
 use {'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = "require('plugins.gitsigns')",
-    event = "BufRead"
-  }
+  requires = { 'nvim-lua/plenary.nvim' },
+  config = "require('plugins.gitsigns')",
+  event = "BufRead"
+}
+use {'sindrets/diffview.nvim'}
