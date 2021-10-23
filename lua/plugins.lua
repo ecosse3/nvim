@@ -107,9 +107,6 @@ use {'lpinilla/vim-codepainter'}
 -- LSP
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
 use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
-use {'prabirshrestha/vim-lsp'}
-use {'thomasfaingnaert/vim-lsp-snippets'}
-use {'thomasfaingnaert/vim-lsp-ultisnips'}
 use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim', config = "require('plugins.kind')"}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
