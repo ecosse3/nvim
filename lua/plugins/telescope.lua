@@ -109,5 +109,4 @@ M.edit_neovim = function()
   }
 end
 
-
 return M
