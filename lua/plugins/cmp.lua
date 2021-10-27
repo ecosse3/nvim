@@ -19,6 +19,7 @@ local source_mapping = {
   buffer      = EcoVim.icons.buffer .. '[BUF]',
   calc        = EcoVim.icons.calculator,
   cmp_tabnine = EcoVim.icons.light,
+  npm         = EcoVim.icons.terminal .. '[NPM]',
   nvim_lsp    = EcoVim.icons.paragraph .. '[LSP]',
   nvim_lua    = EcoVim.icons.bomb,
   path        = EcoVim.icons.folderOpen2,
@@ -84,9 +85,10 @@ cmp.setup {
   -- You should specify your *installed* sources.
   sources = {
     { name = 'nvim_lsp'                        },
-    { name = 'cmp_tabnine', max_item_count = 3 },
+    { name = 'npm'                             },
     { name = 'ultisnips'                       },
     { name = 'vsnip'                           },
+    { name = 'cmp_tabnine', max_item_count = 3 },
     { name = 'buffer', keyword_length = 5      },
     { name = 'path'                            },
     { name = 'calc'                            },
