@@ -1,9 +1,9 @@
 require('impatient')
 require('config')
+require('colorscheme')
 require('settings')
 require('plugins')
 require('keymappings')
-require('colorscheme')
 require('functions')
 
 require('lsp/config')
