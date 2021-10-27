@@ -21,14 +21,14 @@ vim.api.nvim_set_keymap("n", "<C-u>", "viwU<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-u>", "<ESC>viwUi", { noremap = true })
 
 -- Telescope
-vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>Telescope find_files<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>Telescope git_files<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap = true })
 
 -- Remove highlights
 vim.api.nvim_set_keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true, silent = true })
 
 -- Find word/file across project
-vim.api.nvim_set_keymap("n", "<Leader>pf", "yiw<CMD>Telescope find_files<CR><C-r>+<ESC>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>pf", "yiw<CMD>Telescope git_files<CR><C-r>+<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>pw", "<CMD>Telescope grep_string<CR><ESC>", { noremap = true })
 
 -- Git
@@ -100,4 +100,8 @@ vim.cmd [[
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
 
 -- Open links under cursor in browser with gx
-vim.api.nvim_set_keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", { silent = true })
+if vim.fn.has('macunix') == 1 then
+  vim.api.nvim_set_keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", { silent = true })
+else
+  vim.api.nvim_set_keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", { silent = true })
+end
