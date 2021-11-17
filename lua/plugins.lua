@@ -54,8 +54,8 @@ use {'folke/tokyonight.nvim'}
 use {'nvim-treesitter/nvim-treesitter',
     config = "require('plugins.treesitter')",
     run = ':TSUpdate'}
-use {'nvim-treesitter/nvim-treesitter-textobjects',
-    after = {'nvim-treesitter'}}
+use {'nvim-treesitter/nvim-treesitter-textobjects', after = {'nvim-treesitter'}}
+use {'RRethy/nvim-treesitter-textsubjects', after = {'nvim-treesitter'}}
 
 -- Telescope
 use {'nvim-telescope/telescope.nvim',

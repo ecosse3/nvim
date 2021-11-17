@@ -5,7 +5,7 @@ require'nvim-treesitter.configs'.setup {
   },
 
   incremental_selection = {
-    enable = true,
+    enable = false,
     keymaps = {
       init_selection    = "<leader>gnn",
       node_incremental  = "<leader>gnr",
@@ -63,4 +63,11 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
+
+  textsubjects = {
+      enable = true,
+      keymaps = {
+          ['<cr>'] = 'textsubjects-smart',
+      }
+    },
 }
