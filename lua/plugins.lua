@@ -102,7 +102,6 @@ use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
-use {'hrsh7th/vim-vsnip'}
 use {'lpinilla/vim-codepainter'}
 
 -- LSP
@@ -117,7 +116,6 @@ use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
 
 -- LSP Cmp
 use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
-use {'hrsh7th/cmp-vsnip', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
 use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
 use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
 use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}

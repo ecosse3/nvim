@@ -31,7 +31,7 @@ local source_mapping = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
     end
   },
 
@@ -43,23 +43,21 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
-    ['<Tab>'] = function(fallback)
-      if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-        press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-      elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-        press("<ESC>:call UltiSnips#JumpForwards()<CR>")
-      elseif cmp.visible() then
-        cmp.select_next_item()
-      elseif has_any_words_before() then
-        press("<Tab>")
-      else
-        fallback()
-      end
-    end,
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    -- ['<Tab>'] = function(fallback)
+    --   if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
+    --     press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
+    --   elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+    --     press("<ESC>:call UltiSnips#JumpForwards()<CR>")
+    --   elseif cmp.visible() then
+    --     cmp.select_next_item()
+    --   elseif has_any_words_before() then
+    --     press("<Tab>")
+    --   else
+    --     fallback()
+    --   end
+    -- end,
+    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
   },
 
@@ -87,7 +85,6 @@ cmp.setup {
     { name = 'nvim_lsp'                        },
     { name = 'npm'                             },
     { name = 'ultisnips'                       },
-    { name = 'vsnip'                           },
     { name = 'cmp_tabnine', max_item_count = 3 },
     { name = 'buffer', keyword_length = 5      },
     { name = 'path'                            },
