@@ -9,6 +9,7 @@
 local icons = require('icons')
 
 EcoVim = {
+  colorscheme = 'nightfly', -- nightfly/tokyonight
   plugins = {
     zen = {
       kitty_enabled = true

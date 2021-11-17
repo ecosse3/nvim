@@ -1,24 +1,29 @@
-vim.cmd('colorscheme nightfly')
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
 
--- Errors
-vim.highlight.create('LspDiagnosticsVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
-vim.highlight.create('DiagnosticVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
+vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
--- Warnings
-vim.highlight.create('LspDiagnosticsVirtualTextWarning', { guifg = "Yellow", ctermfg = "Yellow" }, false);
-vim.highlight.create('DiagnosticVirtualTextWarn', { guifg = "Yellow", ctermfg = "Yellow" }, false);
+if vim.cmd('colorscheme') == 'nightfly' then
+  -- Errors
+  vim.highlight.create('LspDiagnosticsVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
+  vim.highlight.create('DiagnosticVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
 
--- Info & Hints
-vim.highlight.create('DiagnosticVirtualTextInfo', { guifg = "White", ctermfg = "White" }, false);
-vim.highlight.create('DiagnosticVirtualTextHint', { guifg = "White", ctermfg = "White" }, false);
+  -- Warnings
+  vim.highlight.create('LspDiagnosticsVirtualTextWarning', { guifg = "Yellow", ctermfg = "Yellow" }, false);
+  vim.highlight.create('DiagnosticVirtualTextWarn', { guifg = "Yellow", ctermfg = "Yellow" }, false);
 
--- Cursor line
-vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
+  -- Info & Hints
+  vim.highlight.create('DiagnosticVirtualTextInfo', { guifg = "White", ctermfg = "White" }, false);
+  vim.highlight.create('DiagnosticVirtualTextHint', { guifg = "White", ctermfg = "White" }, false);
 
--- Comment in italics
-vim.highlight.create('Comment', { gui = "italic", cterm = "italic" }, false);
+  -- Cursor line
+  vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
 
--- Colorscheme config
+  -- Comment in italics
+  vim.highlight.create('Comment', { gui = "italic", cterm = "italic" }, false);
+end
+
+-- Nighyfly config
 vim.g.nightflyCursorColor         = 0
 vim.g.nightflyUnderlineMatchParen = 0
 vim.g.nightflyNormalFloat         = 1

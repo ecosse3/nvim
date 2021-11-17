@@ -1,7 +1,7 @@
 require('impatient')
 require('config')
-require('colorscheme')
 require('settings')
+require('colorscheme')
 require('plugins')
 require('keymappings')
 require('functions')
