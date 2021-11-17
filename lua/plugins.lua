@@ -73,7 +73,6 @@ use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setu
 use {'ellisonleao/glow.nvim', run = "GlowInstall"}
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
-use {'mbbill/undotree'}
 use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
 use {'akinsho/nvim-toggleterm.lua', config = "require('plugins.toggleterm')"}
 use {'tpope/vim-repeat'}

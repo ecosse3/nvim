@@ -83,7 +83,6 @@ local mappings = {
   ["+"] = { '<cmd>vertical resize +2<CR>',               'resize +2' },
   ["-"] = { '<cmd>vertical resize -2<CR>',               'resize +2' },
   ["="] = { '<C-W>=',                                    'balance windows' },
-  ["u"] = { '<cmd>UndotreeToggle<CR>',                   'undo tree' },
   ["v"] = { '<C-W>v',                                    'split right' },
   ["V"] = { '<C-W>s',                                    'split below' },
 
