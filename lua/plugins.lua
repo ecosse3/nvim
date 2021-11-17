@@ -93,6 +93,7 @@ use {'romgrk/barbar.nvim', config = "require('plugins.barbar')"}
 use {'folke/twilight.nvim', config = function() require("twilight").setup {} end}
 use {'karb94/neoscroll.nvim', config = "require('plugins.neoscroll')"}
 use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
+use {'rcarriga/nvim-notify'}
 
 -- Snippets & Language & Syntax
 use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
