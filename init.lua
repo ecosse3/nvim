@@ -4,6 +4,7 @@ require('settings')
 require('colorscheme')
 require('plugins')
 require('keymappings')
+require('autocmds')
 require('functions')
 
 require('lsp/config')
