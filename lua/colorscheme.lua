@@ -1,9 +1,15 @@
+-- Tokyonight config
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 
+-- Nighyfly config
+vim.g.nightflyCursorColor         = 1
+vim.g.nightflyUnderlineMatchParen = 0
+vim.g.nightflyNormalFloat         = 1
+
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
-if vim.cmd('colorscheme') == 'nightfly' then
+if EcoVim.colorscheme == 'nightfly' then
   -- Errors
   vim.highlight.create('LspDiagnosticsVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
   vim.highlight.create('DiagnosticVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
@@ -22,8 +28,3 @@ if vim.cmd('colorscheme') == 'nightfly' then
   -- Comment in italics
   vim.highlight.create('Comment', { gui = "italic", cterm = "italic" }, false);
 end
-
--- Nighyfly config
-vim.g.nightflyCursorColor         = 0
-vim.g.nightflyUnderlineMatchParen = 0
-vim.g.nightflyNormalFloat         = 1
