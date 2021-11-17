@@ -96,14 +96,10 @@ local mappings = {
 
   a = {
     name = "Actions",
-    c = { '<cmd>ColorizerToggle<CR>',                    'colorizer' },
-    l = { '<cmd>Bracey<CR>',                             'start live server' },
-    L = { '<cmd>BraceyStop<CR>',                         'stop live server' },
-    m = { '<cmd>MarkdownPreview<CR>',                    'markdown preview' },
-    M = { '<cmd>MarkdownPreviewStop<CR>',                'markdown preview stop' },
+    m = { '<cmd>Glow<CR>',                               'markdown preview' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
-    t = { '<cmd>FloatermNew<CR>',                        'terminal' },
+    t = { '<cmd>Toggleterm direction=float<CR>',         'terminal float' },
   },
 
   b = {
@@ -112,7 +108,6 @@ local mappings = {
     c = { '<cmd>BufferCloseAllButCurrent<CR>',           'Close but current' },
     d = { '<cmd>BufferOrderByDirectory<CR>',             'Order by directory' },
     f = { '<cmd>bfirst<CR>',                             'First buffer' },
-    h = { '<cmd>Dashboard<CR>',                          'Dashboard' },
     l = { '<cmd>BufferCloseBuffersLeft<CR>',             'Close Left' },
     r = { '<cmd>BufferCloseBuffersRight<CR>',            'Close Right' },
     n = { '<cmd>BufferMoveNext<CR>',                     'Move next' },
@@ -151,7 +146,6 @@ local mappings = {
     name = "Git",
     a = { '<cmd>!git add %:p<CR>',                       'add current' },
     A = { '<cmd>!git add .<CR>',                         'add all' },
-    b = { '<cmd>GitBlameToggle<CR>',                     'toggle blame' },
     d = { '<cmd>Gitsigns diffthis<CR>',                  'diff' },
     g = { 'lazygit' },
     h = {
