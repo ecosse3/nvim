@@ -90,12 +90,6 @@ vim.api.nvim_set_keymap("x", "ga", "<Plug>(EasyAlign)", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>", { noremap = true, silent = true })
 
--- VSnip
-vim.cmd [[
-  imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-  smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-]]
-
 -- Space to NOP to prevent Leader issues
 vim.api.nvim_set_keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
 
