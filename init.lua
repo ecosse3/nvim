@@ -1,4 +1,4 @@
-require('impatient')
+require('impatient') -- This needs to be first
 require('config')
 require('settings')
 require('colorscheme')
