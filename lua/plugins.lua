@@ -85,11 +85,11 @@ use {'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'}
 use {'nacro90/numb.nvim', config = "require('plugins.numb')"}
 use {'folke/todo-comments.nvim'}
 use {'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled}
+use {'folke/twilight.nvim', config = function() require("twilight").setup {} end, disable = not EcoVim.plugins.zen.enabled}
 use {'ggandor/lightspeed.nvim'}
 use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter"}
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}
 use {'romgrk/barbar.nvim', config = "require('plugins.barbar')"}
-use {'folke/twilight.nvim', config = function() require("twilight").setup {} end}
 use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
 use {'rcarriga/nvim-notify'}
 use {'vuki656/package-info.nvim', disable = not EcoVim.plugins.package_info.enabled}
