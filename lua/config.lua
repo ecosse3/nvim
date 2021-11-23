@@ -11,13 +11,16 @@ local icons = require('icons')
 EcoVim = {
   colorscheme = 'nightfly', -- nightfly/tokyonight
   plugins = {
-    zen = {
-      enabled = true,
-      kitty_enabled = true
+    dashboard = {
+      fuzzy_plugin = 'telescope' -- telescope/clap/fzf
     },
     package_info = {
       enabled = false
-    }
+    },
+    zen = {
+      enabled = false,
+      kitty_enabled = true
+    },
   },
   icons = icons,
 }

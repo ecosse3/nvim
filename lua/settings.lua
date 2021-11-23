@@ -49,6 +49,7 @@ vim.bo.expandtab      = true
 vim.g.did_load_filetyps           = 1               --- Do not source the default filetype.vim
 vim.g.speeddating_no_mappings     = 1
 vim.g.dashboard_default_executive = 'telescope'
+vim.g.dashboard_default_executive = EcoVim.plugins.dashboard.fuzzy_plugin --- Use fuzzy search plugin in dashboard
 
 vim.cmd('filetype plugin indent on')                --- Enables plugin & indent
 vim.cmd('set formatoptions-=c')                     --- Stop newline continuation of comments
