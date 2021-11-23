@@ -25,20 +25,17 @@ lsp_installer.on_server_ready(function(server)
         }
     end
 
-    if server.name == "tailwindcss" then
-        opts.on_attach = function (client, bufnr)
-            if client.server_capabilities.colorProvider then
-                require"lsp/documentcolors".buf_attach(bufnr)
-            end
-            capabilities.textDocument.completion.completionItem.snippetSupport = true
-            capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-            on_attach(client, bufnr)
-        end
-        opts.settings = {
-            format = { enable = true }, -- this will enable formatting
+    if server.name == "sumneko_lua" then
+      opts.settings = {
+        Lua = {
+          diagnostics = {
+            globals = {'vim'}
+          }
         }
+      }
     end
-    -- (optional) Customize the options passed to the server
+
+    -- (How to) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
     -- end
