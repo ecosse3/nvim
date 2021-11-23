@@ -14,6 +14,9 @@ EcoVim = {
     zen = {
       enabled = true,
       kitty_enabled = true
+    },
+    package_info = {
+      enabled = false
     }
   },
   icons = icons,
