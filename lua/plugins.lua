@@ -84,7 +84,7 @@ use {'junegunn/vim-easy-align'}
 use {'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'}
 use {'nacro90/numb.nvim', config = "require('plugins.numb')"}
 use {'folke/todo-comments.nvim'}
-use {'folke/zen-mode.nvim', config = "require('plugins.zen')"}
+use {'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled}
 use {'ggandor/lightspeed.nvim'}
 use {'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter"}
 use {'glepnir/galaxyline.nvim', config = "require('plugins.galaxyline')"}

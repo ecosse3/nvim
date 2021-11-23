@@ -12,6 +12,7 @@ EcoVim = {
   colorscheme = 'nightfly', -- nightfly/tokyonight
   plugins = {
     zen = {
+      enabled = true,
       kitty_enabled = true
     }
   },
