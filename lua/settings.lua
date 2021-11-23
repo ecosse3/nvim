@@ -39,16 +39,15 @@ vim.o.scrolloff       = 8                           --- Always keep space when s
 vim.o.viminfo         = "'1000"                     --- Increase the size of file history
 vim.o.termguicolors   = true                        --- Correct terminal colors
 vim.o.signcolumn      = "yes"                       --- Add extra sign column next to line number
-vim.o.completeopt     = "menu,menuone,noselect"          --- Better autocompletion
+vim.o.completeopt     = "menu,menuone,noselect"     --- Better autocompletion
 vim.o.foldtext        = "CustomFold()"              --- Emit custom function for foldtext
 vim.g.mapleader       = " "                         --- Map leader key
-vim.o.shortmess       = vim.o.shortmess .. 'c'            --- Don't pass messages to |ins-completion-menu|
+vim.o.shortmess       = vim.o.shortmess .. 'c'      --- Don't pass messages to |ins-completion-menu|
 vim.o.expandtab       = true
 vim.bo.expandtab      = true
 
 vim.g.did_load_filetyps           = 1               --- Do not source the default filetype.vim
-vim.g.speeddating_no_mappings     = 1
-vim.g.dashboard_default_executive = 'telescope'
+vim.g.speeddating_no_mappings     = 1               --- Disable default mappings for speeddating
 vim.g.dashboard_default_executive = EcoVim.plugins.dashboard.fuzzy_plugin --- Use fuzzy search plugin in dashboard
 
 vim.cmd('filetype plugin indent on')                --- Enables plugin & indent
