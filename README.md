@@ -23,4 +23,5 @@
 | Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Update statusline to support LSP diagnostics | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 
