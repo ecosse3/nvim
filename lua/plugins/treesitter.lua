@@ -1,7 +1,11 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false,            -- install languages synchronously (only applied to `ensure_installed`)
+  ignore_install = { "haskell" },  -- list of parsers to ignore installing
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,
+    -- disable = { "c", "rust" },  -- list of language that will be disabled
+    -- additional_vim_regex_highlighting = false,
   },
 
   incremental_selection = {
@@ -67,7 +71,7 @@ require'nvim-treesitter.configs'.setup {
   textsubjects = {
       enable = true,
       keymaps = {
-          ['<cr>'] = 'textsubjects-smart',
+          ['<cr>'] = 'textsubjects-smart', -- works in visual mode
       }
     },
 }
