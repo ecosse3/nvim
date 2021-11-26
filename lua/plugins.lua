@@ -70,7 +70,7 @@ use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{} end}
 
 -- General
-use {'ellisonleao/glow.nvim', run = "GlowInstall"}
+use {'ellisonleao/glow.nvim', run = "GlowInstall", config = function() vim.g.glow_border = "rounded" end}
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
 use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
@@ -104,8 +104,20 @@ use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
 use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
 use {'lpinilla/vim-codepainter'}
 
--- LSP
+-- LSP Base
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
+
+-- LSP Cmp
+use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
+use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
+use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
+use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'}
+use {'David-Kunz/cmp-npm', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
+
+-- LSP Addons
 use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
 use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim'}
@@ -114,21 +126,8 @@ use {'nvim-lua/popup.nvim'}
 use {'SmiteshP/nvim-gps', config = "require('plugins.gps')", requires = 'nvim-treesitter/nvim-treesitter'}
 use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
 
--- LSP Cmp
-use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
-use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
-use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
-use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
-use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
-use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp", after = 'nvim-cmp'}
-use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', after = 'nvim-cmp'}
-use {'David-Kunz/cmp-npm', requires = 'nvim-lua/plenary.nvim', after = 'nvim-cmp', config = "require('plugins.cmp-npm')"}
-
 -- Nvim Tree
-use {'kyazdani42/nvim-tree.lua',
-  requires = { 'kyazdani42/nvim-web-devicons'},
-  config = "require('plugins.tree')"
-}
+use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
 
 -- Debug
 -- TODO: Configure dap
