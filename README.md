@@ -6,7 +6,8 @@
 
 ## Screenshots
 
-![Neovim](./screenshots/3-current.png)
+![Dashboard](./screenshots/4-dashboard.png)
+![Neovim](./screenshots/4-main.png)
 
 ## Todo
 
