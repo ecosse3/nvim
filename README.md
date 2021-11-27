@@ -11,7 +11,7 @@
 
 ## Configuration
 
-To change Ecovim related config use the `config.lua` file.
+To change Ecovim related config use the `config.lua` file.\
 To change vim settings use the `settings.lua` file.
 
 ## Performance
