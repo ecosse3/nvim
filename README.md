@@ -11,7 +11,14 @@
 
 ## Installation
 
-WIP
+Make sure to use newest nightly Neovim version (0.6).
+Copy it into your terminal:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/install_script/.install/run.sh)
+```
+
+Installation script is in **BETA** status. Please open an issue if you experience any problem with it.
 
 ## Configuration
 
