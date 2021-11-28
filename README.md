@@ -9,9 +9,13 @@
 ![Dashboard](./screenshots/4-dashboard.png)
 ![Neovim](./screenshots/4-main.png)
 
+## Installation
+
+WIP
+
 ## Configuration
 
-To change Ecovim related config use the `config.lua` file.
+To change Ecovim related config use the `config.lua` file.\
 To change vim settings use the `settings.lua` file.
 
 ## Performance
