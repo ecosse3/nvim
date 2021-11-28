@@ -4,6 +4,8 @@
 ![Stars](https://img.shields.io/github/stars/ecosse3/nvim?label=%E2%AD%90%20Stars)
 ![Follow](https://img.shields.io/github/followers/ecosse3?label=Please%20follow%20%20to%20support%20my%20work&style=social)
 
+### A non-minimal Neovim config builtin to work most efficiently with React, JavaScript & TypeScript frameworks.
+
 ## Screenshots
 
 ![Dashboard](./screenshots/4-dashboard.png)
