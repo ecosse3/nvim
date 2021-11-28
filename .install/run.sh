@@ -41,7 +41,7 @@ function main() {
     esac
   done
 
-  # install_packer
+  install_packer
   setup
 
   msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}"
@@ -120,7 +120,7 @@ function check_system_deps() {
 
 function install_packer() {
   if [ -e "$PACK_DIR/packer/start/packer.nvim" ]; then
-    msg "${BOLD}Packer already installed${NC}"
+    msg "${BOLD}${GREEN}Packer already installed${NC}"
   else
     if ! git clone --depth 1 "https://github.com/wbthomason/packer.nvim" \
       "$PACK_DIR/packer/start/packer.nvim"; then
@@ -145,9 +145,9 @@ function setup() {
   cd $CONFIG_DIR/.install
 
   msg "${BOLD}Installing plugins...${NC}"
-  # "$NVIM_DIR" --headless -u installation_config.lua \
-  #   -c 'autocmd User PackerComplete quitall' \
-  #   -c 'PackerSync'
+  "$NVIM_DIR" --headless -u installation_config.lua \
+    -c 'autocmd User PackerComplete quitall' \
+    -c 'PackerSync'
 
   msg "${BOLD}Packer setup complete!${NC}"
 }
