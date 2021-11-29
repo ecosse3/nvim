@@ -7,6 +7,7 @@ vim.o.updatetime      = 100                         --- Faster completion
 vim.o.timeoutlen      = 300                         --- Faster completion
 vim.o.clipboard       = "unnamed,unnamedplus"       --- Copy-paste between vim and everything else
 vim.o.mouse           = "a"                         --- Enable mouse
+vim.o.ignorecase      = true                        --- Needed for smartcase
 vim.o.smartcase       = true                        --- Uses case in search
 vim.o.smarttab        = true                        --- Makes tabbing smarter will realize you have 2 vs 4
 vim.bo.smartindent    = true                        --- Makes indenting smart
