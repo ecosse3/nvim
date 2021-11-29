@@ -99,3 +99,6 @@ if vim.fn.has('macunix') == 1 then
 else
   vim.api.nvim_set_keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", { silent = true })
 end
+
+-- Erase painter line
+vim.api.nvim_set_keymap("n", "<F4>", "<cmd>lua require('functions').erase_painter_line()<CR>", { noremap = true, silent = true })
