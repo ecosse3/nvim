@@ -21,10 +21,7 @@ declare -r PACK_DIR="$RUNTIME_DIR/site/pack"
 # MAIN
 function main() {
   print_logo
-  if ! command -v tput &>/dev/null; then
-    print_missing_dep_msg "tput"
-    exit 1
-  fi
+  check_tput_install
 
   msg
   echo -n "${BOLD}Detecting platform for managing any additional neovim dependencies... ${NC}"
@@ -43,10 +40,7 @@ function main() {
 
   install_packer
   setup
-
-  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}"
-  echo -e "${BOLD}${RED}Please open neovim and select ${NC}${BOLD}Install plugins${BOLD}${RED} from menu${NC}"
-  echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
+  finish
 }
 
 function msg() {
@@ -55,7 +49,6 @@ function msg() {
   printf "%${div_width}s\n" ' ' | tr ' ' -
   printf "%s\n" "$text"
 }
-
 
 function detect_platform() {
   OS="$(uname -s)"
@@ -102,6 +95,12 @@ function print_missing_dep_msg() {
   fi
 }
 
+function check_tput_install() {
+  if ! command -v tput &>/dev/null; then
+    print_missing_dep_msg "tput"
+    exit 1
+  fi
+}
 
 function check_system_deps() {
   if ! command -v git &>/dev/null; then
@@ -128,6 +127,13 @@ function install_packer() {
       exit 1
     fi
   fi
+}
+
+function finish () {
+  touch /tmp/first-ecovim-run
+  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}"
+  echo -e "${BOLD}${RED}Please open neovim and select ${NC}${BOLD}Install plugins${BOLD}${RED} from menu${NC}"
+  echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
 }
 
 function setup() {
