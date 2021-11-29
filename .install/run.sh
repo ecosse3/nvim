@@ -103,8 +103,12 @@ function check_tput_install() {
 }
 
 function check_system_deps() {
-  if ! command -v git &>/dev/null; then
+  if ! command -v npm &>/dev/null; then
     print_missing_dep_msg "npm"
+    exit 1
+  fi
+  if ! command -v git &>/dev/null; then
+    print_missing_dep_msg "git"
     exit 1
   fi
   if ! command -v nvim &>/dev/null; then
@@ -112,7 +116,7 @@ function check_system_deps() {
     exit 1
   fi
   if ! command -v fzf &>/dev/null; then
-    print_missing_dep_msg "git"
+    print_missing_dep_msg "fzf"
     exit 1
   fi
 }
