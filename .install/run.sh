@@ -84,13 +84,17 @@ function detect_platform() {
 }
 
 function print_missing_dep_msg() {
-  if [ "$#" -eq 1 ]; then
-    echo "${BOLD}${RED}[ERROR]: Unable to find dependency [$1]${NC}"
-    echo "${BOLD}Please install it first and re-run the installer. Try: $RECOMMEND_INSTALL $1${BOLD}"
+  if [ "$#" -eq 1 ] && [ "$1" == "neovim" ] && [ "$OS" == "Darwin" ]; then
+    echo -e "${BOLD}${RED}[ERROR]: Unable to find neovim dependency${NC}"
+    echo -e "${BOLD}Please install it first and re-run the installer.${NC}"
+    echo -e "${BOLD}You need to install latest nightly version. Use: brew install --HEAD neovim${NC}\n"
+  elif [ "$#" -eq 1 ]; then
+    echo -e "${BOLD}${RED}[ERROR]: Unable to find dependency [$1]${NC}"
+    echo -e "${BOLD}Please install it first and re-run the installer. Try: $RECOMMEND_INSTALL $1${NC}\n"
   else
     local cmds
     cmds=$(for i in "$@"; do echo "$RECOMMEND_INSTALL $i"; done)
-    printf "${BOLD}${RED}[ERROR]: Unable to find dependencies [%s]" "$@"
+    printf "${BOLD}${RED}[ERROR]: Unable to find dependencies [%s]${NC}" "$@"
     printf "Please install any one of the dependencies and re-run the installer. Try: \n%s\n" "$cmds"
   fi
 }
