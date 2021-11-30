@@ -17,7 +17,7 @@ Make sure to use newest Neovim version (0.6).
 Copy it into your terminal:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/install_script/.install/run.sh)
+bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/run.sh)
 ```
 
 :warning: Installation script is in **BETA** status. Please open an issue if you experience any problem with it.
