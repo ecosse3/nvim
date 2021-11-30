@@ -170,7 +170,8 @@ local mappings = {
     f = { 'file' },
     w = { 'word' },
     l = { '<cmd>Telescope projects<CR>',                 'list' },
-    t = { "<cmd>TodoTrouble<CR>",                        'todo' }
+    t = { "<cmd>TodoTrouble<CR>",                        'todo' },
+    s = { "<cmd>SessionSave<CR>",                        'save session' }
   },
 
   s = {
