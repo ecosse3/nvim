@@ -9,6 +9,8 @@ NC=$(tput sgr0)
 BOLD=$(tput bold)
 
 # VARIABLES
+declare -r GIT_BRANCH="${GIT_BRANCH:-"install_script"}"
+declare -r GIT_REMOTE="${GIT_REMOTE:-ecosse3/nvim.git}"
 declare -r NVIM_DIR="${NVIM_DIR:-"$(which nvim)"}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 declare -r XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
@@ -23,21 +25,31 @@ function main() {
   print_logo
   check_tput_install
 
-  msg
-  echo -n "${BOLD}Detecting platform for managing any additional neovim dependencies... ${NC}"
   detect_platform
-  echo -e "${GREEN}${BOLD}Done\n${NC}"
   check_system_deps
+  echo -e "${BOLD}${YELLOW}Installation will override your $CONFIG_DIR directory!${NC}\n"
 
   while [ true ]; do
-    read -p $'Make sure to backup your current config. Do you wish to install Ecovim now? \e[33m[y/n]\e[0m: ' yn
+    read -p $'Do you wish to backup your current config? \e[33m[y/n]\e[0m: ' yn
+    case $yn in
+        [Yy]* ) backup_old_config;break;;
+        [Nn]* ) break;;
+        * ) echo "${BOLD}Please answer ${YELLOW}y${NC}${BOLD} or ${YELLOW}n${NC}${BOLD}.${NC}";;
+    esac
+  done
+
+  while [ true ]; do
+    msg
+    read -p $'Do you wish to install Ecovim now? \e[33m[y/n]\e[0m: ' yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
         * ) echo "${BOLD}Please answer ${YELLOW}y${NC}${BOLD} or ${YELLOW}n${NC}${BOLD}.${NC}";;
     esac
   done
-
+  
+  remove_current_repo
+  clone_repo
   install_packer
   setup
   finish
@@ -45,12 +57,18 @@ function main() {
 
 function msg() {
   local text="$1"
+  local flag="$2"
   local div_width="80"
   printf "%${div_width}s\n" ' ' | tr ' ' -
-  printf "%s\n" "$text"
+  if [ "$flag" == "1" ]; then 
+    echo -e "$text"
+  else
+    echo -n "$text"
+  fi
 }
 
 function detect_platform() {
+  msg "${BOLD}Detecting platform for managing any additional neovim dependencies... ${NC}"
   OS="$(uname -s)"
   case "$OS" in
     Linux)
@@ -81,6 +99,7 @@ function detect_platform() {
       exit 1
       ;;
   esac
+  echo -e "${GREEN}${BOLD}Done${NC}"
 }
 
 function print_missing_dep_msg() {
@@ -125,9 +144,54 @@ function check_system_deps() {
   fi
 }
 
+function backup_old_config() {
+  msg "${BOLD}Backing up your current Neovim configuration...${NC}" "1"
+
+  mkdir -p "$CONFIG_DIR" "$CONFIG_DIR.bak"
+  if command -v rsync &>/dev/null; then
+    rsync --archive -hh --partial --progress --cvs-exclude \
+      --modify-window=1 "$CONFIG_DIR"/ "$CONFIG_DIR.bak"
+  else
+    OS="$(uname -s)"
+    case "$OS" in
+      Linux | *BSD)
+        cp -r "$CONFIG_DIR/"* "$CONFIG_DIR.bak/."
+        ;;
+      Darwin)
+        cp -R "$CONFIG_DIR/"* "$CONFIG_DIR.bak/."
+        ;;
+      *)
+        echo "OS $OS is not currently supported."
+        ;;
+    esac
+  fi
+  echo "${BOLD}${GREEN}Backup operation complete!${NC}"
+}
+
+function remove_current_repo() {
+  cd $HOME
+  msg "${BOLD}Removing current Neovim configuration... ${NC}"
+  rm -rf "$CONFIG_DIR"
+  echo -e "${GREEN}${BOLD}Done${NC}"
+}
+
+function clone_repo() {
+  msg "${BOLD}Cloning Ecovim configuration... ${NC}" "1"
+  if ! git clone --branch "$GIT_BRANCH" \
+    --depth 1 "https://github.com/${GIT_REMOTE}" "$CONFIG_DIR/ecovim"; then
+    echo "Failed to clone repository. Installation failed."
+    exit 1
+  fi
+  echo -e "${GREEN}${BOLD}Done${NC}"
+  msg "${BOLD}Moving to Ecovim directory... ${NC}"
+  cd $CONFIG_DIR
+  echo "${GREEN}${BOLD}Done${NC}"
+}
+
 function install_packer() {
   if [ -e "$PACK_DIR/packer/start/packer.nvim" ]; then
-    msg "${BOLD}${GREEN}Packer already installed${NC}"
+    msg "${BOLD}${GREEN}Packer already installed!${NC}"
+    echo -e
   else
     if ! git clone --depth 1 "https://github.com/wbthomason/packer.nvim" \
       "$PACK_DIR/packer/start/packer.nvim"; then
@@ -139,31 +203,31 @@ function install_packer() {
 
 function finish () {
   touch /tmp/first-ecovim-run
-  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}"
+  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}" 1
   echo -e "${BOLD}${RED}Please open neovim and select ${NC}${BOLD}Install plugins${BOLD}${RED} from menu${NC}"
   echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
 }
 
 function setup() {
-  msg "${BOLD}Installing telescope-fzf-native...${NC}"
+  msg "${BOLD}Installing telescope-fzf-native...${NC}" 1
   git clone https://github.com/nvim-telescope/telescope-fzf-native.nvim /tmp/telescope-fzf-native.nvim
   rm -rf /tmp/telescope-fzf-native.nvim/.git
   cp -r /tmp/telescope-fzf-native.nvim "$PACK_DIR/packer/start/packer.nvim"
   rm -rf /tmp/telescope-fzf-native.nvim
 
-  [ ! -d "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim" ] && msg "${BOLD}${RED}Error while installing telescope-fzf-native... Aborting" && exit
+  [ ! -d "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim" ] && msg "${BOLD}${RED}Error while installing telescope-fzf-native... Aborting" 1 && exit
   cd "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim"
-  msg "${BOLD}Building telescope-fzf-native...${NC}"
+  msg "${BOLD}Building telescope-fzf-native...${NC}" 1
   make
-  [ ! -f "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim/build/libfzf.so" ] && msg "${BOLD}${RED}Error while building telescope-fzf-native... Aborting" && exit
+  [ ! -f "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim/build/libfzf.so" ] && msg "${BOLD}${RED}Error while building telescope-fzf-native... Aborting" 1 && exit
   cd $CONFIG_DIR/.install
 
-  msg "${BOLD}Installing plugins...${NC}"
+  msg "${BOLD}Installing plugins...${NC}" 1
   "$NVIM_DIR" --headless -u installation_config.lua \
     -c 'autocmd User PackerComplete quitall' \
     -c 'PackerSync'
 
-  msg "${BOLD}Packer setup complete!${NC}"
+  msg "${BOLD}${GREEN}Packer setup complete! ${NC}"
 }
 
 function print_logo() {
