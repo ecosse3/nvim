@@ -8,12 +8,12 @@
 
 ## Screenshots
 
-![Dashboard](./screenshots/4-dashboard.png)
-![Neovim](./screenshots/4-main.png)
+![Dashboard](./.screenshots/4-dashboard.png)
+![Neovim](./.screenshots/4-main.png)
 
 ## Installation
 
-Make sure to use newest nightly Neovim version (0.6).
+Make sure to use newest Neovim version (0.6).
 Copy it into your terminal:
 
 ```bash
