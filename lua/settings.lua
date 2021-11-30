@@ -45,6 +45,7 @@ vim.g.mapleader       = " "                         --- Map leader key
 vim.o.shortmess       = vim.o.shortmess .. 'c'      --- Don't pass messages to |ins-completion-menu|
 vim.o.expandtab       = true
 vim.bo.expandtab      = true
+vim.o.foldlevelstart  = 99                          --- Expand all folds by default
 
 vim.g.did_load_filetyps           = 1               --- Do not source the default filetype.vim
 vim.g.speeddating_no_mappings     = 1               --- Disable default mappings for speeddating
