@@ -20,12 +20,61 @@ Copy it into your terminal:
 bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/install_script/.install/run.sh)
 ```
 
-Installation script is in **BETA** status. Please open an issue if you experience any problem with it.
+:warning: Installation script is in **BETA** status. Please open an issue if you experience any problem with it.
 
 ## Configuration
 
 To change Ecovim related config use the `config.lua` file.\
 To change vim settings use the `settings.lua` file.
+
+## Keybindings
+
+Currently I have no idea how to write for you my whole workflow of using Ecovim config in React.js projects I am working on,\
+but I can write you the most useful key bindings by the frequency I use them.
+
+Space (SPC) is my Leader key.
+
+### Working with LSP:
+
+| Key Bindings         | Description                                       |
+|----------------------|---------------------------------------------------|
+| <C - Space> or SPC c a | Code action                                       |
+| gd                   | Go to definition                                  |
+| gr                   | Go to references                                  |
+| ]g                   | Go to next diagnostic                             |
+| [g                   | Go to prev diagnostic                             |
+| SPC c f              | Format document (usually ESLint/Prettier)         |
+| SPC c r              | Rename                                            |
+| SPC c q              | Quick fix - when I exactly know if it will fix it |
+| SPC c d              | Local diagnostics list                            |
+| SPC c o              | Organize imports                                  |
+
+
+### Working with Git:
+
+| Key Bindings | Description                                                                                                                              |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| SPC g g      | Lazygit - for commiting and branch change                                                                                                |
+| SPC g s      | Telescope status - when I want to change/search file I am working on with git changes                                                    |
+| ]c           | Go to next change hunk                                                                                                                   |
+| [c           | Go to prev change hunk                                                                                                                   |
+| SPC g d      | Advanced powerful diff view with many filters for debugging code, checking previous changes etc.                                         |
+| SPC g m      | View hunk diff of a line under cursor                                                                                                    |
+| SPC g h r    | Reset changed hunk under cursor - I like to check quickly what I have changed in that line and then just type 'u' to go back             |
+| SPC g h s    | Stage hunk under cursor - Sometimes it's faster than selecting lines in Lazygit, so I can stage specific lines and then just do a commit |
+| SPC g l c    | Quick check of previous commit in current buffer, <C-s> inside to switch preview                                                         |
+
+### Working with Project:
+
+| Key Bindings | Description                                                                                                                                                                                                                                                                             |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SPC p w      | Find word under cursor in project - very useful to find where component is used. Just use binding and type '<'. There is a lot of alternatives like lsp_references but I like it with telescope and to not find only references but whole text under cursor.                            |
+| SPC p f      | Find file under cursor in project - it finds files in project which contains text under cursor. Useful when you name directories by component name in React and wants to go quickly to file. 'gd' is better but in some projects without TS or with mixed JS/TS it cannot work properly |
+| SPC p t      | Finds TODOs/NOTES in project                                                                                                                                                                                                                                                            |
+| SPC p l      | Switch between projects                                                                                                                                                                                                                                                                 |
+
+More coming soon...
+Check out the which-key menu and keybindings.lua for most used maps.
 
 ## Performance
 
