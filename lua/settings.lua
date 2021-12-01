@@ -1,4 +1,3 @@
-vim.o.hidden          = true                        --- Required to keep multiple buffers open multiple buffers
 vim.o.encoding        = "utf-8"                     --- The encoding displayed
 vim.o.fileencoding    = "utf-8"                     --- The encoding written to file
 vim.o.cmdheight       = 2                           --- Give more space for displaying messages
