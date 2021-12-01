@@ -68,9 +68,6 @@ vim.api.nvim_set_keymap("n", "X", '"_X', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "x", '"_x', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "X", '"_X', { noremap = true, silent = true })
 
--- Yank until the end of line
-vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
-
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd [[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
