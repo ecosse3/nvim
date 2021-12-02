@@ -45,7 +45,6 @@ local options = {
 
 local globals = {
   dashboard_default_executive = EcoVim.plugins.dashboard.fuzzy_plugin, --- Use fuzzy search plugin in dashboard
-  did_load_filetyps           = 1,          --- Do not source the default filetype.vim
   fillchars                   = "fold:\\ ", --- Fill chars needed for folds
   mapleader                   = ' ',        --- Map leader key to SPC
   speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
