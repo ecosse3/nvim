@@ -165,7 +165,7 @@ function backup_old_config() {
         ;;
     esac
   fi
-  echo "${BOLD}${GREEN}Backup operation complete!${NC}"
+  echo "${BOLD}${GREEN}Backup operation complete! ${GREEN}You can find it under ${CONFIG_DIR}.bak${NC}"
 }
 
 function remove_current_repo() {
