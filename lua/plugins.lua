@@ -101,21 +101,30 @@ use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
-use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
 use {'lpinilla/vim-codepainter'}
 
 -- LSP Base
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
 
 -- LSP Cmp
-use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
-use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
-use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp'}
-use {'David-Kunz/cmp-npm', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
+use {
+  'hrsh7th/nvim-cmp',
+  requires = {
+    {'hrsh7th/cmp-buffer', module = 'cmp_buffer'},
+    {'hrsh7th/cmp-path', module = 'cmp_path'},
+    {'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp'},
+    {'hrsh7th/cmp-nvim-lua', module = 'cmp_nvim_lua'},
+    {'hrsh7th/cmp-calc', module = 'cmp_calc'},
+    {'tzachar/cmp-tabnine', run = './install.sh', module = 'cmp_tabnine'},
+    {'David-Kunz/cmp-npm', config = "require('plugins.cmp-npm')", module = 'cmp_npm'},
+    {'quangnguyen30192/cmp-nvim-ultisnips', module = 'cmp_nvim_ultisnips' },
+    {'honza/vim-snippets', opt = true},
+    {'SirVer/ultisnips', opt = true, config = "require('plugins.ultisnips')"}
+  },
+  event = 'InsertEnter',
+  wants = "ultisnips",
+  config = "require('plugins.cmp')"
+}
 
 -- LSP Addons
 use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
