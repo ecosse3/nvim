@@ -45,10 +45,19 @@ require'nvim-tree'.setup {
     -- the command arguments as a list
     args = {}
   },
-
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
     width = 40,
+    hide_root_folder = false,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
@@ -60,7 +69,13 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = {
       }
-    }
+    },
+    number = true,
+    relativenumber = true
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true
   }
 }
 
