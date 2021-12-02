@@ -1,6 +1,5 @@
 # Ecovim: Ultimate React Neovim Config
 
-[![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Last commit](https://img.shields.io/github/last-commit/ecosse3/nvim)](https://github.com/ecosse3/nvim/commits/master)
 ![Stars](https://img.shields.io/github/stars/ecosse3/nvim?label=%E2%AD%90%20Stars)
 ![License](https://img.shields.io/github/license/ecosse3/nvim)
