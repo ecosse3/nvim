@@ -28,7 +28,7 @@ M.first_ecovim_run = function()
 
   if is_first_run then
     async.run(function()
-      require('notify')("Welcome to Ecovim! Hope you'll have nice experience!", "info", { title = "Ecovim", timeout = 7000 })
+      require('notify')("Welcome to Ecovim! Hope you'll have a nice experience!", "info", { title = "Ecovim", timeout = 7000 })
       require('notify')("Please select 'Install Plugins' to continue.", "info", { title = "Installation", timeout = 10000 })
     end)
     local suc = os.remove('/tmp/first-ecovim-run')
