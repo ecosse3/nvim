@@ -116,7 +116,7 @@ use {
     {'hrsh7th/cmp-nvim-lua', module = 'cmp_nvim_lua'},
     {'hrsh7th/cmp-calc', module = 'cmp_calc'},
     {'tzachar/cmp-tabnine', run = './install.sh', module = 'cmp_tabnine'},
-    {'David-Kunz/cmp-npm', config = "require('plugins.cmp-npm')", module = 'cmp_npm'},
+    {'David-Kunz/cmp-npm', module = 'cmp-npm'},
     {'quangnguyen30192/cmp-nvim-ultisnips', module = 'cmp_nvim_ultisnips' },
     {'honza/vim-snippets', opt = true},
     {'SirVer/ultisnips', opt = true, config = "require('plugins.ultisnips')"}
