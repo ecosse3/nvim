@@ -99,7 +99,7 @@ use {'rcarriga/nvim-notify'}
 use {'vuki656/package-info.nvim', disable = not EcoVim.plugins.package_info.enabled}
 
 -- Snippets & Language & Syntax
-use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
+use {'windwp/nvim-autopairs', after = {'nvim-treesitter'}, config = "require('plugins.autopairs')"}
 use {'p00f/nvim-ts-rainbow'}
 use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
@@ -111,13 +111,6 @@ use {'lpinilla/vim-codepainter'}
 use {'neovim/nvim-lspconfig', config = "require('lsp.config')"}
 
 -- LSP Addons
-use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
-use {'hrsh7th/cmp-buffer', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-path', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-calc', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-nvim-lua', requires = "hrsh7th/nvim-cmp"}
-use {'hrsh7th/cmp-nvim-lsp', requires = "hrsh7th/nvim-cmp"}
-use {'David-Kunz/cmp-npm', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
 use {'williamboman/nvim-lsp-installer', config = "require('lsp.installer')"}
 use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
 use {'onsails/lspkind-nvim'}
