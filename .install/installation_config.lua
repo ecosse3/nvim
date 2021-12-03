@@ -86,6 +86,7 @@ use {'hrsh7th/cmp-path', after = 'cmp-buffer'}
 use {'hrsh7th/cmp-calc', after = 'cmp-path'}
 use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', after = 'cmp-calc'}
 use {'David-Kunz/cmp-npm', after = 'cmp-tabnine', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
+use {'quangnguyen30192/cmp-nvim-ultisnips', after = 'cmp-npm'}
 
 -- LSP Addons
 use {'williamboman/nvim-lsp-installer', after = 'cmp-nvim-lsp', config = "require('lsp.installer')"}
@@ -128,7 +129,7 @@ use {'mattn/emmet-vim'}
 use {'potatoesmaster/i3-vim-syntax'}
 use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
 use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
-use {'SirVer/ultisnips', requires = {"honza/vim-snippets", "quangnguyen30192/cmp-nvim-ultisnips"}, config = "require('plugins.ultisnips')", after = 'nvim-cmp'}
+use {'SirVer/ultisnips', requires = {"honza/vim-snippets"}, config = "require('plugins.ultisnips')", after = 'cmp-nvim-ultisnips'}
 use {'lpinilla/vim-codepainter'}
 
 -- Nvim Tree
