@@ -99,7 +99,7 @@ local mappings = {
     m = { '<cmd>Glow<CR>',                               'markdown preview' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
-    t = { '<cmd>Toggleterm direction=float<CR>',         'terminal float' },
+    t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },
   },
 
   b = {
@@ -116,7 +116,7 @@ local mappings = {
 
   c = {
     name = "LSP",
-    a = { 'code action' },
+    a = { '<cmd>Telescope lsp_code_action',              'telescope code action' },
     c = "which_key_ignore",
     d = { '<cmd>LspTroubleToggle<CR>',                   'local diagnostics' },
     D = { '<cmd>Telescope lsp_document_diagnostics<CR>', 'diagnostics' },
@@ -144,9 +144,9 @@ local mappings = {
 
   g = {
     name = "Git",
-    a = { '<cmd>!git add %:p<CR>',                       'add current' },
-    A = { '<cmd>!git add .<CR>',                         'add all' },
-    d = { '<cmd>Gitsigns diffthis<CR>',                  'diff' },
+    a = { '<cmd>!git add %:p<CR>',                                   'add current' },
+    A = { '<cmd>!git add .<CR>',                                     'add all' },
+    d = { '<cmd>DiffviewFileHistory<CR>',                            'diff file' },
     g = { 'lazygit' },
     h = {
       name = "Hunk",
@@ -161,17 +161,17 @@ local mappings = {
       a = "commits",
       c = "buffer commits",
     },
-    m = { '<Plug>(git-messenger)',                       'message' },
-    s = { '<cmd>Telescope git_status<CR>',               'status' },
+    m = { 'blame line' },
+    s = { '<cmd>Telescope git_status<CR>',                           'status' },
   },
 
   p = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
-    l = { '<cmd>Telescope projects<CR>',                 'list' },
-    t = { "<cmd>TodoTrouble<CR>",                        'todo' },
-    s = { "<cmd>SessionSave<CR>",                        'save session' }
+    l = { '<cmd>Telescope projects<CR>',                             'list' },
+    t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
+    s = { "<cmd>SessionSave<CR>",                                    'save session' }
   },
 
   s = {
