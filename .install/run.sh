@@ -58,8 +58,15 @@ function main() {
 function msg() {
   local text="$1"
   local flag="$2"
+  local line="$3"
   local div_width="80"
-  printf "%${div_width}s\n" ' ' | tr ' ' -
+
+  # Render line
+  if [ "$line" != "0" ]; then 
+    printf "%${div_width}s\n" ' ' | tr ' ' -
+  fi
+
+  # Render text
   if [ "$flag" == "1" ]; then 
     echo -e "$text"
   else
@@ -214,20 +221,23 @@ function setup() {
   rm -rf /tmp/telescope-fzf-native.nvim/.git
   cp -r /tmp/telescope-fzf-native.nvim "$PACK_DIR/packer/start/packer.nvim"
   rm -rf /tmp/telescope-fzf-native.nvim
-
+  [ -d "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim" ] && msg "${BOLD}${GREEN}Done${NC}" 1 0
   [ ! -d "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim" ] && msg "${BOLD}${RED}Error while installing telescope-fzf-native... Aborting" 1 && exit
+
   cd "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim"
-  msg "${BOLD}Building telescope-fzf-native...${NC}" 1
+  msg "${BOLD}Building telescope-fzf-native...${NC}"
   make
   [ ! -f "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim/build/libfzf.so" ] && msg "${BOLD}${RED}Error while building telescope-fzf-native... Aborting" 1 && exit
+  [ -f "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim/build/libfzf.so" ] && msg "${BOLD}${GREEN}Done${NC}" 1 0
   cd $CONFIG_DIR/.install
 
   msg "${BOLD}Installing plugins...${NC}" 1
   "$NVIM_DIR" --headless -u installation_config.lua \
     -c 'autocmd User PackerComplete quitall' \
     -c 'PackerSync'
+  msg "${BOLD}${GREEN}Done${NC}" 1 0
 
-  msg "${BOLD}${GREEN}Packer setup complete! ${NC}"
+  msg "${BOLD}${GREEN}Packer setup complete!${NC}" 1
 }
 
 function print_logo() {
