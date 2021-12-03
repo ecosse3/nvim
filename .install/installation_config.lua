@@ -74,6 +74,26 @@ use {'nvim-telescope/telescope.nvim',
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{} end}
 
+-- LSP Cmp
+use {
+  'hrsh7th/nvim-cmp',
+  requires = {
+    {'hrsh7th/cmp-buffer', module = 'cmp_buffer'},
+    {'hrsh7th/cmp-path', module = 'cmp_path'},
+    {'hrsh7th/cmp-nvim-lsp', module = 'cmp_nvim_lsp'},
+    {'hrsh7th/cmp-nvim-lua', module = 'cmp_nvim_lua'},
+    {'hrsh7th/cmp-calc', module = 'cmp_calc'},
+    {'tzachar/cmp-tabnine', run = './install.sh', module = 'cmp_tabnine'},
+    {'David-Kunz/cmp-npm', module = 'cmp-npm'},
+    {'quangnguyen30192/cmp-nvim-ultisnips', module = 'cmp_nvim_ultisnips' },
+    {'honza/vim-snippets', opt = true},
+    {'SirVer/ultisnips', opt = true, config = "require('plugins.ultisnips')"}
+  },
+  event = 'InsertEnter',
+  wants = "ultisnips",
+  config = "require('plugins.cmp')"
+}
+
 -- General
 use {'AndrewRadev/switch.vim'}
 use {'AndrewRadev/splitjoin.vim'}
