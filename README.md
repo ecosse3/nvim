@@ -25,7 +25,8 @@ bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/ru
 
 After install configuration:
 
-1. Treesitter Languages are not installed by default.\Make sure to run `:TSInstall <lang>` or `:TSInstall maintained` after first run.
+1. Treesitter Languages are not installed by default.\
+Make sure to run `:TSInstall <lang>` or `:TSInstall maintained` after first run.
 2. LSP servers are disabled by default. Please enable them in `lua/lsp/config.lua` by uncomment specific lines.
 
 ## Configuration
