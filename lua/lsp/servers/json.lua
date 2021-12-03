@@ -44,6 +44,10 @@ M.settings = {
         fileMatch = {"now.json", "vercel.json"},
         url = "https://json.schemastore.org/now.json"
       },
+      {
+        fileMatch = {"ecosystem.json"},
+        url = "https://json.schemastore.org/pm2-ecosystem.json"
+      },
     }
   }
 }
