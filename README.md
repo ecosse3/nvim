@@ -113,24 +113,24 @@ Space (SPC) is my Leader key.
 
 ### Other VERY useful bindings
 
-| Key Bindings  | Description                                                                                                                                          |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <S - q>       | Smartly closes current buffer without breaking UI                                                                                                    |
-| <C - a>       | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                              |
-| <C - n>       | Finds next occurence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete.                         |
-| <C - o>       | Jumps to previous cursor in jumplist. I use it very often.                                                                                           |
-| <C - i>       | Jumps to next cursor in jumplist.                                                                                                                    |
-| <C - u>       | Uppercase word under cursor.                                                                                                                         |
-| v <ENTER>     | Smartly selects next subjects of current treesitter context                                                                                          |
-| za            | Toggle folds. By treesitter they are automatically added to TS/JS files in smart way                                                                 |
-| zM            | Close all folds                                                                                                                                      |
-| zR            | Open all folds                                                                                                                                       |
-| gJ            | Smartly joins lines based on treesitter                                                                                                              |
-| gS            | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...) |
-| <F2> (visual) | Highlights selection to specific background color selected by :PainterPickColor 1-10.                                                                |
-| <F3>          | Jumps between highlights                                                                                                                             |
-| <F4>          | Erase highlighted line                                                                                                                               |
-| <F12>         | Opens/closes split terminal                                                                                                                          |
+| Key Bindings    | Description                                                                                                                                          |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <S - q>         | Smartly closes current buffer without breaking UI                                                                                                    |
+| <C - a>         | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                              |
+| <C - n>         | Finds next occurence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete.                         |
+| <C - o>         | Jumps to previous cursor in jumplist. I use it very often.                                                                                           |
+| <C - i>         | Jumps to next cursor in jumplist.                                                                                                                    |
+| <C - u>         | Uppercase word under cursor.                                                                                                                         |
+| v <ENTER>       | Smartly selects next subjects of current treesitter context                                                                                          |
+| za              | Toggle folds. By treesitter they are automatically added to TS/JS files in smart way                                                                 |
+| zM              | Close all folds                                                                                                                                      |
+| zR              | Open all folds                                                                                                                                       |
+| gJ              | Smartly joins lines based on treesitter                                                                                                              |
+| gS              | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...) |
+| < F2 > (visual) | Highlights selection to specific background color selected by :PainterPickColor 1-10.                                                                |
+| < F3 >          | Jumps between highlights                                                                                                                             |
+| < F4 >          | Erase highlighted line                                                                                                                               |
+| < F12 >         | Opens/closes split terminal                                                                                                                          |
 
 
 More coming soon...
