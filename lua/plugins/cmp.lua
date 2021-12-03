@@ -1,15 +1,8 @@
 -- Setup global configuration. More on configuration below.
 local cmp = require('cmp')
 
-require('cmp_nvim_lsp')
-require('cmp_nvim_lua')
-require('cmp_buffer')
-require('cmp_calc')
-require('cmp_nvim_ultisnips')
-require('plugins.cmp-npm')
-
 local lspkind = require('lspkind')
-local tabnine = require('cmp_tabnine')
+local tabnine = require('cmp_tabnine.config')
 
 local has_any_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then

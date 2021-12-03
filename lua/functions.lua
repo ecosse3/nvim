@@ -28,8 +28,9 @@ M.first_ecovim_run = function()
 
   if is_first_run then
     async.run(function()
-      require('notify')("Welcome to Ecovim! Hope you'll have a nice experience!", "info", { title = "Ecovim", timeout = 7000 })
-      require('notify')("Please select 'Install Plugins' to continue.", "info", { title = "Installation", timeout = 10000 })
+      require('notify')("Welcome to Ecovim! Hope you'll have a nice experience!", "info", { title = "Ecovim", timeout = 5000 })
+      require('notify')("Please install treesitter servers manually by :TSInstall (maintained) command.", "info", { title = "Installation", timeout = 10000 })
+      require('notify')("LSP Servers needs to be enabled manually in lsp/config.lua file.", "info", { title = "Installation", timeout = 12000 })
     end)
     local suc = os.remove('/tmp/first-ecovim-run')
     if (not suc) then print("Error: Couldn't remove /tmp/first-ecovim-run!") end
