@@ -23,6 +23,11 @@ bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/ru
 
 :warning: Installation script is in **BETA** status. Please open an issue if you experience any problem with it.
 
+After install configuration:
+
+1. Treesitter Languages are not installed by default. Make sure to run `:TSInstall <lang>` or `:TSInstall maintaned` after first run.
+2. LSP servers are disabled by default. Please enable them in `lua/lsp/config.lua` by uncomment specific lines.
+
 ## Configuration
 
 To change Ecovim related config use the `config.lua` file.\
