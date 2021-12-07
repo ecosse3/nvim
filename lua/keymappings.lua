@@ -75,7 +75,7 @@ vim.cmd [[
 ]]
 
 -- Quickfix
-vim.api.nvim_set_keymap("n", "<Space>,", ":cn<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<Space>,", ":cp<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<Space>.", ":cn<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<Space>cc", ":cclose<CR>", { silent = true })
 
