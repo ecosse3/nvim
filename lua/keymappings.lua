@@ -21,7 +21,7 @@ vim.api.nvim_set_keymap("n", "<C-u>", "viwU<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-u>", "<ESC>viwUi", { noremap = true })
 
 -- Telescope
-vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>Telescope git_files<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap = true })
 
 -- Remove highlights
