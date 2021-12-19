@@ -27,4 +27,7 @@ if EcoVim.colorscheme == 'nightfly' then
 
   -- Comment in italics
   vim.highlight.create('Comment', { gui = "italic", cterm = "italic" }, false);
+
+  -- Change color of floating popup border
+  vim.highlight.link('FloatBorder', EcoVim.ui.float.highlight, true);
 end

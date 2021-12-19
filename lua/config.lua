@@ -10,6 +10,12 @@ local icons = require('icons')
 
 EcoVim = {
   colorscheme = 'nightfly', -- nightfly/tokyonight
+  ui = {
+    float = {
+      border = 'rounded',
+      highlight = 'NightflyRed'
+    }
+  },
   plugins = {
     dashboard = {
       fuzzy_plugin = 'telescope' -- telescope/clap/fzf
