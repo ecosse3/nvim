@@ -48,7 +48,7 @@ use {'nvim-telescope/telescope.nvim',
     }
   }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-use {'ahmedkhalf/project.nvim', config = function() require('project_nvim').setup{} end}
+  use {'cljoly/telescope-repo.nvim'}
 
 -- LSP Base
 use {'neovim/nvim-lspconfig'}

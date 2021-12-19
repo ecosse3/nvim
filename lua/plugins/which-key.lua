@@ -169,7 +169,7 @@ local mappings = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
-    l = { '<cmd>Telescope projects<CR>',                             'list' },
+    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh'}}<CR>", 'list' },
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
     s = { "<cmd>SessionSave<CR>",                                    'save session' }
   },
