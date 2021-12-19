@@ -1,4 +1,5 @@
 local lsp_installer = require("nvim-lsp-installer")
+local config = require("lsp.config")
 
 local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -11,6 +12,7 @@ lsp_installer.on_server_ready(function(server)
     local opts = {
         on_attach = on_attach,
         capabilities = capabilities,
+        handlers = config.handlers,
     }
 
     if server.name == "bash" then
