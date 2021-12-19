@@ -46,6 +46,10 @@ lsp_installer.on_server_ready(function(server)
       opts.settings = require('lsp.servers.lua').settings
     end
 
+    if server.name == "vuels" then
+      opts.init_options = require('lsp.servers.vue').init_options
+    end
+
 
     -- (How to) Customize the options passed to the server
     -- if server.name == "tsserver" then
