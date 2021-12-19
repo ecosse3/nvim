@@ -66,7 +66,7 @@ use {'quangnguyen30192/cmp-nvim-ultisnips', after = 'cmp-npm'}
 
 -- LSP Addons
 use {'williamboman/nvim-lsp-installer', after = 'cmp-nvim-lsp', config = "require('lsp.installer')"}
-use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
+use {'stevearc/dressing.nvim', requires = 'MunifTanjim/nui.nvim', config = "require('plugins.dressing')"}
 use {'onsails/lspkind-nvim'}
 use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
 use {'nvim-lua/popup.nvim'}

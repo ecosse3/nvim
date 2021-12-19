@@ -76,8 +76,8 @@ local function init()
   use {'quangnguyen30192/cmp-nvim-ultisnips', after = 'cmp-npm'}
 
   -- LSP Addons
-  use {'tami5/lspsaga.nvim', config = "require('plugins.saga')"}
   use {'williamboman/nvim-lsp-installer', event = 'BufEnter', after = 'cmp-nvim-lsp', config = "require('lsp.installer')"}
+  use {'stevearc/dressing.nvim', requires = 'MunifTanjim/nui.nvim', config = "require('plugins.dressing')"}
   use {'onsails/lspkind-nvim'}
   use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
   use {'nvim-lua/popup.nvim'}
