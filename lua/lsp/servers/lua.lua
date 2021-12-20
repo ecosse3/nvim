@@ -15,7 +15,7 @@ end
 M.settings = {
   Lua = {
     diagnostics = {
-      globals = {'vim'}
+      globals = {'vim', 'bit'}
     }
   }
 }
