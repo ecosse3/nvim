@@ -1,10 +1,16 @@
 -- npm install -g @tailwindcss/language-server
 
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = EcoVim.ui.float.border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = EcoVim.ui.float.border}),
+}
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 
 require'lspconfig'.tailwindcss.setup {
+  handlers = handlers,
   capabilities = capabilities,
   on_attach = function (client, bufnr)
     if client.server_capabilities.colorProvider then
