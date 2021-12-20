@@ -211,7 +211,6 @@ function install_packer() {
 function finish () {
   touch /tmp/first-ecovim-run
   msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}" 1
-  echo -e "${BOLD}${RED}Please open neovim and select ${NC}${BOLD}Install plugins${BOLD}${RED} from menu${NC}"
   echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
 }
 
