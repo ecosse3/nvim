@@ -26,5 +26,6 @@ M.handlers =  {
 -- require('lsp.servers.lua')
 -- require('lsp.servers.tailwind')
 -- require('lsp.servers.tsserver')
+-- require('lsp.servers.vue')
 
 return M
