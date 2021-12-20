@@ -25,7 +25,7 @@ EcoVim = {
     },
     zen = {
       enabled = false,
-      kitty_enabled = true
+      kitty_enabled = false
     },
   },
   icons = icons,
