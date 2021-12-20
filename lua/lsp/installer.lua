@@ -1,10 +1,14 @@
 local lsp_installer = require("nvim-lsp-installer")
-local config = require("lsp.config")
 
 local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 end
+
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = EcoVim.ui.float.border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = EcoVim.ui.float.border}),
+}
 
 lsp_installer.on_server_ready(function(server)
     local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -12,7 +16,7 @@ lsp_installer.on_server_ready(function(server)
     local opts = {
         on_attach = on_attach,
         capabilities = capabilities,
-        handlers = config.handlers,
+        handlers = handlers,
     }
 
     if server.name == "bash" then
