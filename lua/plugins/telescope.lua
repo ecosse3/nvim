@@ -63,6 +63,12 @@ require('telescope').load_extension('repo')
 
 local M = {}
 
+local delta_bcommits = previewers.new_termopen_previewer {
+  get_command = function(entry)
+    return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!', '--', entry.current_file }
+  end
+}
+
 local delta = previewers.new_termopen_previewer {
   get_command = function(entry)
     return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!' }
@@ -83,7 +89,7 @@ end
 M.my_git_bcommits = function(opts)
   opts = opts or {}
   opts.previewer = {
-    delta,
+    delta_bcommits,
     previewers.git_commit_message.new(opts),
     previewers.git_commit_diff_as_was.new(opts),
   }
