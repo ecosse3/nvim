@@ -13,7 +13,7 @@ EcoVim = {
   ui = {
     float = {
       border = 'rounded',
-      highlight = 'NightflyRed'
+      highlight = 'NightflyRed' -- check available by :Telescope highlights
     }
   },
   plugins = {
