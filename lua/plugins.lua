@@ -73,6 +73,7 @@ local function init()
   use {'hrsh7th/cmp-calc', after = 'cmp-path'}
   use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', after = 'cmp-calc'}
   use {'David-Kunz/cmp-npm', after = 'cmp-tabnine', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
+  use {'saadparwaiz1/cmp_luasnip', after = 'cmp-npm'}
 
   -- LSP Addons
   use {'williamboman/nvim-lsp-installer', event = 'BufEnter', after = 'cmp-nvim-lsp', config = "require('lsp.installer')"}
@@ -115,6 +116,7 @@ local function init()
   use {'potatoesmaster/i3-vim-syntax'}
   use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
   use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
+  use {'L3MON4D3/LuaSnip', requires = {'rafamadriz/friendly-snippets'}, after = 'cmp_luasnip'}
   use {'lpinilla/vim-codepainter'}
 
   -- Nvim Tree

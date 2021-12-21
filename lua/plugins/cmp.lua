@@ -1,21 +1,26 @@
--- Setup global configuration. More on configuration below.
-local cmp = require('cmp')
-
+-- Requires
 local lspkind = require('lspkind')
 local tabnine = require('cmp_tabnine.config')
 
-local has_any_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-    return false
-  end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
 end
 
-local press = function(key)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+  return
 end
 
+require("luasnip/loaders/from_vscode").lazy_load()
+
+-- Utils
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
+-- Setup
 local source_mapping = {
   buffer      = EcoVim.icons.buffer .. '[BUF]',
   calc        = EcoVim.icons.calculator,
@@ -25,41 +30,56 @@ local source_mapping = {
   nvim_lua    = EcoVim.icons.bomb,
   path        = EcoVim.icons.folderOpen2,
   treesitter  = EcoVim.icons.tree,
-  ultisnips   = EcoVim.icons.snippet,
   zsh         = EcoVim.icons.terminal .. '[ZSH]',
 }
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body)
+      luasnip.lsp_expand(args.body)
     end
   },
 
-  -- You must set mapping if you want.
   mapping = {
     ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-j>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-2), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(2), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping {
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    },
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    -- ['<Tab>'] = function(fallback)
-    --   if vim.fn.complete_info()["selected"] == -1 and vim.fn["UltiSnips#CanExpandSnippet"]() == 1 then
-    --     press("<C-R>=UltiSnips#ExpandSnippet()<CR>")
-    --   elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-    --     press("<ESC>:call UltiSnips#JumpForwards()<CR>")
-    --   elseif cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif has_any_words_before() then
-    --     press("<Tab>")
-    --   else
-    --     fallback()
-    --   end
-    -- end,
-    ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
   },
 
   formatting = {
@@ -83,14 +103,23 @@ cmp.setup {
 
   -- You should specify your *installed* sources.
   sources = {
+    { name = 'luasnip'                         },
     { name = 'nvim_lsp'                        },
     { name = 'npm'                             },
-    { name = 'ultisnips'                       },
     { name = 'cmp_tabnine', max_item_count = 3 },
     { name = 'buffer', keyword_length = 5      },
     { name = 'path'                            },
     { name = 'calc'                            },
     { name = 'nvim_lua'                        },
+  },
+
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
 
   experimental = {
@@ -100,8 +129,8 @@ cmp.setup {
 }
 
 tabnine:setup({
-        max_lines                = 1000;
-        max_num_results          = 3;
-        sort                     = true;
-        show_prediction_strength = true;
+  max_lines                = 1000;
+  max_num_results          = 3;
+  sort                     = true;
+  show_prediction_strength = true;
 })
