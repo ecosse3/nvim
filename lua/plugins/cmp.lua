@@ -25,6 +25,7 @@ local source_mapping = {
   buffer      = EcoVim.icons.buffer .. '[BUF]',
   calc        = EcoVim.icons.calculator,
   cmp_tabnine = EcoVim.icons.light,
+  luasnip     = EcoVim.icons.snippet,
   npm         = EcoVim.icons.terminal .. '[NPM]',
   nvim_lsp    = EcoVim.icons.paragraph .. '[LSP]',
   nvim_lua    = EcoVim.icons.bomb,
