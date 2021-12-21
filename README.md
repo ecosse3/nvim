@@ -189,7 +189,6 @@ Measured on Manjaro Linux.
 | surround.vim                     | 116.206    | 000.378        |
 | table-mode.vim                   | 116.954    | 000.636        |
 | visual-multi.vim                 | 119.744    | 002.680        |
-| cmp_nvim_ultisnips.lua           | 121.151    | 000.920        |
 | which-key.nvim                   | 126.094    | 000.021        |
 | dashboard.vim                    | 151.122    | 000.483        |
 
