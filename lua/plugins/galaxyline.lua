@@ -3,7 +3,8 @@
 
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
-local gps = require("nvim-gps")
+local gps = require('nvim-gps')
+local utils = require('utils')
 
 -- Configuration {{{1
 
@@ -437,6 +438,9 @@ table.insert(gls.right, {
         provider = function()
           if #vim.fn.expand '%:p' == 0 then
             return ''
+          end
+          if EcoVim.statusline.path == 'relative' then
+            return utils.get_relative_gitdir() .. ' '
           end
           if vim.fn.winwidth(0) > 150 then
             return vim.fn.expand '%:~' .. ' '
