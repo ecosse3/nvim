@@ -29,4 +29,7 @@ EcoVim = {
     },
   },
   icons = icons,
+  statusline = {
+    path = 'relative' -- absolute/relative
+  }
 }
