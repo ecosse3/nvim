@@ -108,6 +108,7 @@ local function init()
   use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
   use {'rcarriga/nvim-notify'}
   use {'vuki656/package-info.nvim', disable = not EcoVim.plugins.package_info.enabled}
+  use {'RRethy/vim-illuminate'}
 
   -- Snippets & Language & Syntax
   use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}

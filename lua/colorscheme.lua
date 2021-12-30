@@ -30,4 +30,9 @@ if EcoVim.colorscheme == 'nightfly' then
 
   -- Change color of floating popup border
   vim.highlight.link('FloatBorder', EcoVim.ui.float.highlight, true);
+
+  -- Illuminate
+  vim.highlight.link('LspReferenceText', 'CursorLine', true);
+  vim.highlight.link('LspReferenceWrite', 'CursorLine', true);
+  vim.highlight.link('LspReferenceRead', 'CursorLine', true);
 end

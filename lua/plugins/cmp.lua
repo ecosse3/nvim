@@ -104,12 +104,12 @@ cmp.setup {
 
   -- You should specify your *installed* sources.
   sources = {
-    { name = 'luasnip'                         },
     { name = 'nvim_lsp'                        },
     { name = 'npm'                             },
     { name = 'cmp_tabnine', max_item_count = 3 },
     { name = 'buffer', keyword_length = 5      },
     { name = 'path'                            },
+    { name = 'luasnip'                         },
     { name = 'calc'                            },
     { name = 'nvim_lua'                        },
   },
