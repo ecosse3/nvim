@@ -34,6 +34,8 @@ require'lspconfig'.tsserver.setup({
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
+    require 'illuminate'.on_attach(client)
+
     require("nvim-lsp-ts-utils").setup {
         debug = false,
         disable_commands = false,
