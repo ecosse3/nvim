@@ -30,7 +30,7 @@ EcoVim = {
   },
   icons = icons,
   statusline = {
-    path_enabled = false,
+    path_enabled = true,
     path = 'relative' -- absolute/relative
   }
 }
