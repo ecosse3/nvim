@@ -428,30 +428,33 @@ table.insert(gls.right, {
         highlight = {colors.typeicon, colors.typebg}
     }
 })
-table.insert(gls.right, {
-    --[[ FileName = {
-        provider = 'FileName',
-        separator_highlight = {'NONE', colors.typebg},
-        highlight = {colors.typetext, colors.typebg}
-    } ]]
-    FileName = {
-        provider = function()
-          if #vim.fn.expand '%:p' == 0 then
-            return ''
-          end
-          if EcoVim.statusline.path == 'relative' then
-            return utils.get_relative_gitdir() .. ' '
-          end
-          if vim.fn.winwidth(0) > 150 then
-            return vim.fn.expand '%:~' .. ' '
-          else
-            return vim.fn.expand '%:t' .. ' '
-          end
-        end,
-        separator_highlight = {'NONE', colors.typebg},
-        highlight = {colors.typetext, colors.typebg}
-    }
-})
+
+if EcoVim.statusline.path_enabled then
+  table.insert(gls.right, {
+      --[[ FileName = {
+          provider = 'FileName',
+          separator_highlight = {'NONE', colors.typebg},
+          highlight = {colors.typetext, colors.typebg}
+      } ]]
+      FileName = {
+          provider = function()
+            if #vim.fn.expand '%:p' == 0 then
+              return ''
+            end
+            if EcoVim.statusline.path == 'relative' then
+              return utils.get_relative_gitdir() .. ' '
+            end
+            if vim.fn.winwidth(0) > 150 then
+              return vim.fn.expand '%:~' .. ' '
+            else
+              return vim.fn.expand '%:t' .. ' '
+            end
+          end,
+          separator_highlight = {'NONE', colors.typebg},
+          highlight = {colors.typetext, colors.typebg}
+      }
+  })
+end
 table.insert(gls.right, {
     FileIcon = {
         provider = 'FileIcon',
