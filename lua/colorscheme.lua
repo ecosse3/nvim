@@ -1,6 +1,11 @@
+local tokyonight_colors = require("tokyonight.colors").setup({})
+
 -- Tokyonight config
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_colors = {
+  border = '#1a1b26';
+}
 
 -- Nighyfly config
 vim.g.nightflyCursorColor         = 1

@@ -1,10 +1,11 @@
 -- See: https://github.com/glepnir/galaxyline.nvim
--- Modified by kvsky
+-- Modified by ecosse
 
 local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 local gps = require('nvim-gps')
 local utils = require('utils')
+local tokyonight_colors = require("tokyonight.colors").setup({})
 
 -- Configuration {{{1
 
@@ -62,9 +63,17 @@ local rightbracket = "" -- Curve.
 gl.short_line_list = {'NvimTree', 'vista', 'dbui', 'packer', 'tagbar'}
 local gls = gl.section
 
+local bgcolor = function()
+  if EcoVim.colorscheme == 'nightfly' then
+    return '#011627'
+  else
+    return tokyonight_colors.bg_dark;
+  end
+end
+
 -- Colours, maps and icons {{{2
 local colors = {
-    bg              = '#011627',
+    bg              = bgcolor();
     modetext        = '#000000',
 
     giticon         = '#FF8800',
