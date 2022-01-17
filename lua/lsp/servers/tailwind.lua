@@ -16,7 +16,6 @@ require'lspconfig'.tailwindcss.setup {
     if client.server_capabilities.colorProvider then
         require"lsp/documentcolors".buf_attach(bufnr)
     end
-    require 'illuminate'.on_attach(client)
   end,
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "django-html", "edge", "eelixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
