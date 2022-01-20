@@ -1,4 +1,5 @@
 local M = {}
+local fn = vim.fn
 
 M.file_exists = function(path)
   local f=io.open(path, "r")
@@ -18,6 +19,14 @@ end
 
 M.sleep = function(n)
   os.execute("sleep " .. tonumber(n))
+end
+
+M.toggle_quicklist = function()
+  if fn.empty(fn.filter(fn.getwininfo(), 'v:val.quickfix')) == 1 then
+    vim.cmd('copen')
+  else
+    vim.cmd('cclose')
+  end
 end
 
 return M

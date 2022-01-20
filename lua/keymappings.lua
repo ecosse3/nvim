@@ -82,7 +82,9 @@ vim.cmd [[
 -- Quickfix
 keymap("n", "<Space>,", ":cp<CR>", { silent = true })
 keymap("n", "<Space>.", ":cn<CR>", { silent = true })
-keymap("n", "<Space>cc", ":cclose<CR>", { silent = true })
+
+-- Toggle quicklist
+keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", { noremap = true, silent = true})
 
 -- Easyalign
 keymap("n", "ga", "<Plug>(EasyAlign)", { silent = true })
