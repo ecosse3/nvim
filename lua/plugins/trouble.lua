@@ -44,7 +44,7 @@ require("trouble").setup {
       hint        = icons.lightbulbOutline,
       information = icons.infoOutline,
   },
-  use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+  use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
 };
 
 require("todo-comments").setup {
