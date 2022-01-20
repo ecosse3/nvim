@@ -39,6 +39,9 @@ but I can write you the most useful custom key bindings by the frequency I use t
 
 Space (SPC) is my Leader key.
 
+<details>
+<summary>Searching</summary>
+
 ### Searching
 
 | Key Bindings | Description                 |
@@ -51,6 +54,10 @@ Space (SPC) is my Leader key.
 | SPC s h      | Search file history         |
 | SPC s s      | Search history              |
 
+</details>
+
+<details>
+<summary>Working with LSP</summary>
 
 ### Working with LSP:
 
@@ -68,6 +75,10 @@ Space (SPC) is my Leader key.
 | SPC c d                | Local diagnostics list                            |
 | SPC c o                | Organize imports                                  |
 
+</details>
+
+<details>
+<summary>Working with Git</summary>
 
 ### Working with Git:
 
@@ -83,6 +94,11 @@ Space (SPC) is my Leader key.
 | SPC g h s    | Stage hunk under cursor - Sometimes it's faster than selecting lines in Lazygit, so I can stage specific lines and then just do a commit |
 | SPC g l c    | Quick check of previous commit in current buffer, <C-s> inside to switch preview                                                         |
 
+</details>
+
+<details>
+<summary>Working with Project</summary>
+
 ### Working with Project:
 
 | Key Bindings | Description                                                                                                                                                                                                                                                                             |
@@ -94,6 +110,11 @@ Space (SPC) is my Leader key.
 | SPC p l      | Switch between projects                                                                                                                                                                                                                                                                 |
 | SPC p s      | Save session to load it later from Dashboard                                                                                                                                                                                                                                            |
 
+</details>
+
+<details>
+<summary>Commenting</summary>
+
 ### Commenting
 
 | Key Bindings | Description                |
@@ -102,6 +123,11 @@ Space (SPC) is my Leader key.
 | gc (visual)  | Create/remove comment      |
 | gcO          | Create comment line before |
 | gco          | Create comment line after  |
+
+</details>
+
+<details>
+<summary>Table Mode / Alignment</summary>
 
 ### Table Mode / Alignment
 
@@ -114,6 +140,11 @@ Space (SPC) is my Leader key.
 | SPC t d c    | (Only when Table Mode Enabled) Delete column                                      |
 | SPC t d r    | (Only when Table Mode Enabled) Delete row                                         |
 | SPC t s      | (Only when Table Mode Enabled) Sort table alphabetically                          |
+
+</details>
+
+<details>
+<summary>Other</summary>
 
 ### Other VERY useful bindings
 
@@ -136,6 +167,7 @@ Space (SPC) is my Leader key.
 | < F4  >         | Erase highlighted line                                                                                                                               |
 | < F12 >         | Opens/closes split terminal                                                                                                                          |
 
+</details>
 
 More coming soon...
 Check out the which-key menu and keybindings.lua for most used maps.
@@ -189,10 +221,24 @@ Ecovim started in 177.538ms
 
 ## Todo
 
+| Description                                          | Progress                                                           |
+|------------------------------------------------------|--------------------------------------------------------------------|
+| Provide dependencies and recommendations             | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Add uninstaller script                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Support for nvim-dap debugger for React              | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better support for null-ls and local formatting      | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better support to project word refactor              | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Auto resize for more consistent UI behavior          | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Reload in-time support                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Support more LSPs                                    | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Project Logo                                         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better UI customization when nvim 0.8 will be in dev | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+
+<details>
+<summary>Done</summary>
+
 | Description                                  | Progress                                                           |
 |----------------------------------------------|--------------------------------------------------------------------|
-| Support for nvim-dap debugger for React      | ![50%](https://progress-bar.dev/50/?title=progress)                |
-| Find way to refactor words like in coc       | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Support ESLint & Prettier in Native LSP      | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Replace coc-explorer with nvim-tree.lua      | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
@@ -202,3 +248,5 @@ Ecovim started in 177.538ms
 | Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Provide current screenshots                  | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Create shell installer for Linux & macOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+
+</details>
