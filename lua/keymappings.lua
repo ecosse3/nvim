@@ -70,6 +70,9 @@ keymap("n", "X", '"_X', { noremap = true, silent = true })
 keymap("v", "x", '"_x', { noremap = true, silent = true })
 keymap("v", "X", '"_X', { noremap = true, silent = true })
 
+-- Don't yank on visual paste
+keymap("v", "p", '"_dP', { noremap = true, silent = true })
+
 -- Avoid issues because of remapping <c-a> and <c-x> below
 vim.cmd [[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
