@@ -104,9 +104,6 @@ else
   keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", { silent = true })
 end
 
--- Erase painter line
-keymap("n", "<F4>", "<cmd>lua require('functions').erase_painter_line()<CR>", { noremap = true, silent = true })
-
 -- LSP
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })

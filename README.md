@@ -162,9 +162,6 @@ Space (SPC) is my Leader key.
 | zR              | Open all folds                                                                                                                                       |
 | gJ              | Smartly joins lines based on treesitter                                                                                                              |
 | gS              | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...) |
-| < F2 > (visual) | Highlights selection to specific background color selected by :PainterPickColor 1-10.                                                                |
-| < F3  >         | Jumps between highlights                                                                                                                             |
-| < F4  >         | Erase highlighted line                                                                                                                               |
 | < F12 >         | Opens/closes split terminal                                                                                                                          |
 
 </details>
@@ -198,7 +195,6 @@ Measured on Manjaro Linux.
 | indent-blankline.nvim | 0.453 | 0.310 | 0.360  | 0.3622  | 0.03858   |
 | dressing.nvim         | 0.449 | 0.307 | 0.326  | 0.3437  | 0.04207   |
 | switch.vim            | 0.352 | 0.311 | 0.320  | 0.3257  | 0.01351   |
-| vim-codepainter       | 0.346 | 0.272 | 0.283  | 0.2906  | 0.02149   |
 | telescope.nvim        | 0.241 | 0.175 | 0.191  | 0.1933  | 0.01936   |
 | dashboard-nvim        | 0.229 | 0.168 | 0.177  | 0.1886  | 0.02268   |
 | vim-easy-align        | 0.195 | 0.147 | 0.151  | 0.1565  | 0.01378   |

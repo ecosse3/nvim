@@ -18,11 +18,6 @@ vim.cmd('autocmd Filetype ' .. ft_str .. ' setlocal foldmethod=expr foldexpr=nvi
 -- Exported functions
 local M = {}
 
-M.erase_painter_line = function()
-  vim.api.nvim_command("PainterEraseLine")
-  require('notify')("Erased line", "info", { title = "Painter", timeout = 1000 })
-end
-
 M.first_ecovim_run = function()
   local is_first_run = utils.file_exists('/tmp/first-ecovim-run')
 
