@@ -151,9 +151,13 @@ local mappings = {
     h = {
       name = "Hunk",
       b = "blame line",
+      d = "diff hunk",
       p = "preview",
-      r = "reset",
-      s = "stage",
+      R = "reset buffer",
+      r = "reset hunk",
+      s = "stage hunk",
+      S = "stage buffer",
+      t = "toggle deleted",
       u = "undo stage",
     },
     l = {
