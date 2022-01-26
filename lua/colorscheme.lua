@@ -16,9 +16,9 @@ vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
 
 if EcoVim.colorscheme == 'tokyonight' then
-  vim.highlight.create('LineNr', { guifg = "White", ctermfg = "White", guibg = "None"}, false);
+  vim.highlight.link('LineNr', 'Comment', true)
   vim.highlight.create('BufferTabpageFill', { guifg = "None" }, false);
-  vim.highlight.create('NvimTreeNormal', { guibg = "None" }, false);
+  vim.highlight.create('VertSplit', { guibg = "#16161e", guifg = "#16161e" }, false);
 end
 
 if EcoVim.colorscheme == 'nightfly' then
