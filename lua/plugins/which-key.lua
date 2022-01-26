@@ -97,7 +97,7 @@ local mappings = {
 
   a = {
     name = "Actions",
-    m = { '<cmd>Glow<CR>',                               'markdown preview' },
+    m = { '<cmd>MarkdownPreviewToggle<CR>',              'markdown preview' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
     t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },

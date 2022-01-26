@@ -85,7 +85,6 @@ local function init()
   use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
 
   -- General
-  use {'ellisonleao/glow.nvim', config = function() vim.g.glow_border = "rounded" end}
   use {'AndrewRadev/switch.vim'}
   use {'AndrewRadev/splitjoin.vim'}
   use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
@@ -108,6 +107,13 @@ local function init()
   use {'antoinemadec/FixCursorHold.nvim'} -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
   use {'rcarriga/nvim-notify'}
   use {'vuki656/package-info.nvim', disable = not EcoVim.plugins.package_info.enabled}
+  use {'iamcco/markdown-preview.nvim',
+    run = 'cd app && npm install',
+    setup = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
+    ft = { 'markdown' }
+  }
 
   -- Snippets & Language & Syntax
   use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
