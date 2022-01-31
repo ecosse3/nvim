@@ -219,6 +219,7 @@ Ecovim started in 177.538ms
 
 | Description                                          | Progress                                                           |
 |------------------------------------------------------|--------------------------------------------------------------------|
+| Create npx auto-installer                            | ![50%](https://progress-bar.dev/50/?title=progress)                |
 | Provide dependencies and recommendations             | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Add uninstaller script                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 | Support for nvim-dap debugger for React              | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
