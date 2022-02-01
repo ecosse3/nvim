@@ -4,7 +4,6 @@ vim.opt.listchars = {
 }
 
 require("indent_blankline").setup {
-  char = "|",
   buftype_exclude = {"terminal", "telescope", "nofile"},
   filetype_exclude = {"help", "dashboard", "packer", "NvimTree", "Trouble", "TelescopePrompt", "Float"},
   space_char_blankline = " ",
