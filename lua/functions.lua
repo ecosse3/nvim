@@ -18,6 +18,7 @@ vim.cmd('autocmd Filetype ' .. ft_str .. ' setlocal foldmethod=expr foldexpr=nvi
 -- Exported functions
 local M = {}
 
+-- ISSUE https://github.com/nvim-lua/plenary.nvim/issues/310
 M.first_ecovim_run = function()
   local is_first_run = utils.file_exists('/tmp/first-ecovim-run')
 
