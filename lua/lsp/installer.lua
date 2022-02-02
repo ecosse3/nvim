@@ -59,13 +59,11 @@ lsp_installer.on_server_ready(function(server)
     end
 
     if server.name == "graphql" then
-      opts.init_options = require('lsp.servers.graphql').init_options
+      opts.settings = require('lsp.servers.graphql').settings
     end
 
     if server.name == "gopls" then
-      opts.capabilities = require('lsp.servers.gopls').capabilities
       opts.settings = require('lsp.servers.gopls').settings
-      opts.init_options = require('lsp.servers.gopls').init_options
     end
     -- (How to) Customize the options passed to the server
     -- if server.name == "tsserver" then
