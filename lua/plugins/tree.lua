@@ -71,7 +71,7 @@ require'nvim-tree'.setup {
       }
     },
     number = true,
-    relativenumber = true
+    relativenumber = false
   },
   trash = {
     cmd = "trash",

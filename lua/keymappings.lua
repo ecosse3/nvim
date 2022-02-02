@@ -19,8 +19,8 @@ keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 keymap("i", "<C-s>", "<ESC> :w<CR>", { noremap = true, silent = true })
 
 -- Faster way to escpape in insert mode
-keymap("n", "kj", "<ESC>", { noremap = true, silent = true })
-keymap("n", "jk", "<ESC>", { noremap = true, silent = true })
+keymap("i", "kj", "<ESC>", { noremap = true, silent = true })
+keymap("i", "jk", "<ESC>", { noremap = true, silent = true })
 
 -- Telescope
 keymap("n", "<leader>ff", "<CMD>lua require('plugins.telescope').project_files()<CR>", { noremap = true })
