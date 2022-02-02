@@ -58,7 +58,15 @@ lsp_installer.on_server_ready(function(server)
       opts.init_options = require('lsp.servers.vue').init_options
     end
 
+    if server.name == "graphql" then
+      opts.init_options = require('lsp.servers.graphql').init_options
+    end
 
+    if server.name == "gopls" then
+      opts.capabilities = require('lsp.servers.gopls').capabilities
+      opts.settings = require('lsp.servers.gopls').settings
+      opts.init_options = require('lsp.servers.gopls').init_options
+    end
     -- (How to) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
