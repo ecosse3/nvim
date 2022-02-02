@@ -41,6 +41,10 @@ lsp_installer.on_server_ready(function(server)
         opts.settings = require('lsp.servers.eslint').settings
     end
 
+    if server.name == "graphql" then
+      opts.settings = require('lsp.servers.graphql').settings
+    end
+
     if server.name == "html" then
       opts.capabilities = require('lsp.servers.html').capabilities
       opts.settings = require('lsp.servers.html').settings
