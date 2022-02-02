@@ -18,13 +18,13 @@ keymap("v", ">", ">gv", { noremap = true, silent = true })
 keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 keymap("i", "<C-s>", "<ESC> :w<CR>", { noremap = true, silent = true })
 
--- Make word uppercase
-keymap("n", "<C-u>", "viwU<ESC>", { noremap = true })
-keymap("i", "<C-u>", "<ESC>viwUi", { noremap = true })
+-- Faster way to escpape in insert mode
+keymap("n", "kj", "<ESC>", { noremap = true, silent = true })
+keymap("n", "jk", "<ESC>", { noremap = true, silent = true })
 
 -- Telescope
-keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>", { noremap = true })
-keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap = true })
+keymap("n", "<leader>ff", "<CMD>lua require('plugins.telescope').project_files()<CR>", { noremap = true })
+keymap("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { noremap = true })
 
 -- Remove highlights
 keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true, silent = true })
