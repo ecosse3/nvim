@@ -13,8 +13,10 @@ end
 local autocmds = {
   lua_highlight = {
     { "TextYankPost", "*", [[silent! lua vim.highlight.on_yank() {higroup="IncSearch", timeout=400}]] };
-    { "BufWritePost", "plugins.lua", [[source <afile> | PackerSync]] };
   };
+  auto_update_plugins = {
+    { "BufWritePost", "plugins.lua", [[source <afile> | PackerSync]] };
+  }
 }
 
 nvim_create_augroups(autocmds)
