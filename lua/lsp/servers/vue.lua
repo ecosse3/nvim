@@ -12,6 +12,11 @@ end
 
 -- Settings
 
+M.filetypes = {
+  "vue",
+  "javascript",
+}
+
 M.init_options = {
   config = {
     css = {},

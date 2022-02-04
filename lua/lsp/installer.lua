@@ -59,6 +59,7 @@ lsp_installer.on_server_ready(function(server)
     end
 
     if server.name == "vuels" then
+      opts.filetypes = require('lsp.servers.vue').filetypes
       opts.init_options = require('lsp.servers.vue').init_options
     end
 
