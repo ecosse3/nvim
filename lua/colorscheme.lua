@@ -17,11 +17,14 @@ vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", gui
 
 if EcoVim.colorscheme == 'tokyonight' then
   vim.highlight.link('LineNr', 'Comment', true)
+  vim.highlight.create('NormalFloat', { guibg = "None", guifg = "None" }, false);
+  vim.highlight.create('FloatBorder', { guibg = "None" }, false);
+  vim.highlight.create('WhichKeyFloat', { guibg = "None" }, false);
   vim.highlight.create('BufferTabpageFill', { guifg = "None" }, false);
   vim.highlight.create('VertSplit', { guibg = "#16161e", guifg = "#16161e" }, false);
   vim.highlight.create('TelescopeNormal', { guibg = "None", guifg = "None" }, false);
   vim.highlight.create('TelescopeBorder', { guibg = "None", guifg = "None" }, false);
-  vim.highlight.link('TelescopeMatching', 'Constant', true)
+  vim.highlight.link('TelescopeMatching', 'Constant', true);
 end
 
 if EcoVim.colorscheme == 'nightfly' then
