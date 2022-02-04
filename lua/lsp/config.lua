@@ -31,4 +31,4 @@ end
 -- require('lsp.servers.lua')
 -- require('lsp.servers.tailwind')
 -- require('lsp.servers.tsserver')
--- require('lsp.servers.vue')
+-- require('lsp.servers.vue2')
