@@ -124,8 +124,9 @@ local function init()
   use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
   use {'L3MON4D3/LuaSnip', requires = {'rafamadriz/friendly-snippets'}, after = 'cmp_luasnip'}
 
-  -- Nvim Tree
+  -- Nvim Tree / Rooter
   use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
+  use {'airblade/vim-rooter'}
 
   -- Debug
   -- TODO: Configure dap
