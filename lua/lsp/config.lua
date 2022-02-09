@@ -1,8 +1,20 @@
 -- Diagnostic config
 
 vim.diagnostic.config({
-  float = true,
-  severity_sort = false,
+  float = {
+    format = function(diagnostic)
+      if not diagnostic.source or not diagnostic.user_data.lsp.code then
+        return string.format('%s', diagnostic.message)
+      end
+
+      if diagnostic.source == 'eslint' then
+        return string.format('%s [%s]', diagnostic.message, diagnostic.user_data.lsp.code)
+      end
+
+      return string.format('%s [%s]', diagnostic.message, diagnostic.source)
+    end
+  },
+  severity_sort = true,
   signs = true,
   underline = true,
   update_in_insert = false,
@@ -22,13 +34,13 @@ end
 -- Load servers (They will be automatically installed after next "Sync plugins" launch)
 -- Check installed servers by :LspInstallInfo
 
--- require('lsp.servers.bash')
--- require('lsp.servers.css')
--- require('lsp.servers.eslint')
--- require('lsp.servers.graphql')
--- require('lsp.servers.html')
--- require('lsp.servers.json')
--- require('lsp.servers.lua')
+require('lsp.servers.bash')
+require('lsp.servers.css')
+require('lsp.servers.eslint')
+require('lsp.servers.graphql')
+require('lsp.servers.html')
+require('lsp.servers.json')
+require('lsp.servers.lua')
 -- require('lsp.servers.tailwind')
--- require('lsp.servers.tsserver')
+require('lsp.servers.tsserver')
 -- require('lsp.servers.vue2')
