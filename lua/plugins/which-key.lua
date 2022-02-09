@@ -146,6 +146,7 @@ local mappings = {
     name = "Git",
     a = { '<cmd>!git add %:p<CR>',                                   'add current' },
     A = { '<cmd>!git add .<CR>',                                     'add all' },
+    b = { '<cmd>lua require("blame").open()<CR>',                    'blame' },
     d = { '<cmd>lua require("plugins.diffview").toggle()<CR>',       'diff file' },
     g = { 'lazygit' },
     h = {
