@@ -26,6 +26,8 @@ if EcoVim.colorscheme == 'tokyonight' then
   vim.highlight.create('TelescopeBorder', { guibg = "None", guifg = "None" }, false);
   vim.highlight.link('TelescopeMatching', 'Constant', true);
   vim.highlight.link('GitSignsCurrentLineBlame', 'Comment', true);
+  vim.highlight.create('StatusLine', { guibg = "None" }, false);
+  vim.highlight.create('StatusLineNC', { guibg = "None" }, false);
 end
 
 if EcoVim.colorscheme == 'nightfly' then

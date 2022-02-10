@@ -67,7 +67,7 @@ local bgcolor = function()
   if EcoVim.colorscheme == 'nightfly' then
     return '#011627'
   else
-    return '#16161e';
+    return nil;
   end
 end
 
