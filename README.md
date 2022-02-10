@@ -1,16 +1,65 @@
-# Ecovim: Ultimate React Neovim Config
+# Ecovim: Frontend Neovim Config
 
 [![Last commit](https://img.shields.io/github/last-commit/ecosse3/nvim)](https://github.com/ecosse3/nvim/commits/master)
 ![Stars](https://img.shields.io/github/stars/ecosse3/nvim?label=%E2%AD%90%20Stars)
 ![License](https://img.shields.io/github/license/ecosse3/nvim)
 ![Follow](https://img.shields.io/github/followers/ecosse3?label=Please%20follow%20%20to%20support%20my%20work&style=social)
 
-### A non-minimal Neovim config built to work most efficiently with React, JavaScript & TypeScript frameworks.
+### A non-minimal Neovim config built to work most efficiently with Frontend Development.
+
+## Features
+
+- Two recommended themes: [Nightfly](https://github.com/bluz71/vim-nightfly-guicolors) & [Tokyonight](https://github.com/folke/tokyonight.nvim)
+- Configured for Frontend Development
+- Hightly performant even with a lot of plugins
+- Lazy loading
+- Extendable LSP configuration
+- Support for [TailwindCSS](https://tailwindcss.com/) with highlighted colors
+- Support for [Tabnine](https://www.tabnine.com/)
+- JSON autocompletion for most popular Frontend configs
+- NPM packages autocompletion
+- Treesitter-based folding
+- Beautiful and functional custom statusline built with galaxyline.nvim
+- Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim)
+
+And of course usage of [telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), [barbar](https://github.com/romgrk/barbar.nvim), [cmp](https://github.com/hrsh7th/nvim-cmp), [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [blankline](https://github.com/lukas-reineke/indent-blankline.nvim) & more!
 
 ## Screenshots
 
+Dashboard
+
 ![Dashboard](./.screenshots/4-dashboard.png)
+
+Overview
+
 ![Neovim](./.screenshots/4-main.png)
+
+<details>
+<summary>More screenshots with Tokyonight colorscheme</summary>
+TailwindCSS
+
+![TailwindCSS](./.screenshots/4-tailwind.png)
+
+Which Key Menu
+
+![WhichKey](./.screenshots/4-which-key.png)
+
+Lazygit
+
+![Lazygit](./.screenshots/4-lazygit.png)
+
+Telescope
+
+![Telescope](./.screenshots/4-telescope.png)
+
+Git Commits w/ Telescope
+
+![Commits](./.screenshots/4-bcommits.png)
+
+Git Side Blame
+
+![Side Blame](./.screenshots/4-side-blame.png)
+</details>
 
 ## Installation
 
