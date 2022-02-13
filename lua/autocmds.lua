@@ -16,7 +16,11 @@ local autocmds = {
   };
   auto_update_plugins = {
     { "BufWritePost", "plugins.lua", [[source <afile> | PackerSync]] };
-  }
+  };
+  disable_lsp_node_modules = {
+    { "BufRead", "*/node_modules/*", [[lua vim.diagnostic.disable(0)]] };
+    { "BufNewFile", "*/node_modules/*", [[lua vim.diagnostic.disable(0)]] };
+  };
 }
 
 nvim_create_augroups(autocmds)
