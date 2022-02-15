@@ -117,7 +117,6 @@ local function init()
   use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
   use {'p00f/nvim-ts-rainbow', after = {'nvim-treesitter'}}
   use {'mattn/emmet-vim'}
-  use {'potatoesmaster/i3-vim-syntax'}
   use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
   use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
   use {'L3MON4D3/LuaSnip', requires = {'rafamadriz/friendly-snippets'}, after = 'cmp_luasnip'}
