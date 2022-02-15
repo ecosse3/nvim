@@ -32,7 +32,7 @@ local function init()
   use 'wbthomason/packer.nvim'
 
   -- Needed to load first
-  use {'lewis6991/impatient.nvim', rocks = 'mpack'}
+  use {'lewis6991/impatient.nvim'}
   use {'nathom/filetype.nvim'}
   use {'nvim-lua/plenary.nvim'}
   use {'kyazdani42/nvim-web-devicons'}
