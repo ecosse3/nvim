@@ -123,7 +123,7 @@ local function init()
 
   -- Nvim Tree / Rooter
   use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
-  use {'airblade/vim-rooter'}
+  use {'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end}
 
   -- Debug
   -- TODO: Configure dap
