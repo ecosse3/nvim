@@ -30,6 +30,6 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-for _,lsp in ipairs(EcoVim.lsp) do
-  require('lsp.servers.' .. lsp)
+for _,server_name in ipairs(EcoVim.lsp.servers) do
+  require('lsp.servers.' .. server_name)
 end
