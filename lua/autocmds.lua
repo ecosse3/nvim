@@ -1,26 +1,9 @@
-local function nvim_create_augroups(definitions)
-    for group_name, definition in pairs(definitions) do
-        vim.api.nvim_command('augroup '..group_name)
-        vim.api.nvim_command('autocmd!')
-        for _, def in ipairs(definition) do
-            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-            vim.api.nvim_command(command)
-        end
-        vim.api.nvim_command('augroup END')
-    end
-end
+vim.api.nvim_create_augroup("AutoUpdatePlugins", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", { pattern = "plugins.lua", command = "source <afile> | PackerSync", group = 'AutoUpdatePlugins' })
 
-local autocmds = {
-  lua_highlight = {
-    { "TextYankPost", "*", [[silent! lua vim.highlight.on_yank() {higroup="IncSearch", timeout=400}]] };
-  };
-  auto_update_plugins = {
-    { "BufWritePost", "plugins.lua", [[source <afile> | PackerSync]] };
-  };
-  disable_lsp_node_modules = {
-    { "BufRead", "*/node_modules/*", [[lua vim.diagnostic.disable(0)]] };
-    { "BufNewFile", "*/node_modules/*", [[lua vim.diagnostic.disable(0)]] };
-  };
-}
+vim.api.nvim_create_augroup("Highlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", { command = "silent! lua vim.highlight.on_yank() {higroup='IncSearch', timeout=400}", group = 'Highlight' })
 
-nvim_create_augroups(autocmds)
+vim.api.nvim_create_augroup("LspNodeModules", { clear = true })
+vim.api.nvim_create_autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)", group = 'LspNodeModules' })
+vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)", group = 'LspNodeModules' })
