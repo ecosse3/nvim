@@ -94,9 +94,6 @@ keymap("x", "ga", "<Plug>(EasyAlign)", { silent = true })
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", { noremap = true, silent = true })
 keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>", { noremap = true, silent = true })
 
--- Space to NOP to prevent Leader issues
-keymap("n", "<Space>", "<NOP>", { noremap = true, silent = true })
-
 -- Open links under cursor in browser with gx
 if vim.fn.has('macunix') == 1 then
   keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", { silent = true })
