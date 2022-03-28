@@ -24,7 +24,7 @@ keymap("i", "<C-u>", "<ESC>viwUi", { noremap = true })
 
 -- Telescope
 keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>", { noremap = true })
-keymap("n", "<S-p>", "<CMD>Telescope live_grep<CR>", { noremap = true })
+keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>", { noremap = true })
 
 -- Remove highlights
 keymap("n", "<CR>", ":noh<CR><CR>", { noremap = true, silent = true })
