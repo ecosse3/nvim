@@ -46,6 +46,7 @@ local function init()
   use {'nvim-treesitter/nvim-treesitter', config = "require('plugins.treesitter')"}
   use {'nvim-treesitter/nvim-treesitter-textobjects', after = {'nvim-treesitter'}}
   use {'RRethy/nvim-treesitter-textsubjects', after = {'nvim-treesitter'}}
+  use {'m-demare/hlargs.nvim', config = function() require('hlargs').setup() end}
 
   -- Telescope
   use {'nvim-telescope/telescope.nvim',
