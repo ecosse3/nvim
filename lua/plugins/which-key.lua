@@ -80,9 +80,8 @@ local mappings = {
   ["9"] = "which_key_ignore",
 
   -- single
-  ["+"] = { '<cmd>vertical resize +2<CR>',               'resize +2' },
-  ["-"] = { '<cmd>vertical resize -2<CR>',               'resize +2' },
-  ["="] = { '<C-W>=',                                    'balance windows' },
+  ["="] = { '<cmd>vertical resize +5<CR>',               'resize +5' },
+  ["-"] = { '<cmd>vertical resize -5<CR>',               'resize +5' },
   ["v"] = { '<C-W>v',                                    'split right' },
   ["V"] = { '<C-W>s',                                    'split below' },
   ["q"] = { 'quicklist' },
@@ -117,7 +116,7 @@ local mappings = {
 
   c = {
     name = "LSP",
-    a = { '<cmd>Telescope lsp_code_action<CR>',          'telescope code action' },
+    a = { 'code action' },
     d = { '<cmd>TroubleToggle<CR>',                      'local diagnostics' },
     D = { '<cmd>Telescope diagnostics<CR>',              'workspace diagnostics' },
     f = { 'format' },
@@ -151,7 +150,6 @@ local mappings = {
     g = { 'lazygit' },
     h = {
       name = "Hunk",
-      b = "blame line",
       d = "diff hunk",
       p = "preview",
       R = "reset buffer",
