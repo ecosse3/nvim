@@ -536,9 +536,9 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     VerticalPosAndSize = {
         provider = function()
-            return string.format("%4i/%4i ", vim.fn.line('.'), vim.fn.line('$'))
+            return string.format("%4i /%4i ", vim.fn.line('.'), vim.fn.line('$'))
         end,
-        separator = '⇕ ',
+        separator = ' ',
         separator_highlight = {colors.statsicon, colors.statsbg},
         highlight = {colors.statstext, colors.statsbg}
     }
@@ -548,7 +548,7 @@ table.insert(gls.right, {
         provider = function()
             return leftbracket
         end,
-        separator = '⇔ ',
+        separator = ' ',
         separator_highlight = {colors.statsicon, colors.statsbg},
         highlight = 'LinePosHighlightStart'
     }
@@ -557,7 +557,7 @@ table.insert(gls.right, {
     CursorColumn = {
         provider = function()
             setLineWidthColours()
-            return " " .. string.format("%3i", vim.fn.col('.')) .. "/"
+            return "" .. string.format("%3i", vim.fn.col('.')) .. " /"
         end,
         highlight = 'LinePosHighlightColNum'
     }
@@ -581,7 +581,7 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     LineLengthEnd = {
         provider = function()
-            return " " .. rightbracket
+            return " " .. rightbracket .. " "
         end,
         highlight = 'LinePosHighlightEnd'
     }
@@ -591,9 +591,9 @@ table.insert(gls.right, {
         provider = function()
             if vim.bo.expandtab
             then
-                return '⯀'
+                return '  '
             else
-                return '⯈'
+                return '  '
             end
         end,
         condition = condition.hide_in_width,
