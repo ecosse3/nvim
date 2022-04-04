@@ -17,6 +17,9 @@ EcoVim = {
     }
   },
   plugins = {
+    completion = {
+      select_first_on_enter = false
+    },
     dashboard = {
       fuzzy_plugin = 'telescope' -- telescope/clap/fzf
     },
