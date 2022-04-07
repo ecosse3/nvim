@@ -1,3 +1,5 @@
+local tokyonight_colors = require("tokyonight.colors").setup({})
+
 -- Tokyonight config
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
@@ -28,6 +30,32 @@ if EcoVim.colorscheme == 'tokyonight' then
   vim.highlight.link('GitSignsCurrentLineBlame', 'Comment', true);
   vim.highlight.create('StatusLine', { guibg = "None" }, false);
   vim.highlight.create('StatusLineNC', { guibg = "None" }, false);
+
+  -- Completion Menu Colors
+
+  local highlights = {
+    CmpItemKindText        = { fg = "LightGrey"                         },
+    CmpItemKindFunction    = { fg = tokyonight_colors.blue              },
+    CmpItemKindClass       = { fg = tokyonight_colors.orange            },
+    CmpItemKindKeyword     = { fg = tokyonight_colors.magneta2          },
+    CmpItemKindSnippet     = { fg = tokyonight_colors.dark3             },
+    CmpItemKindConstructor = { fg = tokyonight_colors.purple            },
+    CmpItemKindVariable    = { fg = tokyonight_colors.cyan, bg = "NONE" },
+    CmpItemKindInterface   = { fg = tokyonight_colors.teal, bg = "NONE" },
+    CmpItemKindFolder      = { fg = tokyonight_colors.blue2             },
+    CmpItemKindReference   = { fg = tokyonight_colors.red1              },
+    CmpItemKindMethod      = { fg = tokyonight_colors.red               },
+    CmpItemMenu            = { fg = "#C586C0", bg = "NONE"  },
+    CmpItemAbbr            = { fg = "#565c64", bg = "NONE"              },
+    CmpItemAbbrMatch       = { fg = "#569CD6", bg = "NONE"              },
+    CmpItemAbbrMatchFuzzy  = { fg = "#569CD6", bg = "NONE"              },
+  }
+
+  vim.api.nvim_set_hl(0, "CmpBorderedWindow_FloatBorder", { fg = "#565c64" })
+
+  for group, hl in pairs(highlights) do
+    vim.api.nvim_set_hl(0, group, hl)
+  end
 end
 
 if EcoVim.colorscheme == 'nightfly' then
