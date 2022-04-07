@@ -114,13 +114,36 @@ cmp.setup {
     { name = 'nvim_lua'                        },
   },
 
+  sorting = {
+    comparators = {
+      cmp.config.compare.recently_used,
+      cmp.config.compare.offset,
+      cmp.config.compare.score,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
 
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    completion = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      scrollbar = "║",
+      autocomplete = {
+        require("cmp.types").cmp.TriggerEvent.InsertEnter,
+        require("cmp.types").cmp.TriggerEvent.TextChanged,
+      },
+    },
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      scrollbar = "║",
+    },
   },
 
   experimental = {
