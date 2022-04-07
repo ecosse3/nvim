@@ -16,11 +16,11 @@ return function(opts)
       ["l"] = "*.lua",
       ["lua"] = "*.lua",
       ["md"] = "*.md",
-      ["styles"] = "*.{styles.tsx,styles.ts,styles.js}",
-      ["test"] = "*.{test.tsx,test.ts,test.js}",
-      ["tests"] = "*.{test.tsx,test.ts,test.js}",
+      ["styles"] = "{styles.tsx,styles.ts,styles.js,*.styles.tsx,*.styles.ts,*.styles.js}",
+      ["test"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
+      ["tests"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
       ["ts"] = "*.{ts,tsx}",
-      ["tsx"] = "*.{ts,tsx}",
+      ["tsx"] = "*.tsx",
       ["xml"] = "*.xml",
     }
   opts.pattern = opts.pattern or "%s"
