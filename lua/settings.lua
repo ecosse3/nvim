@@ -12,6 +12,7 @@ local options = {
   lazyredraw     = true,                    --- Makes macros faster & prevent errors in complicated mappings
   mouse          = "a",                     --- Enable mouse
   number         = true,                    --- Shows current line number
+  pumheight      = 10,                      --- Max num of items in completion menu
   relativenumber = true,                    --- Enables relative number
   scrolloff      = 8,                       --- Always keep space when scrolling to bottom/top edge
   shiftwidth     = 2,                       --- Change a number of space characeters inseted for indentation
