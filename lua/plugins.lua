@@ -64,7 +64,7 @@ local function init()
   use {'neovim/nvim-lspconfig'}
 
   -- LSP Cmp
-  use {'hrsh7th/nvim-cmp', branch = 'dev', event = 'InsertEnter', config = "require('plugins.cmp')"}
+  use {'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')"}
   use {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}
   use {'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua'}
   use {'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp'}
