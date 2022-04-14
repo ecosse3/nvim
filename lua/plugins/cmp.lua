@@ -133,6 +133,7 @@ cmp.setup {
   window = {
     completion = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
       scrollbar = "║",
       autocomplete = {
         require("cmp.types").cmp.TriggerEvent.InsertEnter,
