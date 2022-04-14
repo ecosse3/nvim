@@ -113,6 +113,7 @@ local function init()
     end,
     ft = { 'markdown' }
   }
+  use {'declancm/cinnamon.nvim', config = "require('plugins.cinnamon')"}
 
   -- Snippets & Language & Syntax
   use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}
