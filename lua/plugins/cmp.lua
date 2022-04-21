@@ -52,7 +52,7 @@ cmp.setup {
     end
   },
 
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-2), { 'i', 'c' }),
@@ -92,7 +92,7 @@ cmp.setup {
       "i",
       "s",
     }),
-  },
+  }),
 
   formatting = {
     format = function(entry, vim_item)
@@ -143,20 +143,12 @@ cmp.setup {
   },
 
   window = {
-    completion = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-      scrollbar = "║",
-      autocomplete = {
-        require("cmp.types").cmp.TriggerEvent.InsertEnter,
-        require("cmp.types").cmp.TriggerEvent.TextChanged,
-      },
-    },
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-      scrollbar = "║",
-    },
+    completion = cmp.config.window.bordered({
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder"
+    }),
+    documentation = cmp.config.window.bordered({
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder"
+    }),
   },
 
   experimental = {
