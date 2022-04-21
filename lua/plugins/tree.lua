@@ -1,4 +1,20 @@
-vim.g.nvim_tree_respect_buf_cwd = 1
+vim.g.nvim_tree_respect_buf_cwd = 1 --0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
+vim.g.nvim_tree_group_empty     = 1 --0 by default, compact folders that only contain a single folder into one node in the file tree
+vim.g.nvim_tree_git_hl          = 1 --0 by default, will enable file highlight for git attributes
+
+local git_icons = {
+  unstaged = "",
+  staged = "",
+  unmerged = "",
+  renamed = "➜",
+  untracked = "",
+  deleted = "",
+  ignored = "◌"
+}
+
+vim.g.nvim_tree_icons = {
+  git = git_icons
+}
 
 local keymappings = {
   { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
@@ -121,4 +137,3 @@ require'nvim-tree'.setup {
 }
 
 vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", {noremap = true, silent = true})
-
