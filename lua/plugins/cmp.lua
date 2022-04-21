@@ -34,6 +34,17 @@ local source_mapping = {
   zsh         = EcoVim.icons.terminal .. '[ZSH]',
 }
 
+local buffer_option = {
+  -- Complete from all visible buffers (splits)
+  get_bufnrs = function()
+    local bufs = {}
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      bufs[vim.api.nvim_win_get_buf(win)] = true
+    end
+    return vim.tbl_keys(bufs)
+  end
+}
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -90,10 +101,10 @@ cmp.setup {
       local maxwidth = 50
 
       if entry.source.name == 'cmp_tabnine' then
-				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-					menu = menu .. '[' .. entry.completion_item.data.detail .. ']'
-				end
-			end
+        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+          menu = menu .. '[' .. entry.completion_item.data.detail .. ']'
+        end
+      end
 
       vim_item.menu = menu
       vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
@@ -104,23 +115,24 @@ cmp.setup {
 
   -- You should specify your *installed* sources.
   sources = {
-    { name = 'npm', priority = 9                             },
-    { name = 'nvim_lsp', priority = 8                        },
-    { name = 'cmp_tabnine', priority = 8, max_item_count = 3 },
-    { name = 'luasnip', priority = 7                         },
-    { name = 'buffer', priority = 7, keyword_length = 5      },
-    { name = 'nvim_lua', priority = 5                        },
-    { name = 'path',priority = 4                             },
-    { name = 'calc', priority = 3                            },
+    { name = 'nvim_lsp', priority = 9 },
+    { name = 'npm', priority = 9 },
+    { name = 'cmp_tabnine', priority = 8, max_num_results = 3 },
+    { name = 'luasnip', priority = 7 },
+    { name = 'buffer', priority = 7, keyword_length = 5, option = buffer_option },
+    { name = 'nvim_lua', priority = 5 },
+    { name = 'path', priority = 4 },
+    { name = 'calc', priority = 3 },
   },
 
   sorting = {
-    priority_weight = 1.0,
     comparators = {
+      cmp.config.compare.exact,
       cmp.config.compare.locality,
       cmp.config.compare.recently_used,
       cmp.config.compare.score,
       cmp.config.compare.offset,
+      cmp.config.compare.sort_text,
       cmp.config.compare.order,
     },
   },
@@ -151,6 +163,23 @@ cmp.setup {
     ghost_text = true,
   },
 }
+
+-- `/` cmdline setup.
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+-- `:` cmdline setup.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 
 tabnine:setup({
   max_lines                = 1000;
