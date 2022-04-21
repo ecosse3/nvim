@@ -279,7 +279,6 @@ table.insert(gls.left, {
     DiffAdd = {
         provider = 'DiffAdd',
         condition = condition.check_git_workspace,
-        -- icon = '  ',
         icon = '  ',
         highlight = {colors.green, colors.gitbg}
     }
@@ -288,8 +287,7 @@ table.insert(gls.left, {
     DiffModified = {
         provider = 'DiffModified',
         condition = condition.check_git_workspace,
-        -- icon = '  ',
-        icon = ' 柳',
+        icon = '  ',
         highlight = {colors.blue, colors.gitbg}
     }
 })
@@ -297,7 +295,6 @@ table.insert(gls.left, {
     DiffRemove = {
         provider = 'DiffRemove',
         condition = condition.check_git_workspace,
-        -- icon = '  ',
         icon = '  ',
         highlight = {colors.red, colors.gitbg}
     }
