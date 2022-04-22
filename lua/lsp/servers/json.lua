@@ -2,13 +2,14 @@ local M = {}
 
 -- Auto-install
 
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
-
-local ok, jsonls = lsp_installer_servers.get_server("jsonls")
-if ok then
+local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
+if status_ok then
+  local ok, jsonls = lsp_installer_servers.get_server("jsonls")
+  if ok then
     if not jsonls:is_installed() then
-        jsonls:install()
+      jsonls:install()
     end
+  end
 end
 
 -- Settings
@@ -17,35 +18,35 @@ M.settings = {
   json = {
     schemas = {
       {
-        fileMatch = {"package.json"},
+        fileMatch = { "package.json" },
         url = "https://json.schemastore.org/package.json"
       },
       {
-        fileMatch = {"tsconfig*.json"},
+        fileMatch = { "tsconfig*.json" },
         url = "https://json.schemastore.org/tsconfig.json"
       },
       {
-        fileMatch = {".prettierrc", ".prettierrc.json", "prettier.config.json"},
+        fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
         url = "https://json.schemastore.org/prettierrc.json"
       },
       {
-        fileMatch = {".eslintrc", ".eslintrc.json"},
+        fileMatch = { ".eslintrc", ".eslintrc.json" },
         url = "https://json.schemastore.org/eslintrc.json"
       },
       {
-        fileMatch = {".babelrc", ".babelrc.json", "babel.config.json"},
+        fileMatch = { ".babelrc", ".babelrc.json", "babel.config.json" },
         url = "https://json.schemastore.org/babelrc.json"
       },
       {
-        fileMatch = {"lerna.json"},
+        fileMatch = { "lerna.json" },
         url = "https://json.schemastore.org/lerna.json"
       },
       {
-        fileMatch = {"now.json", "vercel.json"},
+        fileMatch = { "now.json", "vercel.json" },
         url = "https://json.schemastore.org/now.json"
       },
       {
-        fileMatch = {"ecosystem.json"},
+        fileMatch = { "ecosystem.json" },
         url = "https://json.schemastore.org/pm2-ecosystem.json"
       },
     }

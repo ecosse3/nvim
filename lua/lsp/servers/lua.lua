@@ -1,13 +1,15 @@
 local M = {}
 
 -- Auto-install
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
 
-local ok, lua = lsp_installer_servers.get_server("sumneko_lua")
-if ok then
+local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
+if status_ok then
+  local ok, lua = lsp_installer_servers.get_server("sumneko_lua")
+  if ok then
     if not lua:is_installed() then
-        lua:install()
+      lua:install()
     end
+  end
 end
 
 -- Settings
@@ -15,7 +17,7 @@ end
 M.settings = {
   Lua = {
     diagnostics = {
-      globals = {'vim', 'bit'}
+      globals = { 'vim', 'bit' }
     }
   }
 }

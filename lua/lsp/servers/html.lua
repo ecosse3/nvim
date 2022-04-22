@@ -2,13 +2,14 @@ local M = {}
 
 -- Auto-install
 
-local lsp_installer_servers = require'nvim-lsp-installer.servers'
-
-local ok, html = lsp_installer_servers.get_server("html")
-if ok then
+local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
+if status_ok then
+  local ok, html = lsp_installer_servers.get_server("html")
+  if ok then
     if not html:is_installed() then
-        html:install()
+      html:install()
     end
+  end
 end
 
 -- Settings
