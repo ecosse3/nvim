@@ -12,8 +12,7 @@ EcoVim = {
   colorscheme = 'tokyonight', -- nightfly/tokyonight
   ui = {
     float = {
-      border = 'rounded',
-      highlight = 'NightflyRed' -- check available by :Telescope highlights
+      border = 'rounded'
     }
   },
   plugins = {
