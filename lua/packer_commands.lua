@@ -1,7 +1,7 @@
-vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
-vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
-vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
-vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
-vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
-vim.cmd [[command! PC PackerCompile]]
-vim.cmd [[command! PU PackerSync]]
+vim.api.nvim_create_user_command("PackerInstall", "packadd packer.nvim | lua require('plugins').install()", {})
+vim.api.nvim_create_user_command("PackerUpdate", "packadd packer.nvim | lua require('plugins').update()", {})
+vim.api.nvim_create_user_command("PackerSync", "packadd packer.nvim | lua require('plugins').sync()", {})
+vim.api.nvim_create_user_command("PackerClean", "packadd packer.nvim | lua require('plugins').clean()", {})
+vim.api.nvim_create_user_command("PackerCompile", "packadd packer.nvim | lua require('plugins').compile()", {})
+vim.api.nvim_create_user_command("PC", "PackerCompile", {})
+vim.api.nvim_create_user_command("PU", "PackerSync", {})
