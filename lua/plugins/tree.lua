@@ -65,8 +65,6 @@ require'nvim-tree'.setup {
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
-  -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close          = false,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
   -- hijack the cursor in the tree to put it at the start of the filename
@@ -99,7 +97,7 @@ require'nvim-tree'.setup {
   -- configuration options for the system open command (`s` in the tree by default)
   system_open = {
     -- the command to run this, leaving nil should work in most cases
-    cmd  = nil,
+    cmd  = "",
     -- the command arguments as a list
     args = {}
   },
@@ -112,14 +110,33 @@ require'nvim-tree'.setup {
     ignore = true,
     timeout = 500,
   },
+  actions = {
+    use_system_clipboard = true,
+    change_dir = {
+      enable = true,
+      global = false,
+      restrict_above_cwd = false,
+    },
+    open_file = {
+      quit_on_open = false,
+      -- if true the tree will resize itself after opening a file
+      resize_window = true,
+      window_picker = {
+        enable = true,
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+          buftype = { "nofile", "terminal", "help" },
+        },
+      },
+    },
+  },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
     width = 40,
     hide_root_folder = false,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
-    -- if true the tree will resize itself after opening a file
-    auto_resize = false,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -127,8 +144,8 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = keymappings
     },
-    number = true,
-    relativenumber = true
+    number = false,
+    relativenumber = false
   },
   trash = {
     cmd = "trash",
