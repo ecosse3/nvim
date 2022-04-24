@@ -28,17 +28,17 @@ And of course usage of [telescope](https://github.com/nvim-telescope/telescope.n
 
 Dashboard
 
-![Dashboard](./.screenshots/4-dashboard.png)
+![Dashboard](./.screenshots/5-dashboard.png)
 
 Overview
 
-![Neovim](./.screenshots/4-main.png)
+![Neovim](./.screenshots/5-main.png)
 
 <details>
-<summary>More screenshots with Tokyonight colorscheme</summary>
-TailwindCSS
+<summary>More screenshots</summary>
+TailwindCSS with nvim-cmp
 
-![TailwindCSS](./.screenshots/4-tailwind.png)
+![TailwindCSS](./.screenshots/5-tailwind.png)
 
 Which Key Menu
 
