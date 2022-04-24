@@ -11,12 +11,12 @@
 
 - Two recommended themes: [Nightfly](https://github.com/bluz71/vim-nightfly-guicolors) & [Tokyonight](https://github.com/folke/tokyonight.nvim)
 - Configured for Frontend Development
-- Hightly performant even with a lot of plugins
+- Highly performant even with a lot of plugins
 - Lazy loading
 - Extendable LSP configuration
 - Support for [TailwindCSS](https://tailwindcss.com/) with highlighted colors
 - Support for [Tabnine](https://www.tabnine.com/)
-- JSON autocompletion for most popular Frontend configs
+- JSON autocompletion for most popular Frontend config
 - NPM packages autocompletion
 - Treesitter-based folding
 - Beautiful and functional custom statusline built with galaxyline.nvim
@@ -133,7 +133,7 @@ Space (SPC) is my Leader key.
 
 | Key Bindings | Description                                                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| SPC g g      | Lazygit - for commiting and branch change                                                                                                |
+| SPC g g      | Lazygit - for committing and branch change                                                                                                |
 | SPC g s      | Telescope status - when I want to change/search file I am working on with git changes                                                    |
 | ]c           | Go to next change hunk                                                                                                                   |
 | [c           | Go to prev change hunk                                                                                                                   |
@@ -153,7 +153,7 @@ Space (SPC) is my Leader key.
 | Key Bindings | Description                                                                                                                                                                                                                                                                             |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <C - e>      | Toggles nvim-tree file explorer                                                                                                                                                                                                                                                         |
-| SPC p w      | Find word under cursor in project - very useful to find where component is used. Just use binding and type '<'. There is a lot of alternatives like lsp_references but I like it with telescope and to not find only references but whole text under cursor.                            |
+| SPC p w      | Find word under cursor in project - very useful to find where component is used. Just use binding and type '<'. There is a lot of alternatives like LSP references but I like it with telescope and to not find only references but whole text under cursor.                            |
 | SPC p f      | Find file under cursor in project - it finds files in project which contains text under cursor. Useful when you name directories by component name in React and wants to go quickly to file. 'gd' is better but in some projects without TS or with mixed JS/TS it cannot work properly |
 | SPC p t      | Finds TODOs/NOTES in project                                                                                                                                                                                                                                                            |
 | SPC p l      | Switch between projects                                                                                                                                                                                                                                                                 |
@@ -201,7 +201,7 @@ Space (SPC) is my Leader key.
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <S - q>         | Smartly closes current buffer without breaking UI                                                                                                    |
 | <C - a>         | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                              |
-| <C - n>         | Finds next occurence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete.                         |
+| <C - n>         | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete.                         |
 | <C - o>         | Jumps to previous cursor in jumplist. I use it very often.                                                                                           |
 | <C - i>         | Jumps to next cursor in jumplist.                                                                                                                    |
 | <C - u>         | Uppercase word under cursor.                                                                                                                         |
@@ -293,6 +293,6 @@ Ecovim started in 177.538ms
 | Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 | Provide current screenshots                  | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Create shell installer for Linux & macOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Create shell installer for Linux & MacOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
 
 </details>
