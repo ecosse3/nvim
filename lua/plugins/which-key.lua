@@ -126,6 +126,7 @@ local mappings = {
     q = { '<cmd>TSLspFixCurrent<CR>',                    'quick fix' },
     r = { 'rename' },
     s = { '<cmd>Telescope symbols<CR>',                  'symbols' },
+    t = { '<cmd>LspToggleAutoFormat<CR>',                'toggle format on save' },
   },
 
   d = {
