@@ -27,8 +27,8 @@ keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<C
 keymap("n", "<CR>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
-keymap("n", "<Leader>pf", "yiw<CMD>Telescope git_files<CR><C-r>+<ESC>")
-keymap("n", "<Leader>pw", "<CMD>Telescope grep_string<CR><ESC>")
+keymap("n", "<Leader>pf", "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
+keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
 
 -- Git
 keymap("n", "<Leader>gla", "<CMD>lua require('plugins.telescope').my_git_commits()<CR>", {})
