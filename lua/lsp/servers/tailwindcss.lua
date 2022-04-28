@@ -8,7 +8,7 @@ capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 
 local on_attach = function (client, bufnr)
   if client.server_capabilities.colorProvider then
-    require"lsp/documentcolors".buf_attach(bufnr)
+    require"lsp/utils/documentcolors".buf_attach(bufnr)
   end
 end
 
