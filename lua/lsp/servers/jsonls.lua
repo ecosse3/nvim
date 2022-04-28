@@ -1,19 +1,5 @@
 local M = {}
 
--- Auto-install
-
-local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
-if status_ok then
-  local ok, jsonls = lsp_installer_servers.get_server("jsonls")
-  if ok then
-    if not jsonls:is_installed() then
-      jsonls:install()
-    end
-  end
-end
-
--- Settings
-
 M.settings = {
   json = {
     schemas = {

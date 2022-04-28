@@ -39,23 +39,6 @@ EcoVim = {
   statusline = {
     path_enabled = true,
     path = 'relative' -- absolute/relative
-  },
-  -- LSP settings (for overriding per client)
-  -- Load servers (They will be automatically installed after next "Sync plugins" launch)
-  -- Check installed servers by :LspInstallInfo
-  lsp = {
-    servers = {
-      -- 'bash',
-      -- 'css',
-      -- 'eslint',
-      -- 'graphql',
-      -- 'html',
-      -- 'json',
-      -- 'lua',
-      -- 'tailwind',
-      -- 'tsserver',
-      -- 'vue2'
-    }
   }
 }
 

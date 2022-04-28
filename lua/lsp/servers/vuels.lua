@@ -1,22 +1,7 @@
 local M = {}
 
--- Auto-install
-
-local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
-if status_ok then
-  local ok, vue = lsp_installer_servers.get_server("vuels")
-  if ok then
-    if not vue:is_installed() then
-      vue:install()
-    end
-  end
-end
-
--- Settings
-
 M.filetypes = {
-  "vue",
-  "javascript",
+  "vue"
 }
 
 M.init_options = {
