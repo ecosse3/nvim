@@ -1,7 +1,10 @@
 -- Setup installer & lsp configs
 
 require("nvim-lsp-installer").setup {
-  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels" }
+  -- A list of servers to automatically install if they're not already installed
+  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels" },
+  -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed
+  automatic_installation = true,
 }
 local lspconfig = require("lspconfig")
 
@@ -64,7 +67,7 @@ lspconfig.vuels.setup {
 }
 
 
-for _, server in ipairs { "bashls", "cssls", "graphql", "html", "vetur" } do
+for _, server in ipairs { "bashls", "cssls", "graphql", "html", "volar" } do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
