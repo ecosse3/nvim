@@ -1,32 +1,8 @@
--- Automatically install servers
-
-local status_ok, lsp_installer_servers = pcall(require, 'nvim-lsp-installer.servers')
-if status_ok then
-  for _, server in ipairs {
-    "bashls",
-    "cssls",
-    "eslint",
-    "graphql",
-    "html",
-    "jsonls",
-    "sumneko_lua",
-    "tailwindcss",
-    "tsserver",
-    "vetur",
-    "vuels",
-  } do
-    local ok, server_name = lsp_installer_servers.get_server(server)
-    if ok then
-      if not server_name:is_installed() then
-        server_name:install()
-      end
-    end
-  end
-end
-
 -- Setup installer & lsp configs
 
-require("nvim-lsp-installer").setup {}
+require("nvim-lsp-installer").setup {
+  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels" }
+}
 local lspconfig = require("lspconfig")
 
 local handlers = {
