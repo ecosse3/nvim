@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/ecosse3/nvim/compare/v1.5.0...v1.5.1) (2022-04-29)
+
+
+### Bug Fixes
+
+* **keymappings:** change telescope project mappings ([60fc138](https://github.com/ecosse3/nvim/commit/60fc1380cdaa01ce9aaf667b95b3ef9775f71cdb))
+* **keymappings:** do not include declaration of variable when looking for its references ([a4fcdd5](https://github.com/ecosse3/nvim/commit/a4fcdd5edde3706c24c5402ab09a5cc8db36f7f6))
+* **keymappings:** pass opts to telescope project_files ([10e9a9b](https://github.com/ecosse3/nvim/commit/10e9a9b999d203a4eef96d041653e89a00a25108))
+* **lsp:** completely refactor LSP Installer & how to manage lsp config due to lsp-installer changes ([93aad40](https://github.com/ecosse3/nvim/commit/93aad40d37d33af7519f831dace826794b0d132a))
+* **lsp:** format on save function fix ([3e37ae9](https://github.com/ecosse3/nvim/commit/3e37ae96d4e9ec22753880905a1b1dea2a1f65db))
+
 ## [1.5.0](https://github.com/ecosse3/nvim/compare/v1.4.0...v1.5.0) (2022-04-24)
 
 
