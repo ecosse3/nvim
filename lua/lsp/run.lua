@@ -20,16 +20,25 @@ if cmp_nvim_lsp_ok then
   capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
+
+lspconfig.eslint.setup {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require('lsp.servers.eslint').on_attach,
+  settings = require('lsp.servers.eslint').settings,
+}
+
+lspconfig.jsonls.setup {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = require('lsp.servers.jsonls').settings,
+}
+
 lspconfig.sumneko_lua.setup {
   handlers = handlers,
   on_attach = on_attach,
   settings = require('lsp.servers.sumneko_lua').settings,
-}
-
-lspconfig.tsserver.setup {
-  capabilities = require('lsp.servers.tsserver').capabilities,
-  handlers = handlers,
-  on_attach = require('lsp.servers.tsserver').on_attach,
 }
 
 lspconfig.tailwindcss.setup {
@@ -41,6 +50,12 @@ lspconfig.tailwindcss.setup {
   settings = require('lsp.servers.tailwindcss').settings,
 }
 
+lspconfig.tsserver.setup {
+  capabilities = require('lsp.servers.tsserver').capabilities,
+  handlers = handlers,
+  on_attach = require('lsp.servers.tsserver').on_attach,
+}
+
 lspconfig.vuels.setup {
   filetypes = require('lsp.servers.vuels').filetypes,
   handlers = handlers,
@@ -48,22 +63,8 @@ lspconfig.vuels.setup {
   on_attach = on_attach,
 }
 
-lspconfig.eslint.setup {
-  capabilities = capabilities,
-  handlers = handlers,
-  on_attach = require('lsp.servers.eslint').on_attach,
-  settings = require('lsp.servers.eslint').settings,
-}
 
-
-lspconfig.jsonls.setup {
-  capabilities = capabilities,
-  handlers = handlers,
-  on_attach = on_attach,
-  settings = require('lsp.servers.jsonls').settings,
-}
-
-for _, server in ipairs { "bashls", "cssls", "graphql", "html" } do
+for _, server in ipairs { "bashls", "cssls", "graphql", "html", "vetur" } do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
