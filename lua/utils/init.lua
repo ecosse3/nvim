@@ -12,9 +12,10 @@ M.get_relative_fname = function()
 end
 
 M.get_relative_gitdir = function()
-  local fname = vim.fn.expand('%:p')
+  local fpath = vim.fn.expand('%:h')
+  local fname = vim.fn.expand('%:t')
   local gitpath = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  return fname:gsub(gitpath .. '/', '')
+  return fpath:gsub(gitpath, '') .. '/' .. fname
 end
 
 M.sleep = function(n)
