@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/ecosse3/nvim/compare/v1.5.1...v1.5.2) (2022-05-03)
+
+
+### Bug Fixes
+
+* **colorscheme:** change Boolean highlight color for better matching ([4fc9be4](https://github.com/ecosse3/nvim/commit/4fc9be46af00da13f93d7aade64eeb798282c9db))
+* **galaxyline:** show correct relative path in specific git projects ([5c86cb2](https://github.com/ecosse3/nvim/commit/5c86cb25057333cf33dec3abd0f54450dabe7b0c))
+* **lua:** update vim api functions of format & lsp server capabilities ([566d14a](https://github.com/ecosse3/nvim/commit/566d14a0a32baa434522c337339596b97a444694))
+* **plugins:** enable <C-h> which_key mapping in telescope ([d515afa](https://github.com/ecosse3/nvim/commit/d515afa4074faca0f6c1ab45633c4f06bfcee758))
+
 ### [1.5.1](https://github.com/ecosse3/nvim/compare/v1.5.0...v1.5.1) (2022-04-29)
 
 
