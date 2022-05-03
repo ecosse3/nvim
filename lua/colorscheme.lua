@@ -31,6 +31,7 @@ if EcoVim.colorscheme == 'tokyonight' then
   vim.highlight.create('StatusLine', { guibg = "None" }, false);
   vim.highlight.create('StatusLineNC', { guibg = "None" }, false);
   vim.highlight.create('rainbowcol1', { guifg = tokyonight_colors.blue, ctermfg = 9 }, false);
+  vim.highlight.create('Boolean', { guifg = "#F7768E" }, false);
 
   -- Completion Menu Colors
 
