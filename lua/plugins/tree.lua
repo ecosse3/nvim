@@ -1,3 +1,10 @@
+local tree = require('nvim-tree')
+local treeview = require('nvim-tree.view')
+local utils = require('utils')
+local buf = require('bufferline.state')
+
+local TREE_WIDTH = 40
+
 vim.g.nvim_tree_respect_buf_cwd = 1 --0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
 vim.g.nvim_tree_group_empty     = 1 --0 by default, compact folders that only contain a single folder into one node in the file tree
 vim.g.nvim_tree_git_hl          = 1 --0 by default, will enable file highlight for git attributes
@@ -133,7 +140,7 @@ require'nvim-tree'.setup {
   },
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`
-    width = 40,
+    width = TREE_WIDTH,
     hide_root_folder = false,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
@@ -153,4 +160,22 @@ require'nvim-tree'.setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'plugins.tree'.toggle()<CR>", { noremap = true, silent = true })
+
+local M = {}
+
+M.toggle = function()
+  local view = treeview.is_visible()
+  if not view then
+    buf.set_offset(TREE_WIDTH + 1, utils.add_whitespaces(13) .. 'File Explorer')
+    if vim.bo.filetype == 'dashboard' then tree.open() else tree.find_file(true) end
+    return
+  end
+
+  if view then
+    buf.set_offset(0)
+    treeview.close()
+  end
+end
+
+return M
