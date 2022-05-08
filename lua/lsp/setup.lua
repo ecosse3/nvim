@@ -23,6 +23,29 @@ if cmp_nvim_lsp_ok then
   capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
+-- Order matters
+
+-- It enables tsserver automatically so no need to call lspconfig.tsserver.setup
+require("typescript").setup({
+  disable_commands = false, -- prevent the plugin from creating Vim commands
+  disable_formatting = false, -- disable tsserver's formatting capabilities
+  debug = false, -- enable debug logging for commands
+  -- LSP Config options
+  server = {
+    capabilities = require('lsp.servers.tsserver').capabilities,
+    handlers = handlers,
+    on_attach = require('lsp.servers.tsserver').on_attach,
+  }
+})
+
+lspconfig.tailwindcss.setup {
+  capabilities = require('lsp.servers.tsserver').capabilities,
+  filetypes = require('lsp.servers.tailwindcss').filetypes,
+  handlers = handlers,
+  init_options = require('lsp.servers.tailwindcss').init_options,
+  on_attach = require('lsp.servers.tailwindcss').on_attach,
+  settings = require('lsp.servers.tailwindcss').settings,
+}
 
 lspconfig.eslint.setup {
   capabilities = capabilities,
@@ -43,28 +66,6 @@ lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   settings = require('lsp.servers.sumneko_lua').settings,
 }
-
-lspconfig.tailwindcss.setup {
-  capabilities = require('lsp.servers.tsserver').capabilities,
-  filetypes = require('lsp.servers.tailwindcss').filetypes,
-  handlers = handlers,
-  init_options = require('lsp.servers.tailwindcss').init_options,
-  on_attach = require('lsp.servers.tailwindcss').on_attach,
-  settings = require('lsp.servers.tailwindcss').settings,
-}
-
--- It enables tsserver automatically so no need to call lspconfig.tsserver.setup
-require("typescript").setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  disable_formatting = false, -- disable tsserver's formatting capabilities
-  debug = false, -- enable debug logging for commands
-  -- LSP Config options
-  server = {
-    capabilities = require('lsp.servers.tsserver').capabilities,
-    handlers = handlers,
-    on_attach = require('lsp.servers.tsserver').on_attach,
-  }
-})
 
 lspconfig.vuels.setup {
   filetypes = require('lsp.servers.vuels').filetypes,
