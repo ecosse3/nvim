@@ -96,7 +96,6 @@ local mappings = {
 
   a = {
     name = "Actions",
-    m = { '<cmd>MarkdownPreviewToggle<CR>',              'markdown preview' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
     t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },
@@ -198,3 +197,23 @@ local mappings = {
 
 local wk = require "which-key"
 wk.register(mappings, opts)
+
+local function attach_markdown(bufnr)
+  wk.register({
+    a = {
+      name = "Actions",
+      m = { '<cmd>MarkdownPreviewToggle<CR>', 'markdown preview' },
+    }
+  }, {
+    buffer = bufnr ,
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+  })
+end
+
+return {
+  attach_markdown = attach_markdown
+}
