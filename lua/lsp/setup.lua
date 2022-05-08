@@ -25,18 +25,22 @@ end
 
 -- Order matters
 
+
 -- It enables tsserver automatically so no need to call lspconfig.tsserver.setup
-require("typescript").setup({
-  disable_commands = false, -- prevent the plugin from creating Vim commands
-  disable_formatting = false, -- disable tsserver's formatting capabilities
-  debug = false, -- enable debug logging for commands
-  -- LSP Config options
-  server = {
-    capabilities = require('lsp.servers.tsserver').capabilities,
-    handlers = handlers,
-    on_attach = require('lsp.servers.tsserver').on_attach,
-  }
-})
+local typescript_ok, typescript = pcall(require, 'typescript')
+if typescript_ok then
+  typescript.setup({
+    disable_commands = false, -- prevent the plugin from creating Vim commands
+    disable_formatting = false, -- disable tsserver's formatting capabilities
+    debug = false, -- enable debug logging for commands
+    -- LSP Config options
+    server = {
+      capabilities = require('lsp.servers.tsserver').capabilities,
+      handlers = handlers,
+      on_attach = require('lsp.servers.tsserver').on_attach,
+    }
+  })
+end
 
 lspconfig.tailwindcss.setup {
   capabilities = require('lsp.servers.tsserver').capabilities,
