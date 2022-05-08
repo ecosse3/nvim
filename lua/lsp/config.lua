@@ -44,7 +44,8 @@ local codes = {
     message = "  Don't define variables you don't use",
     icon = "  ",
     "unused-local",
-    "@typescript-eslint/no-unused-vars"
+    "@typescript-eslint/no-unused-vars",
+    "no-unused-vars"
   },
   unused_function = {
     message = "  Don't define functions you don't use",
