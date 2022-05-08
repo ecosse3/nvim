@@ -74,7 +74,9 @@ After install configuration:
 
 1. Treesitter Languages are not installed by default.\
 Make sure to run `:TSInstall <lang>` or `:TSInstall maintained` after first run.
-2. LSP servers are disabled by default. Please enable them in `lua/lsp/config.lua` by uncomment specific lines.
+2. LSP servers are enabled by default. You can enable more servers in lua/lsp/setup.lua just by adding standard lspconfig.<server>.setup function or by creating your own file and requiring in init.lua.
+If server is not installed, it will be installed automatically.
+You can check installed LSP servers by :LspInstallInfo.
 
 ## Configuration
 
