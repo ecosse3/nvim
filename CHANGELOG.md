@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ecosse3/nvim/compare/v1.6.0...v1.7.0) (2022-05-08)
+
+
+### Features
+
+* **lsp:** add icon for no-unused-vars in tsserver lsp ([44bae0f](https://github.com/ecosse3/nvim/commit/44bae0f889fb3a50d2e7f00140086e6cc388dddb))
+* **plugins:** add swap function argument functionality mapped to ~ in normal mode ([8239245](https://github.com/ecosse3/nvim/commit/82392456e2a62031e6aa3aeb48e030f33c9f8420))
+* **settings:** reduce timeoutlen a bit ([2041982](https://github.com/ecosse3/nvim/commit/20419822d72de636d3000cdce06f24cf075248a1))
+* **ui:** add borders to lspconfig ui windows (e.g. :LspInfo) ([b1265df](https://github.com/ecosse3/nvim/commit/b1265dff3fbc3b60a8899c2f374e9fa9ad50255d))
+* **ui:** add offset to file explorer (nvim tree) ([f9b6e80](https://github.com/ecosse3/nvim/commit/f9b6e806c51b049938ca614a9e9991aeba81a902))
+* **utils:** add new utility func for adding whitespaces & refactor get_relative_gitpath ([3685478](https://github.com/ecosse3/nvim/commit/3685478881c9f92529e52b9472eb41d8c5db4100))
+* **which-key:** show markdown preview only for *.md filetypes via autocmd ([2507df7](https://github.com/ecosse3/nvim/commit/2507df76a5f85c10d33f30a792d2072a7e13f9f9))
+
+
+### Bug Fixes
+
+* **lsp:** make sure to check require of typescript plugin in lsp setup ([dd00198](https://github.com/ecosse3/nvim/commit/dd0019826201c4e613f614d213969475aac36944)), closes [#44](https://github.com/ecosse3/nvim/issues/44)
+* **lsp:** move typescript.nvim to pack start instead of opt ([b569c76](https://github.com/ecosse3/nvim/commit/b569c76646a32c322a5f14323d0a2d6bfb66d00a)), closes [#44](https://github.com/ecosse3/nvim/issues/44)
+* **pickers:** don't show tests when tsx picker filter is attached to live grep ([522674d](https://github.com/ecosse3/nvim/commit/522674d2ff1637ef1c4d9981109361e41bf43d26))
+
 ## [1.6.0](https://github.com/ecosse3/nvim/compare/v1.5.2...v1.6.0) (2022-05-08)
 
 
