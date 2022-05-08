@@ -5,24 +5,33 @@ local pickers = require "telescope.pickers"
 
 local flatten = vim.tbl_flatten
 
+local function is_table(t) return type(t) == 'table' end
+local function is_string(t) return type(t) == 'string' end
+
 return function(opts)
   opts = opts or {}
   opts.cwd = opts.cwd and vim.fn.expand(opts.cwd) or vim.loop.cwd()
   opts.shortcuts = opts.shortcuts
-    or {
-      ["c"] = "*.c",
-      ["js"] = "*.{js,jsx}",
-      ["json"] = "*.json",
-      ["l"] = "*.lua",
-      ["lua"] = "*.lua",
-      ["md"] = "*.md",
-      ["styles"] = "{styles.tsx,styles.ts,styles.js,*.styles.tsx,*.styles.ts,*.styles.js}",
-      ["test"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
-      ["tests"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
-      ["ts"] = "*.{ts,tsx}",
-      ["tsx"] = "*.tsx",
-      ["xml"] = "*.xml",
-    }
+      or {
+        ["c"] = "*.c",
+        ["js"] = "*.{js,jsx}",
+        ["json"] = "*.json",
+        ["l"] = "*.lua",
+        ["lua"] = "*.lua",
+        ["md"] = "*.md",
+        ["styles"] = "{styles.tsx,styles.ts,styles.js,*.styles.tsx,*.styles.ts,*.styles.js}",
+        ["test"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
+        ["tests"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
+        ["ts"] = {
+          "*.{ts,tsx}",
+          "!*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}"
+        },
+        ["tsx"] = {
+          "*.tsx",
+          "!*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}"
+        },
+        ["xml"] = "*.xml",
+      }
   opts.pattern = opts.pattern or "%s"
 
   local custom_grep = finders.new_async_job {
@@ -39,7 +48,22 @@ return function(opts)
         table.insert(args, prompt_split[1])
       end
 
-      if prompt_split[2] then
+      if prompt_split[2] and is_table(opts.shortcuts[prompt_split[2]]) then
+        local pattern
+
+        for _, value in pairs(opts.shortcuts[prompt_split[2]]) do
+          table.insert(args, "-g")
+          if opts.shortcuts[prompt_split[2]] then
+            pattern = value
+          else
+            pattern = prompt_split[2]
+          end
+
+          table.insert(args, string.format(opts.pattern, pattern))
+        end
+      end
+
+      if prompt_split[2] and is_string(opts.shortcuts[prompt_split[2]]) then
         table.insert(args, "-g")
 
         local pattern
