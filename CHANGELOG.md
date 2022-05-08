@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ecosse3/nvim/compare/v1.5.2...v1.6.0) (2022-05-08)
+
+
+### Features
+
+* **lsp:** add no_console code with icon ([bf497ff](https://github.com/ecosse3/nvim/commit/bf497ff27e2aa08949ea71c8070ec29facacf994))
+* **plugins:** completely refactor packer.nvim & add typescript.nvim plugin ([3c58eee](https://github.com/ecosse3/nvim/commit/3c58eee575a02f4c35cf6d31e3edea7fb0184e0b))
+* **which-key:** add telescope git_branches mapping ([85a7242](https://github.com/ecosse3/nvim/commit/85a7242809ea5139b2346eab87981e0b02809f85))
+
+
+### Bug Fixes
+
+* **lsp:** remove nvim-lsp-ts-utils from tsserver setup ([edd2dbd](https://github.com/ecosse3/nvim/commit/edd2dbd16bf76f1a56e57b870beaeba965ffc160))
+* **plugins:** enable treesitter indent ([a7b14a6](https://github.com/ecosse3/nvim/commit/a7b14a669f3da919c237794611efe8557b542b4e)), closes [#43](https://github.com/ecosse3/nvim/issues/43)
+
 ### [1.5.2](https://github.com/ecosse3/nvim/compare/v1.5.1...v1.5.2) (2022-05-03)
 
 
