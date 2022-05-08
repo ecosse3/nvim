@@ -1,4 +1,5 @@
 -- Setup installer & lsp configs
+local typescript_ok, typescript = pcall(require, 'typescript')
 
 require("nvim-lsp-installer").setup {
   -- A list of servers to automatically install if they're not already installed
@@ -27,7 +28,6 @@ end
 
 
 -- It enables tsserver automatically so no need to call lspconfig.tsserver.setup
-local typescript_ok, typescript = pcall(require, 'typescript')
 if typescript_ok then
   typescript.setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands

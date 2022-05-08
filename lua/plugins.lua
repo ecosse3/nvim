@@ -63,7 +63,7 @@ return require('packer').startup({
     use { 'folke/lsp-trouble.nvim', config = "require('plugins.trouble')" }
     use { 'nvim-lua/popup.nvim' }
     use { 'SmiteshP/nvim-gps', config = "require('plugins.gps')", after = 'nvim-treesitter' }
-    use { 'jose-elias-alvarez/typescript.nvim', after = 'nvim-treesitter' }
+    use { 'jose-elias-alvarez/typescript.nvim' }
 
     -- General
     use { 'AndrewRadev/switch.vim' }
