@@ -66,12 +66,18 @@ require'nvim-treesitter.configs'.setup {
         ["ic"] = "@class.inner",
       },
     },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["~"] = "@parameter.inner",
+      },
+    },
   },
 
   textsubjects = {
-      enable = true,
-      keymaps = {
-          ['<cr>'] = 'textsubjects-smart', -- works in visual mode
-      }
-    },
+    enable = true,
+    keymaps = {
+      ['<cr>'] = 'textsubjects-smart', -- works in visual mode
+    }
+  },
 }
