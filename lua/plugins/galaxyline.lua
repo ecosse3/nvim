@@ -448,7 +448,7 @@ if EcoVim.statusline.path_enabled then
               return ''
             end
             if EcoVim.statusline.path == 'relative' then
-              return utils.get_relative_gitdir() .. ' '
+              return utils.get_relative_gitpath() .. ' '
             end
             if vim.fn.winwidth(0) > 150 then
               return vim.fn.expand '%:~' .. ' '

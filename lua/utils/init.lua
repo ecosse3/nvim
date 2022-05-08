@@ -11,11 +11,18 @@ M.get_relative_fname = function()
   return fname:gsub(vim.fn.getcwd() .. '/', '')
 end
 
-M.get_relative_gitdir = function()
+M.get_relative_gitpath = function()
   local fpath = vim.fn.expand('%:h')
   local fname = vim.fn.expand('%:t')
-  local gitpath = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  return fpath:gsub(gitpath, '') .. '/' .. fname
+  local gitpath = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+  local ellipsis = '...'
+  local relative_gitpath = fpath:gsub(gitpath, '') .. '/' .. fname
+
+  if vim.fn.winwidth(0) < 200 and #relative_gitpath > 30 then
+    return ellipsis .. relative_gitpath:sub(25, #relative_gitpath)
+  end
+
+  return relative_gitpath
 end
 
 M.sleep = function(n)
@@ -110,8 +117,12 @@ M.jobstart = function(cmd, on_finish)
   })
 end
 
-M.remove_whitespaces = function (string)
+M.remove_whitespaces = function(string)
   return string:gsub("%s+", "")
+end
+
+M.add_whitespaces = function(number)
+  return string.rep(" ", number)
 end
 
 return M
