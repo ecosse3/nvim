@@ -66,6 +66,11 @@ local codes = {
     message = " Should that be a global? (if so make it uppercase)",
     "lowercase-global",
   },
+  -- Typescript
+  no_console = {
+    icon = "  ",
+    "no-console",
+  },
   -- Prettier
   prettier = {
     icon = "  ",
