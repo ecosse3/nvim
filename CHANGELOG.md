@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/ecosse3/nvim/compare/v1.7.0...v1.7.1) (2022-05-09)
+
+
+### Bug Fixes
+
+* **lsp:** make ESLint formatting work ([715bf11](https://github.com/ecosse3/nvim/commit/715bf1112f32890377d73a3dba47d1b45d8a530e))
+
+
+### Refactors
+
+* **plugins:** use nvim_tree events ([c186db7](https://github.com/ecosse3/nvim/commit/c186db74534fe47fb6c1b74bc800b2ee882a354b))
+
 ## [1.7.0](https://github.com/ecosse3/nvim/compare/v1.6.0...v1.7.0) (2022-05-08)
 
 
