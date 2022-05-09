@@ -1,7 +1,6 @@
-local tree = require('nvim-tree')
-local treeview = require('nvim-tree.view')
 local utils = require('utils')
-local buf = require('bufferline.state')
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
 
 local TREE_WIDTH = 40
 
@@ -160,22 +159,12 @@ require'nvim-tree'.setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'plugins.tree'.toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", { noremap = true, silent = true })
 
-local M = {}
+nvim_tree_events.on_tree_open(function ()
+    bufferline_state.set_offset(TREE_WIDTH + 1, utils.add_whitespaces(13) .. 'File Explorer')
+end)
 
-M.toggle = function()
-  local view = treeview.is_visible()
-  if not view then
-    buf.set_offset(TREE_WIDTH + 1, utils.add_whitespaces(13) .. 'File Explorer')
-    if vim.bo.filetype == 'dashboard' then tree.open() else tree.find_file(true) end
-    return
-  end
-
-  if view then
-    buf.set_offset(0)
-    treeview.close()
-  end
-end
-
-return M
+nvim_tree_events.on_tree_close(function ()
+    bufferline_state.set_offset(0)
+end)
