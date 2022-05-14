@@ -113,5 +113,5 @@ keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", s
 keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", silent)
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", silent)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
-keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", silent)
-keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", silent)
+keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
+keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
