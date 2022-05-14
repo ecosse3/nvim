@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2](https://github.com/ecosse3/nvim/compare/v1.7.1...v1.7.2) (2022-05-14)
+
+
+### Bug Fixes
+
+* **lsp:** fix lsp installer loading issues ([d84b928](https://github.com/ecosse3/nvim/commit/d84b9285efa4498d7680cc000a5da42f3e4f287e)), closes [#47](https://github.com/ecosse3/nvim/issues/47)
+* **lsp:** set max-width of diagnostic window to 100 to prevent issues on smaller and very large screens ([a67bc25](https://github.com/ecosse3/nvim/commit/a67bc2573da58cd29a6ac7f05c24f6a913809fcf))
+* **plugins:** repair markdown-preview installation ([c83e7ce](https://github.com/ecosse3/nvim/commit/c83e7ce09851d33c3ed8e092d6e9a50214300a55))
+
 ### [1.7.1](https://github.com/ecosse3/nvim/compare/v1.7.0...v1.7.1) (2022-05-09)
 
 
