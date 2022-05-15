@@ -1,4 +1,4 @@
-require('impatient') -- This needs to be first
+pcall(require, 'impatient')
 require('packer_commands')
 require('globals')
 require('config')
