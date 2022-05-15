@@ -63,7 +63,7 @@ Git Side Blame
 
 ## Installation
 
-Make sure to use newest Neovim version (0.6) or even nightly.
+Make sure to use Neovim version 0.7+.
 Copy it into your terminal:
 
 ```bash
@@ -73,7 +73,7 @@ bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/ru
 After install configuration:
 
 1. Treesitter Languages are not installed by default.\
-Make sure to run `:TSInstall <lang>` or `:TSInstall maintained` after first run.
+Make sure to run `:TSInstall <lang>` for any language you want to install.
 2. LSP servers are enabled by default. You can enable more servers in lua/lsp/setup.lua just by adding standard lspconfig.<server>.setup function or by creating your own file and requiring in init.lua.
 If server is not installed, it will be installed automatically.
 You can check installed LSP servers by :LspInstallInfo.
