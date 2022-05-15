@@ -1,6 +1,10 @@
 -- Requires
 local lspkind = require('lspkind')
-local tabnine = require('cmp_tabnine.config')
+
+local cmp_tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
+if not cmp_tabnine_status_ok then
+  return
+end
 
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then

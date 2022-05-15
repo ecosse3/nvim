@@ -1,8 +1,12 @@
 local M = {}
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if cmp_nvim_lsp_ok then
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+end
 
 -- Settings
 
