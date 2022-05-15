@@ -9,3 +9,4 @@ vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*/node_modules/*", comman
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" })
 -- Attach specific keybindings in which-key for specific filetypes
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md", callback = function() require('plugins.which-key').attach_markdown(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" }, callback = function() require('plugins.which-key').attach_typescript(0) end })
