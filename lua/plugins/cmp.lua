@@ -22,16 +22,16 @@ end
 
 -- Setup
 local source_mapping = {
-  buffer      = EcoVim.icons.buffer .. '[BUF]',
+  buffer      = EcoVim.icons.buffer .. 'BUF',
   calc        = EcoVim.icons.calculator,
   cmp_tabnine = EcoVim.icons.light,
-  luasnip     = EcoVim.icons.snippet,
-  npm         = EcoVim.icons.terminal .. '[NPM]',
-  nvim_lsp    = EcoVim.icons.paragraph .. '[LSP]',
+  luasnip     = EcoVim.icons.snippet .. 'SNP',
+  npm         = EcoVim.icons.terminal .. 'NPM',
+  nvim_lsp    = EcoVim.icons.paragraph .. 'LSP',
   nvim_lua    = EcoVim.icons.bomb,
   path        = EcoVim.icons.folderOpen2,
   treesitter  = EcoVim.icons.tree,
-  zsh         = EcoVim.icons.terminal .. '[ZSH]',
+  zsh         = EcoVim.icons.terminal .. 'ZSH',
 }
 
 local buffer_option = {
@@ -102,7 +102,9 @@ cmp.setup {
 
       if entry.source.name == 'cmp_tabnine' then
         if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-          menu = menu .. '[' .. entry.completion_item.data.detail .. ']'
+          menu = menu .. entry.completion_item.data.detail
+        else
+          menu = menu .. 'TBN'
         end
       end
 
