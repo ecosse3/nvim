@@ -18,7 +18,7 @@ vim.g.bufferline = {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  -- exclude_ft = ['javascript'],
+  exclude_ft = {'qf'},
   -- exclude_name = ['package.json'],
 
   -- Enable/disable icons
