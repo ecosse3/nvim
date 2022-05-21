@@ -38,10 +38,10 @@ keymap("n", "<Leader>gla", "<CMD>lua require('plugins.telescope').my_git_commits
 keymap("n", "<Leader>glc", "<CMD>lua require('plugins.telescope').my_git_bcommits()<CR>", silent)
 
 -- Buffers
-keymap("n", "<Tab>", ":bnext<CR>", silent)
-keymap("n", "gn", ":bnext<CR>", silent)
-keymap("n", "<S-Tab>", ":bprevious<CR>", silent)
-keymap("n", "gp", ":bprevious<CR>", silent)
+keymap("n", "<Tab>", ":BufferNext<CR>", silent)
+keymap("n", "gn", ":bn<CR>", silent)
+keymap("n", "<S-Tab>", ":BufferPrevious<CR>", silent)
+keymap("n", "gp", ":bp<CR>", silent)
 keymap("n", "<S-q>", ":BufferClose<CR>", silent)
 
 -- Move between barbar buffers
