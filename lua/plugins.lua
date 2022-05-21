@@ -62,7 +62,7 @@ return require('packer').startup({
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = "require('plugins.trouble')" }
     use { 'nvim-lua/popup.nvim' }
-    use { 'SmiteshP/nvim-gps', config = "require('plugins.gps')", after = 'nvim-treesitter' }
+    use { 'ChristianChiarulli/nvim-gps', branch = 'text_hl', config = "require('plugins.gps')", after = 'nvim-treesitter' }
     use { 'jose-elias-alvarez/typescript.nvim' }
 
     -- General
