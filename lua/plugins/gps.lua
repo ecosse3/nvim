@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local icons = require "icons"
+local hl_group = "LineNr"
 
 gps.setup({
   icons = {
@@ -35,7 +36,7 @@ gps.setup({
     ["html"] = false,
   },
 
-  separator = " " .. icons.caretRight,
+  separator =" " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*",
 
   -- limit for amount of context shown
   -- 0 means no limit
@@ -45,5 +46,5 @@ gps.setup({
 
   -- indicator used when context is hits depth limit
   depth_limit_indicator = "..",
-  text_hl = "LineNr"
+  text_hl = hl_group
 })

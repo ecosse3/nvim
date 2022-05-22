@@ -57,7 +57,8 @@ M.gps = function()
     return ""
   else
     if not isempty(gps_location) then
-      return retval .. " " .. EcoVim.icons.caretRight .. gps_location
+      local hl_group = "LineNr"
+      return retval .. " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*" .. gps_location
     else
       return retval
     end
