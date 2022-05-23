@@ -40,6 +40,7 @@ return require('packer').startup({
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'cljoly/telescope-repo.nvim' }
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
     use { 'nvim-pack/nvim-spectre' }
     use { 'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')" }
 
