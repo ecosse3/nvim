@@ -26,13 +26,13 @@ end
 
 -- Setup
 local source_mapping = {
-  buffer      = EcoVim.icons.buffer .. 'BUF',
-  calc        = EcoVim.icons.calculator,
-  cmp_tabnine = EcoVim.icons.light,
-  luasnip     = EcoVim.icons.snippet .. 'SNP',
   npm         = EcoVim.icons.terminal .. 'NPM',
+  cmp_tabnine = EcoVim.icons.light,
   nvim_lsp    = EcoVim.icons.paragraph .. 'LSP',
+  buffer      = EcoVim.icons.buffer .. 'BUF',
   nvim_lua    = EcoVim.icons.bomb,
+  luasnip     = EcoVim.icons.snippet .. 'SNP',
+  calc        = EcoVim.icons.calculator,
   path        = EcoVim.icons.folderOpen2,
   treesitter  = EcoVim.icons.tree,
   zsh         = EcoVim.icons.terminal .. 'ZSH',
