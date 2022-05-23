@@ -85,11 +85,11 @@ return require('packer').startup({
     use { 'folke/twilight.nvim', config = function() require("twilight").setup {} end, disable = not EcoVim.plugins.zen.enabled }
     use { 'ggandor/lightspeed.nvim' }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
-    use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')" }
+    use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
     use { 'romgrk/barbar.nvim', config = "require('plugins.barbar')" }
     use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
     use { 'rcarriga/nvim-notify' }
-    use { 'vuki656/package-info.nvim', disable = not EcoVim.plugins.package_info.enabled }
+    use { 'vuki656/package-info.nvim', event = "BufEnter package.json", config = "require('plugins.package-info')" }
     use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
     use { 'declancm/cinnamon.nvim', config = "require('plugins.cinnamon')" }
     use { 'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end }

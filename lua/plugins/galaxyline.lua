@@ -5,6 +5,7 @@ local gl = require('galaxyline')
 local condition = require('galaxyline.condition')
 local utils = require('utils')
 local tokyonight_colors = require("tokyonight.colors").setup({})
+local package_info_present, package = pcall(require, 'package-info')
 
 -- Configuration {{{1
 
@@ -410,6 +411,16 @@ table.insert(gls.left, {
 
 -- Right {{{1
 gls.right = {}
+
+if package_info_present then
+  table.insert(gls.right, {
+    PackageInfoStatus = {
+      provider = function()
+        return package.get_status() .. " "
+      end,
+    },
+  })
+end
 
 -- Type {{{2
 table.insert(gls.right, {

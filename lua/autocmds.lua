@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, { pattern = { "*.txt", "*
 -- Attach specific keybindings in which-key for specific filetypes
 vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md", callback = function() require('plugins.which-key').attach_markdown(0) end })
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" }, callback = function() require('plugins.which-key').attach_typescript(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" }, callback = function() require('plugins.which-key').attach_npm(0) end })
 -- Winbar
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
   callback = function()
