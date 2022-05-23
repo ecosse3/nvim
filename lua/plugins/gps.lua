@@ -9,6 +9,7 @@ local hl_group = "LineNr"
 gps.setup({
   icons = {
     ["class-name"] = "%#CmpItemKindClass#" .. icons.class .. "%*" .. "", -- Classes and class-like objects
+    ["hook-name"] = "%#CmpItemKindMethodDefault#" .. icons.hook .. "%*" .. "", -- React Hooks
     ["function-name"] = "%#CmpItemKindFunction#" .. icons.func .. "%*" .. "", -- Functions
     ["method-name"] = "%#CmpItemKindMethod#" .. icons.method .. "%*" .. "", -- Methods (functions inside class-like objects)
     ["container-name"] = "%#CmpItemKindProperty#" .. icons.object .. "%*" .. "", -- Containers (example: lua tables)
@@ -31,12 +32,16 @@ gps.setup({
     ["module-name"] = "%CmpItemKindModule#" .. icons.module .. "%*" .. "",
   },
   -- Disable any languages individually over here
+  -- Icons can be set here too for some specific languages (check in gps source code)
   -- Any language not disabled here is enabled by default
   languages = {
     ["html"] = false,
+    ["tsx"] = {
+      ["hook-name"] = "%#CmpItemKindMethodDefault#" .. icons.hook .. "%*" .. "", -- React Hooks
+    }
   },
 
-  separator =" " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*",
+  separator = " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*",
 
   -- limit for amount of context shown
   -- 0 means no limit

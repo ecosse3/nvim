@@ -130,6 +130,7 @@ local icons = {
   squirrel            = "  ",
   tag                 = "  ",
   watch               = "  ",
+  hook                = " ﯠ ",
 }
 
 return icons
