@@ -97,7 +97,7 @@ return require('packer').startup({
     use { 'p00f/nvim-ts-rainbow', after = { 'nvim-treesitter' } }
     use { 'mattn/emmet-vim' }
     use { 'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')" }
-    use { 'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')" }
+    use { 'NvChad/nvim-colorizer.lua', config = "require('plugins.colorizer')" }
     use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' }, after = 'cmp_luasnip' }
 
     -- Nvim Tree / Rooter
