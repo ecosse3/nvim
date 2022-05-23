@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/ecosse3/nvim/compare/v1.7.2...v1.8.0) (2022-05-23)
+
+
+### Features
+
+* **autocmds:** enable LSP typescript mappings only in ts & tsx files ([1512000](https://github.com/ecosse3/nvim/commit/1512000accb14137403fa84a9bcf6925fe0aaa47))
+* **icons:** provide new icons for winbar ([f314a9d](https://github.com/ecosse3/nvim/commit/f314a9d2770b39461d84d6fba37a446dfb286c13))
+* **keymappings:** remap H to ^ ([946f137](https://github.com/ecosse3/nvim/commit/946f137de7453a035f273a8068e4ea706e41634a))
+* **plugins:** add luasnip jumpable mapping as <C-h> and <C-l> ([308665b](https://github.com/ecosse3/nvim/commit/308665b60537855a3629b28e3a946ca84e67b41c))
+* **plugins:** add nvim-bqf ([8993acf](https://github.com/ecosse3/nvim/commit/8993acf8c5fc8af9165eb14a78c77fc842d644e4))
+* **plugins:** configure package-info with correct config, status in galaxyline & which-key mappings only in package.json ([5149189](https://github.com/ecosse3/nvim/commit/51491895fd2369acc86f4afcaf53b01d1de13098))
+* **snippets:** add react component treesitter snippet as "comp" ([223bac6](https://github.com/ecosse3/nvim/commit/223bac6c2c7e08edb1b6c6fe1b76b45dd3b4155c))
+* **ui:** change lsp virtual text rectangle icon to circle and add extra space ([c4515f3](https://github.com/ecosse3/nvim/commit/c4515f394765282e3bc0c4dda3878ff38c3db880))
+* **winbar:** use new neovim feature of top winbar with nvim-gps reimplemented & drop from galaxyline ([01fcce9](https://github.com/ecosse3/nvim/commit/01fcce916a5bd64f00504c1f874f6f7e8aa21f61))
+
+
+### Bug Fixes
+
+* **bufferline:** exclude quickfix list from bufferline ([12a8c91](https://github.com/ecosse3/nvim/commit/12a8c9187160fc14623d60fc9e58f465eea3d77f))
+* **bufferline:** fix moving between buffers ([747a2bd](https://github.com/ecosse3/nvim/commit/747a2bd98b8e7a1d6c470949439e30c5a4c32d5e))
+* **keymappings:** fix line diagnostics mapping ([13ccc51](https://github.com/ecosse3/nvim/commit/13ccc51cf089b00e0d48c137a916815cfb16d9c6))
+* **plugins:** reorder cmp source mapping ([858d0e0](https://github.com/ecosse3/nvim/commit/858d0e040dad072566f6b808340849c2d1b79f24))
+* **plugins:** use nvim-colorizer maintaned fork from NvChad & update config ([007273a](https://github.com/ecosse3/nvim/commit/007273ae4556ce521a2670cbdc809cc215a8695d))
+* **require:** require impatient by pcall ([16dca98](https://github.com/ecosse3/nvim/commit/16dca9848034c6c339a839c2f381b4fe1926ce09)), closes [#48](https://github.com/ecosse3/nvim/issues/48)
+* **require:** safetely require specific plugins ([3b4ca9d](https://github.com/ecosse3/nvim/commit/3b4ca9d12ac286a2345c4fa06f9682f64b8a9262))
+* **winbar:** add hl_group to caret ([69253b9](https://github.com/ecosse3/nvim/commit/69253b978d9b1357ae74ab12966fb3b94e199f7d))
+
+
+### Refactors
+
+* **plugins:** change style of displaying source mapping in cmp ([72d2a74](https://github.com/ecosse3/nvim/commit/72d2a747d4e9a7a5cf4687cbe88146f757e2600f))
+* **plugins:** reorder ([9a715ac](https://github.com/ecosse3/nvim/commit/9a715acb06f7b619e9c6f37ef0e7dfd1d2a5da0a))
+
 ### [1.7.2](https://github.com/ecosse3/nvim/compare/v1.7.1...v1.7.2) (2022-05-14)
 
 
