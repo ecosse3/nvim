@@ -4,10 +4,6 @@ local bufferline_state = require('bufferline.state')
 
 local TREE_WIDTH = 40
 
-vim.g.nvim_tree_respect_buf_cwd = 1 --0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
-vim.g.nvim_tree_group_empty     = 1 --0 by default, compact folders that only contain a single folder into one node in the file tree
-vim.g.nvim_tree_git_hl          = 1 --0 by default, will enable file highlight for git attributes
-
 local git_icons = {
   unstaged = "",
   staged = "",
@@ -16,10 +12,6 @@ local git_icons = {
   untracked = "",
   deleted = "",
   ignored = "◌"
-}
-
-vim.g.nvim_tree_icons = {
-  git = git_icons
 }
 
 local keymappings = {
@@ -79,6 +71,8 @@ require'nvim-tree'.setup {
   update_cwd          = true,
   -- opens in place of the unnamed buffer if it's empty
   hijack_unnamed_buffer_when_opening = false,
+  --false by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree
+  respect_buf_cwd = true,
   -- show lsp diagnostics in the signcolumn
   diagnostics         = {
     enable = false,
@@ -87,6 +81,26 @@ require'nvim-tree'.setup {
       info    = "",
       warning = "",
       error   = "",
+    }
+  },
+  renderer = {
+    add_trailing = false,
+    group_empty = true,
+    highlight_git = true,
+    highlight_opened_files = "none",
+    root_folder_modifier = ":~",
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      glyphs = {
+        git = git_icons
+      }
     }
   },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
