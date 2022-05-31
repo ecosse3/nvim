@@ -1,4 +1,8 @@
-local ls = require("luasnip")
+local present, ls = pcall(require, "luasnip")
+if not present then
+  return
+end
+
 local fmt = require("luasnip.extras.fmt").fmt
 local snippet = ls.snippet
 local insert_node = ls.insert_node
