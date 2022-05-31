@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/ecosse3/nvim/compare/v1.8.0...v1.8.1) (2022-05-31)
+
+
+### Bug Fixes
+
+* **gps:** fix spacing in react hook icons in gps ([cd1a5fd](https://github.com/ecosse3/nvim/commit/cd1a5fd60579f44e854a9ab634228f3c7e5ed9dd))
+* **plugins:** set max_jobs to 50 to prevent freezing when syncing plugins ([f032bb3](https://github.com/ecosse3/nvim/commit/f032bb3c29cff97c849a7b1510a51a84bfb2e404))
+* **plugins:** update nvim-tree config ([585bc06](https://github.com/ecosse3/nvim/commit/585bc062ab5af81e3ace76220744787404dfac4e))
+* **snippets:** check if luasnip is loaded ([f023f4f](https://github.com/ecosse3/nvim/commit/f023f4fad57deb40a65a66786f3e9014bbec6241)), closes [#50](https://github.com/ecosse3/nvim/issues/50)
+* **winbar:** enable winbar only for neovim 0.8+ ([6eb9eac](https://github.com/ecosse3/nvim/commit/6eb9eac8605fb7904877e4d9514e3e7887735ae2)), closes [#50](https://github.com/ecosse3/nvim/issues/50)
+
+
+### Refactors
+
+* **icons:** change ' to " ([2f10dde](https://github.com/ecosse3/nvim/commit/2f10dde13294fc33d6a34f3a715f96f977bea9fe))
+
 ## [1.8.0](https://github.com/ecosse3/nvim/compare/v1.7.2...v1.8.0) (2022-05-23)
 
 
