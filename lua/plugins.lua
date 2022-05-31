@@ -119,5 +119,6 @@ return require('packer').startup({
   config = {
     compile_path = compile_path,
     disable_commands = true,
+    max_jobs = 50,
   }
 })
