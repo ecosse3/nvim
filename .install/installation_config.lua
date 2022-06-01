@@ -1,5 +1,0 @@
-require('packer.luarocks').install_commands()
-require('packer_commands')
-require('config')
-require('settings')
-require('plugins')
