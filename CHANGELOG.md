@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.2](https://github.com/ecosse3/nvim/compare/v1.8.1...v1.8.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* **#51:** replace dashboard with alpha.nvim & fix installation script ([#52](https://github.com/ecosse3/nvim/issues/52)) ([847f38d](https://github.com/ecosse3/nvim/commit/847f38dec48c2091948fa0dafdecadf4cc913b97)), closes [#51](https://github.com/ecosse3/nvim/issues/51) [#51](https://github.com/ecosse3/nvim/issues/51) [#51](https://github.com/ecosse3/nvim/issues/51)
+
 ### [1.8.1](https://github.com/ecosse3/nvim/compare/v1.8.0...v1.8.1) (2022-05-31)
 
 
