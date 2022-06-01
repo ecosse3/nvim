@@ -17,21 +17,6 @@ local header = {
 "░░░░░░░░  ░░░░░   ░░░░░░     ░░    ░░ ░░░  ░░  ░░ "
 }
 
-local utils = require "utils"
-
-local footer = {
-  type = "text",
-  val = utils.align_center({ width = 0 }, {
-    "",
-    "lunarvim.org",
-  }, 0.5),
-  opts = {
-    position = "center",
-    hl = "Number",
-  },
-}
-
-dashboard.section.footer = footer;
 
 dashboard.section.header.type = "text";
 dashboard.section.header.val = header;
