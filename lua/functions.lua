@@ -32,7 +32,11 @@ end
 
 M.first_ecovim_run()
 
-local win = require('lspconfig.ui.windows')
+local present, win = pcall(require, "lspconfig.ui.windows")
+if not present then
+  return
+end
+
 local _default_opts = win.default_opts
 win.default_opts = function(options)
   local opts = _default_opts(options)
