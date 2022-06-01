@@ -12,11 +12,6 @@ vim.g.tokyonight_colors = {
   border = '#1A1B26';
 }
 
--- Nighyfly config
-vim.g.nightflyCursorColor         = 1
-vim.g.nightflyUnderlineMatchParen = 0
-vim.g.nightflyNormalFloat         = 1
-
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
 -- Ecovim
@@ -67,24 +62,4 @@ if EcoVim.colorscheme == 'tokyonight' then
   for group, hl in pairs(highlights) do
     vim.api.nvim_set_hl(0, group, hl)
   end
-end
-
-if EcoVim.colorscheme == 'nightfly' then
-  -- Errors
-  vim.highlight.create('LspDiagnosticsVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
-  vim.highlight.create('DiagnosticVirtualTextError', { guifg = "Red", ctermfg = "Red", gui = "bold" }, false);
-
-  -- Warnings
-  vim.highlight.create('LspDiagnosticsVirtualTextWarning', { guifg = "Yellow", ctermfg = "Yellow" }, false);
-  vim.highlight.create('DiagnosticVirtualTextWarn', { guifg = "Yellow", ctermfg = "Yellow" }, false);
-
-  -- Info & Hints
-  vim.highlight.create('DiagnosticVirtualTextInfo', { guifg = "White", ctermfg = "White" }, false);
-  vim.highlight.create('DiagnosticVirtualTextHint', { guifg = "White", ctermfg = "White" }, false);
-
-  -- Comment in italics
-  vim.highlight.create('Comment', { gui = "italic", cterm = "italic" }, false);
-
-  -- Change color of floating popup border
-  vim.highlight.link('FloatBorder', 'NightflyRed', true);
 end

@@ -3,13 +3,13 @@
 [![Last commit](https://img.shields.io/github/last-commit/ecosse3/nvim?style=for-the-badge)](https://github.com/ecosse3/nvim/commits/master)
 ![Stars](https://img.shields.io/github/stars/ecosse3/nvim?style=for-the-badge)
 ![License](https://img.shields.io/github/license/ecosse3/nvim?style=for-the-badge)
-![Neovim Version](https://img.shields.io/badge/For%20Neovim-0.7-yellowgreen?style=for-the-badge&logo=neovim&logoColor=d8abbb&color=d8abbb)
+![Neovim Version](https://img.shields.io/badge/For%20Neovim-0.7+-yellowgreen?style=for-the-badge&logo=neovim&logoColor=d8abbb&color=d8abbb)
 
 ### A non-minimal Neovim config built to work most efficiently with Frontend Development.
 
 ## Features
 
-- Two recommended themes: [Nightfly](https://github.com/bluz71/vim-nightfly-guicolors) & [Tokyonight](https://github.com/folke/tokyonight.nvim)
+- Recommended default theme: [Tokyonight](https://github.com/folke/tokyonight.nvim)
 - Configured for Frontend Development
 - Highly performant even with a lot of plugins
 - Lazy loading

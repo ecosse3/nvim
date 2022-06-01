@@ -20,7 +20,6 @@ return require('packer').startup({
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
 
     -- Themes
-    use { 'bluz71/vim-nightfly-guicolors' }
     use { 'folke/tokyonight.nvim' }
 
     -- Treesitter
