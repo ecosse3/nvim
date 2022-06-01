@@ -1,5 +1,9 @@
 local utils = require('utils')
-local async = require("plenary.async")
+
+local present, async = pcall(require, "plenary.async")
+if not present then
+  return
+end
 
 -- Custom Folds, make them look better
 vim.cmd([[
