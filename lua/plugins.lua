@@ -17,7 +17,7 @@ return require('packer').startup({
     use { 'nathom/filetype.nvim' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'glepnir/dashboard-nvim', config = "require('plugins.dashboard')" }
+    use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
 
     -- Themes
     use { 'bluz71/vim-nightfly-guicolors' }
