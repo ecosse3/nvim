@@ -1,7 +1,7 @@
 local utils = require('utils')
 
-local present, async = pcall(require, "plenary.async")
-if not present then
+local async_present, async = pcall(require, "plenary.async")
+if not async_present then
   return
 end
 
@@ -13,7 +13,11 @@ vim.cmd([[
 ]])
 
 -- It manages folds automatically based on treesitter
-local parsers = require'nvim-treesitter.parsers'
+local parsers_present, parsers = pcall(require, "nvim-treesitter.parsers")
+if not parsers_present then
+  return
+end
+
 local configs = parsers.get_parser_configs()
 local ft_str = table.concat(vim.tbl_map(function(ft) return configs[ft].filetype or ft end, parsers.available_parsers()), ',')
 vim.cmd('autocmd Filetype ' .. ft_str .. ' setlocal foldmethod=expr foldexpr=nvim_treesitter#foldexpr()')
