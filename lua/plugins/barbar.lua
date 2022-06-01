@@ -1,8 +1,3 @@
-local present, _ = pcall(require, "nvim_web_devicons")
-if not present then
-  return
-end
-
 -- Set barbar's options
 vim.g.bufferline = {
   -- Enable/disable animations
