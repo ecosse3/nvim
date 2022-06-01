@@ -3,7 +3,10 @@ if not present then
   return
 end
 
-local Path = require('plenary.path')
+local path_present, Path = pcall(require, "plenary.path")
+if not path_present then
+  return
+end
 
 session_manager.setup({
   sessions_dir = Path:new(vim.fn.stdpath('data'), 'sessions'), -- The directory where the session files will be saved.
