@@ -9,7 +9,7 @@ NC=$(tput sgr0)
 BOLD=$(tput bold)
 
 # VARIABLES
-declare -r GIT_BRANCH="${GIT_BRANCH:-"master"}"
+declare -r GIT_BRANCH="${GIT_BRANCH:-"bug/install-cleanup-fix"}"
 declare -r GIT_REMOTE="${GIT_REMOTE:-ecosse3/nvim.git}"
 declare -r NVIM_DIR="${NVIM_DIR:-"$(which nvim)"}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
@@ -18,6 +18,7 @@ declare -r XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME/.cache"}"
 declare -r XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
 declare -r RUNTIME_DIR="${RUNTIME_DIR:-"$XDG_DATA_HOME/nvim"}"
 declare -r CONFIG_DIR="${CONFIG_DIR:-"$XDG_CONFIG_HOME/nvim"}"
+declare -r CACHE_DIR="${XDG_CACHE_HOME:-"$XDG_CACHE_HOME/nvim"}"
 declare -r PACK_DIR="$RUNTIME_DIR/site/pack"
 
 # MAIN
@@ -178,6 +179,8 @@ function backup_old_config() {
 function remove_current_repo() {
   cd $HOME
   msg "${BOLD}Removing current Neovim configuration... ${NC}"
+  rm -rf "$RUNTIME_DIR"
+  rm -rf "$CACHE_DIR"
   rm -rf "$CONFIG_DIR"
   echo -e "${GREEN}${BOLD}Done${NC}"
 }
@@ -231,8 +234,7 @@ function setup() {
   cd $CONFIG_DIR/.install
 
   msg "${BOLD}Installing plugins...${NC}" 1
-  "$NVIM_DIR" --headless -u installation_config.lua \
-    -c 'autocmd User PackerComplete quitall' \
+  nvim -c 'autocmd User PackerComplete quitall' \
     -c 'PackerSync'
   msg "${BOLD}${GREEN}Done${NC}" 1 0
 

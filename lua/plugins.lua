@@ -17,7 +17,7 @@ return require('packer').startup({
     use { 'nathom/filetype.nvim' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
-    use { 'glepnir/dashboard-nvim', config = "require('plugins.dashboard')" }
+    use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
 
     -- Themes
     use { 'bluz71/vim-nightfly-guicolors' }
@@ -87,13 +87,14 @@ return require('packer').startup({
     use { 'ggandor/lightspeed.nvim' }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
     use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
-    use { 'romgrk/barbar.nvim', config = "require('plugins.barbar')" }
+    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' }, config = "require('plugins.barbar')" }
     use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
     use { 'rcarriga/nvim-notify' }
     use { 'vuki656/package-info.nvim', event = "BufEnter package.json", config = "require('plugins.package-info')" }
-    use { 'iamcco/markdown-preview.nvim', run = function() vim.fn["mkdp#util#install"]() end }
+    use { 'iamcco/markdown-preview.nvim', run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } }
     use { 'declancm/cinnamon.nvim', config = "require('plugins.cinnamon')" }
     use { 'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end }
+    use { 'Shatur/neovim-session-manager', config = "require('plugins.session-manager')" }
 
     -- Snippets & Language & Syntax
     use { 'windwp/nvim-autopairs', after = { 'nvim-treesitter', 'nvim-cmp' }, config = "require('plugins.autopairs')" }

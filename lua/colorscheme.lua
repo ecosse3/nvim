@@ -1,4 +1,9 @@
-local tokyonight_colors = require("tokyonight.colors").setup({})
+local present, tk_colors = pcall(require, "tokyonight.colors")
+if not present then
+  return
+end
+
+local tokyonight_colors = tk_colors.setup({})
 
 -- Tokyonight config
 vim.g.tokyonight_style = "night"
@@ -13,6 +18,9 @@ vim.g.nightflyUnderlineMatchParen = 0
 vim.g.nightflyNormalFloat         = 1
 
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
+
+-- Ecovim
+vim.highlight.create('EcovimHeader', { gui = "bold", guifg = "#4493c8" }, false);
 
 -- Cursor line
 vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
