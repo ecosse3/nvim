@@ -212,6 +212,7 @@ function install_packer() {
 }
 
 function finish () {
+  rm /tmp/ecovim-prevent-running-lsp-installer 
   touch /tmp/first-ecovim-run
   msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}" 1
   echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
@@ -233,9 +234,9 @@ function setup() {
   [ -f "$PACK_DIR/packer/start/packer.nvim/telescope-fzf-native.nvim/build/libfzf.so" ] && msg "${BOLD}${GREEN}Done${NC}" 1 0
   cd $CONFIG_DIR/.install
 
+  touch /tmp/ecovim-prevent-running-lsp-installer
   msg "${BOLD}Installing plugins...${NC}" 1
-  "$NVIM_DIR" --headless -c 'autocmd User PackerComplete quitall' \
-    -c 'PackerInstall'
+  "$NVIM_DIR" --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   msg "${BOLD}${GREEN}Done${NC}" 1 0
 
   msg "${BOLD}${GREEN}Packer setup complete!${NC}" 1
