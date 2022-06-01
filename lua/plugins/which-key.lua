@@ -88,10 +88,11 @@ local mappings = {
 
   ["/"] = {
     name = "Dashboard",
-    ["/"] = { '<cmd>Dashboard<CR>',                      'open dashboard' },
-    ["c"] = { ':e $MYVIMRC<CR>',                         'open init' },
-    ["s"] = { '<cmd>PackerSync<CR>',                     'packer sync' },
-    ["u"] = { '<cmd>PackerUpdate<CR>',                   'packer update' },
+    ["/"] = { '<cmd>Dashboard<CR>',                        'open dashboard' },
+    ["c"] = { ':e $MYVIMRC<CR>',                           'open init' },
+    ["s"] = { '<cmd>PackerSync<CR>',                       'packer sync' },
+    ["i"] = { '<cmd>PackerInstall<CR>',                    'packer install' },
+    ["l"] = { '<cmd>SessionManager load_last_session<CR>', 'load last session' },
   },
 
   a = {
@@ -171,7 +172,7 @@ local mappings = {
     w = { 'word' },
     l = { "<cmd>lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh'}}<CR>", 'list' },
     r = { 'refactor' },
-    s = { "<cmd>SessionSave<CR>",                                    'save session' },
+    s = { "<cmd>SessionManager save_current_session<CR>",            'save session' },
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
   },
 
