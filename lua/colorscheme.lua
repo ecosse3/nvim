@@ -1,4 +1,9 @@
-local tokyonight_colors = require("tokyonight.colors").setup({})
+local present, tk_colors = pcall(require, "tokyonight.colors")
+if not present then
+  return
+end
+
+local tokyonight_colors = tk_colors.setup({})
 
 -- Tokyonight config
 vim.g.tokyonight_style = "night"
