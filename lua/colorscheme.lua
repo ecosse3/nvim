@@ -14,6 +14,9 @@ vim.g.nightflyNormalFloat         = 1
 
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
+-- Ecovim
+vim.highlight.create('EcovimHeader', { gui = "bold", guifg = "#4493c8" }, false);
+
 -- Cursor line
 vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
 
