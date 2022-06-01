@@ -88,7 +88,7 @@ local mappings = {
 
   ["/"] = {
     name = "Dashboard",
-    ["/"] = { '<cmd>Dashboard<CR>',                        'open dashboard' },
+    ["/"] = { '<cmd>Alpha<CR>',                        'open dashboard' },
     ["c"] = { ':e $MYVIMRC<CR>',                           'open init' },
     ["s"] = { '<cmd>PackerSync<CR>',                       'packer sync' },
     ["i"] = { '<cmd>PackerInstall<CR>',                    'packer install' },
