@@ -236,7 +236,8 @@ function setup() {
 
   touch /tmp/ecovim-prevent-running-lsp-installer
   msg "${BOLD}Installing plugins...${NC}" 1
-  "$NVIM_DIR" --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  nvim -c 'autocmd User PackerComplete quitall' \
+    -c 'PackerSync'
   msg "${BOLD}${GREEN}Done${NC}" 1 0
 
   msg "${BOLD}${GREEN}Packer setup complete!${NC}" 1
