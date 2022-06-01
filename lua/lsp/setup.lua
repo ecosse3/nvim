@@ -1,14 +1,8 @@
 -- Setup installer & lsp configs
 local typescript_ok, typescript = pcall(require, 'typescript')
 local lsp_installer_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
-local utils = require('utils')
-local is_first_plugin_installation = utils.file_exists('/tmp/ecovim-prevent-running-lsp-installer')
 
 if not lsp_installer_ok then
-  return
-end
-
-if is_first_plugin_installation then
   return
 end
 
