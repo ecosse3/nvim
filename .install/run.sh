@@ -236,7 +236,7 @@ function setup() {
   msg "${BOLD}Installing plugins...${NC}" 1
   "$NVIM_DIR" --headless -u installation_config.lua \
     -c 'autocmd User PackerComplete quitall' \
-    -c 'PackerSync'
+    -c 'PackerInstall'
   msg "${BOLD}${GREEN}Done${NC}" 1 0
 
   msg "${BOLD}${GREEN}Packer setup complete!${NC}" 1
