@@ -28,7 +28,7 @@ And of course usage of [telescope](https://github.com/nvim-telescope/telescope.n
 
 Dashboard
 
-![Dashboard](./.screenshots/5-dashboard.png)
+![Dashboard](./.screenshots/6-alpha.png)
 
 Overview
 
@@ -36,6 +36,9 @@ Overview
 
 <details>
 <summary>More screenshots</summary>
+
+Some of screenshots can be old
+
 TailwindCSS with nvim-cmp
 
 ![TailwindCSS](./.screenshots/5-tailwind.png)
@@ -263,7 +266,7 @@ Measured on Manjaro Linux.
 
 </details>
 
-Ecovim started in 177.538ms
+Ecovim started in 114.739ms
 
 ## Todo
 
