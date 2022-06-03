@@ -29,6 +29,7 @@ return require('packer').startup({
     use { 'm-demare/hlargs.nvim', config = function() require('hlargs').setup() end }
 
     -- Navigating (Telescope/Tree/Refactor)
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'nvim-telescope/telescope.nvim',
       config = "require('plugins.telescope')",
       requires = {
@@ -37,7 +38,6 @@ return require('packer').startup({
         { 'nvim-telescope/telescope-fzf-native.nvim' }
       }
     }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'cljoly/telescope-repo.nvim' }
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
     use { 'nvim-pack/nvim-spectre' }
