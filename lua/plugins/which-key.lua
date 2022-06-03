@@ -1,5 +1,6 @@
-require'which-key'.setup {
 local wk = require "which-key"
+
+wk.setup {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -67,8 +68,16 @@ local opts = {
   nowait = false, -- use `nowait` when creating keymaps
 }
 
-local mappings = {
+local visual_opts = {
+  mode = "v", -- NORMAL mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = false, -- use `nowait` when creating keymaps
+}
 
+local normal_mode_mappings = {
   -- ignore
   ["1"] = "which_key_ignore",
   ["2"] = "which_key_ignore",
@@ -88,12 +97,19 @@ local mappings = {
   ["q"] = { 'quicklist' },
 
   ["/"] = {
-    name = "Dashboard",
-    ["/"] = { '<cmd>Alpha<CR>',                        'open dashboard' },
-    ["c"] = { ':e $MYVIMRC<CR>',                           'open init' },
-    ["s"] = { '<cmd>PackerSync<CR>',                       'packer sync' },
-    ["i"] = { '<cmd>PackerInstall<CR>',                    'packer install' },
-    ["l"] = { '<cmd>SessionManager load_last_session<CR>', 'load last session' },
+    name = "Ecovim",
+    ["/"] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
+    c = { ':e $MYVIMRC<CR>',                                    'open config' },
+    i = { '<cmd>PackerInstall<CR>',                             'install plugins' },
+    u = { '<cmd>PackerSync<CR>',                                'update plugins' },
+    s = {
+      name = "Session",
+      c = { '<cmd>SessionManager load_session<CR>',             'choose session' },
+      r = { '<cmd>SessionManager delete_session<CR>',           'remove session' },
+      d = { '<cmd>SessionManager load_current_dir_session<CR>', 'load current dir session' },
+      l = { '<cmd>SessionManager load_last_session<CR>',        'load last session' },
+      s = { '<cmd>SessionManager save_session<CR>',             'save session' },
+    },
   },
 
   a = {
@@ -193,8 +209,47 @@ local mappings = {
   },
 }
 
-local wk = require "which-key"
-wk.register(mappings, opts)
+local visual_mode_mappings = {
+  -- single
+  ["s"] = { "<cmd>'<,'>sort<CR>",               'sort' },
+
+  a = {
+    name = "Actions",
+    c = { 'comment box' },
+  },
+
+  c = {
+    name = "LSP",
+    a = { 'range code action' },
+    f = { 'range format' },
+  },
+
+  g = {
+    name = "Git",
+    h = {
+      name = "Hunk",
+      r = "reset hunk",
+      s = "stage hunk",
+    },
+  },
+
+  p = {
+    name = "Project",
+    r = { 'refactor' },
+  },
+
+  t = {
+    name = "Table Mode",
+    t = { 'tableize' },
+  },
+}
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Register                                                 │
+-- ╰──────────────────────────────────────────────────────────╯
+
+wk.register(normal_mode_mappings, opts)
+wk.register(visual_mode_mappings, visual_opts)
 
 local function attach_markdown(bufnr)
   wk.register({
