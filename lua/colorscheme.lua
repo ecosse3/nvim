@@ -14,31 +14,47 @@ vim.g.tokyonight_colors = {
 
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
--- Ecovim
-vim.highlight.create('EcovimHeader', { gui = "bold", guifg = "#4493c8" }, false);
+-- Ecovim Colors
+vim.highlight.create('EcovimPrimary', { guifg = "#488DFF" }, false);
+vim.highlight.create('EcovimSecondary', { guifg = "#FFA630" }, false);
 
--- Cursor line
-vim.highlight.create('CursorLineNR', { guifg = "Yellow", ctermfg = "Yellow", guibg = "None", cterm = "bold" }, false);
+vim.highlight.create('EcovimPrimaryBold', { gui = "bold", guifg = "#488DFF" }, false);
+vim.highlight.create('EcovimSecondaryBold', { gui = "bold", guifg = "#FFA630" }, false);
+
+vim.highlight.create('EcovimHeader', { gui = "bold", guifg = "#488DFF" }, false);
+vim.highlight.create('EcovimHeaderInfo', { gui = "bold", guifg = "#FFA630" }, false);
+vim.highlight.create('EcovimFooter', { gui = "bold", guifg = "#FFA630" }, false);
+
 
 if EcoVim.colorscheme == 'tokyonight' then
+  -- Lines
+  vim.highlight.link('CursorLineNR', 'EcovimSecondary', true)
   vim.highlight.link('LineNr', 'Comment', true)
+
+  -- Floats/Windows
   vim.highlight.create('NormalFloat', { guibg = "None", guifg = "None" }, false);
   vim.highlight.create('FloatBorder', { guibg = "None" }, false);
   vim.highlight.create('WhichKeyFloat', { guibg = "None" }, false);
   vim.highlight.create('BufferTabpageFill', { guifg = "None" }, false);
   vim.highlight.create('VertSplit', { guibg = "#16161e", guifg = "#16161e" }, false);
+
+  -- Telescope
+  vim.highlight.link('TelescopeTitle', 'EcovimSecondary', true);
   vim.highlight.create('TelescopeNormal', { guibg = "None", guifg = "None" }, false);
-  vim.highlight.create('TelescopeBorder', { guibg = "None", guifg = "None" }, false);
+  vim.highlight.create('TelescopeBorder', { guibg = "None" }, false);
   vim.highlight.link('TelescopeMatching', 'Constant', true);
+
+  -- Diagnostics
+
+  -- Misc
   vim.highlight.link('GitSignsCurrentLineBlame', 'Comment', true);
   vim.highlight.create('StatusLine', { guibg = "None" }, false);
   vim.highlight.create('StatusLineNC', { guibg = "None" }, false);
   vim.highlight.create('rainbowcol1', { guifg = tokyonight_colors.blue, ctermfg = 9 }, false);
   vim.highlight.create('Boolean', { guifg = "#F7768E" }, false);
-  vim.highlight.create('BufferOffset', { gui = 'bold', guifg = "None", guibg = "#16161e" }, false);
+  vim.highlight.link('BufferOffset', 'EcovimSecondary', true);
 
   -- Completion Menu Colors
-
   local highlights = {
     CmpItemAbbr            = { fg = tokyonight_colors.dark3, bg = "NONE" },
     CmpItemKindClass       = { fg = tokyonight_colors.orange             },
