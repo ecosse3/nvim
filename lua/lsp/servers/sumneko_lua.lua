@@ -3,7 +3,7 @@ local M = {}
 M.settings = {
   Lua = {
     diagnostics = {
-      globals = { 'vim', 'bit' }
+      globals = { 'vim', 'bit', 'packer_plugins' }
     }
   }
 }
