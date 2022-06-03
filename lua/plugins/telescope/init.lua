@@ -1,9 +1,20 @@
 local actions    = require('telescope.actions')
 local previewers = require('telescope.previewers')
 local builtin    = require('telescope.builtin')
+local icons      = EcoVim.icons;
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
+
+local git_icons = {
+  added = icons.gitAdd,
+  changed = icons.gitChange,
+  copied = ">",
+  deleted = icons.gitRemove,
+  renamed = "➡",
+  unmerged = "‡",
+  untracked = "?",
+}
 
 require('telescope').setup {
   defaults = {
@@ -26,6 +37,8 @@ require('telescope').setup {
     prompt_prefix     = ' 🔍 ',
     color_devicons    = true,
 
+    git_icons = git_icons,
+
     sorting_strategy = "ascending",
 
     file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
@@ -37,10 +50,11 @@ require('telescope').setup {
         ["<C-x>"] = false,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-        ["<C-q>"] = actions.send_selected_to_qflist,
+        ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-s>"] = actions.cycle_previewers_next,
         ["<C-a>"] = actions.cycle_previewers_prev,
         ["<C-h>"] = "which_key",
+        ["<ESC>"] = actions.close,
       },
       n = {
         ["<C-s>"] = actions.cycle_previewers_next,
@@ -94,6 +108,8 @@ M.my_git_bcommits = function(opts)
 
   builtin.git_bcommits(opts)
 end
+
+-- Custom pickers
 
 M.edit_neovim = function()
   builtin.git_files {
