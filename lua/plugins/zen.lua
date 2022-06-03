@@ -16,15 +16,14 @@ require('zen-mode').setup {
       -- cursorcolumn = false, -- disable cursor column
       -- foldcolumn = "0", -- disable fold column
       -- list = false, -- disable whitespace characters
-    },
-  },
+    }, },
   plugins = {
     -- disable some global vim options (vim.o...)
     -- comment the lines to not apply the options
     options = {
       enabled = true,
       ruler = false, -- disables the ruler text in the cmd line area
-      showcmd = true, -- disables the command in the last line of the screen
+      showcmd = false, -- disables the command in the last line of the screen
     },
     twilight = { enabled = true }, -- enable to start Twilight when zen mode opens
     gitsigns = { enabled = true }, -- disables git signs
@@ -34,16 +33,26 @@ require('zen-mode').setup {
     -- - allow_remote_control socket-only
     -- - listen_on unix:/tmp/kitty
     kitty = {
-      enabled = true,
-      font = "+4", -- font size increment
+      enabled = EcoVim.plugins.zen.kitty_enabled or false,
+      font = "+3", -- font size increment
     },
   },
 
   -- callback where you can add custom code when the Zen window opens
   on_open = function()
+    require('gitsigns.actions').toggle_current_line_blame()
+    require("indent_blankline.commands").disable()
+    vim.opt.relativenumber = false
+    require('hlargs').disable()
+    require('gitsigns.actions').refresh()
   end,
 
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
+    require('gitsigns.actions').toggle_current_line_blame()
+    require("indent_blankline.commands").enable()
+    vim.opt.relativenumber = true
+    require('hlargs').enable()
+    require('gitsigns.actions').refresh()
   end,
 }
