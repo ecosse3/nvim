@@ -33,7 +33,7 @@ local wk = require "which-key"
     group = "+", -- symbol prepended to a group
   },
   window = {
-    border = "single", -- none, single, double, shadow
+    border = EcoVim.ui.float.border or "rounded", -- none, single, double, shadow, rounded
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
