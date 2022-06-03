@@ -1,4 +1,5 @@
 require'which-key'.setup {
+local wk = require "which-key"
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -252,8 +253,21 @@ local function attach_npm(bufnr)
   })
 end
 
+local function attach_zen()
+  wk.register({
+    ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
+  }, {
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+  })
+end
+
 return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
-  attach_npm = attach_npm
+  attach_npm = attach_npm,
+  attach_zen = attach_zen
 }
