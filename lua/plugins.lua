@@ -120,5 +120,10 @@ return require('packer').startup({
     compile_path = compile_path,
     disable_commands = true,
     max_jobs = 50,
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'rounded' })
+      end
+    }
   }
 })
