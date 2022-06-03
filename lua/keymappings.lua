@@ -119,3 +119,7 @@ keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", silent)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
+
+-- Comment Box
+keymap("n", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)
+keymap("v", "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", silent)

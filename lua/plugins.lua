@@ -71,6 +71,7 @@ return require('packer').startup({
     use { 'AndrewRadev/switch.vim' }
     use { 'AndrewRadev/splitjoin.vim' }
     use { 'numToStr/Comment.nvim', config = "require('plugins.comment')" }
+    use { 'LudoPinelli/comment-box.nvim' }
     use { 'akinsho/nvim-toggleterm.lua', branch = 'main', config = "require('plugins.toggleterm')" }
     use { 'tpope/vim-repeat' }
     use { 'tpope/vim-speeddating' }
