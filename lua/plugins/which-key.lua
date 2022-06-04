@@ -157,11 +157,11 @@ local normal_mode_mappings = {
 
   g = {
     name = "Git",
-    a = { '<cmd>!git add %:p<CR>',                                   'add current' },
-    A = { '<cmd>!git add .<CR>',                                     'add all' },
-    b = { '<cmd>lua require("blame").open()<CR>',                    'blame' },
-    B = { '<cmd>Telescope git_branches<CR>',                         'branches' },
-    d = { '<cmd>lua require("plugins.diffview").toggle()<CR>',       'diff file' },
+    a = { '<cmd>!git add %:p<CR>',                                 'add current' },
+    A = { '<cmd>!git add .<CR>',                                   'add all' },
+    b = { '<cmd>lua require("blame").open()<CR>',                  'blame' },
+    B = { '<cmd>Telescope git_branches<CR>',                       'branches' },
+    d = { '<cmd>lua require("plugins.git.diffview").toggle()<CR>', 'diff file' },
     g = { 'lazygit' },
     h = {
       name = "Hunk",
@@ -181,6 +181,11 @@ local normal_mode_mappings = {
     },
     m = { 'blame line' },
     s = { '<cmd>Telescope git_status<CR>',                           'status' },
+    w = {
+      name = "Worktree",
+      w = "worktrees",
+      c = "create worktree",
+    }
   },
 
   p = {
