@@ -107,11 +107,11 @@ return require('packer').startup({
     -- Git
     use { 'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
-      config = "require('plugins.gitsigns')",
+      config = "require('plugins.git.signs')",
       event = "BufRead"
     }
-    use { 'sindrets/diffview.nvim' }
-    use { 'akinsho/git-conflict.nvim', config = function() require('git-conflict').setup() end }
+    use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
+    use { 'akinsho/git-conflict.nvim', config = "require('plugins.git.conflict')" }
 
     if packer_bootstrap then
       require('packer').sync()
