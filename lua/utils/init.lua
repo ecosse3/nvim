@@ -67,6 +67,10 @@ M.handle_job_data = function(data)
   return data
 end
 
+M.log = function(message, title)
+  require('notify')(message, "info", { title = title or "Info" })
+end
+
 M.warnlog = function(message, title)
   require('notify')(message, "warn", { title = title or "Warning" })
 end
