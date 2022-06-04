@@ -7,6 +7,10 @@ require('cinnamon').setup {
   scroll_limit = 150, -- Max number of lines moved before scrolling is skipped.
 }
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Keymappings                                              │
+-- ╰──────────────────────────────────────────────────────────╯
+
 -- Half-window movements:
 vim.keymap.set({ 'n', 'x', 'i' }, '<C-u>', "<Cmd>lua Scroll('<C-u>')<CR>")
 vim.keymap.set({ 'n', 'x', 'i' }, '<C-d>', "<Cmd>lua Scroll('<C-d>')<CR>")
