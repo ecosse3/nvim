@@ -28,8 +28,8 @@ EcoVim = {
       patterns = {'.git', 'package.json', '_darcs', '.bzr', '.svn', 'Makefile'} -- Default
     },
     zen = {
-      enabled = false,
       kitty_enabled = false
+      enabled = true, -- sync after change
     },
   },
   icons = icons,
