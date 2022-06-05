@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.1](https://github.com/ecosse3/nvim/compare/v1.9.0...v1.9.1) (2022-06-05)
+
+### Bug Fixes
+
+* **winbar:** pcall require winbar and check if loaded type is not boolean by first time ([#55](https://github.com/ecosse3/nvim/issues/55)) ([#58](https://github.com/ecosse3/nvim/issues/58)) ([edaca98](https://github.com/ecosse3/nvim/commit/edaca98290bd17707c35be163fe538bf3c9815e2))
+
 ## [1.9.0](https://github.com/ecosse3/nvim/compare/v1.8.2...v1.9.0) (2022-06-03)
 
 
