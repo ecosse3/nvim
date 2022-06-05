@@ -37,13 +37,20 @@ if vim.fn.has('nvim-0.8') == 1 then
         return
       end
 
-      local value = require("winbar").gps()
+      local present, winbar = pcall(require, "winbar")
+      if not present or type(winbar) == "boolean" then
+        vim.opt_local.winbar = nil
+        return
+      end
+
+      local value = winbar.gps()
 
       if value == nil then
-        value = require("winbar").filename()
+        value = winbar.filename()
       end
 
       vim.opt_local.winbar = value
     end,
   })
 end
+
