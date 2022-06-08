@@ -37,8 +37,15 @@ if vim.fn.has('nvim-0.8') == 1 then
       if (vim.api.nvim_win_get_config(0).relative ~= "") then
         return
       end
+
       if vim.tbl_contains(winbar_filetype_exclude, vim.bo.filetype) then
         vim.opt_local.winbar = nil
+        return
+      end
+
+      if vim.bo.filetype == 'GitBlame' then
+        local hl_group = "EcovimSecondary"
+        vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require('icons').git .. "Blame" .. "%*"
         return
       end
 
@@ -58,4 +65,3 @@ if vim.fn.has('nvim-0.8') == 1 then
     end,
   })
 end
-

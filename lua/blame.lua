@@ -30,7 +30,7 @@ local function create_blame_win()
   vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
   vim.api.nvim_buf_set_option(buf, "swapfile", false)
   vim.api.nvim_buf_set_option(buf, "bufhidden", "wipe")
-  vim.api.nvim_buf_set_option(buf, "filetype", "git")
+  vim.api.nvim_buf_set_option(buf, "filetype", "GitBlame")
   vim.api.nvim_buf_set_option(buf, "buflisted", false)
 
   vim.api.nvim_win_set_option(win, "number", true)
@@ -38,7 +38,7 @@ local function create_blame_win()
   vim.api.nvim_win_set_option(win, "foldenable", false)
   vim.api.nvim_win_set_option(win, "foldenable", false)
   vim.api.nvim_win_set_option(win, "winfixwidth", true)
-  vim.api.nvim_win_set_option(win, "signcolumn", "no")
+  vim.api.nvim_win_set_option(win, "signcolumn", "yes")
   vim.api.nvim_win_set_option(win, "wrap", false)
 
   return win, buf
@@ -151,7 +151,7 @@ local function on_blame_commit_done(commit_hash, lines)
   vim.api.nvim_buf_set_name(buf, commit_hash)
   vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
   vim.api.nvim_buf_set_option(buf, "bufhidden", "delete")
-  vim.api.nvim_buf_set_option(buf, "filetype", "git")
+  vim.api.nvim_buf_set_option(buf, "filetype", "Git")
   vim.api.nvim_command "autocmd BufLeave <buffer> lua require('blame').blame_commit_quit()"
 
   vim.fn.search([[^diff .* b/\M]] .. vim.fn.escape(blame_state.relative_path, "\\") .. "$", "W")
