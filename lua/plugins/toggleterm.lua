@@ -9,6 +9,21 @@ require("toggleterm").setup{
   end,
   open_mapping = [[<F12>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
+  highlights = {
+    -- highlights which map to a highlight group name and a table of it's values
+    -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
+    Normal = {
+      link = 'Normal'
+    },
+    NormalFloat = {
+      link = 'Normal'
+    },
+    FloatBorder = {
+      -- guifg = <VALUE-HERE>,
+      -- guibg = <VALUE-HERE>,
+      link = 'FloatBorder'
+    },
+  },
   shade_filetypes = {},
   shade_terminals = true,
   shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
@@ -25,10 +40,9 @@ require("toggleterm").setup{
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     border = 'curved', -- single/double/shadow/curved
-    highlights = {
-      border = "Normal",
-      background = "Normal",
-    }
+    width = math.floor(0.7 * vim.fn.winwidth(0)),
+    height = math.floor(0.8 * vim.fn.winheight(0)),
+    winblend = 4,
   }
 }
 
