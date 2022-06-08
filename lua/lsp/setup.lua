@@ -11,6 +11,11 @@ lsp_installer.setup {
   ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver", "vetur", "vuels" },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed
   automatic_installation = true,
+
+  ui = {
+    -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+    border = EcoVim.ui.float.border or "rounded",
+  }
 }
 local lspconfig = require("lspconfig")
 
