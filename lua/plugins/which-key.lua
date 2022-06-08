@@ -192,7 +192,7 @@ local normal_mode_mappings = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
-    l = { "<cmd>lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh'}}<CR>", 'list' },
+    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'list' },
     r = { 'refactor' },
     s = { "<cmd>SessionManager save_current_session<CR>",            'save session' },
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
