@@ -19,9 +19,6 @@ EcoVim = {
     completion = {
       select_first_on_enter = false
     },
-    dashboard = {
-      fuzzy_plugin = 'telescope' -- telescope/clap/fzf
-    },
     rooter = {
       -- Removing package.json from list in Monorepo Frontend Project can be helpful
       -- By that your live_grep will work related to whole project, not specific package
