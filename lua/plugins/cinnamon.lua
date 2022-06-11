@@ -31,10 +31,6 @@ vim.keymap.set('n', '#', "<Cmd>lua Scroll('#')<CR>")
 vim.keymap.set('n', 'g*', "<Cmd>lua Scroll('g*')<CR>")
 vim.keymap.set('n', 'g#', "<Cmd>lua Scroll('g#')<CR>")
 
--- Previous/next cursor location:
-vim.keymap.set('n', '<C-o>', "<Cmd>lua Scroll('<C-o>')<CR>")
-vim.keymap.set('n', '<C-i>', "<Cmd>lua Scroll('1<C-i>')<CR>")
-
 -- Window scrolling:
 vim.keymap.set('n', 'zz', "<Cmd>lua Scroll('zz', 0, 1)<CR>")
 vim.keymap.set('n', 'zt', "<Cmd>lua Scroll('zt', 0, 1)<CR>")
