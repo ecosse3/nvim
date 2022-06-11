@@ -104,7 +104,6 @@ return require('packer').startup({
     -- Snippets & Language & Syntax
     use { 'windwp/nvim-autopairs', after = { 'nvim-treesitter', 'nvim-cmp' }, config = "require('plugins.autopairs')" }
     use { 'p00f/nvim-ts-rainbow', after = { 'nvim-treesitter' } }
-    use { 'mattn/emmet-vim' }
     use { 'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')" }
     use { 'NvChad/nvim-colorizer.lua', config = "require('plugins.colorizer')" }
     use { 'L3MON4D3/LuaSnip', requires = { 'rafamadriz/friendly-snippets' }, after = 'cmp_luasnip' }
