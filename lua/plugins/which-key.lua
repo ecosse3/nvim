@@ -99,7 +99,7 @@ local normal_mode_mappings = {
   ["/"] = {
     name = "Ecovim",
     ["/"] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
-    c = { ':e $MYVIMRC<CR>',                                    'open config' },
+    c = { '<cmd>e $MYVIMRC<CR>',                                    'open config' },
     i = { '<cmd>PackerInstall<CR>',                             'install plugins' },
     u = { '<cmd>PackerSync<CR>',                                'update plugins' },
     s = {
@@ -202,9 +202,9 @@ local normal_mode_mappings = {
     name = "Search",
     c = { '<cmd>Telescope colorscheme<CR>',                          'color schemes' },
     d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>', 'dotfiles' },
-    h = { '<cmd>Telescope oldfiles<CR>',                             'file history' },
     H = { '<cmd>Telescope command_history<CR>',                      'command history' },
     s = { '<cmd>Telescope search_history<CR>',                       'search history' },
+    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'file history' },
   },
 
   t = {
