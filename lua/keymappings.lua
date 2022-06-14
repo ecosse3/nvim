@@ -18,6 +18,10 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", silent)
 keymap("v", "<", "<gv", silent)
 keymap("v", ">", ">gv", silent)
 
+-- Case change in visual mode
+keymap("v", "`", "u", silent)
+keymap("v", "<A-`>", "U", silent)
+
 -- Save file by CTRL-S
 keymap("n", "<C-s>", ":w<CR>", silent)
 keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
