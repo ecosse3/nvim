@@ -119,6 +119,18 @@ return require('packer').startup({
     use { 'ThePrimeagen/git-worktree.nvim', config = "require('plugins.git.worktree')" }
     use { 'kdheepak/lazygit.nvim' }
 
+    -- Testing
+    use {
+      "rcarriga/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "antoinemadec/FixCursorHold.nvim",
+        "haydenmeade/neotest-jest"
+      },
+      config = "require('plugins.neotest')"
+    }
+
     if packer_bootstrap then
       require('packer').sync()
     end

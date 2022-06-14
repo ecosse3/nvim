@@ -41,6 +41,7 @@ if vim.fn.has('nvim-0.8') == 1 then
         "TelescopePrompt",
         "DressingInput",
         "DressingSelect",
+        "neotest-summary",
       }
 
       if (vim.api.nvim_win_get_config(0).relative ~= "") then
