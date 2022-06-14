@@ -113,27 +113,47 @@ end
 -- Custom pickers
 
 M.edit_neovim = function()
-  builtin.git_files {
-    cwd              = "~/.config/nvim",
-    prompt           = "~ dotfiles ~",
-    color_devicons   = true,
-    sorting_strategy = "ascending",
-    layout_config    = {
-      horizontal = {
-        mirror = false,
+  builtin.git_files (
+    require('telescope.themes').get_dropdown({
+      color_devicons   = true,
+      cwd              = "~/.config/nvim",
+      previewer        = false,
+      prompt_title     = "Ecovim Dotfiles",
+      sorting_strategy = "ascending",
+      winblend         = 4,
+      layout_config    = {
+        horizontal = {
+          mirror = false,
+        },
+        vertical = {
+          mirror = false,
+        },
+        prompt_position = "top",
       },
-      vertical = {
-        mirror = false,
-      },
-      prompt_position = "top",
-    },
-  }
+    }))
 end
 
 M.project_files = function(opts)
   opts = opts or {} -- define here if you want to define something
   local ok = pcall(require "telescope.builtin".git_files, opts)
   if not ok then require "telescope.builtin".find_files(opts) end
+end
+
+M.command_history = function()
+  builtin.command_history (
+    require('telescope.themes').get_dropdown({
+      color_devicons   = true,
+      winblend         = 4,
+      layout_config    = {
+        width = function(_, max_columns, _)
+          return math.min(max_columns, 150)
+        end,
+
+        height = function(_, _, max_lines)
+          return math.min(max_lines, 15)
+        end,
+      },
+    }))
 end
 
 return M
