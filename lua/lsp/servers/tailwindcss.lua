@@ -3,7 +3,7 @@ local M = {}
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if cmp_nvim_lsp_ok then
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 end
@@ -16,7 +16,7 @@ local on_attach = function (client, bufnr)
   end
 end
 
-local filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "django-html", "edge", "eelixir", "ejs", "erb", "eruby", "gohtml", "haml", "handlebars", "hbs", "html", "html-eex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" }
+local filetypes = { "html", "mdx", "javascript", "javascriptreact", "typescriptreact", "vue", "svelte" }
 
 local init_options = {
   userLanguages = {
