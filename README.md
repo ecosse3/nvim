@@ -12,15 +12,16 @@
 - Recommended default theme: [Tokyonight](https://github.com/folke/tokyonight.nvim)
 - Configured for Frontend Development
 - Highly performant even with a lot of plugins
-- Lazy loading
+- Lazy loaded
 - Extendable LSP configuration
 - Support for [TailwindCSS](https://tailwindcss.com/) with highlighted colors
 - Support for [Tabnine](https://www.tabnine.com/)
 - JSON autocompletion for most popular Frontend config
 - NPM packages autocompletion
+- Internal [Jest](https://github.com/facebook/jest) testing
 - Treesitter-based folding
 - Beautiful and functional custom statusline built with galaxyline.nvim
-- Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim)
+- Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim), custom git blame
 
 And of course usage of [telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), [barbar](https://github.com/romgrk/barbar.nvim), [cmp](https://github.com/hrsh7th/nvim-cmp), [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [blankline](https://github.com/lukas-reineke/indent-blankline.nvim) & more!
 
@@ -249,7 +250,6 @@ Measured on Manjaro Linux.
 | dressing.nvim         | 0.449 | 0.307 | 0.326  | 0.3437  | 0.04207   |
 | switch.vim            | 0.352 | 0.311 | 0.320  | 0.3257  | 0.01351   |
 | telescope.nvim        | 0.241 | 0.175 | 0.191  | 0.1933  | 0.01936   |
-| dashboard-nvim        | 0.229 | 0.168 | 0.177  | 0.1886  | 0.02268   |
 | vim-easy-align        | 0.195 | 0.147 | 0.151  | 0.1565  | 0.01378   |
 | nvim-tree.lua         | 0.130 | 0.062 | 0.092  | 0.0902  | 0.02328   |
 | nvim-lspconfig        | 0.190 | 0.067 | 0.068  | 0.0808  | 0.03643   |
@@ -266,7 +266,7 @@ Measured on Manjaro Linux.
 
 </details>
 
-Ecovim started in 114.739ms
+Ecovim started in 109.7ms (based on hyperfine)
 
 ## Todo
 
