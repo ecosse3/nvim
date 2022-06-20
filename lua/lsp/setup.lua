@@ -40,7 +40,6 @@ end
 if typescript_ok then
   typescript.setup({
     disable_commands = false, -- prevent the plugin from creating Vim commands
-    disable_formatting = false, -- disable tsserver's formatting capabilities
     debug = false, -- enable debug logging for commands
     -- LSP Config options
     server = {
