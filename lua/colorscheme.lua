@@ -5,13 +5,16 @@ end
 
 local tokyonight_colors = tk_colors.setup({})
 
--- Tokyonight config
+-- Tokyonight Colorscheme Config
 vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_colors = {
   border = '#1A1B26';
 }
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Setup Colorscheme                                        │
+-- ╰──────────────────────────────────────────────────────────╯
 vim.cmd('colorscheme ' .. EcoVim.colorscheme)
 
 -- Ecovim Colors
@@ -25,7 +28,7 @@ vim.highlight.create('EcovimHeader', { gui = "bold", guifg = "#488DFF" }, false)
 vim.highlight.create('EcovimHeaderInfo', { gui = "bold", guifg = "#FFA630" }, false);
 vim.highlight.create('EcovimFooter', { gui = "bold", guifg = "#FFA630" }, false);
 
-
+-- Tokyonight Colorscheme Specific Config
 if EcoVim.colorscheme == 'tokyonight' then
   -- Lines
   vim.highlight.link('CursorLineNR', 'EcovimSecondary', true)
