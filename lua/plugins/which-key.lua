@@ -177,7 +177,9 @@ local normal_mode_mappings = {
     l = {
       name = "Log",
       A = {"<cmd>lua require('plugins.telescope').my_git_commits()<CR>", "commits (Telescope)"},
+      a = {"<cmd>LazyGitFilter<CR>", "commits"},
       C = {"<cmd>lua require('plugins.telescope').my_git_bcommits()<CR>", "buffer commits (Telescope)"},
+      c = {"<cmd>LazyGitFilterCurrentFile<CR>", "buffer commits"},
     },
     m = { 'blame line' },
     s = { '<cmd>Telescope git_status<CR>',                           'status' },
