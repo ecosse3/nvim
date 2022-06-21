@@ -40,6 +40,7 @@ if EcoVim.colorscheme == 'tokyonight' then
   vim.highlight.create('WhichKeyFloat', { guibg = "None" }, false);
   vim.highlight.create('BufferTabpageFill', { guifg = "None" }, false);
   vim.highlight.create('VertSplit', { guibg = "#16161e", guifg = "#16161e" }, false);
+  vim.highlight.link('BqfPreviewBorder', 'FloatBorder', true)
 
   -- Telescope
   vim.highlight.link('TelescopeTitle', 'EcovimSecondary', true);
