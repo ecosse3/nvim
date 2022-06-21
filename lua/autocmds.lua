@@ -7,20 +7,21 @@ vim.api.nvim_create_autocmd("TextYankPost",
 vim.api.nvim_create_autocmd("BufRead", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 vim.api.nvim_create_autocmd("BufNewFile", { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 -- Enable spell checking for certain file types
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" },
-  { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
+  command = "setlocal spell" })
 -- Attach specific keybindings in which-key for specific filetypes
-vim.api.nvim_create_autocmd("BufEnter",
-  { pattern = "*.md", callback = function() require('plugins.which-key').attach_markdown(0) end })
-vim.api.nvim_create_autocmd("BufEnter",
-  { pattern = { "*.ts", "*.tsx" }, callback = function() require('plugins.which-key').attach_typescript(0) end })
-vim.api.nvim_create_autocmd("BufEnter",
-  { pattern = { "package.json" }, callback = function() require('plugins.which-key').attach_npm(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md",
+  callback = function() require('plugins.which-key').attach_markdown(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" },
+  callback = function() require('plugins.which-key').attach_typescript(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" },
+  callback = function() require('plugins.which-key').attach_npm(0) end })
 vim.api.nvim_create_autocmd("BufEnter",
   { callback = function() if EcoVim.plugins.zen.enabled then require('plugins.which-key').attach_zen() end end })
-vim.api.nvim_create_autocmd("BufEnter",
-  { pattern = { "*test.js", "*test.ts", "*test.tsx" },
-    callback = function() require('plugins.which-key').attach_jest(0) end })
+vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx" },
+  callback = function() require('plugins.which-key').attach_jest(0) end })
+vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
+  callback = function() require('plugins.which-key').attach_spectre(0) end })
 -- Winbar (for nvim 0.8+)
 if vim.fn.has('nvim-0.8') == 1 then
   vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
