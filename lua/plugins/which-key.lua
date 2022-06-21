@@ -348,10 +348,27 @@ local function attach_jest(bufnr)
   })
 end
 
+local function attach_spectre(bufnr)
+  wk.register({
+    ["R"] = { '[SPECTRE] Replace all'},
+    ["o"] = { '[SPECTRE] Show options'},
+    ["q"] = { '[SPECTRE] Send all to quicklist'},
+    ["v"] = { '[SPECTRE] Change view mode'},
+  }, {
+    buffer = bufnr,
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+  })
+end
+
 return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
   attach_npm = attach_npm,
   attach_zen = attach_zen,
-  attach_jest = attach_jest
+  attach_jest = attach_jest,
+  attach_spectre = attach_spectre,
 }
