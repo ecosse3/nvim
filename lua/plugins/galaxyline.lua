@@ -543,9 +543,9 @@ table.insert(gls.right, {
 table.insert(gls.right, {
     VerticalPosAndSize = {
         provider = function()
-            return string.format("%4i /%4i ", vim.fn.line('.'), vim.fn.line('$'))
+            return string.format(" %s /%4i ", vim.fn.line('.'), vim.fn.line('$'))
         end,
-        separator = ' ',
+        separator = '',
         separator_highlight = {colors.statsicon, colors.statsbg},
         highlight = {colors.statstext, colors.statsbg}
     }
