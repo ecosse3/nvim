@@ -33,6 +33,9 @@ EcoVim = {
   statusline = {
     path_enabled = true,
     path = 'relative' -- absolute/relative
-  }
+  },
+  lsp = {
+    virtual_text = true, -- show virtual text (errors, warnings, info) inline messages
+  },
 }
 
