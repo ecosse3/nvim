@@ -16,8 +16,14 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*.ts", "*.tsx" },
   callback = function() require('plugins.which-key').attach_typescript(0) end })
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" },
   callback = function() require('plugins.which-key').attach_npm(0) end })
-vim.api.nvim_create_autocmd("BufEnter",
-  { callback = function() if EcoVim.plugins.zen.enabled then require('plugins.which-key').attach_zen() end end })
+vim.api.nvim_create_autocmd("FileType",
+  { pattern = "*",
+    callback = function()
+    if EcoVim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
+      require('plugins.which-key').attach_zen(0)
+    end
+  end
+  })
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx" },
   callback = function() require('plugins.which-key').attach_jest(0) end })
 vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",

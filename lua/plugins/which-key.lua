@@ -315,10 +315,11 @@ local function attach_npm(bufnr)
   })
 end
 
-local function attach_zen()
+local function attach_zen(bufnr)
   wk.register({
     ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
   }, {
+    buffer = bufnr,
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     silent = true, -- use `silent` when creating keymaps
