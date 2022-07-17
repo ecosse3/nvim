@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.1](https://github.com/ecosse3/nvim/compare/v1.11.0...v1.11.1) (2022-07-17)
+
+
+### Bug Fixes
+
+* **#75:** fix issues with installation by pcalling which-key ([#76](https://github.com/ecosse3/nvim/issues/76)) ([0b93557](https://github.com/ecosse3/nvim/commit/0b935574c12485ee92264bc2ad11ac7b3acac661)), closes [#75](https://github.com/ecosse3/nvim/issues/75) [#75](https://github.com/ecosse3/nvim/issues/75) [#75](https://github.com/ecosse3/nvim/issues/75)
+
 ## [1.11.0](https://github.com/ecosse3/nvim/compare/v1.10.0...v1.11.0) (2022-07-16)
 
 
