@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.11.1](https://github.com/ecosse3/nvim/compare/v1.11.0...v1.11.1) (2022-07-17)
+
+
+### Bug Fixes
+
+* **#75:** fix issues with installation by pcalling which-key ([#76](https://github.com/ecosse3/nvim/issues/76)) ([0b93557](https://github.com/ecosse3/nvim/commit/0b935574c12485ee92264bc2ad11ac7b3acac661)), closes [#75](https://github.com/ecosse3/nvim/issues/75) [#75](https://github.com/ecosse3/nvim/issues/75) [#75](https://github.com/ecosse3/nvim/issues/75)
+
+## [1.11.0](https://github.com/ecosse3/nvim/compare/v1.10.0...v1.11.0) (2022-07-16)
+
+
+### Features
+
+* **lsp:** create option to toggle inline messages ([69fb322](https://github.com/ecosse3/nvim/commit/69fb3224c958427771e8e578ca42f2aaedf15d88))
+* **plugins:** use nvim-surround instead of tpope/vim-surround ([e23cef4](https://github.com/ecosse3/nvim/commit/e23cef4dd9aa082e484ee480eb264bcaa106f091))
+
+
+### Bug Fixes
+
+* **colorscheme:** use new nvim set_hl api in newest neovim nightly and keep vim.highlight.create in 0.7 ([648981c](https://github.com/ecosse3/nvim/commit/648981c3eff5d6aa591fd9e3924cd338b117c68b))
+* **plugins:** do not attach zen in which-key in dashboard ([0a57006](https://github.com/ecosse3/nvim/commit/0a5700668459e4e0fe5922dece24f4a5b0019c59)), closes [#69](https://github.com/ecosse3/nvim/issues/69)
+* **plugins:** limit colorizer.lua filetypes ([ed8bec4](https://github.com/ecosse3/nvim/commit/ed8bec4deb71673d067b3a326439a4f6b1522ebe)), closes [#64](https://github.com/ecosse3/nvim/issues/64)
+* **settings:** set correct fillchars to not show ^ on newest nightly in statusbar ([d09c743](https://github.com/ecosse3/nvim/commit/d09c743ac16d83cd6f12c771e637fc57b67c7307))
+
 ## [1.10.0](https://github.com/ecosse3/nvim/compare/v1.9.1...v1.10.0) (2022-06-21)
 
 

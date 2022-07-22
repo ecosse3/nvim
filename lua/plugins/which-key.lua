@@ -1,4 +1,7 @@
-local wk = require "which-key"
+local present, wk = pcall(require, "which-key")
+if not present then
+  return
+end
 
 wk.setup {
   plugins = {
@@ -315,10 +318,11 @@ local function attach_npm(bufnr)
   })
 end
 
-local function attach_zen()
+local function attach_zen(bufnr)
   wk.register({
     ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
   }, {
+    buffer = bufnr,
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     silent = true, -- use `silent` when creating keymaps
