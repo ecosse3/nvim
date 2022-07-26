@@ -155,7 +155,7 @@ local normal_mode_mappings = {
     i = { 'step into' },
     o = { 'step over' },
     O = { 'step out' },
-    s = { 'scopes' },
+    t = { 'terminate' },
   },
 
   g = {

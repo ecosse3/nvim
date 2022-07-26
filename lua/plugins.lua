@@ -106,6 +106,7 @@ return require('packer').startup({
     use { 'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end }
     use { 'Shatur/neovim-session-manager', config = "require('plugins.session-manager')" }
     use { 'kylechui/nvim-surround', config = function() require("nvim-surround").setup({}) end }
+    use { 'sunjon/shade.nvim', config = function() require("shade").setup(); require("shade").toggle(); end }
 
     -- Snippets & Language & Syntax
     use { 'windwp/nvim-autopairs', after = { 'nvim-treesitter', 'nvim-cmp' }, config = "require('plugins.autopairs')" }
@@ -127,15 +128,20 @@ return require('packer').startup({
 
     -- Testing
     use {
-      "rcarriga/neotest",
+      'rcarriga/neotest',
       requires = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-        "antoinemadec/FixCursorHold.nvim",
-        "haydenmeade/neotest-jest"
+        'nvim-lua/plenary.nvim',
+        'nvim-treesitter/nvim-treesitter',
+        'antoinemadec/FixCursorHold.nvim',
+        'haydenmeade/neotest-jest'
       },
       config = "require('plugins.neotest')"
     }
+
+    -- DAP
+    use { 'theHamsta/nvim-dap-virtual-text' }
+    use { 'rcarriga/nvim-dap-ui' }
+    use { 'mfussenegger/nvim-dap', config = "require('plugins.dap')" }
 
     if packer_bootstrap then
       require('packer').sync()
