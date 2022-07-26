@@ -22,6 +22,32 @@ return require('packer').startup({
 
     -- Themes
     use { 'folke/tokyonight.nvim' }
+    use {
+      'EdenEast/nightfox.nvim',
+      as = 'nightfox',
+      config = function()
+        vim.cmd('color nightfox')
+      end,
+      commit = 'b85c5c3a0e3b309ffa7d0a6ca33e430c91532ba0',
+    }
+
+    use {
+      'navarasu/onedark.nvim',
+      as = 'onedark',
+      config = function()
+        vim.cmd('color onedark')
+      end,
+      commit = '52b1ebd80831dd1232b396b82a77fba977fb6e2c',
+    }
+
+    use {
+      'Mofiqul/dracula.nvim',
+      as = 'dracula',
+      config = function()
+        vim.cmd('color dracula')
+      end,
+      commit = 'a219971291c56bcca3827cb7bd40aaaef23feeca',
+    }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', config = "require('plugins.treesitter')" }

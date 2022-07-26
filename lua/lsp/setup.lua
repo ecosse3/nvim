@@ -65,6 +65,7 @@ lspconfig.eslint.setup {
   handlers = handlers,
   on_attach = require('lsp.servers.eslint').on_attach,
   settings = require('lsp.servers.eslint').settings,
+  filetypes = require('lsp.servers.eslint').filetypes,
 }
 
 lspconfig.jsonls.setup {
