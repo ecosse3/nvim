@@ -43,6 +43,11 @@ return require('packer').startup({
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
     use { 'nvim-pack/nvim-spectre' }
     use { 'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')" }
+    use { 'gbprod/stay-in-place.nvim',
+      config = function()
+        require('stay-in-place').setup({})
+      end
+    }
 
     -- LSP Base
     use { 'williamboman/nvim-lsp-installer' }
