@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ecosse3/nvim/compare/v1.11.1...v2.0.0) (2022-07-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lsp:** Uninstall lsp-installer servers by :LspUninstallAll
+first
+
+### Features
+
+* **lsp:** move from lsp-installer to mason ([4f8f48e](https://github.com/ecosse3/nvim/commit/4f8f48e3545c4cf2025dde5c43eb5dc41e229046)), closes [#80](https://github.com/ecosse3/nvim/issues/80)
+* **plugins:** add stay-in-place plugin ([a80aa23](https://github.com/ecosse3/nvim/commit/a80aa2377436b5ed46a0c36db2952d62dbf3b481))
+* **plugins:** configure DAP and test with React.js ([de647d7](https://github.com/ecosse3/nvim/commit/de647d780c631feecc6bd3595ff9d7ab8d3a899a))
+
+
+### Bug Fixes
+
+* **install:** fix removing whole cache dir ([f951a95](https://github.com/ecosse3/nvim/commit/f951a9563783c4df8f70c74ec1d4095804350fae)), closes [#79](https://github.com/ecosse3/nvim/issues/79)
+
 ### [1.11.1](https://github.com/ecosse3/nvim/compare/v1.11.0...v1.11.1) (2022-07-17)
 
 
