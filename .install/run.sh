@@ -14,11 +14,9 @@ declare -r GIT_REMOTE="${GIT_REMOTE:-ecosse3/nvim.git}"
 declare -r NVIM_DIR="${NVIM_DIR:-"$(which nvim)"}"
 declare -r INSTALL_PREFIX="${INSTALL_PREFIX:-"$HOME/.local"}"
 declare -r XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
-declare -r XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME/.cache"}"
 declare -r XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
 declare -r RUNTIME_DIR="${RUNTIME_DIR:-"$XDG_DATA_HOME/nvim"}"
 declare -r CONFIG_DIR="${CONFIG_DIR:-"$XDG_CONFIG_HOME/nvim"}"
-declare -r CACHE_DIR="${XDG_CACHE_HOME:-"$XDG_CACHE_HOME/nvim"}"
 declare -r PACK_DIR="$RUNTIME_DIR/site/pack"
 
 # MAIN
@@ -180,7 +178,6 @@ function remove_current_repo() {
   cd $HOME
   msg "${BOLD}Removing current Neovim configuration... ${NC}"
   rm -rf "$RUNTIME_DIR"
-  rm -rf "$CACHE_DIR"
   rm -rf "$CONFIG_DIR"
   echo -e "${GREEN}${BOLD}Done${NC}"
 }
