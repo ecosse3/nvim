@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/ecosse3/nvim/compare/v2.0.0...v2.0.1) (2022-08-01)
+
+
+### Bug Fixes
+
+* **ui:** disable extended mode of rainbow to correctly highlight JSX via Treesitter ([bc890de](https://github.com/ecosse3/nvim/commit/bc890de8c4d0bb7b8a3831dfaa03c922230ac193))
+
+
+### Refactors
+
+* **lsp:** change installed lsp names in mason setup ([6c0febe](https://github.com/ecosse3/nvim/commit/6c0febe4cce870d26f184c55c5eb75aa2822e75d))
+
 ## [2.0.0](https://github.com/ecosse3/nvim/compare/v1.11.1...v2.0.0) (2022-07-27)
 
 
