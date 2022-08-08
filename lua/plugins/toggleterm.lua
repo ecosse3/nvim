@@ -1,4 +1,4 @@
-require("toggleterm").setup{
+require("toggleterm").setup {
   -- size can be a number or function which is passed the current terminal
   size = function(term)
     if term.direction == "horizontal" then
@@ -30,7 +30,7 @@ require("toggleterm").setup{
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = true,
-  direction = 'vertical',  -- | 'horizontal' | 'window' | 'float',
+  direction = 'horizontal', -- | 'horizontal' | 'window' | 'float',
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -43,11 +43,14 @@ require("toggleterm").setup{
     width = math.floor(0.7 * vim.fn.winwidth(0)),
     height = math.floor(0.8 * vim.fn.winheight(0)),
     winblend = 4,
-  }
+  },
+  winbar = {
+    enabled = true,
+  },
 }
 
 function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
+  local opts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
   vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
