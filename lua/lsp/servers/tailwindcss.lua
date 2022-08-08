@@ -13,6 +13,7 @@ end
 local on_attach = function (client, bufnr)
   if client.server_capabilities.colorProvider then
     require"lsp/utils/documentcolors".buf_attach(bufnr)
+    require"colorizer".detach_from_buffer()
   end
 end
 
