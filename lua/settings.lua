@@ -7,7 +7,6 @@ local options = {
   expandtab      = true,                    --- Use spaces instead of tabs
   foldlevelstart = 99,                      --- Expand all folds by default
   foldtext       = "CustomFold()",          --- Emit custom function for foldtext
-  fillchars      = "stl: ",
   ignorecase     = true,                    --- Needed for smartcase
   laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
   lazyredraw     = true,                    --- Makes macros faster & prevent errors in complicated mappings
@@ -47,7 +46,6 @@ local options = {
 }
 
 local globals = {
-  fillchars                   = "fold:\\ ", --- Fill chars needed for folds
   mapleader                   = ' ',        --- Map leader key to SPC
   speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
 }
@@ -56,6 +54,7 @@ vim.opt.shortmess:append('c');
 vim.opt.formatoptions:remove('c');
 vim.opt.formatoptions:remove('r');
 vim.opt.formatoptions:remove('o');
+vim.opt.fillchars:append('stl: ');
 
 for k, v in pairs(options) do
   vim.opt[k] = v
