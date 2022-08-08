@@ -92,7 +92,7 @@ return require('packer').startup({
     use { 'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled }
     use { 'folke/twilight.nvim', config = function() require("twilight").setup {} end,
       disable = not EcoVim.plugins.zen.enabled }
-    use { 'ggandor/lightspeed.nvim' }
+    use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
     use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
     use { 'romgrk/barbar.nvim', branch = 'feat/wipeout-cmds', requires = { 'kyazdani42/nvim-web-devicons' },

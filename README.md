@@ -98,15 +98,14 @@ Space (SPC) is my Leader key.
 
 ### Searching
 
-| Key Bindings | Description                 |
-|--------------|-----------------------------|
-| <C - p>      | Telescope git files         |
-| <S - p>      | Telescope live grep         |
-| s            | Enables lightspeed forward  |
-| S            | Enables lightspeed backward |
-| SPC s d      | Search dotfiles             |
-| SPC s h      | Search file history         |
-| SPC s s      | Search history              |
+| Key Bindings | Description         |
+|--------------|---------------------|
+| <C - p>      | Telescope git files |
+| <S - p>      | Telescope live grep |
+| s            | Enables lightspeed  |
+| SPC s d      | Search dotfiles     |
+| SPC s h      | Search file history |
+| SPC s s      | Search history      |
 
 </details>
 
