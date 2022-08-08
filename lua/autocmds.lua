@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", 
   command = "setlocal spell" })
 
 -- Attach specific keybindings in which-key for specific filetypes
-local present, wk = pcall(require, "which-key")
+local present, _ = pcall(require, "which-key")
 if not present then return end
 local _, pwk = pcall(require, "plugins.which-key")
 
@@ -50,7 +50,6 @@ if vim.fn.has('nvim-0.8') == 1 then
         "lir",
         "Outline",
         "spectre_panel",
-        "toggleterm",
         "TelescopePrompt",
         "DressingInput",
         "DressingSelect",
@@ -58,6 +57,10 @@ if vim.fn.has('nvim-0.8') == 1 then
       }
 
       if (vim.api.nvim_win_get_config(0).relative ~= "") then
+        return
+      end
+
+      if vim.bo.filetype == 'toggleterm' then
         return
       end
 
@@ -72,8 +75,8 @@ if vim.fn.has('nvim-0.8') == 1 then
         return
       end
 
-      local present, winbar = pcall(require, "winbar")
-      if not present or type(winbar) == "boolean" then
+      local winbar_present, winbar = pcall(require, "internal.winbar")
+      if not winbar_present or type(winbar) == "boolean" then
         vim.opt_local.winbar = nil
         return
       end
