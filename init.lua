@@ -1,7 +1,7 @@
 pcall(require, 'impatient')
 
-require('packer_commands')
 require('globals')
+require('internal.packer_commands')
 require('config')
 require('settings')
 require('colorscheme')
