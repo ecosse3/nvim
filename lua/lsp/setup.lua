@@ -2,6 +2,7 @@
 local typescript_ok, typescript = pcall(require, 'typescript')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
+local ufo_config = require('plugins.nvim-ufo')
 
 if not mason_ok or not mason_lsp_ok then
   return
@@ -49,6 +50,11 @@ if cmp_nvim_lsp_ok then
   capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true
+}
+
 -- Order matters
 
 -- It enables tsserver automatically so no need to call lspconfig.tsserver.setup
@@ -59,14 +65,14 @@ if typescript_ok then
     -- LSP Config options
     server = {
       capabilities = require('lsp.servers.tsserver').capabilities,
-      handlers = handlers,
+      handlers = require('lsp.servers.tsserver').handlers,
       on_attach = require('lsp.servers.tsserver').on_attach,
     }
   })
 end
 
 lspconfig.tailwindcss.setup {
-  capabilities = require('lsp.servers.tsserver').capabilities,
+  capabilities = require('lsp.servers.tailwindcss').capabilities,
   filetypes = require('lsp.servers.tailwindcss').filetypes,
   handlers = handlers,
   init_options = require('lsp.servers.tailwindcss').init_options,
@@ -89,6 +95,7 @@ lspconfig.jsonls.setup {
 }
 
 lspconfig.sumneko_lua.setup {
+  capabilities = capabilities,
   handlers = handlers,
   on_attach = on_attach,
   settings = require('lsp.servers.sumneko_lua').settings,
@@ -109,3 +116,8 @@ for _, server in ipairs { "bashls", "cssls", "graphql", "html", "volar", "prisma
     handlers = handlers,
   }
 end
+
+require('ufo').setup({
+  fold_virt_text_handler = ufo_config.handler,
+  close_fold_kinds = { "imports" }
+})

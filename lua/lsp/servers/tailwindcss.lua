@@ -7,13 +7,17 @@ if cmp_nvim_lsp_ok then
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.colorProvider = { dynamicRegistration = false }
 end
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true
+}
 
 -- Settings
 
-local on_attach = function (client, bufnr)
+local on_attach = function(client, bufnr)
   if client.server_capabilities.colorProvider then
-    require"lsp/utils/documentcolors".buf_attach(bufnr)
-    require"colorizer".detach_from_buffer()
+    require "lsp/utils/documentcolors".buf_attach(bufnr)
+    require "colorizer".detach_from_buffer()
   end
 end
 
