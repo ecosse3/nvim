@@ -121,7 +121,7 @@ return require('packer').startup({
       config = "require('plugins.git.signs')",
       event = "BufRead"
     }
-    use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
+    -- use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
     use { 'akinsho/git-conflict.nvim', config = "require('plugins.git.conflict')" }
     use { 'ThePrimeagen/git-worktree.nvim', config = "require('plugins.git.worktree')" }
     use { 'kdheepak/lazygit.nvim' }
