@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ecosse3/nvim/compare/v2.0.1...v2.1.0) (2022-08-15)
+
+
+### Features
+
+* **colorscheme:** change Constants highlights to link Booleans ([87a0d0b](https://github.com/ecosse3/nvim/commit/87a0d0bfdcf6de429d9c8e3df4db5be51c583e52))
+* **lsp:** add prisma lsp ([eaddca7](https://github.com/ecosse3/nvim/commit/eaddca707c0e4e90f9253179299c61aa86f66b7d))
+* **lsp:** detach nvim-colorizer from buffer where tailwind is attached so they doesn't conflict ([3782d5b](https://github.com/ecosse3/nvim/commit/3782d5b66d699366e779c37dd46c2702ad38e3e8))
+* **plugins:** add internal cursorword plugin ([098db24](https://github.com/ecosse3/nvim/commit/098db2413e40e98727d0ad886b24d51ef9c346f9))
+* **plugins:** add template-string.nvim plugin to automatically create tempalate literals from strings if JS variable is used ([b3124f3](https://github.com/ecosse3/nvim/commit/b3124f3745632f4d57d59e7e8a02b5119cf364fb))
+* **plugins:** add ufo plugin for pretty and smart folding via LSP ([5ad0a49](https://github.com/ecosse3/nvim/commit/5ad0a4972c6c69b679684bd93d55598481a1ab0e))
+* **plugins:** enable extended_mode in treesitter since it's fixed in JSX ([ef8ca21](https://github.com/ecosse3/nvim/commit/ef8ca212cab5b0ee21c4c6218604a244dcbe795f))
+* **toggleterm:** use horizontal direction for toggleterm by default & add winbar support ([017e983](https://github.com/ecosse3/nvim/commit/017e9839c900ce48b7d8cf8dcaa6b3556d48c660))
+
+
+### Bug Fixes
+
+* **dressing:** update dressing config & use builtin backend for code action since nui breaks ([d91b249](https://github.com/ecosse3/nvim/commit/d91b2499755171ca65a221238a2355cd70bebe56))
+* **fillchars:** append via vim.opt function ([e846c22](https://github.com/ecosse3/nvim/commit/e846c2200f38c1c349b3bb3255765ee82084ffdb))
+* **plugins:** correctly require ufo config ([f7bc533](https://github.com/ecosse3/nvim/commit/f7bc533f37fe7c9419a6aeb43a434cf2c279539f))
+* **plugins:** temporarily disable diffview.nvim cause it shows errors :( ([b45af78](https://github.com/ecosse3/nvim/commit/b45af786347ad97b3698729578a3597f78106fc6))
+* **plugins:** update lightspeed to only 's' key & correctly require config ([316264b](https://github.com/ecosse3/nvim/commit/316264bbcc7d691401f7e5e0dca541346d21df4f))
+
+
+### Refactors
+
+* **blame:** change blame directory to internal ([da9b0ab](https://github.com/ecosse3/nvim/commit/da9b0ab5903423823d50d63f2060b24b0a6c71e9))
+* **packer:** change packer commands directory to internal ([b051def](https://github.com/ecosse3/nvim/commit/b051defd5c23c2297e5d83aa60272dc8d702e60b))
+* **utils:** move globals to utils ([8aba17a](https://github.com/ecosse3/nvim/commit/8aba17a417048e51f55d8b4320b891699799ebb8))
+* **winbar:** move to internal & disable in toggleterm ([b7a9ab3](https://github.com/ecosse3/nvim/commit/b7a9ab3ea6eadbf23eecbbdbbb37e4913573875f))
+
 ### [2.0.1](https://github.com/ecosse3/nvim/compare/v2.0.0...v2.0.1) (2022-08-01)
 
 
