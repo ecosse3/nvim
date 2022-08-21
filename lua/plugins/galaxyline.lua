@@ -448,24 +448,18 @@ table.insert(gls.right, {
 
 if EcoVim.statusline.path_enabled then
   table.insert(gls.right, {
-    --[[ FileName = {
-          provider = 'FileName',
-          separator_highlight = {'NONE', colors.typebg},
-          highlight = {colors.typetext, colors.typebg}
-      } ]]
     FileName = {
       provider = function()
         if #vim.fn.expand '%:p' == 0 then
           return ''
         end
+
         if EcoVim.statusline.path == 'relative' then
-          return utils.get_relative_gitpath() .. ' '
+          local fname = vim.fn.expand('%:p')
+          return fname:gsub(vim.fn.getcwd() .. '/', '') .. ' '
         end
-        if vim.fn.winwidth(0) > 150 then
-          return vim.fn.expand '%:~' .. ' '
-        else
-          return vim.fn.expand '%:t' .. ' '
-        end
+
+        return vim.fn.expand '%:t' .. ' '
       end,
       separator_highlight = { 'NONE', colors.typebg },
       highlight = { colors.typetext, colors.typebg }

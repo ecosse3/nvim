@@ -15,12 +15,7 @@ M.get_relative_gitpath = function()
   local fpath = vim.fn.expand('%:h')
   local fname = vim.fn.expand('%:t')
   local gitpath = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-  local ellipsis = '...'
   local relative_gitpath = fpath:gsub(gitpath, '') .. '/' .. fname
-
-  if vim.fn.winwidth(0) < 200 and #relative_gitpath > 30 then
-    return ellipsis .. relative_gitpath:sub(20, #relative_gitpath)
-  end
 
   return relative_gitpath
 end
