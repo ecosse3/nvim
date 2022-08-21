@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/ecosse3/nvim/compare/v2.1.0...v2.1.1) (2022-08-21)
+
+
+### Bug Fixes
+
+* **ui:** fix flickering cursor by removing winwidth calculations in galaxyline ([307fa3b](https://github.com/ecosse3/nvim/commit/307fa3b40c92340c6badc51c38d66d77c627427b)), closes [#86](https://github.com/ecosse3/nvim/issues/86)
+
 ## [2.1.0](https://github.com/ecosse3/nvim/compare/v2.0.1...v2.1.0) (2022-08-15)
 
 
