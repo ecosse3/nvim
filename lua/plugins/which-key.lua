@@ -117,6 +117,7 @@ local normal_mode_mappings = {
 
   a = {
     name = "Actions",
+    c = { 'comment box' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
     t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },
