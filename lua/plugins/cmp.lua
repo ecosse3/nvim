@@ -1,4 +1,3 @@
--- Requires
 local lspkind = require('lspkind')
 
 local cmp_tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
@@ -18,13 +17,17 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- Utils
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Utils                                                    │
+-- ╰──────────────────────────────────────────────────────────╯
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
--- Setup
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Setup                                                    │
+-- ╰──────────────────────────────────────────────────────────╯
 local source_mapping = {
   npm         = EcoVim.icons.terminal .. 'NPM',
   cmp_tabnine = EcoVim.icons.light,
@@ -184,6 +187,10 @@ cmp.setup {
   },
 }
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Cmdline Setup                                            │
+-- ╰──────────────────────────────────────────────────────────╯
+
 -- `/` cmdline setup.
 cmp.setup.cmdline('/', {
   mapping = cmp.mapping.preset.cmdline(),
@@ -201,6 +208,9 @@ cmp.setup.cmdline(':', {
   })
 })
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Tabnine Setup                                            │
+-- ╰──────────────────────────────────────────────────────────╯
 tabnine:setup({
   max_lines                = 1000;
   max_num_results          = 3;
