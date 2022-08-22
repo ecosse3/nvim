@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/ecosse3/nvim/compare/v2.1.1...v2.2.0) (2022-08-22)
+
+
+### Features
+
+* **colorscheme:** change hlargs highlight color to aka red & remove constant highlight link to boolean ([72ad079](https://github.com/ecosse3/nvim/commit/72ad0793ec7fdeca6d125d0c870194a0120936ce))
+* **lsp:** enable formatting in css language server ([b6c4a48](https://github.com/ecosse3/nvim/commit/b6c4a48db5f289a1cf3a5faf9a410b6de00823d2)), closes [#89](https://github.com/ecosse3/nvim/issues/89)
+* **plugins:** add visual multi leader key as ; ([f937231](https://github.com/ecosse3/nvim/commit/f9372311b1a600a5121a8be79d44db4a200fc06b))
+
+
+### Bug Fixes
+
+* **plugins:** add comment box name to which key actions menu ([068c793](https://github.com/ecosse3/nvim/commit/068c79304edc5d95c8b1b22badc05b26a9d092bf))
+* **plugins:** fix going to prev/next git hunks by ]c and [c ([ee9b83b](https://github.com/ecosse3/nvim/commit/ee9b83bfb833937002d9ba4fb79509704f833fc6))
+* **plugins:** pcall require on ufo & add openFoldsExceptKinds mapping ([d3b1cb5](https://github.com/ecosse3/nvim/commit/d3b1cb57062a752eb00060640efe83f8f634ca31))
+* **plugins:** switch to maintained version of todo-comments.nvim ([30d6b03](https://github.com/ecosse3/nvim/commit/30d6b032f4fa3c6c180a6139ebed5e8017b2d8ab))
+
+
+### Refactors
+
+* **plugins:** move section in alpha config ([466d0ed](https://github.com/ecosse3/nvim/commit/466d0ed07df73d8443cc40c3dbee838f1ad5ec7b))
+
 ### [2.1.1](https://github.com/ecosse3/nvim/compare/v2.1.0...v2.1.1) (2022-08-21)
 
 
