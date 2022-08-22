@@ -1,10 +1,21 @@
+local present, ufo = pcall(require, 'ufo')
+if not present then
+  return
+end
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Keymappings                                              │
+-- ╰──────────────────────────────────────────────────────────╯
 -- Using ufo provider need remap `zR` and `zM`. zr is additional.
-vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+vim.keymap.set('n', 'zR', ufo.openAllFolds)
+vim.keymap.set('n', 'zM', ufo.closeAllFolds)
+vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
 
 local M = {}
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Custom handler function                                  │
+-- ╰──────────────────────────────────────────────────────────╯
 M.handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
   local suffix = ('  %d '):format(endLnum - lnum)
