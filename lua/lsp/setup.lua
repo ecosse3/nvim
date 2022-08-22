@@ -80,6 +80,12 @@ lspconfig.tailwindcss.setup {
   settings = require('lsp.servers.tailwindcss').settings,
 }
 
+lspconfig.cssls.setup {
+  capabilities = capabilities,
+  handlers = handlers,
+  on_attach = require('lsp.servers.cssls').on_attach,
+}
+
 lspconfig.eslint.setup {
   capabilities = capabilities,
   handlers = handlers,
@@ -109,7 +115,7 @@ lspconfig.vuels.setup {
 }
 
 
-for _, server in ipairs { "bashls", "cssls", "graphql", "html", "volar", "prismals" } do
+for _, server in ipairs { "bashls", "graphql", "html", "volar", "prismals" } do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
