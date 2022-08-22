@@ -36,9 +36,6 @@ if vim.fn.has("nvim-0.8") then
     vim.api.nvim_set_hl(0, 'CursorLineNR', { link = 'EcovimSecondary' })
     vim.api.nvim_set_hl(0, 'LineNr', { link = 'Comment' })
 
-    -- Constant
-    vim.api.nvim_set_hl(0, 'Constant', { link = 'Boolean' })
-
     -- Floats/Windows
     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = "None", fg = "None" });
     vim.api.nvim_set_hl(0, 'FloatBorder', { bg = "None", fg = "#488DFF" });
