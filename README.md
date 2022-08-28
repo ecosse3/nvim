@@ -75,11 +75,9 @@ bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/ru
 
 After install configuration:
 
-1. Treesitter Languages are not installed by default.\
-Make sure to run `:TSInstall <lang>` for any language you want to install.
-2. LSP servers are enabled by default. You can enable more servers in lua/lsp/setup.lua just by adding standard lspconfig.<server>.setup function or by creating your own file and requiring in init.lua.
-If server is not installed, it will be installed automatically.
-You can check installed LSP servers by :LspInstallInfo.
+1. Treesitter Languages are <ins>not installed</ins> by default.\
+Make sure to run `:TSInstall <lang>` for specific language you want to install.
+2. LSP servers are enabled by default. You can check installed LSP servers by :Mason command.
 
 ## Configuration
 
@@ -137,7 +135,7 @@ Space (SPC) is my Leader key.
 
 | Key Bindings | Description                                                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| SPC g g      | Lazygit - for committing and branch change                                                                                                |
+| SPC g g      | Lazygit - for committing and branch change                                                                                               |
 | SPC g s      | Telescope status - when I want to change/search file I am working on with git changes                                                    |
 | ]c           | Go to next change hunk                                                                                                                   |
 | [c           | Go to prev change hunk                                                                                                                   |
@@ -146,6 +144,8 @@ Space (SPC) is my Leader key.
 | SPC g h r    | Reset changed hunk under cursor - I like to check quickly what I have changed in that line and then just type 'u' to go back             |
 | SPC g h s    | Stage hunk under cursor - Sometimes it's faster than selecting lines in Lazygit, so I can stage specific lines and then just do a commit |
 | SPC g l c    | Quick check of previous commit in current buffer, <C-s> inside to switch preview                                                         |
+| SPC g w c    | Creates a new worktree. Recommended directory is `../path`                                                                               |
+| SPC g w w    | Switches to a worktree. <C-d> removes worktree.                                                                                          |
 
 </details>
 
@@ -201,25 +201,24 @@ Space (SPC) is my Leader key.
 
 ### Other VERY useful bindings
 
-| Key Bindings    | Description                                                                                                                                          |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <S - q>         | Smartly closes current buffer without breaking UI                                                                                                    |
-| <C - a>         | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                              |
-| <C - n>         | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete.                         |
-| <C - o>         | Jumps to previous cursor in jumplist. I use it very often.                                                                                           |
-| <C - i>         | Jumps to next cursor in jumplist.                                                                                                                    |
-| <C - u>         | Uppercase word under cursor.                                                                                                                         |
-| v <ENTER>       | Smartly selects next subjects of current treesitter context                                                                                          |
-| za              | Toggle folds. By treesitter they are automatically added to TS/JS files in smart way                                                                 |
-| zM              | Close all folds                                                                                                                                      |
-| zR              | Open all folds                                                                                                                                       |
-| gJ              | Smartly joins lines based on treesitter                                                                                                              |
-| gS              | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...) |
-| < F12 >         | Opens/closes split terminal                                                                                                                          |
+| Key Bindings | Description                                                                                                                                                                               |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <S - q>      | Smartly closes current buffer without breaking UI                                                                                                                                         |
+| <C - a>      | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                                                                   |
+| <C - n>      | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete. [Read more](https://github.com/mg979/vim-visual-multi/wiki) |
+| <C - o>      | Jumps to previous cursor in jumplist. I use it very often.                                                                                                                                |
+| v <ENTER>    | Smartly selects next subjects of current treesitter context                                                                                                                               |
+| za           | Toggle folds. By LSP and nvim-ufo they are automatically added to supported files in smart way.                                                                                           |
+| zM           | Close all folds                                                                                                                                                                           |
+| zR           | Open all folds                                                                                                                                                                            |
+| zr           | Open all folds except imports/comments                                                                                                                                                    |
+| gJ           | Smartly joins lines based on treesitter                                                                                                                                                   |
+| gS           | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...)                                      |
+| < F12 >      | Opens/closes terminal                                                                                                                                                                     |
+| ~            | Switch function arguments smartly                                                                                                                                                         |
 
 </details>
 
-More coming soon...
 Check out the which-key menu and keybindings.lua for most used maps.
 
 
@@ -267,35 +266,42 @@ Measured on Manjaro Linux.
 
 Ecovim started in 109.7ms (based on hyperfine)
 
-## Todo
+### Next 3.0 list (~mid september)
 
-| Description                                          | Progress                                                           |
-|------------------------------------------------------|--------------------------------------------------------------------|
-| Create npx auto-installer                            | ![50%](https://progress-bar.dev/50/?title=progress)                |
-| Provide dependencies and recommendations             | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Add uninstaller script                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Support for nvim-dap debugger for React              | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better support for null-ls and local formatting      | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better support to project word refactor              | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Auto resize for more consistent UI behavior          | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Reload in-time support                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Support more LSPs                                    | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Project Logo                                         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better UI customization when nvim 0.8 will be in dev | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Description                                     | Progress                                                           |
+|-------------------------------------------------|--------------------------------------------------------------------|
+| Create npx auto-installer & uninstaller         | ![50%](https://progress-bar.dev/50/?title=progress)                |
+| Easy user configurable config                   | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better configuration of additional LSPs         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better support for null-ls and local formatting | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+
+## Future Todo 
+
+| Description                                            | Progress                                                           |
+|--------------------------------------------------------|--------------------------------------------------------------------|
+| Project Logo                                           | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Auto resize for more consistent UI behavior            | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Reload in-time support                                 | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Support more LSPs (not only frontend?)                 | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| More built-in themes (lazy loaded)                     | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Better UI customization when nvim 0.8 will be in ready | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+
 
 <details>
 <summary>Done</summary>
 
-| Description                                  | Progress                                                           |
-|----------------------------------------------|--------------------------------------------------------------------|
-| Support ESLint & Prettier in Native LSP      | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Replace coc-explorer with nvim-tree.lua      | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Update statusline to support LSP diagnostics | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Provide current screenshots                  | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
-| Create shell installer for Linux & MacOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555)     |
+| Description                                  | Progress                                                       |
+|----------------------------------------------|----------------------------------------------------------------|
+| Better support to project word refactor      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support for nvim-dap debugger for React      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support ESLint & Prettier in Native LSP      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Replace coc-explorer with nvim-tree.lua      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Update statusline to support LSP diagnostics | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Provide current screenshots                  | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Create shell installer for Linux & MacOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
 
 </details>
