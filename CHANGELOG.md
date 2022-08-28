@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/ecosse3/nvim/compare/v2.2.0...v2.2.1) (2022-08-28)
+
+
+### Bug Fixes
+
+* **#91:** correct save current session keymapping ([d896afc](https://github.com/ecosse3/nvim/commit/d896afc1e70f924177585c6244f4401e0b97c671)), closes [#91](https://github.com/ecosse3/nvim/issues/91)
+
 ## [2.2.0](https://github.com/ecosse3/nvim/compare/v2.1.1...v2.2.0) (2022-08-22)
 
 
