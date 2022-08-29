@@ -22,6 +22,8 @@ return require('packer').startup({
 
     -- Themes
     use { 'folke/tokyonight.nvim' }
+    use 'Mofiqul/vscode.nvim'
+    use 'martinsione/darkplus.nvim'
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', config = "require('plugins.treesitter')" }
@@ -127,6 +129,10 @@ return require('packer').startup({
     use { 'akinsho/git-conflict.nvim', config = "require('plugins.git.conflict')" }
     use { 'ThePrimeagen/git-worktree.nvim', config = "require('plugins.git.worktree')" }
     use { 'kdheepak/lazygit.nvim' }
+    use {
+      'stevearc/aerial.nvim',
+      config = function() require('aerial').setup() end
+    }
 
     -- Testing
     use {
@@ -144,6 +150,15 @@ return require('packer').startup({
     use { 'theHamsta/nvim-dap-virtual-text' }
     use { 'rcarriga/nvim-dap-ui' }
     use { 'mfussenegger/nvim-dap', config = "require('plugins.dap')" }
+
+    use { 'zhou13/vim-easyescape' }
+    use { 'kevinhwang91/rnvimr' }
+    use { 'rgroli/other.nvim', config = "require('plugins.other')" }
+    use { 'abecodes/tabout.nvim', config = "require('plugins.tabout')" }
+
+    use { 'simrat39/symbols-outline.nvim', config = function()
+      require('symbols-outline').setup()
+    end }
 
     if packer_bootstrap then
       require('packer').sync()

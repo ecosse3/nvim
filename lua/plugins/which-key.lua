@@ -49,10 +49,10 @@ wk.setup {
     align = "left", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
   -- triggers = "auto", -- automatically setup triggers
-  triggers = {"<leader>"}, -- or specify a list manually
+  triggers = { "<leader>" }, -- or specify a list manually
   triggers_blacklist = {
     -- list of mode / prefixes that should never be hooked by WhichKey
     -- this is mostly relevant for key maps that start with a native binding
@@ -93,57 +93,57 @@ local normal_mode_mappings = {
   ["9"] = "which_key_ignore",
 
   -- single
-  ["="] = { '<cmd>vertical resize +5<CR>',               'resize +5' },
-  ["-"] = { '<cmd>vertical resize -5<CR>',               'resize +5' },
-  ["v"] = { '<C-W>v',                                    'split right' },
-  ["V"] = { '<C-W>s',                                    'split below' },
+  ["="] = { '<cmd>vertical resize +5<CR>', 'resize +5' },
+  ["-"] = { '<cmd>vertical resize -5<CR>', 'resize +5' },
+  ["v"] = { '<C-W>v', 'split right' },
+  ["V"] = { '<C-W>s', 'split below' },
   ["q"] = { 'quicklist' },
 
   ["/"] = {
     name = "Ecovim",
-    ["/"] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
-    c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
-    i = { '<cmd>PackerInstall<CR>',                             'install plugins' },
-    u = { '<cmd>PackerSync<CR>',                                'update plugins' },
+    ["/"] = { '<cmd>Alpha<CR>', 'open dashboard' },
+    c = { '<cmd>e $MYVIMRC<CR>', 'open config' },
+    i = { '<cmd>PackerInstall<CR>', 'install plugins' },
+    u = { '<cmd>PackerSync<CR>', 'update plugins' },
     s = {
       name = "Session",
-      c = { '<cmd>SessionManager load_session<CR>',             'choose session' },
-      r = { '<cmd>SessionManager delete_session<CR>',           'remove session' },
+      c = { '<cmd>SessionManager load_session<CR>', 'choose session' },
+      r = { '<cmd>SessionManager delete_session<CR>', 'remove session' },
       d = { '<cmd>SessionManager load_current_dir_session<CR>', 'load current dir session' },
-      l = { '<cmd>SessionManager load_last_session<CR>',        'load last session' },
-      s = { '<cmd>SessionManager save_current_session<CR>',     'save session' },
+      l = { '<cmd>SessionManager load_last_session<CR>', 'load last session' },
+      s = { '<cmd>SessionManager save_current_session<CR>', 'save session' },
     },
   },
 
   a = {
     name = "Actions",
     c = { 'comment box' },
-    n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
-    r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
-    t = { '<cmd>ToggleTerm direction=float<CR>',         'terminal float' },
+    n = { '<cmd>set nonumber!<CR>', 'line numbers' },
+    r = { '<cmd>set norelativenumber!<CR>', 'relative number' },
+    t = { '<cmd>ToggleTerm direction=float<CR>', 'terminal float' },
   },
 
   b = {
     name = "Buffer",
-    b = { '<cmd>BufferMovePrevious<CR>',                 'Move back' },
-    c = { '<cmd>BufferCloseAllButCurrent<CR>',           'Close but current' },
-    d = { '<cmd>BufferOrderByDirectory<CR>',             'Order by directory' },
-    f = { '<cmd>bfirst<CR>',                             'First buffer' },
-    l = { '<cmd>BufferCloseBuffersLeft<CR>',             'Close Left' },
-    r = { '<cmd>BufferCloseBuffersRight<CR>',            'Close Right' },
-    n = { '<cmd>BufferMoveNext<CR>',                     'Move next' },
-    p = { '<cmd>BufferPick<CR>',                         'Pick Buffer' },
+    b = { '<cmd>BufferMovePrevious<CR>', 'Move back' },
+    c = { '<cmd>BufferCloseAllButCurrent<CR>', 'Close but current' },
+    d = { '<cmd>BufferOrderByDirectory<CR>', 'Order by directory' },
+    f = { '<cmd>bfirst<CR>', 'First buffer' },
+    l = { '<cmd>BufferCloseBuffersLeft<CR>', 'Close Left' },
+    r = { '<cmd>BufferCloseBuffersRight<CR>', 'Close Right' },
+    n = { '<cmd>BufferMoveNext<CR>', 'Move next' },
+    p = { '<cmd>BufferPick<CR>', 'Pick Buffer' },
   },
 
   c = {
     name = "LSP",
     a = { 'code action' },
-    d = { '<cmd>TroubleToggle<CR>',                           'local diagnostics' },
+    d = { '<cmd>TroubleToggle<CR>', 'local diagnostics' },
     D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
     f = { 'format' },
     l = { 'line diagnostics' },
     r = { 'rename' },
-    t = { '<cmd>LspToggleAutoFormat<CR>',                     'toggle format on save' },
+    t = { '<cmd>LspToggleAutoFormat<CR>', 'toggle format on save' },
   },
 
   d = {
@@ -159,14 +159,21 @@ local normal_mode_mappings = {
     t = { 'terminate' },
   },
 
+  f = {
+    name = "Find",
+    f = { 'find in git project' },
+    F = { 'find in project (all)' },
+  },
+
+
   g = {
     name = "Git",
-    a = { '<cmd>!git add %:p<CR>',                                 'add current' },
-    A = { '<cmd>!git add .<CR>',                                   'add all' },
-    b = { '<cmd>lua require("internal.blame").open()<CR>',                  'blame' },
-    B = { '<cmd>Telescope git_branches<CR>',                       'branches' },
+    a = { '<cmd>!git add %:p<CR>', 'add current' },
+    A = { '<cmd>!git add .<CR>', 'add all' },
+    b = { '<cmd>lua require("internal.blame").open()<CR>', 'blame' },
+    B = { '<cmd>Telescope git_branches<CR>', 'branches' },
     d = { '<cmd>lua require("plugins.git.diffview").toggle()<CR>', 'diff file' },
-    g = { '<cmd>LazyGit<CR>',                                      'lazygit' },
+    g = { '<cmd>LazyGit<CR>', 'lazygit' },
     h = {
       name = "Hunk",
       d = "diff hunk",
@@ -180,13 +187,13 @@ local normal_mode_mappings = {
     },
     l = {
       name = "Log",
-      A = {"<cmd>lua require('plugins.telescope').my_git_commits()<CR>", "commits (Telescope)"},
-      a = {"<cmd>LazyGitFilter<CR>", "commits"},
-      C = {"<cmd>lua require('plugins.telescope').my_git_bcommits()<CR>", "buffer commits (Telescope)"},
-      c = {"<cmd>LazyGitFilterCurrentFile<CR>", "buffer commits"},
+      A = { "<cmd>lua require('plugins.telescope').my_git_commits()<CR>", "commits (Telescope)" },
+      a = { "<cmd>LazyGitFilter<CR>", "commits" },
+      C = { "<cmd>lua require('plugins.telescope').my_git_bcommits()<CR>", "buffer commits (Telescope)" },
+      c = { "<cmd>LazyGitFilterCurrentFile<CR>", "buffer commits" },
     },
     m = { 'blame line' },
-    s = { '<cmd>Telescope git_status<CR>',                           'status' },
+    s = { '<cmd>Telescope git_status<CR>', 'status' },
     w = {
       name = "Worktree",
       w = "worktrees",
@@ -198,19 +205,24 @@ local normal_mode_mappings = {
     name = "Project",
     f = { 'file' },
     w = { 'word' },
-    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'list' },
+    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>",
+      'list' },
     r = { 'refactor' },
-    s = { "<cmd>SessionManager save_current_session<CR>",            'save session' },
-    t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
+    s = { "<cmd>SessionManager save_current_session<CR>", 'save session' },
+    t = { "<cmd>TodoTrouble<CR>", 'todo' },
   },
 
   s = {
     name = "Search",
-    c = { '<cmd>Telescope colorscheme<CR>',                              'color schemes' },
-    d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>',     'dotfiles' },
-    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'file history' },
+    c = { '<cmd>Telescope colorscheme<CR>', 'color schemes' },
+    d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>', 'dotfiles' },
+    h = { '<cmd>Telescope oldfiles hidden=true<CR>', 'file history' },
     H = { '<cmd>lua require("plugins.telescope").command_history()<CR>', 'command history' },
-    s = { '<cmd>Telescope search_history theme=dropdown<CR>',            'search history' },
+    s = { '<cmd>Telescope search_history theme=dropdown<CR>', 'search history' },
+    k = { 'search keymaps' },
+    b = { 'search buffers' },
+    r = { 'search registers' },
+    o = { 'search outline' },
   },
 
   t = {
@@ -222,7 +234,7 @@ local normal_mode_mappings = {
 
 local visual_mode_mappings = {
   -- single
-  ["s"] = { "<cmd>'<,'>sort<CR>",               'sort' },
+  ["s"] = { "<cmd>'<,'>sort<CR>", 'sort' },
 
   a = {
     name = "Actions",
@@ -269,7 +281,7 @@ local function attach_markdown(bufnr)
       m = { '<cmd>MarkdownPreviewToggle<CR>', 'markdown preview' },
     }
   }, {
-    buffer = bufnr ,
+    buffer = bufnr,
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     silent = true, -- use `silent` when creating keymaps
@@ -282,13 +294,13 @@ local function attach_typescript(bufnr)
   wk.register({
     c = {
       name = "LSP",
-      F = { '<cmd>TypescriptFixAll<CR>',                   'fix all' },
-      i = { '<cmd>TypescriptAddMissingImports<CR>',        'import all'},
-      o = { '<cmd>TypescriptOrganizeImports<CR>',          'organize imports'},
-      u = { '<cmd>TypescriptRemoveUnused<CR>',             'remove unused' },
+      F = { '<cmd>TypescriptFixAll<CR>', 'fix all' },
+      i = { '<cmd>TypescriptAddMissingImports<CR>', 'import all' },
+      o = { '<cmd>TypescriptOrganizeImports<CR>', 'organize imports' },
+      u = { '<cmd>TypescriptRemoveUnused<CR>', 'remove unused' },
     }
   }, {
-    buffer = bufnr ,
+    buffer = bufnr,
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
     silent = true, -- use `silent` when creating keymaps
@@ -302,12 +314,12 @@ local function attach_npm(bufnr)
     n = {
       name = "NPM",
       c = { '<cmd>lua require("package-info").change_version()<CR>', 'change version' },
-      d = { '<cmd>lua require("package-info").delete()<CR>',         'delete package' },
-      h = { "<cmd>lua require('package-info').hide()<CR>",           'hide'},
-      i = { '<cmd>lua require("package-info").install()<CR>',        'install new package' },
-      r = { '<cmd>lua require("package-info").reinstall()<CR>',      'reinstall dependencies' },
-      s = { '<cmd>lua require("package-info").show()<CR>',           'show' },
-      u = { '<cmd>lua require("package-info").update()<CR>',         'update package'},
+      d = { '<cmd>lua require("package-info").delete()<CR>', 'delete package' },
+      h = { "<cmd>lua require('package-info').hide()<CR>", 'hide' },
+      i = { '<cmd>lua require("package-info").install()<CR>', 'install new package' },
+      r = { '<cmd>lua require("package-info").reinstall()<CR>', 'reinstall dependencies' },
+      s = { '<cmd>lua require("package-info").show()<CR>', 'show' },
+      u = { '<cmd>lua require("package-info").update()<CR>', 'update package' },
     }
   }, {
     buffer = bufnr,
@@ -321,7 +333,7 @@ end
 
 local function attach_zen(bufnr)
   wk.register({
-    ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
+    ["z"] = { '<cmd>ZenMode<CR>', 'zen' },
   }, {
     buffer = bufnr,
     mode = "n", -- NORMAL mode
@@ -340,7 +352,7 @@ local function attach_jest(bufnr)
       i = { '<cmd>lua require("neotest").summary.toggle()<CR>', 'toggle info panel' },
       j = { '<cmd>lua require("neotest").run.run()<CR>', 'run nearest test' },
       l = { '<cmd>lua require("neotest").run.run_last()<CR>', 'run last test' },
-      o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', 'open test output'},
+      o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', 'open test output' },
       s = { '<cmd>lua require("neotest").run.stop()<CR>', 'stop' },
     }
   }, {
@@ -355,10 +367,10 @@ end
 
 local function attach_spectre(bufnr)
   wk.register({
-    ["R"] = { '[SPECTRE] Replace all'},
-    ["o"] = { '[SPECTRE] Show options'},
-    ["q"] = { '[SPECTRE] Send all to quicklist'},
-    ["v"] = { '[SPECTRE] Change view mode'},
+    ["R"] = { '[SPECTRE] Replace all' },
+    ["o"] = { '[SPECTRE] Show options' },
+    ["q"] = { '[SPECTRE] Send all to quicklist' },
+    ["v"] = { '[SPECTRE] Change view mode' },
   }, {
     buffer = bufnr,
     mode = "n", -- NORMAL mode

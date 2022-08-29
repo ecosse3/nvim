@@ -15,7 +15,7 @@ local git_icons = {
 }
 
 local keymappings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
   -- <C-e> keymapping cannot be set because it's used for toggling nvim-tree
   -- { key = "<C-e>",                        action = "edit_in_place" },
   { key = {"O"},                          action = "edit_no_picker" },
@@ -173,7 +173,7 @@ require'nvim-tree'.setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>e", "<cmd>lua require'nvim-tree'.toggle()<CR>", { noremap = true, silent = true })
 
 nvim_tree_events.on_tree_open(function ()
     bufferline_state.set_offset(TREE_WIDTH + 1, utils.add_whitespaces(13) .. 'File Explorer')

@@ -42,6 +42,7 @@ local handlers = {
 
 local function on_attach(client, bufnr)
   -- set up buffer keymaps, etc.
+  require("aerial").on_attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
