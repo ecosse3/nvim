@@ -50,6 +50,9 @@ if vim.fn.has("nvim-0.8") then
     vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = "None", fg = "#488DFF" });
     vim.api.nvim_set_hl(0, 'TelescopeMatching', { link = 'EcovimSecondary' });
 
+    -- Tree
+    vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon', { bg = "None", fg = "None" });
+
     -- Diagnostics
 
     -- Misc
