@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.2](https://github.com/ecosse3/nvim/compare/v2.2.1...v2.2.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* **colorscheme:** remove foreground from Nvim Tree Folder Icon after its update ([4655783](https://github.com/ecosse3/nvim/commit/4655783cc029996228d012620c3d0cf79c1630b7))
+* **colorscheme:** update tokyonight.nvim theme api ([72ee898](https://github.com/ecosse3/nvim/commit/72ee89800594b9a71305e044d446affc4c5e74a4))
+
 ### [2.2.1](https://github.com/ecosse3/nvim/compare/v2.2.0...v2.2.1) (2022-08-28)
 
 
