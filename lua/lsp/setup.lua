@@ -84,6 +84,7 @@ lspconfig.cssls.setup {
   capabilities = capabilities,
   handlers = handlers,
   on_attach = require('lsp.servers.cssls').on_attach,
+  settings = require('lsp.servers.cssls').settings,
 }
 
 lspconfig.eslint.setup {
