@@ -58,6 +58,9 @@ tokyonight.setup({
     hl.TelescopeMatching = {
       fg = prompt
     }
+    hl.MsgArea = {
+      fg = c.fg_dark
+    }
   end,
 })
 
