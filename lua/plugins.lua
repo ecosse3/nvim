@@ -96,7 +96,7 @@ return require('packer').startup({
     use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
     use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
-    use { 'romgrk/barbar.nvim', branch = 'feat/wipeout-cmds', requires = { 'kyazdani42/nvim-web-devicons' },
+    use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' },
       config = "require('plugins.barbar')" }
     use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
     use { 'rcarriga/nvim-notify' }
