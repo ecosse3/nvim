@@ -165,6 +165,14 @@ local normal_mode_mappings = {
     A = { '<cmd>!git add .<CR>',                                                'add all' },
     b = { '<cmd>lua require("internal.blame").open()<CR>',                      'blame' },
     B = { '<cmd>Telescope git_branches<CR>',                                    'branches' },
+    c = {
+      name = 'Conflict',
+      b = {'<cmd>GitConflictChooseBoth<CR>',                                    'choose both'},
+      n = {'<cmd>GitConflictNextConflict<CR>',                                  'move to next conflict'},
+      o = {'<cmd>GitConflictChooseOurs<CR>',                                    'choose ours'},
+      p = {'<cmd>GitConflictPrevConflict<CR>',                                  'move to prev conflict'},
+      t = {'<cmd>GitConflictChooseTheirs<CR>',                                  'choose theirs'},
+    },
     d = { '<cmd>lua require("plugins.git.diffview").toggle_file_history()<CR>', 'diff file' },
     g = { '<cmd>LazyGit<CR>',                                                   'lazygit' },
     h = {
