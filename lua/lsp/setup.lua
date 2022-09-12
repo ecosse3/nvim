@@ -67,6 +67,7 @@ if typescript_ok then
       capabilities = require('lsp.servers.tsserver').capabilities,
       handlers = require('lsp.servers.tsserver').handlers,
       on_attach = require('lsp.servers.tsserver').on_attach,
+      settings = require('lsp.servers.tsserver').settings,
     }
   })
 end

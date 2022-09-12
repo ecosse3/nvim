@@ -52,6 +52,8 @@ local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local handlers = {
@@ -94,8 +96,34 @@ local handlers = {
   end,
 }
 
+local settings = {
+  typescript = {
+    inlayHints = {
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
+    }
+  },
+  javascript = {
+    inlayHints = {
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
+    }
+  }
+}
+
 M.capabilities = capabilities;
 M.on_attach = on_attach;
 M.handlers = handlers;
+M.settings = settings;
 
 return M
