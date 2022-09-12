@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/ecosse3/nvim/compare/v2.2.2...v2.3.0) (2022-09-12)
+
+
+### Features
+
+* **keymappings:** add git conflict keymappings ([2908199](https://github.com/ecosse3/nvim/commit/2908199e36b34f24d5772419f2d120631bc54d20))
+* **lsp:** support classnames & clsx in tailwindcss LSP ([4aa4e81](https://github.com/ecosse3/nvim/commit/4aa4e818a599136a5f0358bc2ff18a468daa744a))
+* **lsp:** support inlay hints ([d8ac1d8](https://github.com/ecosse3/nvim/commit/d8ac1d8e10d5b69e51237a06e15a345f2b236088))
+* **plugins:** support back diffview.nvim ([eb23a34](https://github.com/ecosse3/nvim/commit/eb23a3406de476b52b67a7109ddf9b9fc4368aff))
+
+
+### Bug Fixes
+
+* **colorscheme:** provide MsgArea fg color ([a4f3698](https://github.com/ecosse3/nvim/commit/a4f3698b1717b2f49b7837bc3d434dc5d6aaa2d2))
+* **lsp:** ignore rules linting for Tailwind in CSS/SCSS files ([2373084](https://github.com/ecosse3/nvim/commit/2373084146b697854920b40790264668d3db7266))
+* **plugins:** add default jestCommand for neotest-jest to fix running tests ([9679774](https://github.com/ecosse3/nvim/commit/96797741338e78bbf8bca67ce6543176df43016b))
+* **plugins:** fix colorizer.nvim config ([2fba6ea](https://github.com/ecosse3/nvim/commit/2fba6eaf8717d6135c71f410cee3cc8ed6c4cbac))
+* **plugins:** update barbar to default branch cause wipeout-cmds was deleted ([9bbaac2](https://github.com/ecosse3/nvim/commit/9bbaac262ac8e4618dc8192a3bc07d431ed6c3c1))
+* **plugins:** use recommended tag for git-conflict plugin ([16a101e](https://github.com/ecosse3/nvim/commit/16a101e934c1da7e84c357e39fe11a315fca0df9))
+
 ### [2.2.2](https://github.com/ecosse3/nvim/compare/v2.2.1...v2.2.2) (2022-09-07)
 
 
