@@ -8,5 +8,8 @@ require 'colorizer'.setup({
     'javascriptreact',
     'lua'
   },
-  user_default_options = { mode = "background", }
+  user_default_options = {
+    mode = "background",
+    tailwind = false, -- Enable tailwind colors
+  }
 })
