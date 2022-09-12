@@ -161,12 +161,12 @@ local normal_mode_mappings = {
 
   g = {
     name = "Git",
-    a = { '<cmd>!git add %:p<CR>',                                 'add current' },
-    A = { '<cmd>!git add .<CR>',                                   'add all' },
-    b = { '<cmd>lua require("internal.blame").open()<CR>',                  'blame' },
-    B = { '<cmd>Telescope git_branches<CR>',                       'branches' },
-    d = { '<cmd>lua require("plugins.git.diffview").toggle()<CR>', 'diff file' },
-    g = { '<cmd>LazyGit<CR>',                                      'lazygit' },
+    a = { '<cmd>!git add %:p<CR>',                                              'add current' },
+    A = { '<cmd>!git add .<CR>',                                                'add all' },
+    b = { '<cmd>lua require("internal.blame").open()<CR>',                      'blame' },
+    B = { '<cmd>Telescope git_branches<CR>',                                    'branches' },
+    d = { '<cmd>lua require("plugins.git.diffview").toggle_file_history()<CR>', 'diff file' },
+    g = { '<cmd>LazyGit<CR>',                                                   'lazygit' },
     h = {
       name = "Hunk",
       d = "diff hunk",
@@ -180,13 +180,13 @@ local normal_mode_mappings = {
     },
     l = {
       name = "Log",
-      A = {"<cmd>lua require('plugins.telescope').my_git_commits()<CR>", "commits (Telescope)"},
-      a = {"<cmd>LazyGitFilter<CR>", "commits"},
+      A = {"<cmd>lua require('plugins.telescope').my_git_commits()<CR>",  "commits (Telescope)"},
+      a = {"<cmd>LazyGitFilter<CR>",                                      "commits"},
       C = {"<cmd>lua require('plugins.telescope').my_git_bcommits()<CR>", "buffer commits (Telescope)"},
-      c = {"<cmd>LazyGitFilterCurrentFile<CR>", "buffer commits"},
+      c = {"<cmd>LazyGitFilterCurrentFile<CR>",                           "buffer commits"},
     },
-    m = { 'blame line' },
-    s = { '<cmd>Telescope git_status<CR>',                           'status' },
+    m = { "blame line" },
+    s = { '<cmd>lua require("plugins.git.diffview").toggle_status()<CR>', 'status' },
     w = {
       name = "Worktree",
       w = "worktrees",
