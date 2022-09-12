@@ -125,6 +125,7 @@ return require('packer').startup({
     }
     -- use { 'sindrets/diffview.nvim', config = "require('plugins.git.diffview')" }
     use { 'akinsho/git-conflict.nvim', config = "require('plugins.git.conflict')" }
+    use { 'akinsho/git-conflict.nvim', tag = "*", config = "require('plugins.git.conflict')" }
     use { 'ThePrimeagen/git-worktree.nvim', config = "require('plugins.git.worktree')" }
     use { 'kdheepak/lazygit.nvim' }
 
