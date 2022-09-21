@@ -75,8 +75,9 @@ local function filterReactDTS(value)
   -- Depending on typescript version either uri or targrtUri is returned
   if value.uri then
     return string.match(value.uri, '%.d.ts') == nil
-  elseif value.targetUri
+  elseif value.targetUri then
     return string.match(value.targrtUri, '%.d.ts') == nil
+  end
 end
 
 local handlers = {
