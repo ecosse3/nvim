@@ -20,9 +20,16 @@ require("luasnip/loaders/from_vscode").lazy_load()
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Utils                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
+local types = require("cmp.types")
+
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
+local function deprioritize_snippet(entry1, entry2)
+  if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then return false end
+  if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then return true end
 end
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -158,6 +165,7 @@ cmp.setup {
 
   sorting = {
     comparators = {
+      deprioritize_snippet,
       cmp.config.compare.exact,
       cmp.config.compare.locality,
       cmp.config.compare.recently_used,
