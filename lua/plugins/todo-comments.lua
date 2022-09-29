@@ -3,6 +3,9 @@ if not status_ok then
   return
 end
 
+-- ╭──────────────────────────────────────────────────────────╮
+-- │ Setup                                                    │
+-- ╰──────────────────────────────────────────────────────────╯
 todo_comments.setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
@@ -25,3 +28,10 @@ todo_comments.setup {
     exclude = {}, -- list of file types to exclude highlighting
   },
 }
+
+-- ╭──────────────────────────────────────────────────────────╮
+-- │  Keymappings                                             │
+-- ╰──────────────────────────────────────────────────────────╯
+
+vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end, { desc = "Next todo comment" })
+vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" })
