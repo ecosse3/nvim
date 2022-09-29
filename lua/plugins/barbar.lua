@@ -1,5 +1,5 @@
 -- Set barbar's options
-vim.g.bufferline = {
+require'bufferline'.setup {
   -- Enable/disable animations
   animation = true,
 
