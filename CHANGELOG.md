@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/ecosse3/nvim/compare/v2.3.0...v2.4.0) (2022-09-29)
+
+
+### Features
+
+* **autocmds:** decrease yank highlight timeout from 200ms to 100ms ([af3a6fb](https://github.com/ecosse3/nvim/commit/af3a6fbf85dc8825de4a123ce73b35748a641453))
+* **keybindings:** add [t and ]t mappings for jumping to next/prev todo ([689d83c](https://github.com/ecosse3/nvim/commit/689d83c6c8e3ffb4fa7d5bc000e744f4bf29114f))
+* **keymappings:** add gl keymapping to open line diagnostic ([ebb61bb](https://github.com/ecosse3/nvim/commit/ebb61bb21dd21b2d1beaee5fdeb5ee9a57618e2a))
+* **lsp:** add emmet ls with deprioritized autocomplete sorting (always at the bottom) ([9dccb4b](https://github.com/ecosse3/nvim/commit/9dccb4b48a8789a6019f6c0533542b61bdfa77b7)), closes [#96](https://github.com/ecosse3/nvim/issues/96)
+* **lsp:** more consistent ReactDTS filtering ([#97](https://github.com/ecosse3/nvim/issues/97)) ([b3652ba](https://github.com/ecosse3/nvim/commit/b3652ba52d1a444d3a8481ee8ff2b9cd90e1801f))
+* **plugins:** switch vim-easy-align to mini.nvim ([484a84f](https://github.com/ecosse3/nvim/commit/484a84f7add76a572cac72c565c6abc05a8023e7))
+
+
+### Bug Fixes
+
+* **plugins:** revert todo-comments to folke ([#98](https://github.com/ecosse3/nvim/issues/98)) ([fbd0dcf](https://github.com/ecosse3/nvim/commit/fbd0dcfaaa6baf16cab9d3d412c2dcfed64d9635))
+* **plugins:** use lua setup for barbar.nvim bufferline ([4d48147](https://github.com/ecosse3/nvim/commit/4d4814716862d5514c52b42fb466b48e1e18061b))
+
 ## [2.3.0](https://github.com/ecosse3/nvim/compare/v2.2.2...v2.3.0) (2022-09-12)
 
 
