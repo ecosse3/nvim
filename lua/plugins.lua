@@ -15,7 +15,6 @@ return require('packer').startup({
 
     -- Needed to load first
     use { 'lewis6991/impatient.nvim' }
-    use { 'nathom/filetype.nvim' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
