@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/ecosse3/nvim/compare/v2.4.0...v2.4.1) (2022-10-06)
+
+
+### Bug Fixes
+
+* **plugins:** remove filetype.nvim since it's not needed in 0.8 anymore ([d37004f](https://github.com/ecosse3/nvim/commit/d37004f9eb24776996d74509359413310bbb5517))
+* **tree:** use bufferline.api to set offset ([2dc1488](https://github.com/ecosse3/nvim/commit/2dc14884594cb237b7d68d3eaafa6c261d3bc684))
+
 ## [2.4.0](https://github.com/ecosse3/nvim/compare/v2.3.0...v2.4.0) (2022-09-29)
 
 
