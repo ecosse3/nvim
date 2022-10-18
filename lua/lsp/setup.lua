@@ -17,9 +17,9 @@ mason.setup {
 
 mason_lsp.setup {
   -- A list of servers to automatically install if they're not already installed
-  ensure_installed = { "bash-language-server", "css-lsp", "eslint-lsp", "graphql-language-service-cli", "html-lsp",
-    "json-lsp", "lua-language-server", "tailwindcss-language-server", "typescript-language-server",
-    "vetur-vls", "vue-language-server", "chrome-debug-adapter", "node-debug2-adapter", "prisma-language-server" },
+  ensure_installed = { "bashls", "cssls", "eslint", "graphql", "html",
+    "jsonls", "sumneko_lua", "tailwindcss", "tsserver",
+    "vuels", "volar", "chrome-debug-adapter", "node-debug2-adapter", "prismals" },
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
