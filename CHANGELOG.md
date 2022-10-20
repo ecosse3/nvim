@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.2](https://github.com/ecosse3/nvim/compare/v2.4.1...v2.4.2) (2022-10-20)
+
+
+### Bug Fixes
+
+* **lsp:** replace update_capabilities with default_capabilities ([f2f2323](https://github.com/ecosse3/nvim/commit/f2f2323a446046e692923cfbf9a6e053fa65a182))
+* **lsp:** use lspconfig server names ([36caeed](https://github.com/ecosse3/nvim/commit/36caeed763fe24477b920cc796f8c9e7e60fc21c))
+
 ### [2.4.1](https://github.com/ecosse3/nvim/compare/v2.4.0...v2.4.1) (2022-10-06)
 
 
