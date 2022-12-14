@@ -17,7 +17,7 @@ neotest.setup({
     }),
   },
   diagnostic = {
-    enabled = true
+    enabled = false
   },
   floating = {
     border = EcoVim.ui.float.border or "rounded",
