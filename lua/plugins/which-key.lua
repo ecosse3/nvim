@@ -82,31 +82,31 @@ local visual_opts = {
 
 local normal_mode_mappings = {
   -- ignore
-  ["1"] = "which_key_ignore",
-  ["2"] = "which_key_ignore",
-  ["3"] = "which_key_ignore",
-  ["4"] = "which_key_ignore",
-  ["5"] = "which_key_ignore",
-  ["6"] = "which_key_ignore",
-  ["7"] = "which_key_ignore",
-  ["8"] = "which_key_ignore",
-  ["9"] = "which_key_ignore",
+  ['1'] = 'which_key_ignore',
+  ['2'] = 'which_key_ignore',
+  ['3'] = 'which_key_ignore',
+  ['4'] = 'which_key_ignore',
+  ['5'] = 'which_key_ignore',
+  ['6'] = 'which_key_ignore',
+  ['7'] = 'which_key_ignore',
+  ['8'] = 'which_key_ignore',
+  ['9'] = 'which_key_ignore',
 
   -- single
-  ["="] = { '<cmd>vertical resize +5<CR>',               'resize +5' },
-  ["-"] = { '<cmd>vertical resize -5<CR>',               'resize +5' },
-  ["v"] = { '<C-W>v',                                    'split right' },
-  ["V"] = { '<C-W>s',                                    'split below' },
-  ["q"] = { 'quicklist' },
+  ['='] = { '<cmd>vertical resize +5<CR>',               'resize +5' },
+  ['-'] = { '<cmd>vertical resize -5<CR>',               'resize +5' },
+  ['v'] = { '<C-W>v',                                    'split right' },
+  ['V'] = { '<C-W>s',                                    'split below' },
+  ['q'] = { 'quicklist' },
 
-  ["/"] = {
-    name = "Ecovim",
-    ["/"] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
+  ['/'] = {
+    name = 'Ecovim',
+    ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
     c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
     i = { '<cmd>PackerInstall<CR>',                             'install plugins' },
     u = { '<cmd>PackerSync<CR>',                                'update plugins' },
     s = {
-      name = "Session",
+      name = 'Session',
       c = { '<cmd>SessionManager load_session<CR>',             'choose session' },
       r = { '<cmd>SessionManager delete_session<CR>',           'remove session' },
       d = { '<cmd>SessionManager load_current_dir_session<CR>', 'load current dir session' },
@@ -116,7 +116,7 @@ local normal_mode_mappings = {
   },
 
   a = {
-    name = "Actions",
+    name = 'Actions',
     c = { 'comment box' },
     n = { '<cmd>set nonumber!<CR>',                      'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>',              'relative number' },
@@ -124,7 +124,7 @@ local normal_mode_mappings = {
   },
 
   b = {
-    name = "Buffer",
+    name = 'Buffer',
     b = { '<cmd>BufferMovePrevious<CR>',                 'Move back' },
     c = { '<cmd>BufferCloseAllButCurrent<CR>',           'Close but current' },
     d = { '<cmd>BufferOrderByDirectory<CR>',             'Order by directory' },
@@ -136,18 +136,19 @@ local normal_mode_mappings = {
   },
 
   c = {
-    name = "LSP",
+    name = 'LSP',
     a = { 'code action' },
     d = { '<cmd>TroubleToggle<CR>',                           'local diagnostics' },
     D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
     f = { 'format' },
     l = { 'line diagnostics' },
     r = { 'rename' },
+    R = { 'structural replace' },
     t = { '<cmd>LspToggleAutoFormat<CR>',                     'toggle format on save' },
   },
 
   d = {
-    name = "Debug",
+    name = 'Debug',
     a = { 'attach' },
     b = { 'breakpoint' },
     c = { 'continue' },
@@ -157,10 +158,12 @@ local normal_mode_mappings = {
     o = { 'step over' },
     O = { 'step out' },
     t = { 'terminate' },
+    v = { 'log variable' },
+    V = { 'log variable above' },
   },
 
   g = {
-    name = "Git",
+    name = 'Git',
     a = { '<cmd>!git add %:p<CR>',                                              'add current' },
     A = { '<cmd>!git add .<CR>',                                                'add all' },
     b = { '<cmd>lua require("internal.blame").open()<CR>',                      'blame' },
@@ -176,34 +179,35 @@ local normal_mode_mappings = {
     d = { '<cmd>lua require("plugins.git.diffview").toggle_file_history()<CR>', 'diff file' },
     g = { '<cmd>LazyGit<CR>',                                                   'lazygit' },
     h = {
-      name = "Hunk",
-      d = "diff hunk",
-      p = "preview",
-      R = "reset buffer",
-      r = "reset hunk",
-      s = "stage hunk",
-      S = "stage buffer",
-      t = "toggle deleted",
-      u = "undo stage",
+      name = 'Hunk',
+      d = 'diff hunk',
+      p = 'preview',
+      R = 'reset buffer',
+      r = 'reset hunk',
+      s = 'stage hunk',
+      S = 'stage buffer',
+      t = 'toggle deleted',
+      u = 'undo stage',
     },
     l = {
-      name = "Log",
-      A = {"<cmd>lua require('plugins.telescope').my_git_commits()<CR>",  "commits (Telescope)"},
-      a = {"<cmd>LazyGitFilter<CR>",                                      "commits"},
-      C = {"<cmd>lua require('plugins.telescope').my_git_bcommits()<CR>", "buffer commits (Telescope)"},
-      c = {"<cmd>LazyGitFilterCurrentFile<CR>",                           "buffer commits"},
+      name = 'Log',
+      A = {'<cmd>lua require("plugins.telescope").my_git_commits()<CR>',  'commits (Telescope)'},
+      a = {'<cmd>LazyGitFilter<CR>',                                      'commits'},
+      C = {'<cmd>lua require("plugins.telescope").my_git_bcommits()<CR>', 'buffer commits (Telescope)'},
+      c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'buffer commits'},
     },
-    m = { "blame line" },
+    m = { 'blame line' },
     s = { '<cmd>lua require("plugins.git.diffview").toggle_status()<CR>', 'status' },
+    S = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
     w = {
-      name = "Worktree",
-      w = "worktrees",
-      c = "create worktree",
+      name = 'Worktree',
+      w = 'worktrees',
+      c = 'create worktree',
     }
   },
 
   p = {
-    name = "Project",
+    name = 'Project',
     f = { 'file' },
     w = { 'word' },
     l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'list' },
@@ -213,7 +217,7 @@ local normal_mode_mappings = {
   },
 
   s = {
-    name = "Search",
+    name = 'Search',
     c = { '<cmd>Telescope colorscheme<CR>',                              'color schemes' },
     d = { '<cmd>lua require("plugins.telescope").edit_neovim()<CR>',     'dotfiles' },
     h = { '<cmd>Telescope oldfiles hidden=true<CR>',                     'file history' },
@@ -222,7 +226,7 @@ local normal_mode_mappings = {
   },
 
   t = {
-    name = "Table Mode",
+    name = 'Table Mode',
     m = { 'toggle' },
     t = { 'tableize' },
   },
