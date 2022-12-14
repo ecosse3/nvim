@@ -8,11 +8,12 @@ end
 -- ╰──────────────────────────────────────────────────────────╯
 signs.setup {
   signs                        = {
-    add          = { hl = 'GitGutterAdd', text = '▎', numhl = 'GitSignsAddNr' },
-    change       = { hl = 'GitGutterChange', text = '▎', numhl = 'GitSignsChangeNr' },
-    delete       = { hl = 'GitGutterDelete', text = '_', numhl = 'GitSignsDeleteNr' },
-    topdelete    = { hl = 'GitGutterDelete', text = '‾', numhl = 'GitSignsDeleteNr' },
-    changedelete = { hl = 'GitGutterChange', text = '~', numhl = 'GitSignsChangeNr' },
+    add          = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+    change       = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+    delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+    topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+    changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+    untracked    = { hl = 'GitSignsAdd', text = '┆', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
   },
   signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
   numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
