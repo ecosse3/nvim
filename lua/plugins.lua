@@ -20,7 +20,7 @@ return require('packer').startup({
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
 
     -- Themes
-    use { 'folke/tokyonight.nvim' }
+    use { 'ellisonleao/gruvbox.nvim' }
 
     -- Treesitter
     use { 'nvim-treesitter/nvim-treesitter', config = "require('plugins.treesitter')" }
@@ -94,7 +94,7 @@ return require('packer').startup({
       disable = not EcoVim.plugins.zen.enabled }
     use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
     use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
-    use { 'ecosse3/galaxyline.nvim', after = 'nvim-gps', config = "require('plugins.galaxyline')", event = "BufWinEnter" }
+    use { 'nvim-lualine/lualine.nvim', config = "require('plugins.statusline')", event = "BufWinEnter" }
     use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' },
       config = "require('plugins.barbar')" }
     use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
