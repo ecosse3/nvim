@@ -15,6 +15,7 @@ return require('packer').startup({
 
     -- Needed to load first
     use { 'lewis6991/impatient.nvim' }
+    use { 'rcarriga/nvim-notify' }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
@@ -38,10 +39,12 @@ return require('packer').startup({
         { 'nvim-telescope/telescope-fzf-native.nvim' }
       }
     }
-    use { 'cljoly/telescope-repo.nvim' }
+    -- quicklist
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
+    -- better search and replace.
     use { 'nvim-pack/nvim-spectre' }
     use { 'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')" }
+    -- make cusor in place after >>|<< shift.
     use { 'gbprod/stay-in-place.nvim',
       config = function()
         require('stay-in-place').setup({})
@@ -71,25 +74,37 @@ return require('packer').startup({
     use { 'onsails/lspkind-nvim' }
     use { 'folke/lsp-trouble.nvim', config = "require('plugins.trouble')" }
     use { 'nvim-lua/popup.nvim' }
+    -- show current conext under cursor. like 'function' etc.
+    -- maybe removed.
     use { 'ChristianChiarulli/nvim-gps', branch = 'text_hl', config = "require('plugins.gps')", after = 'nvim-treesitter' }
     use { 'jose-elias-alvarez/typescript.nvim' }
     use { 'axelvc/template-string.nvim', config = function() require('template-string').setup() end }
+    -- https://www.jetbrains.com/help/idea/inlay-hints.html
     use { 'lvimuser/lsp-inlayhints.nvim', config = function() require('lsp-inlayhints').setup() end }
 
     -- General
+    -- https://www.youtube.com/watch?v=zIOOLZJb87U
+    -- define a list of switch options, make it ease to switch text.
     use { 'AndrewRadev/switch.vim' }
     use { 'AndrewRadev/splitjoin.vim' }
     use { 'numToStr/Comment.nvim', config = "require('plugins.comment')" }
+    -- fancy plugin to make comment wrapped inside box.
     use { 'LudoPinelli/comment-box.nvim' }
     use { 'akinsho/nvim-toggleterm.lua', branch = 'main', config = "require('plugins.toggleterm')" }
     use { 'tpope/vim-repeat' }
+    -- incase/decrease date. not useful.
     use { 'tpope/vim-speeddating' }
     use { 'dhruvasagar/vim-table-mode' }
     use { 'mg979/vim-visual-multi', config = function() vim.g.VM_leader = ";" end }
+    -- This is useful when there are embedded languages in certain types of files.
+    -- For example, Vue files can have many different sections, each of which can
+    -- have a different style for comments.
     use { 'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter' }
+    -- Peeking the buffer while entering command :{number}
     use { 'nacro90/numb.nvim', config = "require('plugins.numb')" }
     use { 'folke/todo-comments.nvim', config = "require('plugins.todo-comments')" }
     use { 'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled }
+    -- dims inactive portions of the code you're editing.
     use { 'folke/twilight.nvim', config = function() require("twilight").setup {} end,
       disable = not EcoVim.plugins.zen.enabled }
     use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
@@ -97,8 +112,6 @@ return require('packer').startup({
     use { 'nvim-lualine/lualine.nvim', config = "require('plugins.statusline')", event = "BufWinEnter" }
     use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' },
       config = "require('plugins.barbar')" }
-    use { 'antoinemadec/FixCursorHold.nvim' } -- Needed while issue https://github.com/neovim/neovim/issues/12587 is still open
-    use { 'rcarriga/nvim-notify' }
     use { 'vuki656/package-info.nvim', event = "BufEnter package.json", config = "require('plugins.package-info')" }
     use { 'iamcco/markdown-preview.nvim', run = "cd app && npm install",
       setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" } }
@@ -106,8 +119,10 @@ return require('packer').startup({
     use { 'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end }
     use { 'Shatur/neovim-session-manager', config = "require('plugins.session-manager')" }
     use { 'kylechui/nvim-surround', config = function() require("nvim-surround").setup({}) end }
-    use { 'sunjon/shade.nvim', config = function() require("shade").setup(); require("shade").toggle(); end }
+    -- use { 'sunjon/shade.nvim', config = function() require("shade").setup(); require("shade").toggle(); end }
+    -- folding.
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', config = "require('plugins.nvim-ufo')" }
+    -- bunch of neovim utils.
     use { 'echasnovski/mini.nvim', config = function() require("mini.align").setup() end }
 
     -- Snippets & Language & Syntax

@@ -22,9 +22,9 @@ keymap("v", ">", ">gv", silent)
 keymap("v", "`", "u", silent)
 keymap("v", "<A-`>", "U", silent)
 
--- Save file by CTRL-S
-keymap("n", "<C-s>", ":w<CR>", silent)
-keymap("i", "<C-s>", "<ESC> :w<CR>", silent)
+-- Save file by F1
+keymap("n", "<F1>", ":w<CR>", silent)
+keymap("i", "<F1>", "<ESC> :w<CR>", silent)
 
 -- Telescope
 keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
@@ -42,6 +42,7 @@ keymap("n", "<Tab>", ":BufferNext<CR>", silent)
 keymap("n", "gn", ":bn<CR>", silent)
 keymap("n", "<S-Tab>", ":BufferPrevious<CR>", silent)
 keymap("n", "gp", ":bp<CR>", silent)
+-- TODO
 keymap("n", "<S-q>", ":BufferClose<CR>", silent)
 
 -- Move between barbar buffers
