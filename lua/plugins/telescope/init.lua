@@ -4,7 +4,6 @@ local builtin    = require('telescope.builtin')
 local icons      = EcoVim.icons;
 
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('repo')
 require("telescope").load_extension("git_worktree")
 
 local git_icons = {
@@ -78,7 +77,8 @@ local M = {}
 
 local delta_bcommits = previewers.new_termopen_previewer {
   get_command = function(entry)
-    return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!', '--', entry.current_file }
+    return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value .. '^!', '--',
+      entry.current_file }
   end
 }
 
@@ -113,7 +113,7 @@ end
 -- Custom pickers
 
 M.edit_neovim = function()
-  builtin.git_files (
+  builtin.git_files(
     require('telescope.themes').get_dropdown({
       color_devicons   = true,
       cwd              = "~/.config/nvim",
@@ -140,11 +140,11 @@ M.project_files = function(opts)
 end
 
 M.command_history = function()
-  builtin.command_history (
+  builtin.command_history(
     require('telescope.themes').get_dropdown({
-      color_devicons   = true,
-      winblend         = 4,
-      layout_config    = {
+      color_devicons = true,
+      winblend       = 4,
+      layout_config  = {
         width = function(_, max_columns, _)
           return math.min(max_columns, 150)
         end,

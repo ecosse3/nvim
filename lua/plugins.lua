@@ -19,7 +19,13 @@ return require('packer').startup({
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
-
+    use { "kkharji/sqlite.lua" }
+    use({
+      'mrjones2014/legendary.nvim',
+      -- sqlite is only needed if you want to use frecency sorting
+      requires = { 'kkharji/sqlite.lua' },
+      config = "require('plugins.legendary')",
+    })
     -- Themes
     use { 'ellisonleao/gruvbox.nvim' }
 
@@ -108,7 +114,7 @@ return require('packer').startup({
     use { 'folke/twilight.nvim', config = function() require("twilight").setup {} end,
       disable = not EcoVim.plugins.zen.enabled }
     use { 'ggandor/lightspeed.nvim', config = "require('plugins.lightspeed')" }
-    use { 'folke/which-key.nvim', config = "require('plugins.which-key')", event = "BufWinEnter" }
+    use { 'folke/which-key.nvim', after = "legendary", config = "require('plugins.which-key')", event = "BufWinEnter" }
     use { 'nvim-lualine/lualine.nvim', config = "require('plugins.statusline')", event = "BufWinEnter" }
     use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' },
       config = "require('plugins.barbar')" }
