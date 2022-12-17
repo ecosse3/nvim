@@ -25,6 +25,7 @@ return require('packer').startup({
       -- sqlite is only needed if you want to use frecency sorting
       requires = { 'kkharji/sqlite.lua' },
       config = "require('plugins.legendary')",
+      as = "legendary",
     })
     -- Themes
     use { 'ellisonleao/gruvbox.nvim' }
