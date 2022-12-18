@@ -52,7 +52,7 @@ keymap("i", "<C-e>", "<End>", silent)
 
 
 -- Undo, no more background key
-keymap("n", "<C-z>", "u", silent)
+keymap( {"n", "i"}, "<C-z>", "<ESC> u", silent)
 
 -- Keep visual mode indenting
 keymap("v", "<", "<gv", silent)
