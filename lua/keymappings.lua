@@ -3,16 +3,39 @@ local silent = { silent = true }
 local kw = require("legendary").keymap
 local d = require("plugins.legendary").d
 
--- TODO replaced with smart-splits.
--- Better window movement
-keymap("n", "<C-h>", "<C-w>h", silent)
-keymap("n", "<C-j>", "<C-w>j", silent)
-keymap("n", "<C-k>", "<C-w>k", silent)
-keymap("n", "<C-l>", "<C-w>l", silent)
-
+-- legendary
 keymap({ "i", "n", "x" }, "<F2>", function()
   require('legendary').find({ filters = require('legendary.filters').current_mode() })
 end)
+-- nvim tree
+keymap({ "i", "n" }, "<F8>", function()
+  -- there will be error if we open tree on telescope prompt.
+  -- https://neovim.io/doc/user/options.html#'buftype'
+  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+  if buftype == 'prompt' then
+    vim.notify("please close the current prompt")
+    return
+  end
+  vim.cmd("NvimTreeToggle")
+end)
+-- shift+f1 is f13
+-- shift+f8 is f20.
+keymap({ "i", "n" }, "<F20>", function()
+  -- there will be error if we open tree on telescope prompt.
+  -- https://neovim.io/doc/user/options.html#'buftype'
+  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+  if buftype == 'prompt' then
+    vim.notify("please close the current prompt")
+    return
+  end
+  vim.cmd("NvimTreeFindFileToggle")
+end)
+keymap({ "i", "n" }, "<F19>", ":Telescope oldfiles cwd_only=true<CR>")
+keymap({ "i", "n" }, "<F7>", "<CMD>lua require('plugins.telescope').project_files({ })<CR>")
+keymap({ "i", "n" }, "<F9>", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+-- quickly resume the last picker so we don't have to re-input the query again!
+keymap({ "i", "n" }, "<F10>", "<cmd>lua require('telescope.builtin').resume()<CR>")
+
 
 --  ╭──────────────────────────────────────────────────────────╮
 --  │  movements                                               │
@@ -22,8 +45,10 @@ keymap("n", "H", "^", silent)
 -- Move selected line / block of text in visual mode
 keymap("x", "K", ":move '<-2<CR>gv-gv", silent)
 keymap("x", "J", ":move '>+1<CR>gv-gv", silent)
--- TODO
--- keymap("i", "<C-e>", "<End>", silent)
+-- scroll in other windows
+keymap("n", "<A-DOWN>", "<cmd>wincmd w<cr><c-e><cmd>wincmd w<cr>")
+keymap("n", "<A-UP>", "<cmd>wincmd w<cr><c-y><cmd>wincmd w<cr>")
+keymap("i", "<C-e>", "<End>", silent)
 
 
 -- Undo, no more background key
@@ -41,17 +66,8 @@ keymap("v", "<A-`>", "U", silent)
 keymap("n", "<F1>", ":w<CR>", silent)
 keymap("i", "<F1>", "<ESC> :w<CR>", silent)
 
--- Telescope
-keymap("n", "<C-p>", "<CMD>lua require('plugins.telescope').project_files()<CR>")
-keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<CR>")
-
 -- Remove highlights
-kw({"<ESC>", ":noh<CR>", description = "Clear search highlight", mode = "n" })
-
--- Find word/file across project
-keymap("n", "<Leader>pf",
-  "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
-keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
+kw({ "<ESC>", ":noh<CR>", description = "Clear search highlight", mode = "n" })
 
 -- Buffers
 keymap("n", "<Tab>", ":BufferNext<CR>", silent)
@@ -126,7 +142,6 @@ keymap("v", "<Leader>pr", "<cmd>lua require('spectre').open_visual()<CR>")
 -- LSP
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
-keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent)
 keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)

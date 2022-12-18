@@ -204,8 +204,6 @@ local normal_mode_mappings = {
 
   p = {
     name = "Project",
-    f = { 'file' },
-    w = { 'word' },
     r = { 'refactor' },
     s = { "<cmd>SessionManager save_current_session<CR>", 'save session' },
     t = { "<cmd>TodoTrouble<CR>", 'todo' },

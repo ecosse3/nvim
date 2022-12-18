@@ -15,18 +15,31 @@ return require('packer').startup({
 
     -- Needed to load first
     use { 'lewis6991/impatient.nvim' }
-    use { 'rcarriga/nvim-notify' }
+    use { 'rcarriga/nvim-notify', config = function()
+      vim.notify = require("notify")
+    end }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
     use { "kkharji/sqlite.lua" }
-    use({
+    use {
       'mrjones2014/legendary.nvim',
       -- sqlite is only needed if you want to use frecency sorting
       requires = { 'kkharji/sqlite.lua' },
       config = "require('plugins.legendary')",
       as = "legendary",
-    })
+    }
+    use {
+      "kwkarlwang/bufresize.nvim",
+      config = function()
+        require("bufresize").setup({})
+      end
+    }
+    use {
+      "mrjones2014/smart-splits.nvim",
+      config = "require('plugins.smart_splits')",
+      as = "smart_splits",
+    }
     -- Themes
     use { 'ellisonleao/gruvbox.nvim' }
 
@@ -37,12 +50,14 @@ return require('packer').startup({
     use { 'm-demare/hlargs.nvim', config = function() require('hlargs').setup({ color = "#F7768E" }) end }
 
     -- Navigating (Telescope/Tree/Refactor)
+    use { "nvim-telescope/telescope-live-grep-args.nvim" }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { 'nvim-telescope/telescope.nvim',
       config = "require('plugins.telescope')",
       requires = {
         { 'nvim-lua/popup.nvim' },
         { 'nvim-lua/plenary.nvim' },
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
         { 'nvim-telescope/telescope-fzf-native.nvim' }
       }
     }

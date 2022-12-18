@@ -1,7 +1,12 @@
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup                                                    │
 -- ╰──────────────────────────────────────────────────────────╯
-require'lightspeed'.setup {}
+require 'lightspeed'.setup {
+	substitute_chars = {
+		["\r"] = "",
+		[" "] = "␣",
+	},
+}
 
 local silent = { silent = true }
 

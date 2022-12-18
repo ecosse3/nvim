@@ -204,8 +204,6 @@ require 'nvim-tree'.setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", { noremap = true, silent = true })
-
 nvim_tree_events.on_tree_open(function()
   bufferline_api.set_offset(TREE_WIDTH + 1, utils.add_whitespaces(13) .. 'File Explorer')
 end)

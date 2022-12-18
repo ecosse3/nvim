@@ -1,10 +1,14 @@
-local actions    = require('telescope.actions')
-local previewers = require('telescope.previewers')
-local builtin    = require('telescope.builtin')
-local icons      = EcoVim.icons;
+local actions      = require('telescope.actions')
+local previewers   = require('telescope.previewers')
+local builtin      = require('telescope.builtin')
+local icons        = EcoVim.icons;
+local action_state = require("telescope.actions.state")
+local lga_actions  = require('telescope-live-grep-args.actions')
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('live_grep_args')
 require("telescope").load_extension("git_worktree")
+
 
 local git_icons = {
   added = icons.gitAdd,
@@ -33,11 +37,12 @@ require('telescope').setup {
       },
       prompt_position = "top",
     },
+    layout_strategy   = "flex",
     file_sorter       = require('telescope.sorters').get_fzy_sorter,
     prompt_prefix     = '  ',
     color_devicons    = true,
-
-    git_icons = git_icons,
+    initial_mode      = "insert",
+    git_icons         = git_icons,
 
     sorting_strategy = "ascending",
 
@@ -48,13 +53,15 @@ require('telescope').setup {
     mappings = {
       i = {
         ["<C-x>"] = false,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-s>"] = actions.cycle_previewers_next,
         ["<C-a>"] = actions.cycle_previewers_prev,
         ["<C-h>"] = "which_key",
         ["<ESC>"] = actions.close,
+        ["<C-c>"] = function(prompt_bufnr)
+          local picker = action_state.get_current_picker(prompt_bufnr)
+          picker:set_prompt("")
+        end
       },
       n = {
         ["<C-s>"] = actions.cycle_previewers_next,
@@ -67,6 +74,26 @@ require('telescope').setup {
       override_generic_sorter = false,
       override_file_sorter = true,
       case_mode = "smart_case",
+    },
+    live_grep_args = {
+      disable_coordinates = true,
+      auto_quoting = true, -- enable/disable auto-quoting
+      mappings = { -- extend mappings
+        i = {
+          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-r>"] = function(prompt_bufnr)
+            local picker = action_state.get_current_picker(prompt_bufnr)
+            local prompt = picker:_get_prompt()
+            picker:set_prompt("--no-fixed-strings " .. prompt)
+          end,
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+          ["/"] = function()
+            vim.cmd('startinsert')
+          end
+        },
+      },
     }
   }
 }

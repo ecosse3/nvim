@@ -1,4 +1,5 @@
 -- Setup installer & lsp configs
+-- local utils = require("utils.node")
 local typescript_ok, typescript = pcall(require, 'typescript')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
@@ -68,6 +69,7 @@ if typescript_ok then
 end
 
 lspconfig.tailwindcss.setup {
+  -- cmd = utils.get_mason_node_cmd("tailwindcss-language-server", "--stdio"),
   capabilities = require('lsp.servers.tailwindcss').capabilities,
   filetypes = require('lsp.servers.tailwindcss').filetypes,
   handlers = handlers,
