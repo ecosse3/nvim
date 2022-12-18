@@ -8,7 +8,7 @@ keymap({ "i", "n", "x" }, "<F3>", function()
   require('legendary').find({ filters = require('legendary.filters').current_mode() })
 end)
 -- nvim tree
-keymap({ "i", "n" }, "<F8>", function()
+keymap({ "i", "n" }, "<F7>", function()
   -- there will be error if we open tree on telescope prompt.
   -- https://neovim.io/doc/user/options.html#'buftype'
   local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
@@ -20,7 +20,7 @@ keymap({ "i", "n" }, "<F8>", function()
 end)
 -- shift+f1 is f13
 -- shift+f8 is f20.
-keymap({ "i", "n" }, "<F20>", function()
+keymap({ "i", "n" }, "<F19>", function()
   -- there will be error if we open tree on telescope prompt.
   -- https://neovim.io/doc/user/options.html#'buftype'
   local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
@@ -30,8 +30,8 @@ keymap({ "i", "n" }, "<F20>", function()
   end
   vim.cmd("NvimTreeFindFileToggle")
 end)
-keymap({ "i", "n" }, "<F19>", ":Telescope oldfiles cwd_only=true<CR>")
-keymap({ "i", "n" }, "<F7>", "<CMD>lua require('plugins.telescope').project_files({ })<CR>")
+keymap({ "i", "n" }, "<F20>", ":Telescope oldfiles cwd_only=true<CR>")
+keymap({ "i", "n" }, "<F8>", "<CMD>lua require('plugins.telescope').project_files({ })<CR>")
 keymap({ "i", "n" }, "<F9>", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 -- quickly resume the last picker so we don't have to re-input the query again!
 keymap({ "i", "n" }, "<F10>", "<cmd>lua require('telescope.builtin').resume()<CR>")
