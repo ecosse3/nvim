@@ -5,11 +5,6 @@ local icons        = EcoVim.icons;
 local action_state = require("telescope.actions.state")
 local lga_actions  = require('telescope-live-grep-args.actions')
 
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('live_grep_args')
-require("telescope").load_extension("git_worktree")
-
-
 local git_icons = {
   added = icons.gitAdd,
   changed = icons.gitChange,
@@ -80,7 +75,7 @@ require('telescope').setup {
       auto_quoting = true, -- enable/disable auto-quoting
       mappings = { -- extend mappings
         i = {
-          ["<C-k>"] = lga_actions.quote_prompt,
+          ["<C-k>"] = lga_actions.quote_prompt(),
           ["<C-r>"] = function(prompt_bufnr)
             local picker = action_state.get_current_picker(prompt_bufnr)
             local prompt = picker:_get_prompt()
@@ -98,6 +93,9 @@ require('telescope').setup {
   }
 }
 
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('live_grep_args')
+require("telescope").load_extension("git_worktree")
 -- Implement delta as previewer for diffs
 
 local M = {}
