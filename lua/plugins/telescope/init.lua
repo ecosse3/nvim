@@ -80,7 +80,7 @@ require('telescope').setup {
       auto_quoting = true, -- enable/disable auto-quoting
       mappings = { -- extend mappings
         i = {
-          ["<C-k>"] = lga_actions.quote_prompt(),
+          ["<C-k>"] = lga_actions.quote_prompt,
           ["<C-r>"] = function(prompt_bufnr)
             local picker = action_state.get_current_picker(prompt_bufnr)
             local prompt = picker:_get_prompt()

@@ -1,10 +1,10 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 local kw = require("legendary").keymap
-local d = require("plugins.legendary").d
+-- local d = require("plugins.legendary").d
 
 -- legendary
-keymap({ "i", "n", "x" }, "<F2>", function()
+keymap({ "i", "n", "x" }, "<F3>", function()
   require('legendary').find({ filters = require('legendary.filters').current_mode() })
 end)
 -- nvim tree
