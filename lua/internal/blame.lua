@@ -121,10 +121,10 @@ local function on_blame_done(lines)
     0,
     "n",
     config.keymaps.blame_commit,
-    "<CMD>lua require('blame').blame_commit()<CR>",
+    "<CMD>lua require('internal.blame').blame_commit()<CR>",
     options
   )
-  vim.api.nvim_command "autocmd BufWinLeave <buffer> lua require('blame').blame_quit()"
+  vim.api.nvim_command "autocmd BufWinLeave <buffer> lua require('internal.blame').blame_quit()"
 
   blame_syntax()
 end
@@ -152,7 +152,7 @@ local function on_blame_commit_done(commit_hash, lines)
   vim.api.nvim_buf_set_option(buf, "buftype", "nofile")
   vim.api.nvim_buf_set_option(buf, "bufhidden", "delete")
   vim.api.nvim_buf_set_option(buf, "filetype", "Git")
-  vim.api.nvim_command "autocmd BufLeave <buffer> lua require('blame').blame_commit_quit()"
+  vim.api.nvim_command "autocmd BufLeave <buffer> lua require('internal.blame').blame_commit_quit()"
 
   vim.fn.search([[^diff .* b/\M]] .. vim.fn.escape(blame_state.relative_path, "\\") .. "$", "W")
 end
