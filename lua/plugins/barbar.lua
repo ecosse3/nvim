@@ -1,7 +1,7 @@
 -- Set barbar's options
 require'bufferline'.setup {
   -- Enable/disable animations
-  animation = true,
+  animation = false,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
   auto_hide = false,
@@ -15,7 +15,7 @@ require'bufferline'.setup {
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer
   --  - middle-click: delete buffer
-  clickable = true,
+  clickable = false,
 
   -- Excludes buffers from the tabline
   exclude_ft = {'qf'},
@@ -33,7 +33,7 @@ require'bufferline'.setup {
   icon_custom_colors = false,
 
   -- Configure icons on the bufferline.
-  icon_separator_active = '▎',
+  icon_separator_active = '❚',
   icon_separator_inactive = '▎',
   icon_close_tab = '',
   icon_close_tab_modified = '●',

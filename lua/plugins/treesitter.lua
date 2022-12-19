@@ -9,7 +9,7 @@ require'nvim-treesitter.configs'.setup {
   },
 
   incremental_selection = {
-    enable = false,
+    enable = true,
     keymaps = {
       init_selection    = "<leader>gnn",
       node_incremental  = "<leader>gnr",
