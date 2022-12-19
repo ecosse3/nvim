@@ -17,6 +17,10 @@ return require('packer').startup({
     use { 'lewis6991/impatient.nvim' }
     use { 'rcarriga/nvim-notify', config = function()
       vim.notify = require("notify")
+      vim.notify.setup({
+        render = "minimal",
+        timeout = "3000",
+      })
     end}
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
