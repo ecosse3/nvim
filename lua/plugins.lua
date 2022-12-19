@@ -65,6 +65,9 @@ return require('packer').startup({
         { 'nvim-telescope/telescope-fzf-native.nvim' }
       }
     }
+    
+    use { "chentoast/marks.nvim", }
+
     -- quicklist
     use { 'kevinhwang91/nvim-bqf', ft = 'qf' }
     -- better search and replace.
