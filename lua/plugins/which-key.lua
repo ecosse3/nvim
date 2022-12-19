@@ -144,6 +144,7 @@ local normal_mode_mappings = {
     l = { 'line diagnostics' },
     r = { 'rename' },
     t = { '<cmd>LspToggleAutoFormat<CR>', 'toggle format on save' },
+    m = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto implementation' },
   },
 
   d = {
