@@ -47,7 +47,7 @@ require('telescope').setup {
 
     mappings = {
       i = {
-        ["<C-x>"] = false,
+        -- ["<C-x>"] = false,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-s>"] = actions.cycle_previewers_next,
         ["<C-a>"] = actions.cycle_previewers_prev,

@@ -98,6 +98,7 @@ local normal_mode_mappings = {
   ["v"] = { '<C-W>v', 'split right' },
   ["V"] = { '<C-W>s', 'split below' },
   ["q"] = { 'quicklist' },
+  ["x"] = { '<cmd>quit<CR>', 'Quit' },
 
   ["/"] = {
     name = "Ecovim",
