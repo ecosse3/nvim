@@ -15,7 +15,9 @@ return require('packer').startup({
 
     -- Needed to load first
     use { 'lewis6991/impatient.nvim' }
-    use { 'rcarriga/nvim-notify' }
+    use { 'rcarriga/nvim-notify', config = function()
+      vim.notify = require("notify")
+    end}
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
