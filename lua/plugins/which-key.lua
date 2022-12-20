@@ -147,6 +147,7 @@ local normal_mode_mappings = {
     r = { 'rename' },
     t = { '<cmd>LspToggleAutoFormat<CR>', 'toggle format on save' },
     m = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto implementation' },
+    h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover' },
   },
 
   d = {
