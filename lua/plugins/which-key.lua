@@ -122,7 +122,7 @@ local normal_mode_mappings = {
     n = { '<cmd>set nonumber!<CR>', 'line numbers' },
     r = { '<cmd>set norelativenumber!<CR>', 'relative number' },
     t = { '<cmd>ToggleTerm direction=float<CR>', 'terminal float' },
-    m = { '<cmd>MarksQFListBuf<CR>', 'Open marks list'},
+    m = { '<cmd>MarksQFListBuf<CR>', 'Open marks list' },
   },
 
   b = {
@@ -135,19 +135,6 @@ local normal_mode_mappings = {
     r = { '<cmd>BufferCloseBuffersRight<CR>', 'Close Right' },
     n = { '<cmd>BufferMoveNext<CR>', 'Move next' },
     p = { '<cmd>BufferPick<CR>', 'Pick Buffer' },
-  },
-
-  c = {
-    name = "LSP",
-    a = { 'code action' },
-    d = { '<cmd>TroubleToggle<CR>', 'local diagnostics' },
-    D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
-    f = { 'format' },
-    l = { 'line diagnostics' },
-    r = { 'rename' },
-    t = { '<cmd>LspToggleAutoFormat<CR>', 'toggle format on save' },
-    m = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto implementation' },
-    h = { '<cmd>lua vim.lsp.buf.hover()<CR>', 'Hover' },
   },
 
   d = {
@@ -287,25 +274,6 @@ local function attach_markdown(bufnr)
   })
 end
 
-local function attach_typescript(bufnr)
-  wk.register({
-    c = {
-      name = "LSP",
-      F = { '<cmd>TypescriptFixAll<CR>', 'fix all' },
-      i = { '<cmd>TypescriptAddMissingImports<CR>', 'import all' },
-      o = { '<cmd>TypescriptOrganizeImports<CR>', 'organize imports' },
-      u = { '<cmd>TypescriptRemoveUnused<CR>', 'remove unused' },
-    }
-  }, {
-    buffer = bufnr,
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
-  })
-end
-
 local function attach_npm(bufnr)
   wk.register({
     n = {
@@ -380,7 +348,6 @@ end
 
 return {
   attach_markdown = attach_markdown,
-  attach_typescript = attach_typescript,
   attach_npm = attach_npm,
   attach_zen = attach_zen,
   attach_jest = attach_jest,

@@ -5,30 +5,30 @@ local kw = require("legendary").keymap
 
 -- legendary
 keymap({ "i", "n", "x" }, "<F3>", function()
-  require('legendary').find({ filters = require('legendary.filters').current_mode() })
+	require('legendary').find({ filters = require('legendary.filters').current_mode() })
 end)
 -- nvim tree
 keymap({ "i", "n" }, "<F7>", function()
-  -- there will be error if we open tree on telescope prompt.
-  -- https://neovim.io/doc/user/options.html#'buftype'
-  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
-  if buftype == 'prompt' then
-    vim.notify("please close the current prompt")
-    return
-  end
-  vim.cmd("NvimTreeToggle")
+	-- there will be error if we open tree on telescope prompt.
+	-- https://neovim.io/doc/user/options.html#'buftype'
+	local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+	if buftype == 'prompt' then
+		vim.notify("please close the current prompt")
+		return
+	end
+	vim.cmd("NvimTreeToggle")
 end)
 -- shift+f1 is f13
 -- shift+f8 is f20.
 keymap({ "i", "n" }, "<F19>", function()
-  -- there will be error if we open tree on telescope prompt.
-  -- https://neovim.io/doc/user/options.html#'buftype'
-  local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
-  if buftype == 'prompt' then
-    vim.notify("please close the current prompt")
-    return
-  end
-  vim.cmd("NvimTreeFindFileToggle")
+	-- there will be error if we open tree on telescope prompt.
+	-- https://neovim.io/doc/user/options.html#'buftype'
+	local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
+	if buftype == 'prompt' then
+		vim.notify("please close the current prompt")
+		return
+	end
+	vim.cmd("NvimTreeFindFileToggle")
 end)
 keymap({ "i", "n" }, "<F20>", ":Telescope oldfiles cwd_only=true<CR>")
 keymap({ "i", "n" }, "<F8>", "<CMD>lua require('plugins.telescope').project_files({ })<CR>")
@@ -52,7 +52,7 @@ keymap("i", "<C-e>", "<End>", silent)
 
 
 -- Undo, no more background key
-keymap( {"n", "i"}, "<C-z>", "<ESC> u", silent)
+keymap({ "n", "i" }, "<C-z>", "<ESC> u", silent)
 
 -- Keep visual mode indenting
 keymap("v", "<", "<gv", silent)
@@ -126,37 +126,24 @@ keymap("x", "ga", "<Plug>(EasyAlign)", silent)
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
 keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
-  silent)
+	silent)
 
 -- Open links under cursor in browser with gx
 if vim.fn.has('macunix') == 1 then
-  keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
+	keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
 else
-  keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
+	keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 end
 
 -- Refactor with spectre
 keymap("n", "<Leader>pr", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>", silent)
 keymap("v", "<Leader>pr", "<cmd>lua require('spectre').open_visual()<CR>")
 
--- LSP
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", silent)
-keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
-keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", silent)
-keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", silent)
-keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
-keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
-keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-  local winid = require('ufo').peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
+	local winid = require('ufo').peekFoldedLinesUnderCursor()
+	if not winid then
+		vim.lsp.buf.hover()
+	end
 end)
 
 -- Comment Box

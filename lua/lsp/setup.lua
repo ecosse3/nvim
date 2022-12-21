@@ -4,10 +4,27 @@ local typescript_ok, typescript = pcall(require, 'typescript')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
 local ufo_config = require('plugins.nvim-ufo')
+local keys = require("keymaps.lsp")
+local lsp_formatting = require("lsp.formatting")
 
 if not mason_ok or not mason_lsp_ok then
   return
 end
+
+local auto_servers = { "bashls", "emmet_ls", "html", "volar", "prismals" }
+local ensure_installed = { "bashls", "cssls", "eslint", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver",
+  "vuels", "volar", "prismals" }
+
+local auto_format_enabled_filetypes = {
+  "vue",
+  "typescript",
+  "typescriptreact",
+  "javascriptreact",
+  "javascript",
+  "css",
+  "lua",
+  "html",
+}
 
 mason.setup {
   ui = {
@@ -18,8 +35,7 @@ mason.setup {
 
 mason_lsp.setup {
   -- A list of servers to automatically install if they're not already installed
-  ensure_installed = { "bashls", "cssls", "eslint", "html", "jsonls", "sumneko_lua", "tailwindcss", "tsserver",
-    "vuels", "volar", "prismals" },
+  ensure_installed = ensure_installed,
 
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -42,6 +58,7 @@ local handlers = {
 
 local function on_attach(client, bufnr)
   -- set up buffer keymaps, etc.
+  keys.setup(client, bufnr)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -113,7 +130,7 @@ lspconfig.vuels.setup {
   on_attach = on_attach,
 }
 
-for _, server in ipairs { "bashls", "emmet_ls", "html", "volar", "prismals" } do
+for _, server in ipairs(auto_servers) do
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -121,7 +138,21 @@ for _, server in ipairs { "bashls", "emmet_ls", "html", "volar", "prismals" } do
   }
 end
 
+require("plugins.null-ls").setup({
+  on_attach = on_attach,
+})
 require('ufo').setup({
   fold_virt_text_handler = ufo_config.handler,
   close_fold_kinds = { "imports" }
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+    if vim.tbl_contains(auto_format_enabled_filetypes, ft) then
+      lsp_formatting.setup_autoformat(client, bufnr)
+    end
+  end,
 })

@@ -21,7 +21,7 @@ return require('packer').startup({
         render = "minimal",
         timeout = "3000",
       })
-    end}
+    end }
     use { 'nvim-lua/plenary.nvim' }
     use { 'kyazdani42/nvim-web-devicons' }
     use { 'goolord/alpha-nvim', config = "require('plugins.alpha')" }
@@ -65,7 +65,7 @@ return require('packer').startup({
         { 'nvim-telescope/telescope-fzf-native.nvim' }
       }
     }
-    
+
     use { "chentoast/marks.nvim", }
 
     -- quicklist
@@ -84,6 +84,14 @@ return require('packer').startup({
     use { 'williamboman/mason.nvim' }
     use { 'williamboman/mason-lspconfig.nvim' }
     use { 'neovim/nvim-lspconfig' }
+    use { "jose-elias-alvarez/null-ls.nvim" }
+    use {
+      "smjonas/inc-rename.nvim",
+      cmd = "IncRename",
+      config = function()
+        require("inc_rename").setup()
+      end,
+    }
 
     -- LSP Cmp
     use { 'hrsh7th/nvim-cmp', event = 'InsertEnter', config = "require('plugins.cmp')" }

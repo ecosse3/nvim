@@ -1,3 +1,5 @@
+local keys = require("keymaps.lsp")
+
 local M = {}
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -43,14 +45,15 @@ local on_attach = function(client, bufnr)
   -- necessary thanks to the `vim.lsp.buf.format` API introduced in Neovim
   -- 0.8. Users with Neovim 0.7 needs to uncomment below lines to make tsserver formatting work (or keep using eslint).
 
-  -- client.server_capabilities.documentFormattingProvider = false
-  -- client.server_capabilities.documentRangeFormattingProvider = false
+  client.server_capabilities.documentFormattingProvider = false
+  client.server_capabilities.documentRangeFormattingProvider = false
 
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
   require("lsp-inlayhints").on_attach(client, bufnr)
+  keys.setup(client, bufnr)
 end
 
 local function filter(arr, fn)
