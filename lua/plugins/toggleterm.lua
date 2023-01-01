@@ -8,7 +8,14 @@ require("toggleterm").setup {
     end
   end,
   open_mapping = [[<F12>]],
-  hide_numbers = true, -- hide the number column in toggleterm buffers
+  ---@diagnostic disable-next-line: unused-local
+  on_open = function(term)
+    require('shade').toggle();
+  end,
+  ---@diagnostic disable-next-line: unused-local
+  on_close = function(term)
+    require('shade').toggle();
+  end,
   highlights = {
     -- highlights which map to a highlight group name and a table of it's values
     -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
@@ -25,7 +32,7 @@ require("toggleterm").setup {
     },
   },
   shade_filetypes = {},
-  shade_terminals = true,
+  shade_terminals = false,
   shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
