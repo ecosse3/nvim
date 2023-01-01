@@ -38,6 +38,7 @@ end
 local source_mapping = {
   npm         = EcoVim.icons.terminal .. 'NPM',
   cmp_tabnine = EcoVim.icons.light,
+  Copilot     = EcoVim.icons.copilot,
   nvim_lsp    = EcoVim.icons.paragraph .. 'LSP',
   buffer      = EcoVim.icons.buffer .. 'BUF',
   nvim_lua    = EcoVim.icons.bomb,
@@ -131,30 +132,35 @@ cmp.setup {
   }),
 
   formatting = {
-    format = function(entry, vim_item)
-      vim_item.kind = lspkind.symbolic(vim_item.kind, { with_text = true })
-      local menu = source_mapping[entry.source.name]
-      local maxwidth = 50
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      max_width = 50,
+      symbol_map = source_mapping,
+      before = function(entry, vim_item)
+        vim_item.kind = lspkind.symbolic(vim_item.kind, { with_text = true })
+        local menu = source_mapping[entry.source.name]
+        local maxwidth = 50
 
-      if entry.source.name == 'cmp_tabnine' then
-        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
-          menu = menu .. entry.completion_item.data.detail
-        else
-          menu = menu .. 'TBN'
+        if entry.source.name == 'cmp_tabnine' then
+          if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+            menu = menu .. entry.completion_item.data.detail
+          else
+            menu = menu .. 'TBN'
+          end
         end
+
+        vim_item.menu = menu
+        vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+        return vim_item
       end
-
-      vim_item.menu = menu
-      vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
-
-      return vim_item
-    end
+    })
   },
 
   -- You should specify your *installed* sources.
   sources = {
     { name = 'nvim_lsp', priority = 9 },
     { name = 'npm', priority = 9 },
+    { name = 'copilot', priority = 8 },
     { name = 'cmp_tabnine', priority = 8, max_num_results = 3 },
     { name = 'luasnip', priority = 7, max_item_count = 8 },
     { name = 'buffer', priority = 7, keyword_length = 5, option = buffer_option, max_item_count = 8 },
