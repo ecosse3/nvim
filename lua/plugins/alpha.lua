@@ -115,8 +115,8 @@ dashboard.section.buttons.val = {
   button("<S-P>", icons.t .. " " .. "Find Word", "<cmd>lua require('plugins.telescope.pickers.multi-rg')()<CR>", {}),
   button("SPC s h", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
   button("SPC / s d", icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>", {}),
-  button("SPC / u", icons.container .. " " .. "Update Plugins", "<cmd>PackerSync<CR>", {}),
-  button("SPC / i", icons.container .. " " .. "Install Plugins", "<cmd>PackerInstall<CR>", {}),
+  button("SPC / u", icons.container .. " " .. "Update Plugins", "<cmd>Lazy update<CR>", {}),
+  button("SPC / i", icons.container .. " " .. "Manage Plugins", "<cmd>Lazy<CR>", {}),
   button("SPC / c", icons.cog .. " " .. "Settings", "<cmd>e $MYVIMRC<CR>", {}),
   button("-", icons.exit .. " " .. "Exit", "<cmd>exit<CR>", {}),
 }
@@ -141,7 +141,7 @@ local function line_from(file)
 end
 
 local function footer()
-  local plugins = #vim.tbl_keys(packer_plugins)
+  local plugins = require("lazy").stats().count
   local v = vim.version()
   local ecovim_version = line_from(config_dir .. "/.ecovim.version")
   return string.format(" v%d.%d.%d   %d   %s ", v.major, v.minor, v.patch, plugins, ecovim_version[1])
@@ -170,7 +170,7 @@ local section = {
 
 local opts = {
   layout = {
-    {type = "padding", val = 5},
+    {type = "padding", val = 3},
     section.header,
     {type = "padding", val = 1},
     section.hi_top_section,
@@ -178,7 +178,7 @@ local opts = {
     section.hi_bottom_section,
     {type = "padding", val = 2},
     section.buttons,
-    {type = "padding", val = 5},
+    {type = "padding", val = 4},
     section.footer,
   },
   opts = {
