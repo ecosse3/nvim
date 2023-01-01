@@ -1,10 +1,10 @@
 require('utils.globals')
-require('config')
 require('settings')
 require('colorscheme')
 require('keymappings')
 require('autocmds')
 require('functions')
+require('config.EcoVim')
 require('internal.cursorword')
 
 require('lsp.config')

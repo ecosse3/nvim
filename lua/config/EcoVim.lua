@@ -6,7 +6,7 @@
 --                                            --
 ------------------------------------------------
 
-local icons = require('icons')
+local icons = require('utils.icons')
 
 EcoVim = {
   colorscheme = 'tokyonight',
@@ -19,19 +19,22 @@ EcoVim = {
     completion = {
       select_first_on_enter = false
     },
+    copilot = {
+      enabled = true,
+    },
     rooter = {
       -- Removing package.json from list in Monorepo Frontend Project can be helpful
       -- By that your live_grep will work related to whole project, not specific package
       patterns = {'.git', 'package.json', '_darcs', '.bzr', '.svn', 'Makefile'} -- Default
     },
     zen = {
-      kitty_enabled = false,
+      kitty_enabled = true,
       enabled = true, -- sync after change
     },
   },
   icons = icons,
   statusline = {
-    path_enabled = true,
+    path_enabled = false,
     path = 'relative' -- absolute/relative
   },
   lsp = {
