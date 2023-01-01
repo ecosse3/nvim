@@ -97,7 +97,7 @@ return {
   { 'akinsho/nvim-toggleterm.lua', branch = 'main', config = function() require('plugins.toggleterm') end },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-speeddating' },
-  { 'dhruvasagar/vim-table-mode' },
+  { 'dhruvasagar/vim-table-mode', ft = { "markdown" } },
   { 'mg979/vim-visual-multi', config = function() vim.g.VM_leader = ";" end },
   { 'JoosepAlviste/nvim-ts-context-commentstring' },
   { 'nacro90/numb.nvim', lazy = false, config = function() require('plugins.numb') end },
