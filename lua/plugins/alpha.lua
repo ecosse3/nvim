@@ -4,7 +4,7 @@ if not present then
 end
 
 local dashboard = require("alpha.themes.dashboard")
-local icons = require("icons")
+local icons = require("utils.icons")
 local if_nil = vim.F.if_nil
 local fn = vim.fn
 local config_dir = fn.stdpath('config')
@@ -35,7 +35,7 @@ dashboard.section.header.opts = {
 -- │ Heading Info                                             │
 -- ╰──────────────────────────────────────────────────────────╯
 
-local thingy = io.popen('echo "$(date +%a) $(date +%d) $(date +%b)" | tr -d "\n"')
+local thingy = io.popen('echo "$(LANG=en_us_88591; date +%a) $(date +%d) $(LANG=en_us_88591; date +%b)" | tr -d "\n"')
 if thingy == nil then return end
 local date = thingy:read("*a")
 thingy:close()
