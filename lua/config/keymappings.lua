@@ -34,7 +34,8 @@ keymap("n", "<S-p>", "<CMD>lua require('plugins.telescope.pickers.multi-rg')()<C
 keymap("n", "<CR>", ":noh<CR><CR>", silent)
 
 -- Find word/file across project
-keymap("n", "<Leader>pf", "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
+keymap("n", "<Leader>pf",
+  "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
 keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
 
 -- Buffers
@@ -92,7 +93,8 @@ keymap("x", "ga", "<Plug>(EasyAlign)", silent)
 
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
-keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>", silent)
+keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
+  silent)
 
 -- Open links under cursor in browser with gx
 if vim.fn.has('macunix') == 1 then
@@ -120,10 +122,10 @@ keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-    local winid = require('ufo').peekFoldedLinesUnderCursor()
-    if not winid then
-        vim.lsp.buf.hover()
-    end
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
 end)
 
 -- Comment Box
