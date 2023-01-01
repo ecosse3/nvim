@@ -1,5 +1,3 @@
-pcall(require, 'impatient')
-
 require('internal.packer_commands')
 require('utils.globals')
 require('config')
