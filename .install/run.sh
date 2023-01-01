@@ -48,6 +48,7 @@ function main() {
   
   remove_current_repo
   clone_repo
+  install_lazy
   setup
   finish
 }
@@ -193,10 +194,17 @@ function clone_repo() {
   echo "${GREEN}${BOLD}Done${NC}"
 }
 
-function finish () {
-  touch /tmp/first-ecovim-run
-  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}" 1
-  echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
+function install_lazy() {
+  if [ -e "$RUNTIME_DIR/lazy/lazy.nvim" ]; then
+    msg "${BOLD}${GREEN}Lazy.nvim already installed!${NC}"
+    echo -e
+  else
+    if ! git clone --filter=blob:none --single-branch "https://github.com/folke/lazy.nvim.git" \
+      "$RUNTIME_DIR/lazy/lazy.nvim"; then
+      msg "${BOLD}${RED}Failed to clone Lazy.nvim. Installation failed.${NC}"
+      exit 1
+    fi
+  fi
 }
 
 function setup() {
@@ -208,6 +216,13 @@ function setup() {
 
   msg "${BOLD}${GREEN}Plugin installation completed!${NC}" 1
 }
+
+function finish () {
+  touch /tmp/first-ecovim-run
+  msg "${BOLD}${GREEN}Thank you for installing my ${BLUE}Ecovim${NC}${BOLD}${GREEN} config! Please support me by giving a star :)${NC}" 1
+  echo -e "${BOLD}${GREEN}Do not forget to use a font with glyphs (icons) support [https://github.com/ryanoasis/nerd-fonts].\nI recommend Fira Code for Ecovim setup.${NC}"
+}
+
 
 function print_logo() {
   echo -e "${BLUE}"
