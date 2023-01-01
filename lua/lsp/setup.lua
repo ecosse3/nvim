@@ -2,7 +2,7 @@
 local typescript_ok, typescript = pcall(require, 'typescript')
 local mason_ok, mason = pcall(require, 'mason')
 local mason_lsp_ok, mason_lsp = pcall(require, 'mason-lspconfig')
-local ufo_config = require('plugins.nvim-ufo')
+local ufo_config_handler = require('plugins.nvim-ufo').handler
 
 if not mason_ok or not mason_lsp_ok then
   return
@@ -120,6 +120,6 @@ for _, server in ipairs { "bashls", "emmet_ls", "graphql", "html", "volar", "pri
 end
 
 require('ufo').setup({
-  fold_virt_text_handler = ufo_config.handler,
+  fold_virt_text_handler = ufo_config_handler,
   close_fold_kinds = { "imports" }
 })
