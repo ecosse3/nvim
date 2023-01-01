@@ -3,7 +3,8 @@ require('settings')
 require('colorscheme')
 require('keymappings')
 require('autocmds')
-require('functions')
+require('utils.functions')
+
 require('config.EcoVim')
 require('internal.cursorword')
 

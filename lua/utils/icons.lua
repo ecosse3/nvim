@@ -15,6 +15,7 @@ local icons = {
   caretRight          = "",
   check               = "  ",
   checkSquare         = "  ",
+  copilot             = "",
   exit                = "  ",
   chevronRight        = "",
   circle              = "  ",
