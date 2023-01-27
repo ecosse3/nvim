@@ -68,11 +68,7 @@ Git Side Blame
 
 ## Installation
 
-Copy it into your terminal:
-
-```bash
-bash <(curl -s https://raw.githubusercontent.com/ecosse3/nvim/master/.install/run.sh)
-```
+**Just clone GitHub repo into ~/.config/nvim.**
 
 After install configuration:
 
@@ -82,8 +78,11 @@ Make sure to run `:TSInstall <lang>` for specific language you want to install.
 
 ## Configuration
 
-To change Ecovim related config use the `config.lua` file.\
-To change vim settings use the `settings.lua` file.
+To change EcoVim related config use the `config/EcoVim.lua` file.\
+
+To change vim settings use the `config/options.lua` file.
+
+To change plugin related settings use the specific `plugins/[name].lua` file. Some of the plugin config can be set up during plugin installation in `config/plugins.lua` file, where you can add new plugins.
 
 ## Keybindings
 
