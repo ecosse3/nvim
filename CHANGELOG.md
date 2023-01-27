@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/ecosse3/nvim/compare/v3.0.0...v3.0.1) (2023-01-27)
+
+
+### Bug Fixes
+
+* **plugins:** use inlay-hints config to change highlight group ([3d87878](https://github.com/ecosse3/nvim/commit/3d878788768b3e899ecc7d628f8f0c4e39f0f7ff))
+
 ## [3.0.0](https://github.com/ecosse3/nvim/compare/v2.4.2...v3.0.0) (2023-01-27)
 
 
