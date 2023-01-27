@@ -178,7 +178,7 @@ local opts = {
     section.hi_bottom_section,
     {type = "padding", val = 2},
     section.buttons,
-    {type = "padding", val = 4},
+    {type = "padding", val = 3},
     section.footer,
   },
   opts = {
