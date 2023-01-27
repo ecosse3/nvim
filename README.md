@@ -16,6 +16,7 @@
 - Extendable LSP configuration
 - Support for [TailwindCSS](https://tailwindcss.com/) with highlighted colors
 - Support for [Tabnine](https://www.tabnine.com/)
+- Support for [GitHub Copilot](https://github.com/features/copilot) and [ChatGPT](https://openai.com/blog/chatgpt/)
 - JSON autocompletion for most popular Frontend config
 - NPM packages autocompletion
 - Internal [Jest](https://github.com/facebook/jest) testing
@@ -224,84 +225,38 @@ Check out the which-key menu and keybindings.lua for most used maps.
 
 ## Performance
 
-Measured on Manjaro Linux.
+Measured on M1.
 
-![Performance](./.screenshots/performance.svg)
-
-<details>
-
-| Plugin                | Max   | Min   | Median | Average | Deviation |
-|-----------------------|-------|-------|--------|---------|-----------|
-| packer.nvim           | 29.17 | 26.34 | 27.06  | 27.400  | 0.82865   |
-| barbar.nvim           | 5.396 | 4.632 | 4.833  | 4.9430  | 0.24331   |
-| vim-visual-multi      | 4.845 | 2.618 | 2.684  | 2.9322  | 0.64473   |
-| tokyonight.nvim       | 2.985 | 2.337 | 2.516  | 2.5658  | 0.17981   |
-| splitjoin.vim         | 2.814 | 1.927 | 2.208  | 2.2545  | 0.22991   |
-| emmet-vim             | 1.891 | 1.691 | 1.778  | 1.7830  | 0.04796   |
-| lightspeed.nvim       | 1.124 | 0.923 | 0.973  | 0.9882  | 0.05839   |
-| diffview.nvim         | 1.201 | 0.781 | 0.853  | 0.8835  | 0.11407   |
-| nvim-treesitter       | 0.946 | 0.749 | 0.824  | 0.8382  | 0.06759   |
-| vim-table-mode        | 1.103 | 0.612 | 0.659  | 0.6985  | 0.13677   |
-| vim-speeddating       | 0.620 | 0.472 | 0.487  | 0.5080  | 0.04537   |
-| vim-surround          | 0.682 | 0.380 | 0.392  | 0.4249  | 0.08735   |
-| indent-blankline.nvim | 0.453 | 0.310 | 0.360  | 0.3622  | 0.03858   |
-| dressing.nvim         | 0.449 | 0.307 | 0.326  | 0.3437  | 0.04207   |
-| switch.vim            | 0.352 | 0.311 | 0.320  | 0.3257  | 0.01351   |
-| telescope.nvim        | 0.241 | 0.175 | 0.191  | 0.1933  | 0.01936   |
-| vim-easy-align        | 0.195 | 0.147 | 0.151  | 0.1565  | 0.01378   |
-| nvim-tree.lua         | 0.130 | 0.062 | 0.092  | 0.0902  | 0.02328   |
-| nvim-lspconfig        | 0.190 | 0.067 | 0.068  | 0.0808  | 0.03643   |
-| DAPInstall.nvim       | 0.082 | 0.069 | 0.072  | 0.0729  | 0.00365   |
-| FixCursorHold.nvim    | 0.065 | 0.054 | 0.056  | 0.0578  | 0.00322   |
-| lsp-trouble.nvim      | 0.059 | 0.054 | 0.057  | 0.0565  | 0.00163   |
-| plenary.nvim          | 0.068 | 0.047 | 0.050  | 0.0551  | 0.00857   |
-| filetype.nvim         | 0.063 | 0.041 | 0.042  | 0.0462  | 0.00820   |
-| nvim-toggleterm.lua   | 0.053 | 0.035 | 0.036  | 0.0379  | 0.00511   |
-| nvim-web-devicons     | 0.040 | 0.035 | 0.036  | 0.0367  | 0.00149   |
-| nvim-colorizer.lua    | 0.035 | 0.031 | 0.034  | 0.0334  | 0.00150   |
-| glow.nvim             | 0.040 | 0.029 | 0.031  | 0.0323  | 0.00287   |
-| todo-comments.nvim    | 0.043 | 0.027 | 0.030  | 0.0310  | 0.00431   |
-
-</details>
-
-Ecovim started in 109.7ms (based on hyperfine)
-
-### Next 3.0 list (~mid september)
-
-| Description                                     | Progress                                                           |
-|-------------------------------------------------|--------------------------------------------------------------------|
-| Create npx auto-installer & uninstaller         | ![50%](https://progress-bar.dev/50/?title=progress)                |
-| Easy user configurable config                   | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better configuration of additional LSPs         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better support for null-ls and local formatting | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+Ecovim started in 91.13ms 
 
 ## Future Todo 
 
-| Description                                            | Progress                                                           |
-|--------------------------------------------------------|--------------------------------------------------------------------|
-| Project Logo                                           | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Auto resize for more consistent UI behavior            | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Reload in-time support                                 | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Support more LSPs (not only frontend?)                 | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| More built-in themes (lazy loaded)                     | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
-| Better UI customization when nvim 0.8 will be in ready | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Description                                                          | Progress                                                           |
+|----------------------------------------------------------------------|--------------------------------------------------------------------|
+| Support more LSPs (not only frontend? - already possible via Mason)  | ![50%](https://progress-bar.dev/50/?title=progres)                 |
+| Better configuration of additional LSPs (already possible via Mason) | ![50%](https://progress-bar.dev/50/?title=planned)                 |
+| Project Logo                                                         | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Auto resize for more consistent UI behavior                          | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
+| Reload in-time support                                               | ![Planned](https://progress-bar.dev/0/?title=planned&color=b8860b) |
 
 
 <details>
 <summary>Done</summary>
 
-| Description                                  | Progress                                                       |
-|----------------------------------------------|----------------------------------------------------------------|
-| Better support to project word refactor      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Support for nvim-dap debugger for React      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Support ESLint & Prettier in Native LSP      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Replace coc-explorer with nvim-tree.lua      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Replace coc.nvim with Native LSP             | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Change fzf.nvim to telescope.nvim            | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Update statusline to support LSP diagnostics | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Rewrite most config to lua                   | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Support TailwindCSS with colors              | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Provide current screenshots                  | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
-| Create shell installer for Linux & MacOS     | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Description                                     | Progress                                                       |
+|-------------------------------------------------|----------------------------------------------------------------|
+| lazy.nvim instead of packer                     | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Better support for null-ls and local formatting | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Better support to project word refactor         | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support for nvim-dap debugger for React         | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support ESLint & Prettier in Native LSP         | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Replace coc-explorer with nvim-tree.lua         | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Replace coc.nvim with Native LSP                | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Change fzf.nvim to telescope.nvim               | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Update statusline to support LSP diagnostics    | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Rewrite most config to lua                      | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Support TailwindCSS with colors                 | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Provide current screenshots                     | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
+| Create shell installer for Linux & MacOS        | ![100%](https://progress-bar.dev/100/?title=done&color=555555) |
 
 </details>
