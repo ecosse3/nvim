@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/ecosse3/nvim/compare/v3.0.1...v3.0.2) (2023-01-27)
+
+
+### Refactors
+
+* **plugins:** kyazdani42 -> nvim-tree ([c7c199f](https://github.com/ecosse3/nvim/commit/c7c199fd967469d8edf9c062e370a757fe51d4bb))
+
 ### [3.0.1](https://github.com/ecosse3/nvim/compare/v3.0.0...v3.0.1) (2023-01-27)
 
 
