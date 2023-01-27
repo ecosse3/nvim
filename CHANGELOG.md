@@ -2,6 +2,56 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/ecosse3/nvim/compare/v2.4.2...v3.0.0) (2023-01-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* change packer.nvim to lazy.nvim
+
+### Features
+
+* add lazy-lock.json ([24e9070](https://github.com/ecosse3/nvim/commit/24e90708cffdf947fb5fa9a45072c189da6a5cac))
+* change packer.nvim to lazy.nvim ([0b2a659](https://github.com/ecosse3/nvim/commit/0b2a659bdccb7dc35933a2814e5bb817fe9b885c))
+* **config:** add luarc.json ([626571c](https://github.com/ecosse3/nvim/commit/626571c710e01b9372f6d78f32fc6e908b14cf41))
+* disable diagnostics with git conflict in file ([2a28a97](https://github.com/ecosse3/nvim/commit/2a28a9714945a0ee224ddd6850ac2643047347f4))
+* **install:** update installation script for lazy.nvim ([ba20bb0](https://github.com/ecosse3/nvim/commit/ba20bb089ed401683cfbcbb4d3a76e6e31de04f4))
+* **keymappings:** add keymaps for Lazy management ([19ab421](https://github.com/ecosse3/nvim/commit/19ab4215ab3666bfd993d70d52a9caa5f9eef802))
+* **plugins:** add Copilot.nvim & refactor cmp formatting ([51f0ebc](https://github.com/ecosse3/nvim/commit/51f0ebc4ea9b235e733b95b4f1b08ba37797c02b))
+* **plugins:** add inlay-hints default config ([c75d448](https://github.com/ecosse3/nvim/commit/c75d448bce8669f1bcabc7c27b747cf18896d967))
+* **plugins:** add notifiations to session manager ([3b60f90](https://github.com/ecosse3/nvim/commit/3b60f9025dd376cbffed4b785b24fe4a513c005d))
+* **plugins:** add printer plugin with gp keymap ([dbbd3ec](https://github.com/ecosse3/nvim/commit/dbbd3ecbcdc04512deaaae9bed5ef419e3ed76aa))
+* **plugins:** center view after scrolling with <C-u> and <C-d> ([4ee1c5c](https://github.com/ecosse3/nvim/commit/4ee1c5cf51e260e6d64398a453a626104e33bfd1))
+* **plugins:** shade windows on terminal open ([52b1d41](https://github.com/ecosse3/nvim/commit/52b1d41cef8d2ab38728d2bc1ab95bee0c18e135))
+* **plugins:** use main branch of inlay-hints & default config ([3d6bace](https://github.com/ecosse3/nvim/commit/3d6bace7b0c2203a7220fc8e5dac0b1e6773f542))
+
+
+### Bug Fixes
+
+* **autocmds:** icons path ([40fc776](https://github.com/ecosse3/nvim/commit/40fc776437271b77dc77dade597a023a8d80f444))
+* **install:** install lazy before running neovim plugin sync in headless mode ([923548e](https://github.com/ecosse3/nvim/commit/923548ea948916b3050c213cade60561edd22caf))
+* **keymappings:** correct git blame maps ([e613248](https://github.com/ecosse3/nvim/commit/e6132487ae00fc7c7938f574000752f10506332d))
+* **lazy:** reorder plugins ([68aef6b](https://github.com/ecosse3/nvim/commit/68aef6b57c313aebd2165a6ff36d0b532e031b8b))
+* **lsp:** deprecated vim.lsp.buf.range_code_action ([43e2907](https://github.com/ecosse3/nvim/commit/43e2907dc1458cdd8460789ac45bc406404ae1ab))
+* **lsp:** use ufo config handler only for virtual text ([eb680cb](https://github.com/ecosse3/nvim/commit/eb680cbb0679ad2280d45bbb9d475f6fecbaf217))
+* **plugins:** disable unnecessary diagnostics in neotest ([39e7df7](https://github.com/ecosse3/nvim/commit/39e7df7c47e5e47761bc37e048fa7c1ebc612fad))
+* **plugins:** do not resize window on open file ([c476be9](https://github.com/ecosse3/nvim/commit/c476be9a7b7ce09d44db8bdbc28b047a4c6b0c1e)), closes [#94](https://github.com/ecosse3/nvim/issues/94)
+* **plugins:** enable table mode for markdown by default ([c38e3e8](https://github.com/ecosse3/nvim/commit/c38e3e8c7df2d4c90874c12670b9b8daeb09eb40))
+* **plugins:** force date display in alpha to english ([8dd721d](https://github.com/ecosse3/nvim/commit/8dd721d19e9545c053bc18581463840449d15198)), closes [#110](https://github.com/ecosse3/nvim/issues/110)
+* **plugins:** icons in gps ([7886514](https://github.com/ecosse3/nvim/commit/7886514c0357d6929fbbfdf70c582ea21dde6378))
+* **plugins:** set keymappings in plugin load directly instead of nvim-ufo config file ([e1c08b4](https://github.com/ecosse3/nvim/commit/e1c08b4279f349481ba6251ce5c78c6219103237))
+* **plugins:** update gitsigns hl groups ([49ace44](https://github.com/ecosse3/nvim/commit/49ace4419086e4e5450639df92c16eb1434f1311))
+
+
+### Refactors
+
+* **config:** remove impatient ([eed1c66](https://github.com/ecosse3/nvim/commit/eed1c66c225505ee51ae0246080abaa1e5f539e1))
+* **dirs:** config.lua -> EcoVim.lua ([bd16a02](https://github.com/ecosse3/nvim/commit/bd16a02c557c65d23558071fb19b6e418773d3ff))
+* **dirs:** move autocmds, colorscheme, keymappings to config dir ([0118159](https://github.com/ecosse3/nvim/commit/0118159b0c81ab93ef9760c94f699f8628f4e8c4))
+* **dirs:** move icons & functions to utils dir ([fb44f0b](https://github.com/ecosse3/nvim/commit/fb44f0b2c6f95a8defbe792249ae55ab99e7def0))
+* **dirs:** settings.lua -> config/options.lua ([84b79d2](https://github.com/ecosse3/nvim/commit/84b79d21f94ee3a8c020d783459d21bdea9dd828))
+* **internal:** remove packer commands ([9413e74](https://github.com/ecosse3/nvim/commit/9413e74d8f9f023d91f711abe0a48e7600cacd7f))
+
 ### [2.4.2](https://github.com/ecosse3/nvim/compare/v2.4.1...v2.4.2) (2022-10-20)
 
 
