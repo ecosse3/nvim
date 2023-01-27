@@ -177,11 +177,9 @@ return {
 	{
 		"lvimuser/lsp-inlayhints.nvim",
 		branch = "main", -- or "anticonceal"
-		config = true,
-    -- or uncomment line below for user-specific config
-		-- function()
-    --   require("plugins.inlay-hints")
-		-- end,
+		config = function()
+			require("plugins.inlay-hints")
+		end,
 	},
 
 	-- General
