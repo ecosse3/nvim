@@ -13,7 +13,7 @@ return {
 
 	{ "nvim-lua/plenary.nvim" },
 	{
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require("nvim-web-devicons").setup({ default = true })
 		end,
@@ -63,7 +63,7 @@ return {
 	},
 	{ "nvim-pack/nvim-spectre" },
 	{
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
 		keys = {
 			{ "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", desc = "NvimTree" },
 		},
@@ -258,7 +258,7 @@ return {
 	},
 	{
 		"romgrk/barbar.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "BufAdd",
 		config = function()
 			require("plugins.barbar")
