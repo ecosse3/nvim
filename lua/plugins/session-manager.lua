@@ -19,5 +19,26 @@ session_manager.setup({
     'gitcommit',
   },
   autosave_only_in_session = true, -- Always autosaves session. If true, only autosaves after a session is active.
-  max_path_length = 80,  -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
+  max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
 })
+
+local config_group = vim.api.nvim_create_augroup('SessionManagerGroup', {})
+
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = "SessionLoadPost",
+  group = config_group,
+  callback = function()
+    require('nvim-tree').toggle(false, true)
+    require('notify')('Session loaded!', 'info', { title = 'Session Manager' })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'User' }, {
+  pattern = "SessionSavePost",
+  group = config_group,
+  callback = function()
+    require('notify')('Session saved!', 'info', { title = 'Session Manager', bufid = 0 })
+    require('nvim-tree').toggle(false, true)
+  end,
+})
+
