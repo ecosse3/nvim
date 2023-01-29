@@ -426,6 +426,10 @@ return {
 	},
 	{
 		"ThePrimeagen/git-worktree.nvim",
+		keys = {
+			"<Leader>gwc",
+			"<Leader>gww",
+		},
 		config = function()
 			require("plugins.git.worktree")
 		end,
