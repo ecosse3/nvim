@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.2](https://github.com/ecosse3/nvim/compare/v3.0.1...v3.0.2) (2023-01-29)
+
+
+### Bug Fixes
+
+* **plugins:** fix keymaps for dap ([0ac5cd4](https://github.com/ecosse3/nvim/commit/0ac5cd4761ca72c51edbf0d2e6e2692f493fc802))
+* **plugins:** lazy load dap via keys ([131bbbc](https://github.com/ecosse3/nvim/commit/131bbbcdf26a9373216ddc27faba412f777d7b57))
+* **plugins:** lazy load git-worktree via keys ([dea1b42](https://github.com/ecosse3/nvim/commit/dea1b42e195e803540ff152eb3392c7c329b19e0))
+* **plugins:** lazy load template-string ([16d3688](https://github.com/ecosse3/nvim/commit/16d3688aabfb54a2bde2fdc544409bea140d743f))
+* **plugins:** lazy load vim-visual-multi ([157fe44](https://github.com/ecosse3/nvim/commit/157fe4425d45c9f4712e8247646defe1906ca99c))
+* **ui:** fix issue with spamming "No information avialable" via vim.notify ([d4fd970](https://github.com/ecosse3/nvim/commit/d4fd970d8b0970d46bcb54e9c88c4074292d35d6)), closes [#121](https://github.com/ecosse3/nvim/issues/121)
+
+
+### Refactors
+
+* **plugins:** kyazdani42 -> nvim-tree ([c7c199f](https://github.com/ecosse3/nvim/commit/c7c199fd967469d8edf9c062e370a757fe51d4bb))
+
 ### [3.0.1](https://github.com/ecosse3/nvim/compare/v3.0.0...v3.0.1) (2023-01-27)
 
 
