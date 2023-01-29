@@ -457,12 +457,25 @@ return {
 	},
 
 	-- DAP
-	{ "theHamsta/nvim-dap-virtual-text" },
-	{ "rcarriga/nvim-dap-ui" },
 	{
 		"mfussenegger/nvim-dap",
 		config = function()
 			require("plugins.dap")
 		end,
+		keys = {
+			"<Leader>da",
+			"<Leader>db",
+			"<Leader>dc",
+			"<Leader>dd",
+			"<Leader>dh",
+			"<Leader>di",
+			"<Leader>do",
+			"<Leader>dO",
+			"<Leader>dt",
+		},
+		dependencies = {
+			"theHamsta/nvim-dap-virtual-text",
+			"rcarriga/nvim-dap-ui",
+		},
 	},
 }
