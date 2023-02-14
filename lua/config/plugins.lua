@@ -368,13 +368,6 @@ return {
 			require("plugins.indent")
 		end,
 	},
-	--[[ {
-		"echasnovski/mini.indentscope",
-		event = "BufReadPre",
-		config = function()
-			require("mini.indentscope").setup()
-		end,
-	}, ]]
 
 	-- Snippets & Language & Syntax
 	{
