@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/ecosse3/nvim/compare/v3.0.2...v3.0.3) (2023-02-14)
+
+
+### Bug Fixes
+
+* **lsp:** add "Inlay Hints request failed" to banned messages ([9e9a3a4](https://github.com/ecosse3/nvim/commit/9e9a3a482f88f3159c1be8b785ed43f46f1d1ce3))
+* **plugins:** correctly load printer.nvim ([065a9a3](https://github.com/ecosse3/nvim/commit/065a9a3951be3430dca3413bffdba16f0fae2b86))
+* **plugins:** lazy load ZenMode on command ([964aa3d](https://github.com/ecosse3/nvim/commit/964aa3d4bd518d291a3fb50930c1e3d6f39ac793))
+* replace sumneko_lua (deprecated) with lua_ls ([c133fd7](https://github.com/ecosse3/nvim/commit/c133fd7e76d62bdf3b40d1ebca60e20bc7a4d19c))
+
 ### [3.0.2](https://github.com/ecosse3/nvim/compare/v3.0.1...v3.0.2) (2023-01-29)
 
 
