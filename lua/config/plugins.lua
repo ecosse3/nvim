@@ -356,6 +356,7 @@ return {
 	},
 	{
 		"rareitems/printer.nvim",
+    lazy = false,
 		config = function()
 			require("plugins.printer")
 		end,
