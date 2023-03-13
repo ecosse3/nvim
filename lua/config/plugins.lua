@@ -49,6 +49,7 @@ return {
 	},
 
 	-- Navigating (Telescope/Tree/Refactor)
+	{ "nvim-pack/nvim-spectre" },
 	{
 		"nvim-telescope/telescope.nvim",
 		lazy = false,
@@ -62,7 +63,6 @@ return {
 			{ "cljoly/telescope-repo.nvim" },
 		},
 	},
-	{ "nvim-pack/nvim-spectre" },
 	{
 		"nvim-tree/nvim-tree.lua",
 		keys = {
