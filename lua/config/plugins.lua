@@ -92,7 +92,9 @@ return {
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
-		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+		keys = {
+			{ "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
+		},
 	},
 
 	-- Formatters
@@ -117,6 +119,9 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
+		config = function()
+			require("plugins.cmp")
+		end,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
@@ -125,6 +130,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-calc",
 			"saadparwaiz1/cmp_luasnip",
+			{ "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
 			{ "tzachar/cmp-tabnine", build = "./install.sh" },
 			{
 				"David-Kunz/cmp-npm",
@@ -132,7 +138,6 @@ return {
 					require("plugins.cmp-npm")
 				end,
 			},
-			{ "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
 			{
 				"zbirenbaum/copilot-cmp",
 				disable = not EcoVim.plugins.copilot.enabled,
@@ -141,9 +146,6 @@ return {
 				end,
 			},
 		},
-		config = function()
-			require("plugins.cmp")
-		end,
 	},
 
 	-- LSP Addons
@@ -175,7 +177,12 @@ return {
 	{
 		"axelvc/template-string.nvim",
 		event = "InsertEnter",
-		ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+		ft = {
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+		},
 		config = true, -- run require("template-string").setup()
 	},
 	{
@@ -247,7 +254,11 @@ return {
 		end,
 		disable = not EcoVim.plugins.zen.enabled,
 	},
-	{ "folke/twilight.nvim", config = true, disable = not EcoVim.plugins.zen.enabled },
+	{
+		"folke/twilight.nvim",
+		config = true,
+		disable = not EcoVim.plugins.zen.enabled,
+	},
 	{
 		"ggandor/lightspeed.nvim",
 		config = function()
@@ -433,7 +444,12 @@ return {
 	},
 	{
 		"kdheepak/lazygit.nvim",
-		cmd = { "LazyGit", "LazyGitCurrentFile", "LazyGitFilterCurrentFile", "LazyGitFilter" },
+		cmd = {
+			"LazyGit",
+			"LazyGitCurrentFile",
+			"LazyGitFilterCurrentFile",
+			"LazyGitFilter",
+		},
 		config = function()
 			vim.g.lazygit_floating_window_scaling_factor = 1
 		end,
