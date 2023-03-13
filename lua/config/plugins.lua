@@ -206,7 +206,16 @@ return {
 
 	-- General
 	{ "AndrewRadev/switch.vim", lazy = false },
-	{ "AndrewRadev/splitjoin.vim", lazy = false },
+	-- { "AndrewRadev/splitjoin.vim", lazy = false },
+	{
+		"Wansmer/treesj",
+		lazy = true,
+		cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
+		keys = {
+			{ "gJ", "<cmd>TSJToggle<CR>", desc = "Trigger Toggle Split/Join" },
+		},
+		config = true,
+	},
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
