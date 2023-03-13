@@ -98,17 +98,18 @@ return {
 	-- Formatters
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufReadPre",
+		event = "BufNewFile",
 		dependencies = { "mason.nvim" },
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"williamboman/mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
 		config = function()
-			local nls = require("null-ls")
-			nls.setup({
-				sources = {
-					-- nls.builtins.formatting.prettierd,
-					nls.builtins.formatting.stylua,
-					nls.builtins.diagnostics.flake8,
-				},
-			})
+			require("plugins.null-ls")
 		end,
 	},
 
