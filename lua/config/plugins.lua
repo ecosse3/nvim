@@ -463,6 +463,7 @@ return {
 	},
 	{
 		"akinsho/git-conflict.nvim",
+		lazy = false,
 		config = function()
 			require("plugins.git.conflict")
 		end,
