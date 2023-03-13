@@ -192,6 +192,17 @@ return {
 			require("plugins.inlay-hints")
 		end,
 	},
+	{
+		"barrett-ruth/import-cost.nvim",
+		build = "sh install.sh yarn",
+		ft = {
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+		},
+		config = true,
+	},
 
 	-- General
 	{ "AndrewRadev/switch.vim", lazy = false },
