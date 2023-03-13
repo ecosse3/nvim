@@ -349,6 +349,7 @@ return {
 	},
 	{
 		"declancm/cinnamon.nvim",
+		disable = true,
 		config = function()
 			require("plugins.cinnamon")
 		end,
