@@ -436,9 +436,12 @@ return {
 	{
 		"jackMort/ChatGPT.nvim",
 		config = function()
-			require("chatgpt").setup()
+			require("plugins.chat-gpt")
 		end,
-		cmd = { "ChatGPT", "ChatGPTEditWithInstructions" },
+		cmd = {
+			"ChatGPT",
+			"ChatGPTEditWithInstructions",
+		},
 	},
 
 	-- Git
