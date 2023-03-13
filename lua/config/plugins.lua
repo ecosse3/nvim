@@ -40,6 +40,7 @@ return {
 			"RRethy/nvim-treesitter-textsubjects",
 			{
 				"m-demare/hlargs.nvim",
+				disable = true,
 				config = function()
 					require("hlargs").setup({ color = "#F7768E" })
 				end,
