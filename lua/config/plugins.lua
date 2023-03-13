@@ -393,7 +393,14 @@ return {
 	},
 	{
 		"rareitems/printer.nvim",
-    lazy = false,
+		event = "BufEnter",
+		ft = {
+			"lua",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+		},
 		config = function()
 			require("plugins.printer")
 		end,
