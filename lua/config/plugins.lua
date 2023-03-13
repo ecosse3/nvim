@@ -66,7 +66,7 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		keys = {
-			{ "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", desc = "NvimTree" },
+			{ "<C-e>", "<cmd>lua require('nvim-tree.api').tree.toggle()<CR>", desc = "NvimTree" },
 		},
 		config = function()
 			require("plugins.tree")
