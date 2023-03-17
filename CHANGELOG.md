@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/ecosse3/nvim/compare/v3.1.0...v3.1.1) (2023-03-17)
+
+
+### Bug Fixes
+
+* **cmp:** increase priority of LSP since buffer was breaking sorting ([4c0eee8](https://github.com/ecosse3/nvim/commit/4c0eee8146fc6d013e47ee1df3c13f13c945a7e5))
+* **plugins:** leep default keymaps of ChatGPT cause new versions breaks custom ones ([fe83f5d](https://github.com/ecosse3/nvim/commit/fe83f5df46c71721daab3e8802436d9192adfe58))
+* **plugins:** map "s" key to lightspeed.nvim plugin so it works correctly ([7a7b4d6](https://github.com/ecosse3/nvim/commit/7a7b4d66bfcbe303b85a9685bfe53902a355955e))
+* **plugins:** use new api of nvim-tree in session-manager ([61a20f7](https://github.com/ecosse3/nvim/commit/61a20f788f70a9d2d8b14fd690ea5aa9fec46c6f))
+
 ## [3.1.0](https://github.com/ecosse3/nvim/compare/v3.0.3...v3.1.0) (2023-03-13)
 
 
