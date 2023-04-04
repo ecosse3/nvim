@@ -38,13 +38,6 @@ return {
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-textsubjects",
-			{
-				"m-demare/hlargs.nvim",
-				disable = true,
-				config = function()
-					require("hlargs").setup({ color = "#F7768E" })
-				end,
-			},
 		},
 	},
 
@@ -279,12 +272,12 @@ return {
 		config = function()
 			require("plugins.zen")
 		end,
-		disable = not EcoVim.plugins.zen.enabled,
+		cond = EcoVim.plugins.zen.enabled,
 	},
 	{
 		"folke/twilight.nvim",
 		config = true,
-		disable = not EcoVim.plugins.zen.enabled,
+		cond = EcoVim.plugins.zen.enabled,
 	},
 	{
 		"ggandor/lightspeed.nvim",

@@ -44,7 +44,6 @@ require("zen-mode").setup({
 		require("gitsigns.actions").toggle_current_line_blame()
 		require("indent_blankline.commands").disable()
 		vim.opt.relativenumber = false
-		require("hlargs").disable()
 		require("gitsigns.actions").refresh()
 	end,
 
@@ -53,7 +52,6 @@ require("zen-mode").setup({
 		require("gitsigns.actions").toggle_current_line_blame()
 		require("indent_blankline.commands").enable()
 		vim.opt.relativenumber = true
-		require("hlargs").enable()
 		require("gitsigns.actions").refresh()
 	end,
 })
