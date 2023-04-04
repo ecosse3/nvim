@@ -20,6 +20,9 @@ EcoVim = {
 			chatgpt = {
 				enabled = false,
 			},
+			codeium = {
+				enabled = true,
+			},
 		},
 		completion = {
 			select_first_on_enter = false,

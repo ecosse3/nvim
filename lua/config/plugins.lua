@@ -434,10 +434,22 @@ return {
 
 	-- AI
 	{
-		"zbirenbaum/copilot.lua",
-		disable = not EcoVim.plugins.copilot.enabled,
+		"jcdickinson/codeium.nvim",
+		cond = EcoVim.plugins.ai.codeium.enabled,
 		event = "InsertEnter",
+		cmd = "Codeium",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 		config = true,
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		event = "InsertEnter",
+		config = function()
+			require("plugins.copilot")
+		end,
 	},
 	{
 		"jackMort/ChatGPT.nvim",
