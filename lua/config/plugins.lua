@@ -420,6 +420,14 @@ return {
 			require("plugins.indent")
 		end,
 	},
+	{
+		"folke/noice.nvim",
+		cond = EcoVim.plugins.experimental_noice.enabled,
+		lazy = false,
+		config = function()
+			require("plugins.noice")
+		end,
+	},
 
 	-- Snippets & Language & Syntax
 	{

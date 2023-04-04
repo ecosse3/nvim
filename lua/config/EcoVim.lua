@@ -33,6 +33,8 @@ EcoVim = {
 		completion = {
 			select_first_on_enter = false,
 		},
+		experimental_noice = {
+			enabled = false,
 		},
 		rooter = {
 			-- Removing package.json from list in Monorepo Frontend Project can be helpful
