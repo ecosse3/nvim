@@ -1,7 +1,7 @@
 local M = {}
 
-local status_gps_ok, gps = pcall(require, "nvim-gps")
-if not status_gps_ok then
+local status_navic_ok, navic = pcall(require, "nvim-navic")
+if not status_navic_ok then
   return
 end
 
@@ -42,23 +42,23 @@ M.filename = function()
 end
 
 M.gps = function()
-  local status_ok, gps_location = pcall(gps.get_location, {})
+  local status_ok, navic_location = pcall(navic.get_location, {})
   if not status_ok then
     return
   end
 
-  if not gps.is_available() then -- Returns boolean value indicating whether a output can be provided
+  if not navic.is_available() then -- Returns boolean value indicating whether a output can be provided
     return
   end
 
   local retval = M.filename()
 
-  if gps_location == "error" then
+  if navic_location == "error" then
     return ""
   else
-    if not isempty(gps_location) then
+    if not isempty(navic_location) then
       local hl_group = "LineNr"
-      return retval .. " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*" .. gps_location
+      return retval .. " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*" .. " " .. navic_location
     else
       return retval
     end

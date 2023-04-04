@@ -166,11 +166,11 @@ return {
 	},
 	{ "nvim-lua/popup.nvim" },
 	{
-		"ChristianChiarulli/nvim-gps",
-		branch = "text_hl",
+		"SmiteshP/nvim-navic",
 		config = function()
-			require("plugins.gps")
+			require("plugins.navic")
 		end,
+		dependencies = "neovim/nvim-lspconfig",
 	},
 	{ "jose-elias-alvarez/typescript.nvim" },
 	{
