@@ -9,19 +9,19 @@
 
 ## Features
 
-- Recommended default theme: [Tokyonight](https://github.com/folke/tokyonight.nvim)
-- Configured for Frontend Development
-- Highly performant even with a lot of plugins
-- Lazy loaded
-- Extendable LSP configuration
+- Configured for TypeScript Development (React.js, Next.js, Vue.js, Angular, Node.js etc.)
+- Great default theme: [Tokyonight](https://github.com/folke/tokyonight.nvim)
+- Lazy loaded via [lazy.nvim](https://github.com/folke/lazy.nvim)
+- Highly performant (90ms load time)
+- Extendable LSP configuration via [mason.nvim](https://github.com/williamboman/mason.nvim)
+- Support for :robot: AI: [ChatGPT](https://openai.com/blog/chatgpt/), [GitHub Copilot](https://github.com/features/copilot), [Codeium](https://codeium.com/) and [Tabnine](https://www.tabnine.com/)
 - Support for [TailwindCSS](https://tailwindcss.com/) with highlighted colors
-- Support for [Tabnine](https://www.tabnine.com/)
-- Support for [GitHub Copilot](https://github.com/features/copilot) and [ChatGPT](https://openai.com/blog/chatgpt/)
-- JSON autocompletion for most popular Frontend config
-- NPM packages autocompletion
-- Internal [Jest](https://github.com/facebook/jest) testing
-- Treesitter-based folding
-- Beautiful and functional custom statusline built with galaxyline.nvim
+- JSON autocompletion for most popular Frontend configs
+- NPM packages autocompletion in _package.json_
+- Internal [Jest](https://github.com/facebook/jest) testing and [Coverage](https://github.com/andythigpen/nvim-coverage) support
+- Automatic Treesitter-based folding with imports folded by default
+- Current code context via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- Beautiful and functional custom statusline built with [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim) 
 - Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim), custom git blame
 
 And of course usage of [telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), [barbar](https://github.com/romgrk/barbar.nvim), [cmp](https://github.com/hrsh7th/nvim-cmp), [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [blankline](https://github.com/lukas-reineke/indent-blankline.nvim) & more!
