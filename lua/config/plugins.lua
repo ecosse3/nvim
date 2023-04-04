@@ -431,6 +431,8 @@ return {
 			require("plugins.colorizer")
 		end,
 	},
+
+	-- AI
 	{
 		"zbirenbaum/copilot.lua",
 		disable = not EcoVim.plugins.copilot.enabled,
@@ -439,6 +441,7 @@ return {
 	},
 	{
 		"jackMort/ChatGPT.nvim",
+		cond = EcoVim.plugins.ai.chatgpt.enabled,
 		config = function()
 			require("plugins.chat-gpt")
 		end,
