@@ -23,12 +23,13 @@ EcoVim = {
 			codeium = {
 				enabled = true,
 			},
+			copilot = {
+				enabled = true,
+			},
 		},
 		completion = {
 			select_first_on_enter = false,
 		},
-		copilot = {
-			enabled = true,
 		},
 		rooter = {
 			-- Removing package.json from list in Monorepo Frontend Project can be helpful

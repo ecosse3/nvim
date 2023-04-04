@@ -139,7 +139,7 @@ return {
 			},
 			{
 				"zbirenbaum/copilot-cmp",
-				disable = not EcoVim.plugins.copilot.enabled,
+				cond = EcoVim.plugins.ai.copilot.enabled,
 				config = function()
 					require("copilot_cmp").setup()
 				end,
@@ -446,6 +446,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot.lua",
+		cond = EcoVim.plugins.ai.copilot.enabled,
 		event = "InsertEnter",
 		config = function()
 			require("plugins.copilot")
