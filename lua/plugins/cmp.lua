@@ -1,10 +1,7 @@
 local lspkind = require("lspkind")
 local types = require("cmp.types")
 
-local cmp_tabnine_status_ok, tabnine = pcall(require, "cmp_tabnine.config")
-if not cmp_tabnine_status_ok then
-	return
-end
+local _, tabnine = pcall(require, "cmp_tabnine.config")
 
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
@@ -254,12 +251,14 @@ cmp.setup.cmdline(":", {
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Tabnine Setup                                            │
 -- ╰──────────────────────────────────────────────────────────╯
-tabnine:setup({
-	max_lines = 1000,
-	max_num_results = 3,
-	sort = true,
-	show_prediction_strength = true,
-	run_on_every_keystroke = true,
-	snipper_placeholder = "..",
-	ignored_file_types = {},
-})
+if EcoVim.plugins.ai.tabnine.enabled then
+	tabnine:setup({
+		max_lines = 1000,
+		max_num_results = 3,
+		sort = true,
+		show_prediction_strength = true,
+		run_on_every_keystroke = true,
+		snipper_placeholder = "..",
+		ignored_file_types = {},
+	})
+end

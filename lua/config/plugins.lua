@@ -130,7 +130,11 @@ return {
 			"hrsh7th/cmp-calc",
 			"saadparwaiz1/cmp_luasnip",
 			{ "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
-			{ "tzachar/cmp-tabnine", build = "./install.sh" },
+			{
+				cond = EcoVim.plugins.ai.tabnine.enabled,
+				"tzachar/cmp-tabnine",
+				build = "./install.sh",
+			},
 			{
 				"David-Kunz/cmp-npm",
 				config = function()
