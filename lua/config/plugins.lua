@@ -10,7 +10,6 @@ return {
 			require("config.colorscheme")
 		end,
 	},
-
 	{ "nvim-lua/plenary.nvim" },
 	{
 		"nvim-tree/nvim-web-devicons",
