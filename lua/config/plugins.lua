@@ -311,6 +311,7 @@ return {
 		"romgrk/barbar.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "BufAdd",
+		version = "^1.0.0",
 		config = function()
 			require("plugins.barbar")
 		end,
