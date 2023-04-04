@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/ecosse3/nvim/compare/v3.1.1...v3.2.0) (2023-04-04)
+
+
+### Features
+
+* **ai:** add codeium AI plugin & configure copilot ([df0bf24](https://github.com/ecosse3/nvim/commit/df0bf24ff2ab3828f2de5897c3399db3870ea5e7))
+* **ai:** make ChatGPT disabled by default and configurable via EcoVim config ([b172d8b](https://github.com/ecosse3/nvim/commit/b172d8b9dd21f14794266b9255ea9d96d79b1ecd))
+* **colorscheme:** remove italic from comments ([7db438e](https://github.com/ecosse3/nvim/commit/7db438e68053567320d02f8594dcfd25c5e3a165))
+* **lsp:** enable TypeScript codeactions for null-ls by default ([7f15721](https://github.com/ecosse3/nvim/commit/7f157212bce8aa2ec00234cfa886f7fe9c7c6b52))
+* **plugins:** add experimental noice UI plugin disabled by default toggable via EcoVim config ([3445910](https://github.com/ecosse3/nvim/commit/3445910177a3dac8d81bfe43ff99bd77a81b271c))
+* **plugins:** use nvim-navic instead of nvim-gps which is deprecated ([d43d281](https://github.com/ecosse3/nvim/commit/d43d281675ff63f38fa7cb04adc50c3516238884))
+* **plugins:** use treejs instead of splitjoin & configure mappings ([f930dd2](https://github.com/ecosse3/nvim/commit/f930dd23bf6635e1ecedd007e240fcc01d44d6dd))
+* **tabnine:** disable by default & make configurable via EcoVim config ([3124357](https://github.com/ecosse3/nvim/commit/3124357b26ddd3dd4fda04b1423a5feb6ab75488))
+
+
+### Bug Fixes
+
+* **ai:** fix copilot config ([c1314c8](https://github.com/ecosse3/nvim/commit/c1314c8e998d23babe04fae30666a9b45831b636))
+* **cmp:** fix cmp completely for AI & provide new kind sources ([55b7a62](https://github.com/ecosse3/nvim/commit/55b7a6209fca66fc68c3651d23ce742f4c4954bd))
+* **lsp:** silent unnecessary messages while using tsserver & tailwing via hover handlers ([055be17](https://github.com/ecosse3/nvim/commit/055be17d9a9e049ba84996dfcf8635721f6785c7))
+* **plugins:** fix zen mode after removing hlargs ([55db522](https://github.com/ecosse3/nvim/commit/55db5224c2762e2482076a1ab1098e49754d3149))
+* **plugins:** keep barbar 1.0 version until fixed ([42b95c1](https://github.com/ecosse3/nvim/commit/42b95c13fba4000e50faa712e449421c2a88d972))
+* **plugins:** remove cinnamon plugin ([dbdcbeb](https://github.com/ecosse3/nvim/commit/dbdcbebf2dd5f8b707f2d21009b44f6a86c6b73e))
+* **plugins:** temporarily disable diffview.nvim since it's broken ([a470f5b](https://github.com/ecosse3/nvim/commit/a470f5bf802955dc65d4971d4ed2cb303c1138f7))
+* **plugins:** trigger nvim-tree via cmds ([cfd75fd](https://github.com/ecosse3/nvim/commit/cfd75fda8a0445d68092ecaf2bd2b765dda4fa42))
+
 ### [3.1.1](https://github.com/ecosse3/nvim/compare/v3.1.0...v3.1.1) (2023-03-17)
 
 
