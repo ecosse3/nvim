@@ -294,6 +294,7 @@ local function attach_typescript(bufnr)
   wk.register({
     c = {
       name = "LSP",
+      e = { '<cmd>TSC<CR>',                                'workspace errors (TSC)'},
       F = { '<cmd>TypescriptFixAll<CR>',                   'fix all' },
       i = { '<cmd>TypescriptAddMissingImports<CR>',        'import all'},
       o = { '<cmd>TypescriptOrganizeImports<CR>',          'organize imports'},
