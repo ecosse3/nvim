@@ -1,14 +1,4 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "Lua.diagnostics.globals": [
-    "vim",
-    "bit",
-    "require"
-  ],
-    "workspace.library": [
-        "/Users/dillon/.local/share/nvim/site/pack/packer/start/neodev.nvim/types/stable",
-        "/opt/homebrew/Cellar/neovim/0.9.0/share/nvim/runtime/lua",
-        "/Users/dillon/Code/ecovim/lua",
-        "${3rd}/luv/library"
-    ]
+  "Lua.diagnostics.globals": ["vim", "bit", "require"]
 }
