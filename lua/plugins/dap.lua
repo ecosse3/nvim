@@ -96,15 +96,15 @@ dap.set_log_level("TRACE")
 -- Automatically open UI
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
-  shade.toggle()
+  -- shade.toggle()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
+dap.listeners.after.event_terminated["dapui_config"] = function()
   dapui.close()
-  shade.toggle()
+  -- shade.toggle()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
-  shade.toggle()
+  -- shade.toggle()
 end
 
 -- Enable virtual text
@@ -127,6 +127,11 @@ keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
 keymap("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>", opts)
 keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", opts)
 keymap("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts)
+keymap("n", "<Leader>dC", "<CMD>lua require('dapui').close()<CR>", opts)
+
+keymap("n", "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>", opts)
+keymap("n", "<Leader>ds", "<CMD>lua require('dapui').float_element('scopes', { enter = true })<CR>", opts)
+keymap("n", "<Leader>dr", "<CMD>lua require('dapui').float_element('repl', { enter = true })<CR>", opts)
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Adapters                                                 │
@@ -150,6 +155,7 @@ dap.adapters.chrome = {
 -- ╰──────────────────────────────────────────────────────────╯
 dap.configurations.javascript = {
   {
+    name = "Node.js",
     type = "node2",
     request = "launch",
     program = "${file}",
@@ -162,6 +168,7 @@ dap.configurations.javascript = {
 
 dap.configurations.javascript = {
   {
+    name = "Chrome (9222)",
     type = "chrome",
     request = "attach",
     program = "${file}",
@@ -175,6 +182,7 @@ dap.configurations.javascript = {
 
 dap.configurations.javascriptreact = {
   {
+    name = "Chrome (9222)",
     type = "chrome",
     request = "attach",
     program = "${file}",
@@ -188,6 +196,7 @@ dap.configurations.javascriptreact = {
 
 dap.configurations.typescriptreact = {
   {
+    name = "Chrome (9222)",
     type = "chrome",
     request = "attach",
     program = "${file}",
@@ -198,7 +207,7 @@ dap.configurations.typescriptreact = {
     webRoot = "${workspaceFolder}",
   },
   {
-    name = "React Native",
+    name = "React Native (8081)",
     type = "node2",
     request = "attach",
     program = "${file}",
@@ -206,6 +215,6 @@ dap.configurations.typescriptreact = {
     sourceMaps = true,
     protocol = "inspector",
     console = "integratedTerminal",
-    port = 35000,
-  }
+    port = 8081,
+  },
 }
