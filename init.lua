@@ -8,6 +8,7 @@ require('config.lazy')
 require('config.keymappings')
 require('config.autocmds')
 
+require('internal.winbar')
 require('internal.cursorword')
 
 require('lsp.config')
