@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/ecosse3/nvim/compare/v3.2.0...v3.3.0) (2023-04-25)
+
+
+### Features
+
+* **cmp:** prioritize copilot cmp comparators & lint ([afe1f07](https://github.com/ecosse3/nvim/commit/afe1f079f6bd20ef4947fe5fe53d5d7236359ebd))
+* **dap:** add new keymaps to focus specific dap window & disable shade by default ([e3710c1](https://github.com/ecosse3/nvim/commit/e3710c1b0cf401a6a3e9acdcee063feb4a903749))
+* **lsp:** enable codespell for markdown & text files ([0e2e426](https://github.com/ecosse3/nvim/commit/0e2e42622a77c8ba364f3239d179f4b7e9d0c382))
+* **lsp:** improve vuels lsp config ([e64b642](https://github.com/ecosse3/nvim/commit/e64b642b35ae3e9756c686f144c043ae142be13c))
+* **options:** set cmdheight to 0 by default (can be changed personally) ([241691f](https://github.com/ecosse3/nvim/commit/241691fec47e867cc75cb7a6c10b76c04a317cc0))
+* **plugins:** add 'jump_by_subwords' option to EcoVim config with nvim-spider plugin && enable noice by default ([b23c9ae](https://github.com/ecosse3/nvim/commit/b23c9ae1e78278a11b0c935cd6aab1a7a1853eff))
+* **plugins:** add glance.nvim plugin for great definitions/references LSP UI ([6fda79d](https://github.com/ecosse3/nvim/commit/6fda79d19f4bde6ea09d73ecb1dccd5039481063))
+* **plugins:** add tsc.nvim ([fb762fe](https://github.com/ecosse3/nvim/commit/fb762fe9338c4c4c2802cf434f3d6cc662ec51d2))
+* **plugins:** add tsc.nvim mapping to which-key & remove chatgpt config file ([10e68ae](https://github.com/ecosse3/nvim/commit/10e68aedd9cc3ccdeeea51134e1fcb070951c2c2))
+* **plugins:** replace ChatGPT.nvim with NeoAI.nvim ([772af39](https://github.com/ecosse3/nvim/commit/772af39bcc5d09ce729635554311d558c9f1edd5))
+* **plugins:** update nvim-tree & make "File Explorer" title always align in the middle even when resized ([9494b6f](https://github.com/ecosse3/nvim/commit/9494b6fb54620424dcc0ab75e7f23c3dbadeb01d))
+* **winbar:** move winbar autocmds to winbar itself & add titles for DAP windows ([aa4b3fa](https://github.com/ecosse3/nvim/commit/aa4b3faa312e5195f323325226fe989f5b1e48c2))
+* **zen:** disable signcolumn on zen mode & lint ([07954cf](https://github.com/ecosse3/nvim/commit/07954cf3f4817acd3fbf86f6896d8541f801d54c))
+
+
+### Bug Fixes
+
+* **colorscheme:** change color of BufferInactiveIndex in tab bar (barbar.nvim) ([1f7a415](https://github.com/ecosse3/nvim/commit/1f7a4150026df2b9f39766ff49b38d3611ef787f))
+* return nvim-notify notification record from vim.notify ([#133](https://github.com/ecosse3/nvim/issues/133)) ([f35c525](https://github.com/ecosse3/nvim/commit/f35c525f865d1fada6e7f92c86c51884913f98f8))
+* **telescope:** weird issue in insert mode in telescope ([ee6d428](https://github.com/ecosse3/nvim/commit/ee6d4287b58b84e480059a34aba96d628d15dc21))
+* **utils:** change deprecated pretty_print to print ([a4a2cf4](https://github.com/ecosse3/nvim/commit/a4a2cf42b67fde07451dfd5cce364bc23ca962cc))
+
 ## [3.2.0](https://github.com/ecosse3/nvim/compare/v3.1.1...v3.2.0) (2023-04-04)
 
 
