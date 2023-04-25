@@ -206,6 +206,11 @@ return {
 		},
 		config = true,
 	},
+	{
+		"dmmulroy/tsc.nvim",
+		cmd = { "TSC" },
+		config = true,
+	},
 
 	-- General
 	{ "AndrewRadev/switch.vim", lazy = false },
