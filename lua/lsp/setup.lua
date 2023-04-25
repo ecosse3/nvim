@@ -27,7 +27,6 @@ mason_lsp.setup({
     "lua_ls",
     "tailwindcss",
     "tsserver",
-    "volar",
     "prismals",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
@@ -123,10 +122,11 @@ lspconfig.vuels.setup({
   filetypes = require("lsp.servers.vuels").filetypes,
   handlers = handlers,
   init_options = require("lsp.servers.vuels").init_options,
-  on_attach = on_attach,
+  on_attach = require("lsp.servers.vuels").on_attach,
+  settings = require("lsp.servers.vuels").settings,
 })
 
-for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "volar", "prismals" }) do
+for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals" }) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = capabilities,
