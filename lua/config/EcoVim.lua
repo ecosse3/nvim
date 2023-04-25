@@ -33,7 +33,12 @@ EcoVim = {
 		completion = {
 			select_first_on_enter = false,
 		},
+		-- Completely replaces the UI for messages, cmdline and the popupmenu
 		experimental_noice = {
+			enabled = true,
+		},
+		-- Enables moving by subwords and skips significant punctuation with w, e, b motions
+		jump_by_subwords = {
 			enabled = false,
 		},
 		rooter = {
