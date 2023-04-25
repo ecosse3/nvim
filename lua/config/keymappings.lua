@@ -104,8 +104,8 @@ keymap("n", "<Leader>pr", "<cmd>lua require('spectre').open_visual({select_word=
 keymap("v", "<Leader>pr", "<cmd>lua require('spectre').open_visual()<CR>")
 
 -- LSP
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
+-- keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent) -- Replaced with Glance plugin
+-- keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent) -- Replaced with Glance plugin
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)
