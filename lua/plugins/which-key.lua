@@ -386,6 +386,20 @@ local function attach_spectre(bufnr)
   })
 end
 
+local function attach_nvim_tree(bufnr)
+  wk.register({
+    ["="] = { "<cmd>NvimTreeResize +5<CR>", "resize +5" },
+    ["-"] = { "<cmd>NvimTreeResize -5<CR>", "resize +5" },
+  }, {
+    buffer = bufnr,
+    mode = "n",   -- NORMAL mode
+    prefix = "<leader>",
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = false, -- use `nowait` when creating keymaps
+  })
+end
+
 return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
@@ -393,4 +407,5 @@ return {
   attach_zen = attach_zen,
   attach_jest = attach_jest,
   attach_spectre = attach_spectre,
+  attach_nvim_tree = attach_nvim_tree,
 }
