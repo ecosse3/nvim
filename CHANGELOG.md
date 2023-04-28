@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.0](https://github.com/ecosse3/nvim/compare/v3.3.0...v3.4.0) (2023-04-28)
+
+
+### Features
+
+* **plugins:** add list of base languages to ensure_installed in treesitter ([b0c58b1](https://github.com/ecosse3/nvim/commit/b0c58b1cd77b9a4f51affb29ee75dd50361dfa40)), closes [#135](https://github.com/ecosse3/nvim/issues/135)
+
+
+### Bug Fixes
+
+* **plugins:** resize of nvim-tree works with "File Explorer" title ([94c4fed](https://github.com/ecosse3/nvim/commit/94c4fed05d7e4d753bd8dc71ef7ea89cfe70b490))
+* **winbar:** return filename if parent dir doesn't exist ([6b53c18](https://github.com/ecosse3/nvim/commit/6b53c18b54a0709c8c294d8748ee604eb301a135)), closes [#134](https://github.com/ecosse3/nvim/issues/134)
+
 ## [3.3.0](https://github.com/ecosse3/nvim/compare/v3.2.0...v3.3.0) (2023-04-25)
 
 
