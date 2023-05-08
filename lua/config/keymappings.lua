@@ -1,6 +1,8 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
+table.unpack = table.unpack or unpack -- 5.1 compatibility
+
 -- Better window movement
 keymap("n", "<C-h>", "<C-w>h", silent)
 keymap("n", "<C-j>", "<C-w>j", silent)
@@ -75,10 +77,10 @@ keymap("v", "X", '"_X', silent)
 keymap("v", "p", '"_dP', silent)
 
 -- Avoid issues because of remapping <c-a> and <c-x> below
-vim.cmd [[
+vim.cmd([[
   nnoremap <Plug>SpeedDatingFallbackUp <c-a>
   nnoremap <Plug>SpeedDatingFallbackDown <c-x>
-]]
+]])
 
 -- Quickfix
 keymap("n", "<Space>,", ":cp<CR>", silent)
@@ -111,17 +113,28 @@ keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
 keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", silent)
-keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", silent)
+keymap("v", "<leader>cf", function()
+  local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
+  local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
+
+	vim.lsp.buf.format({
+		range = {
+			["start"] = { start_row, 0 },
+			["end"] = { end_row, 0 },
+		},
+		async = true,
+	})
+end, silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-  local winid = require('ufo').peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
+	local winid = require("ufo").peekFoldedLinesUnderCursor()
+	if not winid then
+		vim.lsp.buf.hover()
+	end
 end)
 
 -- Comment Box
