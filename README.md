@@ -73,9 +73,10 @@ Git Side Blame
 
 After install configuration:
 
-1. Treesitter Languages are <ins>not installed</ins> by default.\
+1. Selected treesitter Languages are installed by default.
+To check it run `:TSInstallInfo`.
 Make sure to run `:TSInstall <lang>` for specific language you want to install.
-2. LSP servers are enabled by default. You can check installed LSP servers by :Mason command.
+2. LSP servers are enabled by default. You can check installed LSP servers by `:Mason` command.
 
 ## Configuration
 
