@@ -632,4 +632,15 @@ return {
 			"rcarriga/nvim-dap-ui",
 		},
 	},
+	{
+		"LiadOz/nvim-dap-repl-highlights",
+		config = true,
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+		build = {
+			":TSInstall dap_repl",
+			":TSUpdate dap_repl",
+		},
+	},
 }
