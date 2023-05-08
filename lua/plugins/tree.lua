@@ -182,7 +182,10 @@ api.events.subscribe(Event.TreeOpen, function()
 end)
 
 api.events.subscribe(Event.Resize, function(size)
-	bufferline_api.set_offset(size + 1, utils.add_whitespaces((size + 1 - 13) / 2) .. "File Explorer")
+	bufferline_api.set_offset(
+    size + 1,
+    utils.add_whitespaces((size + 1 - 13) / 2) .. "File Explorer"
+  )
 	current_size = size + 1
 end)
 
