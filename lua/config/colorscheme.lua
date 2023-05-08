@@ -89,6 +89,7 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "VertSplit", { bg = "#16161e", fg = "#16161e" })
   vim.api.nvim_set_hl(0, "BqfPreviewBorder", { link = "FloatBorder" })
   vim.api.nvim_set_hl(0, "BufferInactiveIndex", { link = "BufferInactive" })
+  vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
 
   -- Tree
   vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { bg = "None", fg = "None" })
