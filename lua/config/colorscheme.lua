@@ -36,7 +36,7 @@ tokyonight.setup({
   --- You can override specific highlights to use other groups or a hex color
   --- function will be called with a Highlights and ColorScheme table
   -- on_highlights = function(highlights, colors) end,
-  on_highlights = function(hl, c)
+  on_highlights = function(hl, _color)
     local prompt = "#FFA630"
     local text = "#488dff"
     local none = "NONE"
@@ -103,6 +103,11 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "rainbowcol1", { fg = c.blue, ctermfg = 9 })
   vim.api.nvim_set_hl(0, "Boolean", { fg = "#F7768E" })
   vim.api.nvim_set_hl(0, "BufferOffset", { link = "EcovimSecondary" })
+
+  -- Bufferline
+  vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = c.cyan0 })
+  vim.api.nvim_set_hl(0, "BufferInactiveSign", { bg = "#202331", fg = c.dark3 })
+  vim.api.nvim_set_hl(0, "BufferInactiveMod", { bg = "NONE", fg = c.yellow })
 
   -- Completion Menu Colors
   local highlights = {
