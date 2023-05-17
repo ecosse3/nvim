@@ -75,6 +75,8 @@ vim.api.nvim_set_hl(0, "EcovimHeader", { bold = true, fg = "#488DFF" })
 vim.api.nvim_set_hl(0, "EcovimHeaderInfo", { bold = true, fg = "#FFA630" })
 vim.api.nvim_set_hl(0, "EcovimFooter", { bold = true, fg = "#FFA630" })
 
+vim.api.nvim_set_hl(0, "EcovimNvimTreeTitle", { bold = true, fg = "#FFA630", bg = "#16161e" })
+
 -- Tokyonight Colorscheme Specific Config
 if EcoVim.colorscheme == "tokyonight" then
   -- Lines
@@ -108,6 +110,8 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = c.cyan0 })
   vim.api.nvim_set_hl(0, "BufferInactiveSign", { bg = "#202331", fg = c.dark3 })
   vim.api.nvim_set_hl(0, "BufferInactiveMod", { bg = "NONE", fg = c.yellow })
+
+  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { bg = "#16161e", fg = "#16161e" })
 
   -- Completion Menu Colors
   local highlights = {

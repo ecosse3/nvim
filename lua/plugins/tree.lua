@@ -1,10 +1,5 @@
 local utils = require("utils")
-local bufferline_api = require("bufferline.api")
 local api = require("nvim-tree.api")
-local Event = api.events.Event
-
-local TREE_WIDTH = 40
-local current_size = nil
 
 local git_icons = {
 	unstaged = "",
@@ -173,22 +168,3 @@ vim.api.nvim_set_keymap(
 	"<cmd>lua require('nvim-tree.api').tree.toggle()<CR>",
 	{ noremap = true, silent = true }
 )
-
-api.events.subscribe(Event.TreeOpen, function()
-	bufferline_api.set_offset(
-		current_size or TREE_WIDTH + 1,
-		utils.add_whitespaces(((current_size or TREE_WIDTH + 1) - 13) / 2) .. "File Explorer"
-	)
-end)
-
-api.events.subscribe(Event.Resize, function(size)
-	bufferline_api.set_offset(
-    size + 1,
-    utils.add_whitespaces((size + 1 - 13) / 2) .. "File Explorer"
-  )
-	current_size = size + 1
-end)
-
-api.events.subscribe(Event.TreeClose, function(data)
-	bufferline_api.set_offset(0)
-end)
