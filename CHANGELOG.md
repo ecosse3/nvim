@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.5.0](https://github.com/ecosse3/nvim/compare/v3.4.0...v3.5.0) (2023-05-17)
+
+
+### Features
+
+* **dap:** add nvim-dap-vscode-js new adapter ([69a8a59](https://github.com/ecosse3/nvim/commit/69a8a59c1dd6e18eaa8d8b32db272bc6fff965b6))
+* **plugins:** add nvim-dap-repl-highlights with treesitter plugin ([4816b16](https://github.com/ecosse3/nvim/commit/4816b168a3a9f4d7632afde98a041f34c38bfdbf))
+* **plugins:** switch barbar.nvim to bufferline.nvim ([6ecd9f4](https://github.com/ecosse3/nvim/commit/6ecd9f40b19f82beffd308bdc33681326b77b356))
+* **ui:** add rounded float border to LspInfo ([2bcd96e](https://github.com/ecosse3/nvim/commit/2bcd96e7980f8c0d4ab2d5dc8eb279b2c9ebcd8e))
+* **ui:** link LspInfoBorder to FloatBoder in tokyonight.nvim ([60e737c](https://github.com/ecosse3/nvim/commit/60e737c8cbfdbe18bc78253dc2f50f837817bdbe))
+
+
+### Bug Fixes
+
+* **colorscheme:** almost correct barbar highlights ([00645d6](https://github.com/ecosse3/nvim/commit/00645d642bba00d7caff8f66b0dcf858f5eb86b7))
+* **keymaps:** support range formating with visual selection ([24bef17](https://github.com/ecosse3/nvim/commit/24bef176230ac6779c5d1b5427f50d33d14a9b44))
+
 ## [3.4.0](https://github.com/ecosse3/nvim/compare/v3.3.0...v3.4.0) (2023-04-28)
 
 
