@@ -124,4 +124,16 @@ M.add_whitespaces = function(number)
   return string.rep(" ", number)
 end
 
+M.closeOtherBuffers = function()
+  for _, e in ipairs(require("bufferline").get_elements().elements) do
+    vim.schedule(function()
+      if e.id == vim.api.nvim_get_current_buf() then
+        return
+      else
+        vim.cmd("bd " .. e.id)
+      end
+    end)
+  end
+end
+
 return M
