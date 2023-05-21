@@ -129,6 +129,8 @@ M.closeOtherBuffers = function()
     vim.schedule(function()
       if e.id == vim.api.nvim_get_current_buf() then
         return
+      elseif pcall(require, 'mini.bufremove') then
+        require('mini.bufremove').delete(e.id, false)
       else
         vim.cmd("bd " .. e.id)
       end
