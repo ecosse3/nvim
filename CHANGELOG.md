@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.1](https://github.com/ecosse3/nvim/compare/v3.5.0...v3.5.1) (2023-05-24)
+
+
+### Bug Fixes
+
+* **treesitter:** ensure that "vim" parser is installed ([6ca2ca3](https://github.com/ecosse3/nvim/commit/6ca2ca36b598eb4081d0c17eb8fae821fbf6b853)), closes [#142](https://github.com/ecosse3/nvim/issues/142)
+* **which-key:** close other buffers ([#138](https://github.com/ecosse3/nvim/issues/138)) ([ba94cf6](https://github.com/ecosse3/nvim/commit/ba94cf68f5c13df2af4e93a7e1b299b22dfb47c0))
+
 ## [3.5.0](https://github.com/ecosse3/nvim/compare/v3.4.0...v3.5.0) (2023-05-17)
 
 
