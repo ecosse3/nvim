@@ -94,6 +94,25 @@ but I can write you the most useful custom key bindings by the frequency I use t
 Space (SPC) is my Leader key.
 
 <details>
+<summary>File Explorer</summary>
+
+### File Explorer
+
+| Key Bindings | Description                                   |
+|--------------|-----------------------------------------------|
+| <C - e>      | Open File Explorer                            |
+| Backspace    | Back to file explorer (in editor normal mode) |
+| g?           | Open commands menu                            |
+| a            | Create new file/directory                     |
+| x            | Cut                                           |
+| c            | Copy                                          |
+| y            | Copy name                                     |
+| r            | Rename                                        |
+| I            | Toggle git ignore files                       |
+
+</details>
+
+<details>
 <summary>Searching</summary>
 
 ### Searching
