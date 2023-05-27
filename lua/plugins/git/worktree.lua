@@ -55,7 +55,7 @@ keymap("n", "<Leader>gwc", "<CMD>lua require('telescope').extensions.git_worktre
 worktree.on_tree_change(function(op, metadata)
   if op == worktree.Operations.Switch then
     utils.log("Switched from " .. metadata.prev_path .. " to " .. metadata.path, "Git Worktree")
-    vim.cmd ('BufferCloseAllButCurrent')
+    utils.closeOtherBuffers()
     vim.cmd ('e')
   end
 end)
