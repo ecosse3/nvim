@@ -13,7 +13,6 @@ if not snip_status_ok then
   return
 end
 
-
 local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -259,7 +258,7 @@ cmp.setup({
       deprioritize_snippet,
       cmp.config.compare.exact,
       cmp.config.compare.locality,
-      copilot_cmp_comparators.prioritize,
+      copilot_cmp_comparators.prioritize or function() end,
       cmp.config.compare.score,
       cmp.config.compare.recently_used,
       cmp.config.compare.offset,
