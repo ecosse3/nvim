@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.5.2](https://github.com/ecosse3/nvim/compare/v3.5.1...v3.5.2) (2023-05-27)
+
+
+### Bug Fixes
+
+* **cmp:** fix cmp when copilot is disabled ([7cbedc8](https://github.com/ecosse3/nvim/commit/7cbedc8b6e54a6650b0e3c99e1219469692d6257)), closes [#143](https://github.com/ecosse3/nvim/issues/143)
+* **cmp:** properly skip copilot comparators if copilot is disabled in EcoVim settings ([4ee606a](https://github.com/ecosse3/nvim/commit/4ee606a16b3b3844852f431557977b4d9625de25))
+* **git:** use new utils method to close other buffers with worktree ([63e17b9](https://github.com/ecosse3/nvim/commit/63e17b9c5e672605bb76603a8d44184fd9d4fba7))
+* **plugins:** install dap_repl treesitter parser only if not installed ([2c40c0e](https://github.com/ecosse3/nvim/commit/2c40c0e04939c31ade840ce0da9ad88222aeb7e6)), closes [#145](https://github.com/ecosse3/nvim/issues/145)
+
 ### [3.5.1](https://github.com/ecosse3/nvim/compare/v3.5.0...v3.5.1) (2023-05-24)
 
 
