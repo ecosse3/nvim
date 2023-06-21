@@ -80,7 +80,7 @@ Make sure to run `:TSInstall <lang>` for specific language you want to install.
 
 ## Configuration
 
-To change EcoVim related config use the `config/EcoVim.lua` file.\
+To change EcoVim related config use the `config/EcoVim.lua` file.
 
 To change vim settings use the `config/options.lua` file.
 
