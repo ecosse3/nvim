@@ -501,6 +501,10 @@ return {
 			require("plugins.colorizer")
 		end,
 	},
+	{
+		"js-everts/cmp-tailwind-colors",
+		config = true,
+	},
 
 	-- AI
 	{
