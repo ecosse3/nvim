@@ -229,6 +229,9 @@ Space (SPC) is my Leader key.
 | <C - n>      | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete. [Read more](https://github.com/mg979/vim-visual-multi/wiki) |
 | <C - o>      | Jumps to previous cursor in jumplist. I use it very often.                                                                                                                                |
 | v <ENTER>    | Smartly selects next subjects of current treesitter context                                                                                                                               |
+| s            | Standalone jump to any word with `folke/flash.nvim`                                                                                                                                       |
+| ciq          | Change inside ANY quotes (`` or '' or "" etc.) with `mini.ai`                                                                                                                             |
+| cib          | Change inside ANY brackets ({} or [] or () etc.) with `mini.ai`                                                                                                                           |
 | za           | Toggle folds. By LSP and nvim-ufo they are automatically added to supported files in smart way.                                                                                           |
 | zM           | Close all folds                                                                                                                                                                           |
 | zR           | Open all folds                                                                                                                                                                            |
