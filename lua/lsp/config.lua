@@ -126,4 +126,9 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-require('lspconfig.ui.windows').default_options.border = EcoVim.ui.float.border or 'rounded'
+local lspui_ok, lspui = pcall(require, 'lspconfig.ui.windows')
+if not lspui_ok then
+  return
+end
+
+lspui.default_options.border = EcoVim.ui.float.border or 'rounded'

@@ -12,6 +12,5 @@ require("null-ls").setup({
     require("null-ls").builtins.diagnostics.codespell.with({
       filetypes = { "markdown", "text" },
     }),
-    require("typescript.extensions.null-ls.code-actions"),
   },
 })

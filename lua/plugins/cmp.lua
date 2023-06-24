@@ -85,7 +85,7 @@ local function get_lsp_completion_context(completion, source)
   if not ok then
     return nil
   end
-  if source_name == "tsserver" then
+  if source_name == "tsserver" or source_name == "typescript-tools" then
     return completion.detail
   elseif source_name == "pyright" then
     if completion.labelDetails ~= nil then

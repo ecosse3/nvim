@@ -176,7 +176,19 @@ return {
 		end,
 		dependencies = "neovim/nvim-lspconfig",
 	},
-	{ "jose-elias-alvarez/typescript.nvim" },
+	{
+		"pmizio/typescript-tools.nvim",
+    branch = "fix-request-sequence-error",
+		event = { "BufReadPre", "BufNewFile" },
+		ft = { "typescript", "typescriptreact" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("plugins.typescript-tools")
+		end,
+	},
 	{
 		"axelvc/template-string.nvim",
 		event = "InsertEnter",
@@ -190,7 +202,7 @@ return {
 	},
 	{
 		"lvimuser/lsp-inlayhints.nvim",
-		branch = "main", -- or "anticonceal"
+		branch = "anticonceal", -- or "anticonceal"
 		config = function()
 			require("plugins.inlay-hints")
 		end,
@@ -213,7 +225,9 @@ return {
 	},
 	{
 		"dnlhc/glance.nvim",
-		config = true,
+		config = function()
+			require("plugins.glance")
+		end,
 		opts = {
 			hooks = {
 				before_open = function(results, open, jump, method)
@@ -434,7 +448,7 @@ return {
 	{
 		"echasnovski/mini.align",
 		lazy = false,
-		version = false,
+		version = "*",
 		config = function()
 			require("mini.align").setup()
 		end,
