@@ -11,7 +11,6 @@ local options = {
   foldlevelstart = 99,                      --- Expand all folds by default
   ignorecase     = true,                    --- Needed for smartcase
   laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
-  -- lazyredraw     = true,                    --- Makes macros faster & prevent errors in complicated mappings
   mouse          = "a",                     --- Enable mouse
   number         = true,                    --- Shows current line number
   pumheight      = 10,                      --- Max num of items in completion menu
