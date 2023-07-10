@@ -565,7 +565,7 @@ return {
 	-- Git
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "BufReadPre",
+		event = "BufRead",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("plugins.git.signs")
