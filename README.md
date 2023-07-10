@@ -71,7 +71,13 @@ Git Side Blame
 
 **Just clone GitHub repo into ~/.config/nvim.**
 
-After install configuration:
+**Prerequisities**
+
+- Make sure you have installed the latest version of Neovim v0.9.0+ (nightly is preferred).
+- Have wget, curl, unzip, git, make, pip, python, npm, node, luarocks, fd, ripgrep and cargo installed on your system. You can check if you are missing anything with `:checkhealth` command.
+- Have any nerd font installed. *Fira Code* has been used in screenshots. You can download it from [nerdfonts.com](https://www.nerdfonts.com/font-downloads).
+
+**After install configuration:**
 
 1. Selected treesitter Languages are installed by default.
 To check it run `:TSInstallInfo`.
