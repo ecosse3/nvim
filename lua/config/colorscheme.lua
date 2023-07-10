@@ -105,6 +105,7 @@ if EcoVim.colorscheme == "tokyonight" then
   vim.api.nvim_set_hl(0, "rainbowcol1", { fg = c.blue, ctermfg = 9 })
   vim.api.nvim_set_hl(0, "Boolean", { fg = "#F7768E" })
   vim.api.nvim_set_hl(0, "BufferOffset", { link = "EcovimSecondary" })
+  vim.api.nvim_set_hl(0, "LspInlayHint", { link = "LspCodeLens" })
 
   -- Bufferline
   vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = c.cyan0 })

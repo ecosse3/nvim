@@ -200,13 +200,6 @@ return {
 		config = true, -- run require("template-string").setup()
 	},
 	{
-		"lvimuser/lsp-inlayhints.nvim",
-		branch = "anticonceal", -- or "anticonceal"
-		config = function()
-			require("plugins.inlay-hints")
-		end,
-	},
-	{
 		"barrett-ruth/import-cost.nvim",
 		build = "sh install.sh yarn",
 		ft = {
