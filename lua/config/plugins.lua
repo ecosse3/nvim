@@ -80,7 +80,7 @@ return {
 	-- LSP Base
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
+		lazy = false,
 		dependencies = {
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
