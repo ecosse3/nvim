@@ -216,7 +216,18 @@ return {
 			{ "gm", "<cmd>Glance implementations<CR>", desc = "LSP Implementations" },
 			{ "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
 		},
-	},
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    event = "LspAttach",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "kyazdani42/nvim-tree.lua" },
+    },
+    config = function()
+      require("lsp-file-operations").setup ()
+    end
+  },
 
 	-- General
 	{ "AndrewRadev/switch.vim", lazy = false },
