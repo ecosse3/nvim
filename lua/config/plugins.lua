@@ -200,17 +200,6 @@ return {
 		config = true, -- run require("template-string").setup()
 	},
 	{
-		"barrett-ruth/import-cost.nvim",
-		build = "sh install.sh yarn",
-		ft = {
-			"javascript",
-			"typescript",
-			"javascriptreact",
-			"typescriptreact",
-		},
-		config = true,
-	},
-	{
 		"dmmulroy/tsc.nvim",
 		cmd = { "TSC" },
 		config = true,
