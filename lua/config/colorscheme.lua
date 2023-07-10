@@ -96,13 +96,13 @@ if EcoVim.colorscheme == "tokyonight" then
   -- Tree
   vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { bg = "None", fg = "None" })
 
-  -- Diagnostics
-
   -- Misc
   vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
   vim.api.nvim_set_hl(0, "StatusLine", { bg = "None" })
   vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "None" })
   vim.api.nvim_set_hl(0, "rainbowcol1", { fg = c.blue, ctermfg = 9 })
+  vim.api.nvim_set_hl(0, "TSRainbowRed", { fg = c.blue, ctermfg = 9 })
+  vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = c.blue, ctermfg = 9 })
   vim.api.nvim_set_hl(0, "Boolean", { fg = "#F7768E" })
   vim.api.nvim_set_hl(0, "BufferOffset", { link = "EcovimSecondary" })
   vim.api.nvim_set_hl(0, "LspInlayHint", { link = "LspCodeLens" })

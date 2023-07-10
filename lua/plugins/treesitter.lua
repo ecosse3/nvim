@@ -39,11 +39,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   },
 
-  rainbow = {
-    enable = true,
-    extended_mode = true,
- },
-
   context_commentstring = {
     enable = true,
     enable_autocmd = false,

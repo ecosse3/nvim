@@ -33,7 +33,7 @@ return {
 			require("plugins.treesitter")
 		end,
 		dependencies = {
-			"mrjones2014/nvim-ts-rainbow",
+			"hiphish/rainbow-delimiters.nvim",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-textsubjects",
