@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.6.0](https://github.com/ecosse3/nvim/compare/v3.5.2...v3.6.0) (2023-07-10)
+
+
+### Features
+
+* **cmp:** add support for TailwindCSS colors previews in autocompletion ([b37c297](https://github.com/ecosse3/nvim/commit/b37c297d955a4f37e013834d29d2f90f53afe121))
+* **lsp:** do NOT lazy load lspconfig ([e838416](https://github.com/ecosse3/nvim/commit/e838416e42906c60b936d71c3be07f2970ff8c7a))
+* **lsp:** switch typescript.nvim and tsserver LSP to typescript-tools plugin ([41164b6](https://github.com/ecosse3/nvim/commit/41164b67e4f69c5fb2f8df26cabfff45cfdd6d6a))
+* **plugins:** add mini.ai plugin ([d025184](https://github.com/ecosse3/nvim/commit/d02518452ea54cdeee5ebbc3308ae957259f8b6b))
+* **plugins:** add nvim-lsp-file-operations plugin ([dfea8a3](https://github.com/ecosse3/nvim/commit/dfea8a31aa0825ce01f2c32c5c7995fd6a8637f3))
+* **plugins:** add support for WezTerm & Alacritty in Zen plugin ([6754f7f](https://github.com/ecosse3/nvim/commit/6754f7f251cc118bc8112d51f1ac9e9d2aa6cad7))
+* **plugins:** add tailwind-fold.nvim plugin which automatically folds tailwind classes ([06fd8e3](https://github.com/ecosse3/nvim/commit/06fd8e38671569a8b07cfe95959e3daa7ae76c64))
+* **plugins:** change deprecated nvim-ts-rainbow to rainbow-delimiters.nvim ([0cadfda](https://github.com/ecosse3/nvim/commit/0cadfda882c76fa1a16cbe0489fbda59cea79e15))
+* **plugins:** deprecate null-ls ([689bb6e](https://github.com/ecosse3/nvim/commit/689bb6e20e53cef57f0dce4f8ce8b2400e9bb0e1))
+* **plugins:** keep main branch of typescript-tools ([704320d](https://github.com/ecosse3/nvim/commit/704320d91be48f223e60526275e8e072b5de45c3))
+* **plugins:** remove duplicated opts from TSC.nvim ([8b564a1](https://github.com/ecosse3/nvim/commit/8b564a1e42f84e89b69c841a3a5f15ebcc4392a5))
+* **plugins:** remove inlay-hints plugin since it's natively available in nvim 0.10 ([573589c](https://github.com/ecosse3/nvim/commit/573589c15b6d5bd305a746fbb50cd9cb5f9b5dc0))
+* **plugins:** replace lightspeed.nvim with folke/flash.nvim ([8e42262](https://github.com/ecosse3/nvim/commit/8e4226209df1b9cd39f7bafac1e78427df7884e4))
+
+
+### Bug Fixes
+
+* **lsp:** resolve error getting lsp code for diagnostics ([4848699](https://github.com/ecosse3/nvim/commit/48486999fd8a9c76871e6e6ee03a1022b97edc61))
+* minor typo in README.md ([#150](https://github.com/ecosse3/nvim/issues/150)) ([432bae9](https://github.com/ecosse3/nvim/commit/432bae905641597ec214dc03e171662729148088))
+* **plugins:** change loading event of gitsigns.nvim to BufRead so it doesn't throw an error ([b586ff6](https://github.com/ecosse3/nvim/commit/b586ff6600d1492bae3616237baeb0387dfdcbcf))
+* **plugins:** keep fixed width of 40 in nvim-tree ([cfdb764](https://github.com/ecosse3/nvim/commit/cfdb764368866b9ecf40b3ca20a1a03a6c1dc602))
+* **plugins:** remove improt-cost.nvim plugin since it breaks ([8d27308](https://github.com/ecosse3/nvim/commit/8d27308cc4c04ac7262043e30093395f7c170ad1))
+* **which-key:** change LSP mappings to new one from typescript-tools ([503f10f](https://github.com/ecosse3/nvim/commit/503f10f6910d8b90072d23402865a55f023e66f1))
+
 ### [3.5.2](https://github.com/ecosse3/nvim/compare/v3.5.1...v3.5.2) (2023-05-27)
 
 
