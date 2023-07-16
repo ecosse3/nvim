@@ -246,21 +246,27 @@ return {
 	{ "tpope/vim-repeat", lazy = false },
 	{ "tpope/vim-speeddating", lazy = false },
 	{ "dhruvasagar/vim-table-mode", ft = { "markdown" } },
-	{
-		"mg979/vim-visual-multi",
-		keys = {
-			"<C-n>",
-			"<C-Up>",
-			"<C-Down>",
-			"<S-Up>",
-			"<S-Down>",
-			"<S-Left>",
-			"<S-Right>",
-		},
-		config = function()
-			vim.g.VM_leader = ";"
-		end,
-	},
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'smoka7/hydra.nvim',
+    },
+    config = true,
+    keys = {
+      {
+        '<LEADER>m',
+        '<CMD>MCstart<CR>',
+        desc = 'multicursor',
+      },
+      {
+        '<C-Down>',
+        '<CMD>MCunderCursor<CR>',
+        desc = 'multicursor down',
+      },
+    },
+  },
 	{
 		"nacro90/numb.nvim",
 		lazy = false,
