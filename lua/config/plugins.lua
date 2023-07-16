@@ -386,8 +386,11 @@ return {
 	},
 	{
 		"airblade/vim-rooter",
-		setup = function()
+		event = "VeryLazy",
+		config = function()
 			vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns
+      vim.g.rooter_silent_chdir = 1
+      vim.g.rooter_resolve_links = 1
 		end,
 	},
 	{
