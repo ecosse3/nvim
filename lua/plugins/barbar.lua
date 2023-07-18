@@ -1,3 +1,5 @@
+local icons = require('utils.icons')
+
 -- Set barbar's options
 require("barbar").setup({
 	-- Excludes buffers from the tabline
@@ -20,7 +22,7 @@ require("barbar").setup({
 		},
 		separator = { left = "▎", right = "" },
 		modified = { button = "●" },
-		pinned = { button = "車", filename = true, separator = { right = "" } },
+		pinned = { button = icons.pin, filename = true, separator = { right = "" } },
 		alternate = { filetype = { enabled = false } },
 		current = { buffer_index = true },
 		inactive = { button = nil },

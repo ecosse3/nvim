@@ -358,7 +358,7 @@ table.insert(gls.left, {
 table.insert(gls.left, {
   DiagnosticError = {
     provider = 'DiagnosticError',
-    icon = '  ',
+    icon = EcoVim.icons.errorOutline,
     separator_highlight = { colors.gitbg, colors.bg },
     highlight = { colors.diagerror, colors.lspbg }
   }
@@ -373,14 +373,14 @@ table.insert(gls.left, {
 table.insert(gls.left, {
   DiagnosticHint = {
     provider = 'DiagnosticHint',
-    icon = '  ',
+    icon = EcoVim.icons.lightbulbOutline,
     highlight = { colors.diaghint, colors.lspbg }
   }
 })
 table.insert(gls.left, {
   DiagnosticInfo = {
     provider = 'DiagnosticInfo',
-    icon = '  ',
+    icon = EcoVim.icons.infoOutline,
     highlight = { colors.diaginfo, colors.lspbg }
   }
 })

@@ -41,8 +41,8 @@ local codes = {
     "trailing-space",
   },
   unused_variable = {
-    message = "  Don't define variables you don't use",
-    icon = "  ",
+    message = "󰂭  Don't define variables you don't use",
+    icon = "󰂭  ",
     "unused-local",
     "@typescript-eslint/no-unused-vars",
     "no-unused-vars"
@@ -119,7 +119,7 @@ vim.diagnostic.config({
 
 -- UI
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
