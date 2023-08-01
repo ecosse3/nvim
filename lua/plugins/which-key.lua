@@ -107,11 +107,6 @@ local normal_mode_mappings = {
     u = { '<cmd>Lazy update<CR>',                               'update plugins' },
     s = {
       name = 'Session',
-      c = { '<cmd>SessionManager load_session<CR>',             'choose session' },
-      r = { '<cmd>SessionManager delete_session<CR>',           'remove session' },
-      d = { '<cmd>SessionManager load_current_dir_session<CR>', 'load current dir session' },
-      l = { '<cmd>SessionManager load_last_session<CR>',        'load last session' },
-      s = { '<cmd>SessionManager save_current_session<CR>',     'save session' },
     },
   },
 
