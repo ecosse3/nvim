@@ -167,14 +167,6 @@ local normal_mode_mappings = {
     },
     h = {
       name = 'Hunk',
-      d = 'diff hunk',
-      p = 'preview',
-      R = 'reset buffer',
-      r = 'reset hunk',
-      s = 'stage hunk',
-      S = 'stage buffer',
-      t = 'toggle deleted',
-      u = 'undo stage',
     },
     l = {
       name = 'Log',
