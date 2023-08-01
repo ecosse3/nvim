@@ -216,7 +216,6 @@ local visual_mode_mappings = {
 
   a = {
     name = "Actions",
-    c = { 'comment box' },
   },
 
   c = {
