@@ -165,7 +165,6 @@ local normal_mode_mappings = {
     c = {
       name = 'Conflict',
     },
-    g = { '<cmd>LazyGit<CR>',                                                   'lazygit' },
     h = {
       name = 'Hunk',
       d = 'diff hunk',
