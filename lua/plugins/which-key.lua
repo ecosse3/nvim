@@ -118,20 +118,10 @@ local normal_mode_mappings = {
 
   b = {
     name = 'Buffer',
-    b = { '<cmd>BufferLineMovePrev<CR>',                        'Move back' },
     c = { '<cmd>lua require("utils").closeOtherBuffers()<CR>',  'Close but current' },
-    d = { '<cmd>BufferOrderByDirectory<CR>',                    'Order by directory' },
     f = { '<cmd>bfirst<CR>',                                    'First buffer' },
-    l = { '<cmd>BufferLineCloseLeft<CR>',                       'Close Left' },
-    r = { '<cmd>BufferLineCloseRight<CR>',                      'Close Right' },
-    n = { '<cmd>BufferLineMoveNext<CR>',                        'Move next' },
-    p = { '<cmd>BufferLinePick<CR>',                            'Pick Buffer' },
-    P = { '<cmd>BufferLineTogglePin<CR>',                       'Pin/Unpin Buffer' },
     s = {
       name = 'Sort',
-      d = { '<cmd>BufferLineSortByDirectory<CR>',               'Sort by directory' },
-      e = { '<cmd>BufferLineSortByExtension<CR>',               'Sort by extension' },
-      r = { '<cmd>BufferLineSortByRelativeDirectory<CR>',       'Sort by relative dir' },
     },
   },
 
