@@ -54,7 +54,6 @@ local function blame_syntax()
     hash = vim.fn.substitute(hash, [[\(\x\x\)]], [[\=printf("%02x", str2nr(submatch(1),16)*3/4+32)]], "g")
     if hash ~= "" and orig_hash ~= "000000" and seen[hash] == nil then
       seen[hash] = 1
-      if vim.wo.t_Co == "256" then
         local colors = vim.fn.map(vim.fn.matchlist(orig_hash, [[\(\x\)\x\(\x\)\x\(\x\)\x]]), "str2nr(v:val,16)")
         local r = colors[2]
         local g = colors[3]
@@ -66,9 +65,6 @@ local function blame_syntax()
           color = 255
         end
         hash_colors[hash] = " ctermfg=" .. tostring(color)
-      else
-        hash_colors[hash] = ""
-      end
       local pattern = vim.fn.substitute(orig_hash, [[^\(\x\)\x\(\x\)\x\(\x\)\x$]], [[\1\\x\2\\x\3\\x]], "") .. [[*\>]]
       vim.cmd("syn match GitNvimBlameHash" .. hash .. [[       "\%(^\^\=[*?]*\)\@<=]] .. pattern .. [[" skipwhite]])
     end
