@@ -234,7 +234,14 @@ return {
       require("plugins.comment")
     end,
   },
-  { "LudoPinelli/comment-box.nvim" },
+  {
+    "LudoPinelli/comment-box.nvim",
+    lazy = false,
+    keys = {
+      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", desc = "comment box" },
+      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v",          desc = "comment box" },
+    }
+  },
   {
     "akinsho/nvim-toggleterm.lua",
     lazy = false,
