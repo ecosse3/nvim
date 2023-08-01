@@ -287,6 +287,12 @@ return {
         desc = 'multicursor',
       },
       {
+        '<LEADER>m',
+        '<CMD>MCvisual<CR>',
+        mode = "v",
+        desc = 'multicursor',
+      },
+      {
         '<C-Down>',
         '<CMD>MCunderCursor<CR>',
         desc = 'multicursor down',
