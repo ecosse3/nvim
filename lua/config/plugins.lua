@@ -228,7 +228,7 @@ return {
   },
 
   -- General
-  { "AndrewRadev/switch.vim",      lazy = false },
+  { "AndrewRadev/switch.vim", lazy = false },
   {
     "Wansmer/treesj",
     lazy = true,
@@ -468,7 +468,11 @@ return {
       { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>",     desc = "save session" },
     }
   },
-  { "kylechui/nvim-surround",         lazy = false, config = true },
+  {
+    "kylechui/nvim-surround",
+    lazy = false,
+    config = true,
+  },
   {
     "sunjon/shade.nvim",
     config = function()
@@ -668,13 +672,14 @@ return {
   },
   {
     "ThePrimeagen/git-worktree.nvim",
-    keys = {
-      "<Leader>gwc",
-      "<Leader>gww",
-    },
+    lazy = false,
     config = function()
       require("plugins.git.worktree")
     end,
+    keys = {
+      { "<Leader>gww", desc = "worktrees" },
+      { "<Leader>gwc", desc = "create worktree" }
+    }
   },
   {
     "kdheepak/lazygit.nvim",
