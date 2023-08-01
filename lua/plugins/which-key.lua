@@ -165,7 +165,6 @@ local normal_mode_mappings = {
     c = {
       name = 'Conflict',
     },
-    d = { '<cmd>lua require("plugins.git.diffview").toggle_file_history()<CR>', 'diff file' },
     g = { '<cmd>LazyGit<CR>',                                                   'lazygit' },
     h = {
       name = 'Hunk',
@@ -186,7 +185,6 @@ local normal_mode_mappings = {
       c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'buffer commits'},
     },
     m = { 'blame line' },
-    s = { '<cmd>lua require("plugins.git.diffview").toggle_status()<CR>', 'status' },
     S = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
     w = {
       name = 'Worktree',
