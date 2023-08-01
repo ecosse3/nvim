@@ -111,14 +111,14 @@ local function button(sc, txt, keybind, keybind_opts)
 end
 
 dashboard.section.buttons.val = {
-  button("<C-P>", icons.fileNoBg .. " " .. "Find File", "<cmd>lua require('plugins.telescope').project_files()<CR>", {}),
-  button("<S-P>", icons.word .. " " .. "Find Word", "<cmd>lua require('plugins.telescope.pickers.multi-rg')()<CR>", {}),
-  button("SPC s h", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
-  button("SPC / s d", icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>", {}),
-  button("SPC / u", icons.container .. " " .. "Update Plugins", "<cmd>Lazy update<CR>", {}),
-  button("SPC / i", icons.container .. " " .. "Manage Plugins", "<cmd>Lazy<CR>", {}),
-  button("SPC / c", icons.cog .. " " .. "Settings", "<cmd>e $MYVIMRC<CR>", {}),
-  button("-", icons.exit .. " " .. "Exit", "<cmd>exit<CR>", {}),
+  button("<C-P>",     icons.fileNoBg .. " " .. "Find File",             "<cmd>lua require('plugins.telescope').project_files()<CR>",    {}),
+  button("<S-P>",     icons.word .. " " .. "Find Word",                 "<cmd>lua require('plugins.telescope.pickers.multi-rg')()<CR>", {}),
+  button("SPC s h",   icons.fileRecent .. " " .. "Recents",             "<cmd>Telescope oldfiles hidden=true<CR>",                      {}),
+  button("SPC / s d", icons.timer .. " " .. "Load Current Dir Session", "<cmd>SessionManager load_current_dir_session<CR>",             {}),
+  button("SPC / u",   icons.packageDown .. " " .. "Update Plugins",     "<cmd>Lazy update<CR>",                                         {}),
+  button("SPC / i",   icons.package .. " " .. "Manage Plugins",         "<cmd>Lazy<CR>",                                                {}),
+  button("SPC / c",   icons.cog .. " " .. "Settings",                   "<cmd>e $MYVIMRC<CR>",                                          {}),
+  button("-",         icons.exit .. " " .. "Exit",                      "<cmd>exit<CR>",                                                {}),
 }
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -144,7 +144,7 @@ local function footer()
   local plugins = require("lazy").stats().count
   local v = vim.version()
   local ecovim_version = line_from(config_dir .. "/.ecovim.version")
-  return string.format(" v%d.%d.%d   %d   %s ", v.major, v.minor, v.patch, plugins, ecovim_version[1])
+  return string.format(" v%d.%d.%d  󰂖 %d   %s ", v.major, v.minor, v.patch, plugins, ecovim_version[1])
 end
 
 dashboard.section.footer.val = {
