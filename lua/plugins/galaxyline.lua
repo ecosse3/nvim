@@ -593,9 +593,9 @@ table.insert(gls.right, {
     provider = function()
       if vim.bo.expandtab
       then
-        return '  '
+        return ' 󰄮 '
       else
-        return '  '
+        return ' 󰄱 '
       end
     end,
     condition = condition.hide_in_width,
