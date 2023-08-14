@@ -260,6 +260,7 @@ cmp.setup({
       name = "buffer",
       priority = 7,
       keyword_length = 5,
+      max_item_count = 10,
       option = buffer_option,
     },
     { name = "nvim_lua",    priority = 5 },
