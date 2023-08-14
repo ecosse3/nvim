@@ -16,16 +16,6 @@ local function on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
-
-  -- Default mappings not inserted as:
-  --  remove_keymaps = true
-  --  OR
-  --  view.mappings.custom_only = true
-
-
-  -- Mappings migrated from view.mappings.list
-  --
-  -- You will need to insert "your code goes here" for any mappings with a custom action_cb
   vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
   vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
   vim.keymap.set('n', '<2-LeftMouse>', api.node.open.edit, opts('Open'))
@@ -64,7 +54,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
   vim.keymap.set('n', 'W', api.tree.collapse_all, opts('Collapse'))
   vim.keymap.set('n', 'S', api.tree.search_node, opts('Search'))
-
 end
 
 require("nvim-tree").setup({
@@ -152,11 +141,6 @@ require("nvim-tree").setup({
 		hide_root_folder = false,
 		-- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
 		side = "left",
-		mappings = {
-			-- custom only false will merge the list with the default mappings
-			-- if true, it will only use your list to set the mappings
-			custom_only = true,
-		},
 		number = false,
 		relativenumber = false,
 	},
