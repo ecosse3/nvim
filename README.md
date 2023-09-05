@@ -249,7 +249,7 @@ Space (SPC) is my Leader key.
 
 </details>
 
-Check out the which-key menu and keybindings.lua for most used maps.
+Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps. 
 
 
 ## Performance
