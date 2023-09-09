@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.7.1](https://github.com/ecosse3/nvim/compare/v3.7.0...v3.7.1) (2023-09-09)
+
+
+### Bug Fixes
+
+* **icons:** update box & buffer nerd icons ([00ed206](https://github.com/ecosse3/nvim/commit/00ed206ba975312d5b01c6f8e767990ae886125f))
+* **icons:** update expandtab nerd icons in statusline ([b00c3ef](https://github.com/ecosse3/nvim/commit/b00c3ef2d8407cd29f22afe894033bd826291eba))
+* **icons:** update paragraph & lsp icon in cmp ([5e41d99](https://github.com/ecosse3/nvim/commit/5e41d9977ace290e7b1a629494fbdbff477964c7))
+* **lazy:** set concurrency to 5 so it fixes issue with github timeout ([e963507](https://github.com/ecosse3/nvim/commit/e96350751a2722bea45787ea527bdb1bd787cf25))
+* **plugins:** add max_item_count back for buffer in cmp ([60c7d7d](https://github.com/ecosse3/nvim/commit/60c7d7d03eec0f85153d03e5d082346453b4ca12))
+* **plugins:** fix commenting in Comment.nvim plugin ([b288dee](https://github.com/ecosse3/nvim/commit/b288dee3fd892efa28f5ae3cacf7e426deb0e44d))
+* **plugins:** fix lazy spec for nvim-lsp-file-operations ([60ee27d](https://github.com/ecosse3/nvim/commit/60ee27df09f9a2090f1b4bc6e19d5c2961392f08)), closes [#161](https://github.com/ecosse3/nvim/issues/161)
+* **plugins:** nvim-surround loading ([711731c](https://github.com/ecosse3/nvim/commit/711731c5a9309210711b290e2f4bced8afa58f6b))
+* **plugins:** proper sorting of copilot & max view entries set to 100 for performance ([e03fe28](https://github.com/ecosse3/nvim/commit/e03fe28415b09230c0807b3da14dfdd09ee946d4))
+* **plugins:** remove legacy view.mappings from nvim-tree ([d2656d3](https://github.com/ecosse3/nvim/commit/d2656d3865792de17e73575f162b758157fc5d64))
+
 ## [3.7.0](https://github.com/ecosse3/nvim/compare/v3.6.0...v3.7.0) (2023-08-02)
 
 
