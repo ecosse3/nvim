@@ -1,11 +1,13 @@
 local present_dapui, dapui = pcall(require, "dapui")
 local present_dap, dap = pcall(require, "dap")
 local present_virtual_text, dap_vt = pcall(require, "nvim-dap-virtual-text")
+local present_dap_utils, dap_utils = pcall(require, "dap.utils")
 local _, shade = pcall(require, "shade")
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-if not present_dapui or not present_dap or not present_virtual_text then
+if not present_dapui or not present_dap or not present_virtual_text or not present_dap_utils then
+  vim.notify("Missing dap dependencies")
   return
 end
 
@@ -13,20 +15,20 @@ end
 -- │ DAP Virtual Text Setup                                   │
 -- ╰──────────────────────────────────────────────────────────╯
 dap_vt.setup({
-  enabled = true,                       -- enable this plugin (the default)
-  enabled_commands = true,              -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
-  highlight_changed_variables = true,   -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
-  highlight_new_as_changed = false,     -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
-  show_stop_reason = true,              -- show stop reason when stopped for exceptions
-  commented = false,                    -- prefix virtual text with comment string
-  only_first_definition = true,         -- only show virtual text at first definition (if there are multiple)
-  all_references = false,               -- show virtual text on all all references of the variable (not only definitions)
+  enabled = true,                        -- enable this plugin (the default)
+  enabled_commands = true,               -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
+  highlight_changed_variables = true,    -- highlight changed values with NvimDapVirtualTextChanged, else always NvimDapVirtualText
+  highlight_new_as_changed = false,      -- highlight new variables in the same way as changed variables (if highlight_changed_variables)
+  show_stop_reason = true,               -- show stop reason when stopped for exceptions
+  commented = false,                     -- prefix virtual text with comment string
+  only_first_definition = true,          -- only show virtual text at first definition (if there are multiple)
+  all_references = false,                -- show virtual text on all all references of the variable (not only definitions)
   filter_references_pattern = "<module", -- filter references (not definitions) pattern when all_references is activated (Lua gmatch pattern, default filters out Python modules)
   -- Experimental Features:
-  virt_text_pos = "eol",                -- position of virtual text, see `:h nvim_buf_set_extmark()`
-  all_frames = false,                   -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
-  virt_lines = false,                   -- show virtual lines instead of virtual text (will flicker!)
-  virt_text_win_col = nil,              -- position the virtual text at a fixed window column (starting from the first text column) ,
+  virt_text_pos = "eol",                 -- position of virtual text, see `:h nvim_buf_set_extmark()`
+  all_frames = false,                    -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
+  virt_lines = false,                    -- show virtual lines instead of virtual text (will flicker!)
+  virt_text_win_col = nil,               -- position the virtual text at a fixed window column (starting from the first text column) ,
 })
 
 -- ╭──────────────────────────────────────────────────────────╮
@@ -75,8 +77,8 @@ dapui.setup({
     },
   },
   floating = {
-    max_height = nil,                           -- These can be integers or a float between 0 and 1.
-    max_width = nil,                            -- Floats will be treated as percentage of your screen.
+    max_height = nil,                             -- These can be integers or a float between 0 and 1.
+    max_width = nil,                              -- Floats will be treated as percentage of your screen.
     border = EcoVim.ui.float.border or "rounded", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -119,6 +121,7 @@ vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", nu
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Keybindings                                              │
 -- ╰──────────────────────────────────────────────────────────╯
+keymap("n", "<Leader>da", "<CMD>lua require('dap').continue()<CR>", opts)
 keymap("n", "<Leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>", opts)
 keymap("n", "<Leader>dc", "<CMD>lua require('dap').continue()<CR>", opts)
 keymap("n", "<Leader>dd", "<CMD>lua require('dap').continue()<CR>", opts)
@@ -127,6 +130,7 @@ keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
 keymap("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>", opts)
 keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", opts)
 keymap("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts)
+keymap("n", "<Leader>dU", "<CMD>lua require('dapui').open()<CR>", opts)
 keymap("n", "<Leader>dC", "<CMD>lua require('dapui').close()<CR>", opts)
 
 keymap("n", "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>", opts)
@@ -137,21 +141,7 @@ keymap("n", "<Leader>dr", "<CMD>lua require('dapui').float_element('repl', { ent
 -- │ Adapters                                                 │
 -- ╰──────────────────────────────────────────────────────────╯
 
--- NODE
-dap.adapters.node2 = {
-  type = "executable",
-  command = "node",
-  args = { vim.fn.stdpath("data") .. "/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
-}
-
--- Chrome
-dap.adapters.chrome = {
-  type = "executable",
-  command = "node",
-  args = { vim.fn.stdpath("data") .. "/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
-}
-
--- VSCODE JS
+-- VSCODE JS (Node/Chrome/Terminal/Jest)
 require("dap-vscode-js").setup({
   debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
   debugger_cmd = { "js-debug-adapter" },
@@ -161,80 +151,112 @@ require("dap-vscode-js").setup({
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Configurations                                           │
 -- ╰──────────────────────────────────────────────────────────╯
-dap.configurations.javascript = {
-  {
-    name = "Node.js",
-    type = "node2",
-    request = "launch",
-    program = "${file}",
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = "inspector",
-    console = "integratedTerminal",
-  },
+local exts = {
+  "javascript",
+  "typescript",
+  "javascriptreact",
+  "typescriptreact",
+  "vue",
+  "svelte",
 }
 
-dap.configurations.javascript = {
-  {
-    name = "Chrome (9222)",
-    type = "chrome",
-    request = "attach",
-    program = "${file}",
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = "inspector",
-    port = 9222,
-    webRoot = "${workspaceFolder}",
-  },
-}
-
-dap.configurations.javascriptreact = {
-  {
-    name = "Chrome (9222)",
-    type = "chrome",
-    request = "attach",
-    program = "${file}",
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = "inspector",
-    port = 9222,
-    webRoot = "${workspaceFolder}",
-  },
-}
-
-dap.configurations.typescriptreact = {
-  {
-    name = "Chrome (9222)",
-    type = "chrome",
-    request = "attach",
-    program = "${file}",
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = "inspector",
-    port = 9222,
-    webRoot = "${workspaceFolder}",
-  },
-  {
-    name = "React Native (8081) (Node2)",
-    type = "node2",
-    request = "attach",
-    program = "${file}",
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = "inspector",
-    console = "integratedTerminal",
-    port = 8081,
-  },
-  {
-    name = "Attach React Native (8081)",
-    type = "pwa-node",
-    request = "attach",
-    processId = require('dap.utils').pick_process,
-    cwd = vim.fn.getcwd(),
-    rootPath = '${workspaceFolder}',
-    skipFiles = { "<node_internals>/**", "node_modules/**" },
-    sourceMaps = true,
-    protocol = "inspector",
-    console = "integratedTerminal",
-  },
-}
+for i, ext in ipairs(exts) do
+  dap.configurations[ext] = {
+    {
+      type = "pwa-chrome",
+      request = "launch",
+      name = "Launch Chrome with \"localhost\"",
+      url = "http://localhost:3000",
+      webRoot = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Current File (pwa-node)",
+      cwd = vim.fn.getcwd(),
+      args = { "${file}" },
+      sourceMaps = true,
+      protocol = "inspector",
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Current File (pwa-node with ts-node)",
+      cwd = vim.fn.getcwd(),
+      runtimeArgs = { "--loader", "ts-node/esm" },
+      runtimeExecutable = "node",
+      args = { "${file}" },
+      sourceMaps = true,
+      protocol = "inspector",
+      skipFiles = { "<node_internals>/**", "node_modules/**" },
+      resolveSourceMapLocations = {
+        "${workspaceFolder}/**",
+        "!**/node_modules/**",
+      },
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Current File (pwa-node with deno)",
+      cwd = vim.fn.getcwd(),
+      runtimeArgs = { "run", "--inspect-brk", "--allow-all", "${file}" },
+      runtimeExecutable = "deno",
+      attachSimplePort = 9229,
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Test Current File (pwa-node with jest)",
+      cwd = vim.fn.getcwd(),
+      runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest" },
+      runtimeExecutable = "node",
+      args = { "${file}", "--coverage", "false" },
+      rootPath = "${workspaceFolder}",
+      sourceMaps = true,
+      console = "integratedTerminal",
+      internalConsoleOptions = "neverOpen",
+      skipFiles = { "<node_internals>/**", "node_modules/**" },
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Test Current File (pwa-node with vitest)",
+      cwd = vim.fn.getcwd(),
+      program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+      args = { "--inspect-brk", "--threads", "false", "run", "${file}" },
+      autoAttachChildProcesses = true,
+      smartStep = true,
+      console = "integratedTerminal",
+      skipFiles = { "<node_internals>/**", "node_modules/**" },
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch Test Current File (pwa-node with deno)",
+      cwd = vim.fn.getcwd(),
+      runtimeArgs = { "test", "--inspect-brk", "--allow-all", "${file}" },
+      runtimeExecutable = "deno",
+      attachSimplePort = 9229,
+    },
+    {
+      type = "pwa-chrome",
+      request = "attach",
+      name = "Attach Program (pwa-chrome, select port)",
+      program = "${file}",
+      cwd = vim.fn.getcwd(),
+      sourceMaps = true,
+      port = function()
+        return vim.fn.input("Select port: ", 9222)
+      end,
+      webRoot = "${workspaceFolder}",
+    },
+    {
+      type = "pwa-node",
+      request = "attach",
+      name = "Attach Program (pwa-node, select pid)",
+      cwd = vim.fn.getcwd(),
+      processId = dap_utils.pick_process,
+      skipFiles = { "<node_internals>/**" },
+    },
+  }
+end

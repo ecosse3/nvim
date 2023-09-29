@@ -72,7 +72,7 @@ local opts = {
 }
 
 local visual_opts = {
-  mode = "v", -- NORMAL mode
+  mode = "v", -- VISUAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
@@ -151,6 +151,7 @@ local normal_mode_mappings = {
     r = { 'repl' },
     s = { 'scopes' },
     t = { 'terminate' },
+    U = { 'open UI' },
     v = { 'log variable' },
     V = { 'log variable above' },
     w = { 'watches' },
