@@ -355,7 +355,11 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      char = {
+        keys = { "f", "F", "t", "T" },
+      }
+    },
     keys = {
       {
         "s",
