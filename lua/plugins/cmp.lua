@@ -5,6 +5,7 @@ local _, tabnine = pcall(require, "cmp_tabnine.config")
 
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
+  P("Failed to load cmp")
   return
 end
 
@@ -13,7 +14,11 @@ if not snip_status_ok then
   return
 end
 
-local copilot_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
+local copilot_comparators_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
+if not copilot_comparators_status_ok then
+  P("Failed to load copilot_cmp.comparators")
+  return
+end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -246,16 +251,24 @@ cmp.setup({
   -- You should specify your *installed* sources.
   sources = {
     {
+      name = "copilot",
+      priority = 10,
+      max_item_count = 3,
+    },
+    {
       name = "nvim_lsp",
       priority = 10,
-      -- Limits LSP results to specific types based on line context (FIelds, Methods, Variables)
+      -- Limits LSP results to specific types based on line context (Fields, Methods, Variables)
       entry_filter = limit_lsp_types,
     },
     { name = "npm",         priority = 9 },
     { name = "codeium",     priority = 9 },
-    { name = "copilot",     priority = 9 },
     { name = "cmp_tabnine", priority = 7 },
-    { name = "luasnip",     priority = 7  },
+    {
+      name = "luasnip",
+      priority = 7,
+      max_item_count = 5,
+    },
     {
       name = "buffer",
       priority = 7,
@@ -263,9 +276,9 @@ cmp.setup({
       max_item_count = 10,
       option = buffer_option,
     },
-    { name = "nvim_lua",    priority = 5 },
-    { name = "path",        priority = 4 },
-    { name = "calc",        priority = 3 },
+    { name = "nvim_lua", priority = 5 },
+    { name = "path",     priority = 4 },
+    { name = "calc",     priority = 3 },
   },
   sorting = {
     priority_weight = 2,
