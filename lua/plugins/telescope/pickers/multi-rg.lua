@@ -33,6 +33,7 @@ return function(opts)
         ["stories"] = "{stories.tsx,stories.ts,stories.js,*.stories.tsx,*.stories.ts,*.stories.js}",
         ["test"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
         ["tests"] = "*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}",
+        ["typescript"] = "*.ts",
         ["ts"] = {
           "*.{ts,tsx}",
           "!*{.test.tsx,.test.ts,.test.js,-test.tsx,-test.ts,-test.js}"
