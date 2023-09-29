@@ -298,7 +298,13 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'smoka7/hydra.nvim',
     },
-    config = true,
+    opts = {
+      hint_config = {
+        border = EcoVim.ui.float.border or "rounded",
+        position = 'bottom',
+        show_name = false,
+      }
+    },
     keys = {
       {
         '<LEADER>m',
