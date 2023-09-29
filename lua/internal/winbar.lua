@@ -93,6 +93,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       "DressingSelect",
       "neotest-summary",
       "toggleterm",
+      "octo",
     }
 
     if vim.api.nvim_win_get_config(0).relative ~= "" then

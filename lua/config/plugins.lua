@@ -748,6 +748,20 @@ return {
       vim.g.lazygit_floating_window_scaling_factor = 1
     end,
   },
+  {
+    "pwntester/octo.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = {
+      "Octo",
+    },
+    config = function()
+      require('plugins.git.octo')
+    end
+  },
 
   -- Testing
   {
