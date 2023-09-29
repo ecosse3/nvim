@@ -194,6 +194,10 @@ local normal_mode_mappings = {
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
   },
 
+  r = {
+    name = 'Refactor',
+  },
+
   s = {
     name = 'Search',
     c = { '<cmd>Telescope colorscheme<CR>',                              'color schemes' },
@@ -236,6 +240,10 @@ local visual_mode_mappings = {
   p = {
     name = "Project",
     r = { 'refactor' },
+  },
+
+  r = {
+    name = "Refactor",
   },
 
   t = {
