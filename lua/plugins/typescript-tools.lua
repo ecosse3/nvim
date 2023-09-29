@@ -3,6 +3,9 @@ local baseDefinitionHandler = vim.lsp.handlers["textDocument/definition"]
 local filter = require("lsp.utils.filter").filter
 local filterReactDTS = require("lsp.utils.filterReactDTS").filterReactDTS
 
+local mason_registry = require('mason-registry')
+local tsserver_path = mason_registry.get_package('typescript-language-server'):get_install_path()
+
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     silent = true,
