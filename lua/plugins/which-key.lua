@@ -178,8 +178,8 @@ local normal_mode_mappings = {
       c = {'<cmd>LazyGitFilterCurrentFile<CR>',                           'buffer commits'},
     },
     m = { 'blame line' },
-    S = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
     p = { '<cmd>Octo pr list<CR>',                                        'Pull Requests List' },
+    s = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
     w = {
       name = 'Worktree',
       w = 'worktrees',

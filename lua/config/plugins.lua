@@ -705,7 +705,7 @@ return {
     end,
     keys = {
       { "<Leader>gd", "<cmd>lua require('plugins.git.diffview').toggle_file_history()<CR>", desc = "diff file" },
-      { "<Leader>gs", "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>",       desc = "status" }
+      { "<Leader>gS", "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>",       desc = "status" }
     },
   },
   {
