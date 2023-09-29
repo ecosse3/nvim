@@ -146,6 +146,7 @@ return {
           require("copilot_cmp").setup()
         end,
       },
+      "petertriho/cmp-git"
     },
   },
 
