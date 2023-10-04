@@ -18,7 +18,7 @@ EcoVim = {
   plugins = {
     ai = {
       chatgpt = {
-        enabled = true,
+        enabled = false,
       },
       codeium = {
         enabled = false,
