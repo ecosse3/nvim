@@ -16,6 +16,7 @@ EcoVim = {
     },
   },
   plugins = {
+    -- Make sure to reload nvim & "Update Plugins" after change
     ai = {
       chatgpt = {
         enabled = false,
