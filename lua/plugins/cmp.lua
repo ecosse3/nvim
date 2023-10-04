@@ -12,13 +12,11 @@ end
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   P("Failed to load luasnip")
-  return
 end
 
 local cmp_git_ok, cmp_git = pcall(require, "cmp_git")
 if not cmp_git_ok then
   P("Failed to load cmp_git")
-  return
 end
 
 cmp_git.setup()
@@ -26,7 +24,6 @@ cmp_git.setup()
 local copilot_comparators_status_ok, copilot_cmp_comparators = pcall(require, "copilot_cmp.comparators")
 if not copilot_comparators_status_ok then
   P("Failed to load copilot_cmp.comparators")
-  return
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
