@@ -52,6 +52,7 @@ local globals = {
   mapleader                   = ' ',        --- Map leader key to SPC
   maplocalleader              = ',',        --- Map local leader key to comma
   speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
+  skip_ts_context_commentstring_module = true,
 }
 
 vim.opt.shortmess:append('c');

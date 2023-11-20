@@ -194,6 +194,20 @@ return {
     dependencies = "neovim/nvim-lspconfig",
   },
   {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup({
+        hide_cursor = true,
+        stop_eof = true,
+        respect_scrolloff = false,
+        cursor_scrolls_alone = true,
+        easing_function = nil,
+        pre_hook = nil,
+        post_hook = nil,
+      })
+    end
+  },
+  {
     "pmizio/typescript-tools.nvim",
     event = { "BufReadPre", "BufNewFile" },
     ft = { "typescript", "typescriptreact" },
@@ -829,4 +843,16 @@ return {
       end
     end,
   },
+  {
+    "TobinPalmer/Tip.nvim",
+    event = "VimEnter",
+    init = function()
+      -- Default config
+      -- @type Tip.config
+      require("tip").setup({
+        title = "Tip!",
+        url = "https://vtip.43z.one",
+      })
+    end,
+  }
 }

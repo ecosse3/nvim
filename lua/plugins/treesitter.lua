@@ -2,9 +2,10 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "tsx",
     "typescript",
-    "javascript",
     "html",
     "css",
+    "cpp",
+    "rust",
     "vue",
     "astro",
     "svelte",
@@ -39,10 +40,10 @@ require 'nvim-treesitter.configs'.setup {
     enable = true
   },
 
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  --context_commentstring = {
+  --  enable = true,
+  --  enable_autocmd = false,
+  --},
 
   textobjects = {
     move = {
