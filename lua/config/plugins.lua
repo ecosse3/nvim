@@ -6,9 +6,24 @@ return {
     priority = 1000,
     config = function()
       -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme tokyonight-night]])
       require("config.colorscheme")
     end,
+  },
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    priority = 900,
+  },
+  {
+    'tanvirtin/monokai.nvim',
+    lazy = false,
+    priority = 900,
+  },
+  {
+    'olimorris/onedarkpro.nvim',
+    lazy = false,
+    priority = 900,
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -861,5 +876,5 @@ return {
         url = "https://vtip.43z.one",
       })
     end,
-  }
+  },
 }
