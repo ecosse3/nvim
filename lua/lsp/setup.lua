@@ -18,14 +18,11 @@ mason_lsp.setup({
   -- A list of servers to automatically install if they're not already installed
   ensure_installed = {
     "bashls",
-    "cssls",
-    "eslint",
     "graphql",
-    "html",
     "jsonls",
     "lua_ls",
-    "prismals",
-    "tailwindcss"
+    "clangd",
+    "rust_analyzer",
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.

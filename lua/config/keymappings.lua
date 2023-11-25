@@ -100,13 +100,13 @@ keymap("v", "<leader>cf", function()
   local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
   local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
 
-	vim.lsp.buf.format({
-		range = {
-			["start"] = { start_row, 0 },
-			["end"] = { end_row, 0 },
-		},
-		async = true,
-	})
+  vim.lsp.buf.format({
+    range = {
+      ["start"] = { start_row, 0 },
+      ["end"] = { end_row, 0 },
+    },
+    async = true,
+  })
 end, silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
@@ -114,8 +114,8 @@ keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		vim.lsp.buf.hover()
-	end
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
 end)
