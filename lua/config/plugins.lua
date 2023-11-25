@@ -3,12 +3,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    priority = 1000,
-    config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme tokyonight-night]])
-      require("config.colorscheme")
-    end,
+    priority = 900,
   },
   {
     'rebelot/kanagawa.nvim',
@@ -24,6 +19,15 @@ return {
     'olimorris/onedarkpro.nvim',
     lazy = false,
     priority = 900,
+  },
+  {
+    'calind/selenized.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- load the colorscheme here
+      require("config.colorscheme")
+    end,
   },
   { "nvim-lua/plenary.nvim" },
   {

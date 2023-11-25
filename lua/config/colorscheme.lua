@@ -3,7 +3,6 @@ if not present then
   return
 end
 
-local c = require("tokyonight.colors").setup()
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup Colorscheme                                        │
@@ -65,20 +64,20 @@ tokyonight.setup({
 vim.cmd("colorscheme " .. EcoVim.colorscheme)
 
 -- Ecovim Colors
-vim.api.nvim_set_hl(0, "EcovimPrimary", { fg = "#488dff" })
-vim.api.nvim_set_hl(0, "EcovimSecondary", { fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimPrimaryBold", { bold = true, fg = "#488DFF" })
-vim.api.nvim_set_hl(0, "EcovimSecondaryBold", { bold = true, fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimHeader", { bold = true, fg = "#488DFF" })
-vim.api.nvim_set_hl(0, "EcovimHeaderInfo", { bold = true, fg = "#FFA630" })
-vim.api.nvim_set_hl(0, "EcovimFooter", { bold = true, fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimNvimTreeTitle", { bold = true, fg = "#FFA630", bg = "#16161e" })
-
 -- Tokyonight Colorscheme Specific Config
 if EcoVim.colorscheme == "tokyonight" then
+  vim.api.nvim_set_hl(0, "EcovimPrimary", { fg = "#488dff" })
+  vim.api.nvim_set_hl(0, "EcovimSecondary", { fg = "#FFA630" })
+
+  vim.api.nvim_set_hl(0, "EcovimPrimaryBold", { bold = true, fg = "#488DFF" })
+  vim.api.nvim_set_hl(0, "EcovimSecondaryBold", { bold = true, fg = "#FFA630" })
+
+  vim.api.nvim_set_hl(0, "EcovimHeader", { bold = true, fg = "#488DFF" })
+  vim.api.nvim_set_hl(0, "EcovimHeaderInfo", { bold = true, fg = "#FFA630" })
+  vim.api.nvim_set_hl(0, "EcovimFooter", { bold = true, fg = "#FFA630" })
+
+  vim.api.nvim_set_hl(0, "EcovimNvimTreeTitle", { bold = true, fg = "#FFA630", bg = "#16161e" })
+
   -- Lines
   vim.api.nvim_set_hl(0, "CursorLineNR", { link = "EcovimSecondary" })
   vim.api.nvim_set_hl(0, "LineNr", { link = "Comment" })
@@ -114,6 +113,7 @@ if EcoVim.colorscheme == "tokyonight" then
 
   vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { bg = "#16161e", fg = "#16161e" })
 
+  local c = require("tokyonight.colors").setup()
   -- Completion Menu Colors
   local highlights = {
     CmpItemAbbr = { fg = c.dark3, bg = "NONE" },
