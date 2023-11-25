@@ -84,6 +84,7 @@
   "switch.vim": { "branch": "main", "commit": "68d269301181835788dcdcb6d5bca337fb954395" },
   "tailwind-fold.nvim": { "branch": "main", "commit": "ee76814c51d940074077b63fa03827d95bab8e56" },
   "tailwind-sorter.nvim": { "branch": "main", "commit": "d910baa6f7c99ea3699310371a984c93ed408ea6" },
+  "telescope-frecency.nvim": { "branch": "master", "commit": "ca5fa5326fc2b2ebd3269176594c4341ad720ac5" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope-repo.nvim": { "branch": "master", "commit": "e17462610fb936bc8a8cc12a249c3252156dd6f7" },
   "telescope.nvim": { "branch": "master", "commit": "18774ec7929c8a8003a91e9e1f69f6c32258bbfe" },

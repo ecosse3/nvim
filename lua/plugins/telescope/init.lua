@@ -6,6 +6,7 @@ local icons      = EcoVim.icons
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('repo')
 require("telescope").load_extension("git_worktree")
+require("telescope").load_extension("frecency")
 
 local git_icons = {
   added = icons.gitAdd,
