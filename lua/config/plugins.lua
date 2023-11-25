@@ -844,6 +844,13 @@ return {
     end,
   },
   {
+    "chrisgrieser/nvim-early-retirement",
+    opts = {
+      retirementAgeMins = 20,
+    },
+    event = "VeryLazy",
+  },
+  {
     "TobinPalmer/Tip.nvim",
     event = "VimEnter",
     init = function()

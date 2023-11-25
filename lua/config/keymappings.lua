@@ -1,8 +1,6 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
-table.unpack = table.unpack or unpack -- 5.1 compatibility
-
 -- Better window movement
 keymap("n", "<C-h>", "<C-w>h", silent)
 keymap("n", "<C-j>", "<C-w>j", silent)
@@ -73,6 +71,15 @@ keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", sil
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
 keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
   silent)
+
+-- Make it easier to go the the buffers
+keymap("n", "]b", ":bNext<CR>")
+keymap("n", "[b", ":bprevious<CR>")
+
+-- Copy the filename to the clipboard
+keymap("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name" })
+-- Copy the filepath to the clipboard
+keymap("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path" })
 
 -- Open links under cursor in browser with gx
 if vim.fn.has('macunix') == 1 then
