@@ -44,6 +44,8 @@ keymap("n", "gn", ":bn<CR>", silent)
 keymap("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", silent)
 keymap("n", "gp", ":bp<CR>", silent)
 keymap("n", "<S-q>", ":lua require('mini.bufremove').delete(0, false)<CR>", silent)
+keymap("n", "]b", ":bn<CR>", silent)
+keymap("n", "[b", ":bp<CR>", silent)
 
 -- Don't yank on delete char
 keymap("n", "x", '"_x', silent)
@@ -71,10 +73,6 @@ keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", sil
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
 keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
   silent)
-
--- Make it easier to go the the buffers
-keymap("n", "]b", ":bNext<CR>")
-keymap("n", "[b", ":bprevious<CR>")
 
 -- Copy the filename to the clipboard
 keymap("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name" })
