@@ -18,7 +18,7 @@ require('dressing').setup({
     -- These are passed to nvim_open_win
     border = EcoVim.ui.float.border or "rounded",
     -- 'editor' and 'win' will default to being centered
-    relative = "cursor",
+    relative = "editor",
 
     -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
     prefer_width = 10,
@@ -66,14 +66,25 @@ require('dressing').setup({
     -- Priority list of preferred vim.select implementations
     backend = { "telescope", "nui", "fzf", "builtin" },
 
+    fzf = {
+      window = {
+        wdith = 0.5,
+        height = 0.4,
+      },
+    },
+
+    fzf_lua = {
+      winopts = {
+        width = 0.5,
+        height = 0.5,
+      },
+    },
+
     -- Options for nui Menu
     nui = {
-      position = {
-        row = 1,
-        col = 0,
-      },
+      position = '50%',
       size = nil,
-      relative = "cursor",
+      relative = "editor",
       border = {
         style = EcoVim.ui.float.border or "rounded",
         text = {
@@ -94,7 +105,7 @@ require('dressing').setup({
       wnchor = "SW",
       border = EcoVim.ui.float.border or "rounded",
       -- 'editor' and 'win' will default to being centered
-      relative = "cursor",
+      relative = "editor",
 
       win_options = {
         -- Window transparency (0-100)
@@ -133,7 +144,7 @@ require('dressing').setup({
         return {
           backend = 'builtin',
           nui = {
-            relative = 'cursor',
+            relative = 'editor',
             max_width = 80,
             min_height = 2,
           }
