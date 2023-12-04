@@ -1,21 +1,13 @@
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "tsx",
-    "typescript",
-    "html",
-    "css",
     "cpp",
     "rust",
-    "vue",
-    "astro",
-    "svelte",
     "gitcommit",
-    "graphql",
     "json",
     "json5",
     "lua",
     "markdown",
-    "prisma",
+    "toml",
     "vim",
   },                              -- one of "all", or a list of languages
   sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)

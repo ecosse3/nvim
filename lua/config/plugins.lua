@@ -900,4 +900,19 @@ return {
       width = 20,  -- only use 20% of the realestate.
     },
   },
+  {
+    "simrat39/rust-tools.nvim",
+    opts = {}
+  },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+    config = function ()
+      -- I think I need to do something, but this is the most
+      -- innocent thing I can come up with. It also makes it easy 
+      -- to enable debugging if I want that.
+      vim.cmd(":WakaTimeDebugDisable")
+    end,
+    opts = {},
+  }
 }
