@@ -3,6 +3,7 @@ if not present then
   return
 end
 
+local c = require('tokyonight.colors').setup()
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup Colorscheme                                        │
