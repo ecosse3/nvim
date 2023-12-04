@@ -1,3 +1,4 @@
+-- 使用lazy.nvim包管理器
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -33,5 +34,5 @@ require("lazy").setup("config.plugins", {
     border = EcoVim.ui.float.border,
   }
 })
-
+-- 按键映射
 vim.keymap.set("n", "<leader>/l", "<cmd>:Lazy<cr>")

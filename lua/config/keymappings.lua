@@ -69,6 +69,23 @@ keymap("n", "<Space>.", ":cn<CR>", silent)
 -- Toggle quicklist
 keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", silent)
 
+-- windows Navigation
+keymap("n", "<C-h>", "<C-w>h")
+keymap("n", "<C-l>", "<C-w>l")
+keymap("n", "<C-k>", "<C-w>k")
+keymap("n", "<C-j>", "<C-w>j")
+
+-- Resize Windows
+keymap("n", "<C-Left>", "<C-w><")
+keymap("n", "<C-Right>", "<C-w>>")
+keymap("n", "<C-Up>", "<C-w>+")
+keymap("n", "<C-Down>", "<C-w>-")
+
+-- Terminal
+keymap("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
+keymap("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>")
+
+
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)
 keymap("n", "<C-x>", ":if !switch#Switch({'reverse': 1}) <bar> call speeddating#increment(-v:count1) <bar> endif<CR>",
@@ -93,13 +110,13 @@ keymap("v", "<leader>cf", function()
   local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
   local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
 
-	vim.lsp.buf.format({
-		range = {
-			["start"] = { start_row, 0 },
-			["end"] = { end_row, 0 },
-		},
-		async = true,
-	})
+  vim.lsp.buf.format({
+    range = {
+      ["start"] = { start_row, 0 },
+      ["end"] = { end_row, 0 },
+    },
+    async = true,
+  })
 end, silent)
 keymap("n", "<leader>cl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
@@ -107,8 +124,8 @@ keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
-	local winid = require("ufo").peekFoldedLinesUnderCursor()
-	if not winid then
-		vim.lsp.buf.hover()
-	end
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover()
+  end
 end)
