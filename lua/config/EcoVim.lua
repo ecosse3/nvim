@@ -12,7 +12,9 @@ EcoVim = {
   --colorscheme = "tokyonight",
   --colorscheme = "onedark_dark",
   -- colorscheme = "selenized",
-  colorscheme = "modus_vivendi",     -- the dark theme.
+  -- colorscheme = "modus_vivendi",     -- the dark theme.
+  -- colorscheme = "palenight",
+  colorscheme = "everforest",
   -- colorscheme = "modus_operandi", -- the light theme.
   ui = {
     float = {
@@ -22,7 +24,7 @@ EcoVim = {
   plugins = {
     ai = {
       chatgpt = {
-        enabled = true,
+        enabled = false,
       },
       codeium = {
         enabled = false,
@@ -62,7 +64,7 @@ EcoVim = {
   icons = icons,
   -- Statusline configuration
   statusline = {
-    path_enabled = false,
+    path_enabled = true,
     path = "relative", -- absolute/relative
   },
   lsp = {

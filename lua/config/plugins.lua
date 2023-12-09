@@ -26,18 +26,23 @@ return {
     priority = 900,
   },
   {
-    'calind/selenized.nvim',
+    'miikanissi/modus-themes.nvim',
     lazy = false,
     priority = 900,
   },
   {
-    'miikanissi/modus-themes.nvim',
+    'sainnhe/everforest',
     lazy = false,
     priority = 1000,
     config = function()
       -- load the colorscheme here
       require("config.colorscheme")
     end,
+  },
+  {
+    'alexmozaidze/palenight.nvim',
+    priority = 900,
+    lazy = false,
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -138,7 +143,9 @@ return {
       { "<leader>rb", ":Refactor extract_block",         mode = "n",          desc = "Extract block" },
       { "<leader>rf", ":Refactor extract_block_to_file", mode = "n",          desc = "Extract block to file" },
     },
-    config = true
+    config = function ()
+      require('refactoring').setup()
+    end
   },
 
   -- LSP Base
