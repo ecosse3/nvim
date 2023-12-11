@@ -106,7 +106,19 @@ lspconfig.vuels.setup({
   settings = require("lsp.servers.vuels").settings,
 })
 
-for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals", "clangd", "rust_analyzer" }) do
+lspconfig.rust_analyzer.setup({
+  handlers = handlers,
+  on_attach = on_attach,
+  settings = {
+    ["rust_analyzer"] = {
+      checkOnSave = {
+        command = "clippy",
+      },
+    },
+  },
+})
+
+for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals", "clangd" }) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = capabilities,
