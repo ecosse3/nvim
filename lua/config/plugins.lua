@@ -31,6 +31,11 @@ return {
     priority = 900,
   },
   {
+    'ellisonleao/gruvbox.nvim',
+    lazy = false,
+    priority = 900,
+  },
+  {
     'sainnhe/everforest',
     lazy = false,
     priority = 1000,
