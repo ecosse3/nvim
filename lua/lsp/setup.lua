@@ -72,12 +72,16 @@ lspconfig.rust_analyzer.setup({
   handlers = handlers,
   on_attach = on_attach,
   settings = {
-    ["rust_analyzer"] = {
+    ['rust-analyzer'] = {
       checkOnSave = {
-        command = "clippy",
+        allFeatures = true,
+        overrideCommand = {
+          'cargo', 'clippy', '--workspace', '--message-format=json', 
+          '--all-targets', '--all-features',
+        },
       },
     },
-  },
+  }
 })
 
 for _, server in ipairs({ "bashls",  "graphql",  "clangd" }) do

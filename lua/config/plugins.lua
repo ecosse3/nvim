@@ -182,7 +182,6 @@ return {
       local lint = require("lint")
       lint.linters_by_ft = {
         kotlin = { "ktlint" },
-        rust = { "clippy" },
         markdown = { "vale" },
         clang = { "clangtidy" },
         python = { "flake8", "pylint" },
