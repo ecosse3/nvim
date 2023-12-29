@@ -89,16 +89,6 @@ vim.diagnostic.config({
         return string.format('%s', diagnostic.message)
       end
 
-      if diagnostic.source == 'eslint' then
-        for _, table in pairs(codes) do
-          if vim.tbl_contains(table, code) then
-            return string.format('%s [%s]', table.icon .. diagnostic.message, code)
-          end
-        end
-
-        return string.format('%s [%s]', diagnostic.message, code)
-      end
-
       for _, table in pairs(codes) do
         if vim.tbl_contains(table, code) then
           return table.message
