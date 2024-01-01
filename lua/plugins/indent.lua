@@ -9,9 +9,6 @@ require("ibl").setup {
     filetypes = { "help", "dashboard", "packer", "NvimTree", "Trouble", "TelescopePrompt", "Float" },
     buftypes = { "terminal", "nofile", "telescope" },
   },
-  indent = {
-    char = "│",
-  },
   scope = {
     enabled = true,
     show_start = false,

@@ -39,6 +39,9 @@ require 'nvim-treesitter.configs'.setup {
     enable = true
   },
 
+  enable = true,
+  enable_autocmd = false,
+
   textobjects = {
     move = {
       enable = true,

@@ -122,9 +122,9 @@ require("nvim-tree").setup({
 			restrict_above_cwd = false,
 		},
 		open_file = {
-			quit_on_open = false,
+			quit_on_open = true,
 			-- if true the tree will resize itself after opening a file
-			resize_window = false,
+			resize_window = true,
 			window_picker = {
 				enable = true,
 				chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",

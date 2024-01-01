@@ -42,6 +42,7 @@ keymap("n", "<CR>", ":noh<CR><CR>", silent)
 keymap("n", "<Leader>pf",
   "<CMD>lua require('plugins.telescope').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>")
 keymap("n", "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>")
+keymap("n", "<Leader>rf", ":Telescope oldfiles<CR>", { noremap = true, silent = true })
 
 -- Buffers
 keymap("n", "<Tab>", ":BufferLineCycleNext<CR>", silent)
