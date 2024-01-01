@@ -6,37 +6,37 @@ return {
     priority = 900,
   },
   {
-    'rebelot/kanagawa.nvim',
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'tanvirtin/monokai.nvim',
+    "tanvirtin/monokai.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'olimorris/onedarkpro.nvim',
+    "olimorris/onedarkpro.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'oxfist/night-owl.nvim',
+    "oxfist/night-owl.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'miikanissi/modus-themes.nvim',
+    "miikanissi/modus-themes.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'ellisonleao/gruvbox.nvim',
+    "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 900,
   },
   {
-    'sainnhe/everforest',
+    "sainnhe/everforest",
     lazy = false,
     priority = 1000,
     config = function()
@@ -45,7 +45,7 @@ return {
     end,
   },
   {
-    'alexmozaidze/palenight.nvim',
+    "alexmozaidze/palenight.nvim",
     priority = 900,
     lazy = false,
   },
@@ -94,8 +94,8 @@ return {
         "<cmd>lua require('spectre').open_visual()<CR>",
         mode = "v",
         desc = "refactor",
-      }
-    }
+      },
+    },
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -108,7 +108,7 @@ return {
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "cljoly/telescope-repo.nvim" },
-      { "nvim-telescope/telescope-frecency.nvim"}
+      { "nvim-telescope/telescope-frecency.nvim" },
     },
   },
   {
@@ -140,17 +140,17 @@ return {
     },
     cmd = "Refactor",
     keys = {
-      { "<leader>re", ":Refactor extract ",              mode = "x",          desc = "Extract function" },
-      { "<leader>rf", ":Refactor extract_to_file ",      mode = "x",          desc = "Extract function to file" },
-      { "<leader>rv", ":Refactor extract_var ",          mode = "x",          desc = "Extract variable" },
-      { "<leader>ri", ":Refactor inline_var",            mode = { "x", "n" }, desc = "Inline variable" },
-      { "<leader>rI", ":Refactor inline_func",           mode = "n",          desc = "Inline function" },
-      { "<leader>rb", ":Refactor extract_block",         mode = "n",          desc = "Extract block" },
-      { "<leader>rf", ":Refactor extract_block_to_file", mode = "n",          desc = "Extract block to file" },
+      { "<leader>re", ":Refactor extract ", mode = "x", desc = "Extract function" },
+      { "<leader>rf", ":Refactor extract_to_file ", mode = "x", desc = "Extract function to file" },
+      { "<leader>rv", ":Refactor extract_var ", mode = "x", desc = "Extract variable" },
+      { "<leader>ri", ":Refactor inline_var", mode = { "x", "n" }, desc = "Inline variable" },
+      { "<leader>rI", ":Refactor inline_func", mode = "n", desc = "Inline function" },
+      { "<leader>rb", ":Refactor extract_block", mode = "n", desc = "Extract block" },
+      { "<leader>rf", ":Refactor extract_block_to_file", mode = "n", desc = "Extract block to file" },
     },
-    config = function ()
-      require('refactoring').setup()
-    end
+    config = function()
+      require("refactoring").setup()
+    end,
   },
 
   -- LSP Base
@@ -171,7 +171,78 @@ return {
       { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" },
     },
   },
+  -- linter config
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        kotlin = { "ktlint" },
+        markdown = { "vale" },
+        clang = { "clangtidy" },
+        python = { "flake8", "pylint" },
+        zsh = { "zsh" },
+      }
 
+      local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        group = lint_augroup,
+        callback = function()
+          lint.try_lint()
+        end,
+      })
+
+      vim.keymap.set("n", "<leader>ll", function()
+        lint.try_lint()
+      end, { desc = "Trigger linting for current file" })
+    end,
+  },
+  -- Code Formatters
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      local conform = require("conform")
+      conform.setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          svelte = { { "prettierd", "prettier" } },
+          javascript = { { "prettierd", "prettier" } },
+          typescript = { { "prettierd", "prettier" } },
+          javascriptreact = { { "prettierd", "prettier" } },
+          typescriptreact = { { "prettierd", "prettier" } },
+          json = { { "prettierd", "prettier" } },
+          graphql = { { "prettierd", "prettier" } },
+          java = { "google-java-format" },
+          kotlin = { "ktlint" },
+          ruby = { "standardrb" },
+          markdown = { { "prettierd", "prettier" } },
+          erb = { "htmlbeautifier" },
+          html = { "htmlbeautifier" },
+          bash = { "beautysh" },
+          proto = { "buf" },
+          rust = { "rustfmt" },
+          yaml = { "yamlfix" },
+          toml = { "taplo" },
+          css = { { "prettierd", "prettier" } },
+          scss = { { "prettierd", "prettier" } },
+        },
+      })
+
+      vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+        conform.format({
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        })
+      end, { desc = "Format file or range (in visual mode)" })
+    end,
+  },
   -- LSP Cmp
   {
     "hrsh7th/nvim-cmp",
@@ -206,7 +277,7 @@ return {
           require("copilot_cmp").setup()
         end,
       },
-      "petertriho/cmp-git"
+      "petertriho/cmp-git",
     },
   },
 
@@ -238,7 +309,7 @@ return {
   {
     "karb94/neoscroll.nvim",
     config = function()
-      require('neoscroll').setup({
+      require("neoscroll").setup({
         hide_cursor = true,
         stop_eof = true,
         respect_scrolloff = false,
@@ -247,7 +318,7 @@ return {
         pre_hook = nil,
         post_hook = nil,
       })
-    end
+    end,
   },
   {
     "dnlhc/glance.nvim",
@@ -256,9 +327,9 @@ return {
     end,
     cmd = { "Glance" },
     keys = {
-      { "gd", "<cmd>Glance definitions<CR>",      desc = "LSP Definition" },
-      { "gr", "<cmd>Glance references<CR>",       desc = "LSP References" },
-      { "gm", "<cmd>Glance implementations<CR>",  desc = "LSP Implementations" },
+      { "gd", "<cmd>Glance definitions<CR>", desc = "LSP Definition" },
+      { "gr", "<cmd>Glance references<CR>", desc = "LSP References" },
+      { "gm", "<cmd>Glance implementations<CR>", desc = "LSP Implementations" },
       { "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
     },
   },
@@ -271,7 +342,7 @@ return {
     },
     config = function()
       require("lsp-file-operations").setup()
-    end
+    end,
   },
 
   -- General
@@ -302,8 +373,8 @@ return {
     lazy = false,
     keys = {
       { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", desc = "comment box" },
-      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v",          desc = "comment box" },
-    }
+      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v", desc = "comment box" },
+    },
   },
   {
     "akinsho/nvim-toggleterm.lua",
@@ -313,42 +384,42 @@ return {
       require("plugins.toggleterm")
     end,
     keys = {
-      { "<Leader>at", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float" }
-    }
+      { "<Leader>at", "<cmd>ToggleTerm direction=float<CR>", desc = "terminal float" },
+    },
   },
-  { "tpope/vim-repeat",           lazy = false },
-  { "tpope/vim-speeddating",      lazy = false },
+  { "tpope/vim-repeat", lazy = false },
+  { "tpope/vim-speeddating", lazy = false },
   { "dhruvasagar/vim-table-mode", ft = { "markdown" } },
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'smoka7/hydra.nvim',
+      "nvim-treesitter/nvim-treesitter",
+      "smoka7/hydra.nvim",
     },
     opts = {
       hint_config = {
         border = EcoVim.ui.float.border or "rounded",
-        position = 'bottom',
+        position = "bottom",
         show_name = false,
-      }
+      },
     },
     keys = {
       {
-        '<LEADER>m',
-        '<CMD>MCstart<CR>',
-        desc = 'multicursor',
+        "<LEADER>m",
+        "<CMD>MCstart<CR>",
+        desc = "multicursor",
       },
       {
-        '<LEADER>m',
-        '<CMD>MCvisual<CR>',
+        "<LEADER>m",
+        "<CMD>MCvisual<CR>",
         mode = "v",
-        desc = 'multicursor',
+        desc = "multicursor",
       },
       {
-        '<C-Down>',
-        '<CMD>MCunderCursor<CR>',
-        desc = 'multicursor down',
+        "<C-Down>",
+        "<CMD>MCunderCursor<CR>",
+        desc = "multicursor down",
       },
     },
   },
@@ -383,8 +454,7 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {
-    },
+    opts = {},
     -- stylua: ignore
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
@@ -430,34 +500,34 @@ return {
       require("plugins.bufferline")
     end,
     keys = {
-      { "<Space>1",    "<cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<Space>2",    "<cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<Space>3",    "<cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<Space>4",    "<cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<Space>5",    "<cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<Space>6",    "<cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<Space>7",    "<cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<Space>8",    "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<Space>9",    "<cmd>BufferLineGoToBuffer 9<CR>" },
-      { "<A-1>",       "<cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<A-2>",       "<cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<A-3>",       "<cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<A-4>",       "<cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<A-5>",       "<cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<A-6>",       "<cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<A-7>",       "<cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<A-8>",       "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<A-9>",       "<cmd>BufferLineGoToBuffer 9<CR>" },
-      { "<Leader>bb",  "<cmd>BufferLineMovePrev<CR>",                desc = "Move back" },
-      { "<Leader>bl",  "<cmd>BufferLineCloseLeft<CR>",               desc = "Close Left" },
-      { "<Leader>br",  "<cmd>BufferLineCloseRight<CR>",              desc = "Close Right" },
-      { "<Leader>bn",  "<cmd>BufferLineMoveNext<CR>",                desc = "Move next" },
-      { "<Leader>bp",  "<cmd>BufferLinePick<CR>",                    desc = "Pick Buffer" },
-      { "<Leader>bP",  "<cmd>BufferLineTogglePin<CR>",               desc = "Pin/Unpin Buffer" },
-      { "<Leader>bsd", "<cmd>BufferLineSortByDirectory<CR>",         desc = "Sort by directory" },
-      { "<Leader>bse", "<cmd>BufferLineSortByExtension<CR>",         desc = "Sort by extension" },
+      { "<Space>1", "<cmd>BufferLineGoToBuffer 1<CR>" },
+      { "<Space>2", "<cmd>BufferLineGoToBuffer 2<CR>" },
+      { "<Space>3", "<cmd>BufferLineGoToBuffer 3<CR>" },
+      { "<Space>4", "<cmd>BufferLineGoToBuffer 4<CR>" },
+      { "<Space>5", "<cmd>BufferLineGoToBuffer 5<CR>" },
+      { "<Space>6", "<cmd>BufferLineGoToBuffer 6<CR>" },
+      { "<Space>7", "<cmd>BufferLineGoToBuffer 7<CR>" },
+      { "<Space>8", "<cmd>BufferLineGoToBuffer 8<CR>" },
+      { "<Space>9", "<cmd>BufferLineGoToBuffer 9<CR>" },
+      { "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>" },
+      { "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>" },
+      { "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>" },
+      { "<A-4>", "<cmd>BufferLineGoToBuffer 4<CR>" },
+      { "<A-5>", "<cmd>BufferLineGoToBuffer 5<CR>" },
+      { "<A-6>", "<cmd>BufferLineGoToBuffer 6<CR>" },
+      { "<A-7>", "<cmd>BufferLineGoToBuffer 7<CR>" },
+      { "<A-8>", "<cmd>BufferLineGoToBuffer 8<CR>" },
+      { "<A-9>", "<cmd>BufferLineGoToBuffer 9<CR>" },
+      { "<Leader>bb", "<cmd>BufferLineMovePrev<CR>", desc = "Move back" },
+      { "<Leader>bl", "<cmd>BufferLineCloseLeft<CR>", desc = "Close Left" },
+      { "<Leader>br", "<cmd>BufferLineCloseRight<CR>", desc = "Close Right" },
+      { "<Leader>bn", "<cmd>BufferLineMoveNext<CR>", desc = "Move next" },
+      { "<Leader>bp", "<cmd>BufferLinePick<CR>", desc = "Pick Buffer" },
+      { "<Leader>bP", "<cmd>BufferLineTogglePin<CR>", desc = "Pin/Unpin Buffer" },
+      { "<Leader>bsd", "<cmd>BufferLineSortByDirectory<CR>", desc = "Sort by directory" },
+      { "<Leader>bse", "<cmd>BufferLineSortByExtension<CR>", desc = "Sort by extension" },
       { "<Leader>bsr", "<cmd>BufferLineSortByRelativeDirectory<CR>", desc = "Sort by relative dir" },
-    }
+    },
   },
   {
     "rcarriga/nvim-notify",
@@ -513,12 +583,12 @@ return {
       require("plugins.session-manager")
     end,
     keys = {
-      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>",             desc = "choose session" },
-      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>",           desc = "remove session" },
+      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>", desc = "choose session" },
+      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>", desc = "remove session" },
       { "<Leader>/sd", "<cmd>SessionManager load_current_dir_session<CR>", desc = "load current dir session" },
-      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>",        desc = "load last session" },
-      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>",     desc = "save session" },
-    }
+      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>", desc = "load last session" },
+      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
+    },
   },
   {
     "kylechui/nvim-surround",
@@ -598,12 +668,7 @@ return {
       vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
       vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
       vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-      vim.keymap.set(
-        { "n", "o", "x" },
-        "ge",
-        "<cmd>lua require('spider').motion('ge')<CR>",
-        { desc = "Spider-ge" }
-      )
+      vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
     end,
   },
 
@@ -685,7 +750,7 @@ return {
       { "<Leader>ghS", desc = "stage buffer" },
       { "<Leader>ght", desc = "toggle deleted" },
       { "<Leader>ghu", desc = "undo stage" },
-    }
+    },
   },
   {
     "sindrets/diffview.nvim",
@@ -697,7 +762,7 @@ return {
     end,
     keys = {
       { "<Leader>gd", "<cmd>lua require('plugins.git.diffview').toggle_file_history()<CR>", desc = "diff file" },
-      { "<Leader>gS", "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>",       desc = "status" }
+      { "<Leader>gS", "<cmd>lua require('plugins.git.diffview').toggle_status()<CR>", desc = "status" },
     },
   },
   {
@@ -707,12 +772,12 @@ return {
       require("plugins.git.conflict")
     end,
     keys = {
-      { "<Leader>gcb", '<cmd>GitConflictChooseBoth<CR>',   desc = 'choose both' },
-      { "<Leader>gcn", '<cmd>GitConflictNextConflict<CR>', desc = 'move to next conflict' },
-      { "<Leader>gcc", '<cmd>GitConflictChooseOurs<CR>',   desc = 'choose current' },
-      { "<Leader>gcp", '<cmd>GitConflictPrevConflict<CR>', desc = 'move to prev conflict' },
-      { "<Leader>gci", '<cmd>GitConflictChooseTheirs<CR>', desc = 'choose incoming' },
-    }
+      { "<Leader>gcb", "<cmd>GitConflictChooseBoth<CR>", desc = "choose both" },
+      { "<Leader>gcn", "<cmd>GitConflictNextConflict<CR>", desc = "move to next conflict" },
+      { "<Leader>gcc", "<cmd>GitConflictChooseOurs<CR>", desc = "choose current" },
+      { "<Leader>gcp", "<cmd>GitConflictPrevConflict<CR>", desc = "move to prev conflict" },
+      { "<Leader>gci", "<cmd>GitConflictChooseTheirs<CR>", desc = "choose incoming" },
+    },
   },
   {
     "ThePrimeagen/git-worktree.nvim",
@@ -722,8 +787,8 @@ return {
     end,
     keys = {
       { "<Leader>gww", desc = "worktrees" },
-      { "<Leader>gwc", desc = "create worktree" }
-    }
+      { "<Leader>gwc", desc = "create worktree" },
+    },
   },
   {
     "kdheepak/lazygit.nvim",
@@ -751,8 +816,8 @@ return {
       "Octo",
     },
     config = function()
-      require('plugins.git.octo')
-    end
+      require("plugins.git.octo")
+    end,
   },
 
   -- Testing
@@ -849,22 +914,22 @@ return {
     },
     opts = {
       -- when we need extra options.
-      width = 20,  -- only use 20% of the realestate.
+      width = 20, -- only use 20% of the realestate.
     },
   },
   {
     "simrat39/rust-tools.nvim",
-    opts = {}
+    opts = {},
   },
   {
     "wakatime/vim-wakatime",
     lazy = false,
-    config = function ()
+    config = function()
       -- I think I need to do something, but this is the most
-      -- innocent thing I can come up with. It also makes it easy 
+      -- innocent thing I can come up with. It also makes it easy
       -- to enable debugging if I want that.
       vim.cmd(":WakaTimeDebugDisable")
     end,
     opts = {},
-  }
+  },
 }

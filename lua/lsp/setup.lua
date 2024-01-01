@@ -48,7 +48,7 @@ local handlers = {
   ),
 }
 
-local function on_attach(client, bufnr)
+local function on_attach(client, _bufnr)
   -- set up buffer keymaps, etc.
 end
 
@@ -61,36 +61,6 @@ capabilities.textDocument.foldingRange = {
 
 -- Order matters
 
-lspconfig.tailwindcss.setup({
-  capabilities = require("lsp.servers.tailwindcss").capabilities,
-  filetypes = require("lsp.servers.tailwindcss").filetypes,
-  handlers = handlers,
-  init_options = require("lsp.servers.tailwindcss").init_options,
-  on_attach = require("lsp.servers.tailwindcss").on_attach,
-  settings = require("lsp.servers.tailwindcss").settings,
-})
-
-lspconfig.cssls.setup({
-  capabilities = capabilities,
-  handlers = handlers,
-  on_attach = require("lsp.servers.cssls").on_attach,
-  settings = require("lsp.servers.cssls").settings,
-})
-
-lspconfig.eslint.setup({
-  capabilities = capabilities,
-  handlers = handlers,
-  on_attach = require("lsp.servers.eslint").on_attach,
-  settings = require("lsp.servers.eslint").settings,
-})
-
-lspconfig.jsonls.setup({
-  capabilities = capabilities,
-  handlers = handlers,
-  on_attach = on_attach,
-  settings = require("lsp.servers.jsonls").settings,
-})
-
 lspconfig.lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers,
@@ -98,27 +68,23 @@ lspconfig.lua_ls.setup({
   settings = require("lsp.servers.lua_ls").settings,
 })
 
-lspconfig.vuels.setup({
-  filetypes = require("lsp.servers.vuels").filetypes,
-  handlers = handlers,
-  init_options = require("lsp.servers.vuels").init_options,
-  on_attach = require("lsp.servers.vuels").on_attach,
-  settings = require("lsp.servers.vuels").settings,
-})
-
 lspconfig.rust_analyzer.setup({
   handlers = handlers,
   on_attach = on_attach,
   settings = {
-    ["rust_analyzer"] = {
+    ['rust-analyzer'] = {
       checkOnSave = {
-        command = "clippy",
+        allFeatures = true,
+        overrideCommand = {
+          'cargo', 'clippy', '--workspace', '--message-format=json', 
+          '--all-targets', '--all-features',
+        },
       },
     },
-  },
+  }
 })
 
-for _, server in ipairs({ "bashls", "emmet_ls", "graphql", "html", "prismals", "clangd" }) do
+for _, server in ipairs({ "bashls",  "graphql",  "clangd" }) do
   lspconfig[server].setup({
     on_attach = on_attach,
     capabilities = capabilities,
