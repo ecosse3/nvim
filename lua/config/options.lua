@@ -79,6 +79,6 @@ end
 local timer = vim.loop.new_timer()
 timer:start(0, 600, vim.schedule_wrap(function()
   local hour = tonumber(os.date("%H"))
-  local bg = (hour > 8 and hour < 19) and 'light' or 'dark'
+  local bg = (hour > 8 and hour < 18) and 'light' or 'dark'
   if vim.o.background ~= bg then vim.o.background = bg end
 end))
