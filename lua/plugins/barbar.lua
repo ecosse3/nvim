@@ -2,7 +2,7 @@ local icons = require('utils.icons')
 
 -- Set barbar's options
 require("barbar").setup({
-	-- Excludes buffers from the tabline
+  -- Excludes buffers from the tabline
 	exclude_ft = { "qf" },
 	icons = {
 		buffer_index = true,
