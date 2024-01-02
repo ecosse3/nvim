@@ -783,11 +783,19 @@ return {
     "ThePrimeagen/git-worktree.nvim",
     lazy = false,
     config = function()
-      require("plugins.git.worktree")
+      require("plugins.git.worktree").setup({
+        -- jus repeating the defaults here.
+        change_directory_command = "cd",
+        update_on_change = true,
+        update_on_change_command = "e .",
+        clearjumps_on_changes = true,
+        autopush = false,
+      })
     end,
     keys = {
       { "<Leader>gww", desc = "worktrees" },
       { "<Leader>gwc", desc = "create worktree" },
+      { "<Leader>gwd", desc = "delete worktree" },
     },
   },
   {
