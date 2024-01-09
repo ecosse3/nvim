@@ -333,7 +333,7 @@
   },
   "telescope.nvim": {
     "branch": "master",
-    "commit": "87e92ea31b2b61d45ad044cf7b2d9b66dad2a618"
+    "commit": "4367e05c06d19f28c514e1498bcd9410f4bc65b2"
   },
   "template-string.nvim": {
     "branch": "main",
