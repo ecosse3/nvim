@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## [....]
 
 * **tsc:** removed, I don't need it.
+* **lazygit:** removed, replaced by neogit
 
 ## [3.8.0](https://github.com/ecosse3/nvim/compare/v3.7.1...v3.8.0) (2023-09-29)
 
