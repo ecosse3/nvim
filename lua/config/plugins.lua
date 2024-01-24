@@ -568,12 +568,27 @@ return {
     ft = { "markdown" },
   },
   {
-    "airblade/vim-rooter",
-    event = "VeryLazy",
+    "ahmedkhalf/project.nvim",
     config = function()
-      vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns
-      vim.g.rooter_silent_chdir = 1
-      vim.g.rooter_resolve_links = 1
+      require("project_nvim").setup({
+        -- configuration goes here.
+        detection_methods = { "lsp", "pattern" },
+        patterns = {
+          ".git",
+          "^*.git",
+          "_darcs",
+          ".hg",
+          ".bzr",
+          ".svn",
+          "Makefile",
+          "cargo.toml",
+          "package.json",
+          "!.git/worktrees",
+        },
+        exclude_dirs = { "~/.cargo/*" },
+        silent_chdir = true,
+        scope_chdir = "global",
+      })
     end,
   },
   {
@@ -783,7 +798,7 @@ return {
     "ThePrimeagen/git-worktree.nvim",
     lazy = false,
     config = function()
-      require('plugins.git.worktree')
+      require("plugins.git.worktree")
     end,
   },
   {
@@ -793,15 +808,15 @@ return {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = function ()
-      require("neogit").setup {
+    config = function()
+      require("neogit").setup({
         disable_hint = false,
         disable_context_hightlighting = false,
         disable_signs = false,
         graphstyle = "unicode",
         remember_settings = true,
         telescope_sorter = nil,
-      }
+      })
     end,
   },
   {
