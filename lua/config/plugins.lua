@@ -783,34 +783,25 @@ return {
     "ThePrimeagen/git-worktree.nvim",
     lazy = false,
     config = function()
-      require("plugins.git.worktree").setup({
-        -- jus repeating the defaults here.
-        change_directory_command = "cd",
-        update_on_change = true,
-        update_on_change_command = "e .",
-        clearjumps_on_changes = true,
-        autopush = false,
-      })
+      require('plugins.git.worktree')
     end,
-    keys = {
-      { "<Leader>gww", desc = "worktrees" },
-      { "<Leader>gwc", desc = "create worktree" },
-      { "<Leader>gwd", desc = "delete worktree" },
-    },
   },
   {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitCurrentFile",
-      "LazyGitFilterCurrentFile",
-      "LazyGitFilter",
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
     },
-    keys = {
-      { "<Leader>gg", "<cmd>LazyGit<CR>", desc = "lazygit" },
-    },
-    config = function()
-      vim.g.lazygit_floating_window_scaling_factor = 0.9
+    config = function ()
+      require("neogit").setup {
+        disable_hint = false,
+        disable_context_hightlighting = false,
+        disable_signs = false,
+        graphstyle = "unicode",
+        remember_settings = true,
+        telescope_sorter = nil,
+      }
     end,
   },
   {
