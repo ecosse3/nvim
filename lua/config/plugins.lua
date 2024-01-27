@@ -901,6 +901,27 @@ return {
     end,
   },
   {
+    "lukas-reineke/virt-column.nvim",
+    dev = true,
+    config = function ()
+      require("virt-column").setup {}
+      require("virt-column").overwrite {
+        virtcolumn = "+1",
+        hightlight = "VirtColumn",
+        exclude = {
+          filetypes = {
+            "lspinfo",
+            "packer",
+            "checkhealth",
+            "man",
+            "TelescopePrompt",
+            "TelesecopeResults",
+          },
+        },
+      }
+    end,
+  },
+  {
     "chrisgrieser/nvim-early-retirement",
     opts = {
       retirementAgeMins = 20,
