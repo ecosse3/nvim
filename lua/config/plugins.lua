@@ -106,7 +106,6 @@ return {
     dependencies = {
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "cljoly/telescope-repo.nvim" },
       { "nvim-telescope/telescope-frecency.nvim" },
     },

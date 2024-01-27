@@ -64,21 +64,7 @@ require('dressing').setup({
     enabled = true,
 
     -- Priority list of preferred vim.select implementations
-    backend = { "telescope", "nui", "fzf", "builtin" },
-
-    fzf = {
-      window = {
-        wdith = 0.5,
-        height = 0.4,
-      },
-    },
-
-    fzf_lua = {
-      winopts = {
-        width = 0.5,
-        height = 0.5,
-      },
-    },
+    backend = { "telescope", "nui", "builtin" },
 
     -- Options for nui Menu
     nui = {
