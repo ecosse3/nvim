@@ -251,7 +251,7 @@ table.insert(gls.left, {
     end,
     condition = condition.check_git_workspace,
     separator = '',
-    separator_highlight = { 'NONE', colors.giticon },
+   oseparator_highlight = { 'NONE', colors.giticon },
     highlight = { colors.gitbg, colors.giticon }
   }
 })
@@ -492,12 +492,26 @@ table.insert(gls.right, {
     highlight = { colors.typetext, colors.typebg }
   }
 })
+local arrow_statusline = require("arrow.statusline")
+table.insert(gls.right, {
+  FileInArrow = {
+    provider = function ()
+      return arrow_statusline.text_for_statusline()
+    end,
+    condition = arrow_statusline.is_on_arrow_file,
+    separator = ' 󱡁 ',
+    separator_highlight = { colors.typeicon, colors.typebg },
+    highlight = { colors.typetext, colors.typebg }
+  }
+})
+
 table.insert(gls.right, {
   TypeSectionEnd = {
     provider = function() return rightbracket end,
     highlight = { colors.typebg, colors.bg }
   }
 })
+
 table.insert(gls.right, {
   Space = {
     provider = function() return ' ' end,

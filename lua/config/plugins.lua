@@ -424,6 +424,19 @@ return {
     },
   },
   {
+    "otavioschwanck/arrow.nvim",
+    lazy = false,
+    opts = {
+      show_icons = true,
+      leader_key = ";", -- this is the way to fire it up.
+      always_show_path = false,
+      hide_handbook = false,
+      save_path = function() 
+        return vim.fn.stdpath("cache") .. "/arrow"
+      end
+    },
+  },
+  {
     "nacro90/numb.nvim",
     lazy = false,
     config = function()
