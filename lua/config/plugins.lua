@@ -2,41 +2,36 @@ return {
   -- Themes
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "tanvirtin/monokai.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "olimorris/onedarkpro.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "oxfist/night-owl.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "miikanissi/modus-themes.nvim",
-    lazy = false,
+    lazy = true,
     priority = 900,
   },
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = false,
-    priority = 900,
-  },
-  {
-    "sainnhe/everforest",
     lazy = false,
     priority = 1000,
     config = function()
@@ -45,9 +40,14 @@ return {
     end,
   },
   {
+    "sainnhe/everforest",
+    lazy = true,
+    priority = 900,
+  },
+  {
     "alexmozaidze/palenight.nvim",
     priority = 900,
-    lazy = false,
+    lazy = true,
   },
   { "nvim-lua/plenary.nvim" },
   {
@@ -430,7 +430,7 @@ return {
       leader_key = ";", -- this is the way to fire it up.
       always_show_path = false,
       hide_handbook = false,
-      save_path = function() 
+      save_path = function()
         return vim.fn.stdpath("cache") .. "/arrow"
       end
     },
@@ -581,13 +581,14 @@ return {
   },
   {
     "ahmedkhalf/project.nvim",
+    event = "BufWinEnter",
     config = function()
       require("project_nvim").setup({
         -- configuration goes here.
         detection_methods = { "lsp", "pattern" },
         patterns = {
           ".git",
-          "^*.git",
+          "*.git",
           "_darcs",
           ".hg",
           ".bzr",
