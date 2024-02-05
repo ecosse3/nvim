@@ -81,12 +81,12 @@ require("mason-lspconfig").setup_handlers {
 
   ["tailwindcss"] = function()
     lspconfig.tailwindcss.setup({
-      capabilities = require("lsp.servers.tailwindcss").capabilities,
-      filetypes = require("lsp.servers.tailwindcss").filetypes,
+      capabilities = require("config.lsp.servers.tailwindcss").capabilities,
+      filetypes = require("config.lsp.servers.tailwindcss").filetypes,
       handlers = handlers,
-      init_options = require("lsp.servers.tailwindcss").init_options,
-      on_attach = require("lsp.servers.tailwindcss").on_attach,
-      settings = require("lsp.servers.tailwindcss").settings,
+      init_options = require("config.lsp.servers.tailwindcss").init_options,
+      on_attach = require("config.lsp.servers.tailwindcss").on_attach,
+      settings = require("config.lsp.servers.tailwindcss").settings,
     })
   end,
 
@@ -94,8 +94,8 @@ require("mason-lspconfig").setup_handlers {
     lspconfig.cssls.setup({
       capabilities = capabilities,
       handlers = handlers,
-      on_attach = require("lsp.servers.cssls").on_attach,
-      settings = require("lsp.servers.cssls").settings,
+      on_attach = require("config.lsp.servers.cssls").on_attach,
+      settings = require("config.lsp.servers.cssls").settings,
     })
   end,
 
@@ -103,8 +103,8 @@ require("mason-lspconfig").setup_handlers {
     lspconfig.eslint.setup({
       capabilities = capabilities,
       handlers = handlers,
-      on_attach = require("lsp.servers.eslint").on_attach,
-      settings = require("lsp.servers.eslint").settings,
+      on_attach = require("config.lsp.servers.eslint").on_attach,
+      settings = require("config.lsp.servers.eslint").settings,
     })
   end,
 
@@ -113,7 +113,7 @@ require("mason-lspconfig").setup_handlers {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
-      settings = require("lsp.servers.jsonls").settings,
+      settings = require("config.lsp.servers.jsonls").settings,
     })
   end,
 
@@ -122,17 +122,17 @@ require("mason-lspconfig").setup_handlers {
       capabilities = capabilities,
       handlers = handlers,
       on_attach = on_attach,
-      settings = require("lsp.servers.lua_ls").settings,
+      settings = require("config.lsp.servers.lua_ls").settings,
     })
   end,
 
   ["vuels"] = function ()
     lspconfig.vuels.setup({
-      filetypes = require("lsp.servers.vuels").filetypes,
+      filetypes = require("config.lsp.servers.vuels").filetypes,
       handlers = handlers,
-      init_options = require("lsp.servers.vuels").init_options,
-      on_attach = require("lsp.servers.vuels").on_attach,
-      settings = require("lsp.servers.vuels").settings,
+      init_options = require("config.lsp.servers.vuels").init_options,
+      on_attach = require("config.lsp.servers.vuels").on_attach,
+      settings = require("config.lsp.servers.vuels").settings,
     })
   end
 }
