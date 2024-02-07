@@ -13,5 +13,3 @@ require('config.lsp.functions')
 
 require('internal.winbar')
 require('internal.cursorword')
-
-require('snippets.react')
