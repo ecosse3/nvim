@@ -258,7 +258,7 @@ cmp.setup({
   sources = {
     {
       name = "copilot",
-      priority = 10,
+      priority = 11,
       max_item_count = 3,
     },
     {
