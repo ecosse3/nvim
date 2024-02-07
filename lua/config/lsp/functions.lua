@@ -43,7 +43,7 @@ function M.toggle_format_on_save()
   end
 end
 
-vim.api.nvim_create_user_command("LspToggleAutoFormat", 'lua require("lsp.functions").toggle_format_on_save()', {})
+vim.api.nvim_create_user_command("LspToggleAutoFormat", 'lua require("config.lsp.functions").toggle_format_on_save()', {})
 
 -- Custom textDocument/hover LSP handler to colorize colors inside hover results - WIP
 function M.custom_hover_handler(_, result)
