@@ -50,7 +50,7 @@ require("zen-mode").setup({
   -- callback where you can add custom code when the Zen window opens
   on_open = function()
     require("gitsigns.actions").toggle_current_line_blame()
-    require("indent_blankline.commands").disable()
+    vim.cmd('IBLDisable')
     vim.opt.relativenumber = false
     vim.opt.signcolumn = "no"
     require("gitsigns.actions").refresh()
@@ -58,7 +58,7 @@ require("zen-mode").setup({
   -- callback where you can add custom code when the Zen window closes
   on_close = function()
     require("gitsigns.actions").toggle_current_line_blame()
-    require("indent_blankline.commands").enable()
+    vim.cmd('IBLEnable')
     vim.opt.relativenumber = true
     vim.opt.signcolumn = "yes:2"
     require("gitsigns.actions").refresh()
