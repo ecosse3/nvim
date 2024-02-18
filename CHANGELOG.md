@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 ## [....]
 
+* **nvim-notify** removed, replaced by fidget
 * **tsc:** removed, I don't need it.
 * **lazygit:** removed, replaced by neogit
 

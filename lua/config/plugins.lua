@@ -512,15 +512,15 @@ return {
       require("plugins.bufferline")
     end,
     keys = {
-      { "<Space>1", "<cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<Space>2", "<cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<Space>3", "<cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<Space>4", "<cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<Space>5", "<cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<Space>6", "<cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<Space>7", "<cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<Space>8", "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<Space>9", "<cmd>BufferLineGoToBuffer 9<CR>" },
+      { "<Leader>1", "<cmd>BufferLineGoToBuffer 1<CR>" },
+      { "<Leader>2", "<cmd>BufferLineGoToBuffer 2<CR>" },
+      { "<Leader>3", "<cmd>BufferLineGoToBuffer 3<CR>" },
+      { "<Leader>4", "<cmd>BufferLineGoToBuffer 4<CR>" },
+      { "<Leader>5", "<cmd>BufferLineGoToBuffer 5<CR>" },
+      { "<Leader>6", "<cmd>BufferLineGoToBuffer 6<CR>" },
+      { "<Leader>7", "<cmd>BufferLineGoToBuffer 7<CR>" },
+      { "<Leader>8", "<cmd>BufferLineGoToBuffer 8<CR>" },
+      { "<Leader>9", "<cmd>BufferLineGoToBuffer 9<CR>" },
       { "<A-1>", "<cmd>BufferLineGoToBuffer 1<CR>" },
       { "<A-2>", "<cmd>BufferLineGoToBuffer 2<CR>" },
       { "<A-3>", "<cmd>BufferLineGoToBuffer 3<CR>" },
@@ -543,25 +543,16 @@ return {
   },
   {
     "rcarriga/nvim-notify",
+    event = "VeryLazy",
     config = function()
-      require("notify").setup({
-        background_colour = "#000000",
-      })
+      require("plugins.notify")
     end,
-    init = function()
-      local banned_messages = {
-        "No information available",
-        "LSP[tsserver] Inlay Hints request failed. Requires TypeScript 4.4+.",
-        "LSP[tsserver] Inlay Hints request failed. File not opened in the editor.",
-      }
-      vim.notify = function(msg, ...)
-        for _, banned in ipairs(banned_messages) do
-          if msg == banned then
-            return
-          end
-        end
-        return require("notify")(msg, ...)
-      end
+  },
+  {
+    "j-hui/fidget.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.fidget")
     end,
   },
   {

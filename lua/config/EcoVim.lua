@@ -55,9 +55,9 @@ EcoVim = {
     },
     -- <leader>z
     zen = {
-      alacritty_enabled = false,
+      alacritty_enabled = true,
       kitty_enabled = false,
-      wezterm_enabled = true,
+      wezterm_enabled = false,
       enabled = true, -- sync after change
     },
   },
