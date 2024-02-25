@@ -78,6 +78,13 @@ return {
     },
   },
   {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    init = function()
+      require('plugins.bqf-init')
+    end,
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     cmd = {
       "NvimTreeOpen",
