@@ -385,6 +385,20 @@ local function attach_nvim_tree(bufnr)
   })
 end
 
+wk.register({
+  c = {
+    c = {
+      name = "Copilot Chat",
+    }
+  }
+}, {
+  mode = "n",
+  prefix = "<leader>",
+  silent = true,
+  noremap = true,
+  nowait = false,
+})
+
 return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
