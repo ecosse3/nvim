@@ -162,8 +162,26 @@ for i, ext in ipairs(exts) do
       type = "pwa-chrome",
       request = "launch",
       name = "Launch Chrome with \"localhost\"",
-      url = "http://localhost:3000",
-      webRoot = "${workspaceFolder}",
+      url = function()
+        local co = coroutine.running()
+        return coroutine.create(function()
+          vim.ui.input({ prompt = 'Enter URL: ', default = 'http://localhost:3000' }, function(url)
+            if url == nil or url == '' then
+              return
+            else
+              coroutine.resume(co, url)
+            end
+          end)
+        end)
+      end,
+      webRoot = vim.fn.getcwd(),
+      protocol = 'inspector',
+      sourceMaps = true,
+      userDataDir = false,
+      resolveSourceMapLocations = {
+        "${workspaceFolder}/**",
+        "!**/node_modules/**",
+      }
     },
     {
       type = "pwa-node",
@@ -173,6 +191,15 @@ for i, ext in ipairs(exts) do
       args = { "${file}" },
       sourceMaps = true,
       protocol = "inspector",
+      runtimeExecutable = "npm",
+      runtimeArgs = {
+        "run-script", "dev"
+      },
+      resolveSourceMapLocations = {
+        "${workspaceFolder}/**",
+        "!**/node_modules/**",
+      }
+
     },
     {
       type = "pwa-node",
@@ -241,6 +268,7 @@ for i, ext in ipairs(exts) do
       program = "${file}",
       cwd = vim.fn.getcwd(),
       sourceMaps = true,
+      protocol = 'inspector',
       port = function()
         return vim.fn.input("Select port: ", 9222)
       end,
