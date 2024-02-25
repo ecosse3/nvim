@@ -975,4 +975,21 @@ return {
   -- ╭─────────────────────────────────────────────────────────╮
   -- │ Format & Lint                                           │
   -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require('plugins.formatting')
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      require('plugins.linting')
+    end,
+  },
 }
