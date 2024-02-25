@@ -84,8 +84,9 @@ require 'nvim-treesitter.configs'.setup {
 
   textsubjects = {
     enable = true,
+    prev_selection = '<BS>',
     keymaps = {
-      ['<cr>'] = 'textsubjects-smart', -- works in visual mode
+      ['<CR>'] = 'textsubjects-smart', -- works in visual mode
     }
   },
 
