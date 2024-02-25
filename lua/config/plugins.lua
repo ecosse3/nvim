@@ -280,6 +280,14 @@ return {
   -- ╭─────────────────────────────────────────────────────────╮
   -- │ General                                                 │
   -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+    cmd = "CodeSnapPreviewOn",
+    opts = {
+      watermark = nil
+    }
+  },
   { "AndrewRadev/switch.vim", lazy = false },
   {
     "Wansmer/treesj",
