@@ -1,3 +1,5 @@
+require('ts_context_commentstring').setup()
+
 require('Comment').setup({
   ---Add a space b/w comment and the line
   ---@type boolean

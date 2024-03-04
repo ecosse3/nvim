@@ -1,5 +1,5 @@
-local filter = require("lsp.utils.filter").filter
-local filterReactDTS = require("lsp.utils.filterReactDTS").filterReactDTS
+local filter = require("config.lsp.utils.filter").filter
+local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
 require("glance").setup({
 	hooks = {
@@ -8,7 +8,7 @@ require("glance").setup({
 				jump(results[1]) -- argument is optional
 			elseif method == "definitions" then
 				results = filter(results, filterReactDTS)
-				open(results)
+				if #results == 1 then jump(results[1]) else open(results) end
 			else
 				open(results)
 			end

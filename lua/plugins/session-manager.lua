@@ -17,6 +17,7 @@ session_manager.setup({
   autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
   autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
     'gitcommit',
+    'gitrebase',
   },
   autosave_only_in_session = true, -- Always autosaves session. If true, only autosaves after a session is active.
   max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.

@@ -17,9 +17,9 @@ require('printer').setup({
     end,
   },
   -- function which modifies the text inside string in the print statement, by default it adds the path and line number
-  -- add_to_inside = function(text)
-  --   return string.format("[%s:%s] %s", vim.fn.expand("%"), vim.fn.line("."), text)
-  -- end,
+  add_to_inside = function(text)
+    return string.format("[%s:%s] %s", vim.fn.expand("%:h"):gsub(GIT_CWD(), ''), vim.fn.line("."), text)
+  end,
   -- set to to indenity function to turn off the default behaviour
   -- add_to_inside = function(text)
   --     return text

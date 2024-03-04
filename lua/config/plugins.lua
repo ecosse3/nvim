@@ -1,5 +1,7 @@
 return {
-  -- Themes
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Themes                                                  │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -25,7 +27,9 @@ return {
     end,
   },
 
-  -- Treesitter
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Treesitter                                              │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -41,7 +45,9 @@ return {
     },
   },
 
-  -- Navigating (Telescope/Tree/Refactor)
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Navigating (Telescope/Tree/Refactor)                    │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "nvim-pack/nvim-spectre",
     lazy = true,
@@ -73,6 +79,13 @@ return {
     },
   },
   {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+    init = function()
+      require('plugins.bqf-init')
+    end,
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     cmd = {
       "NvimTreeOpen",
@@ -94,25 +107,14 @@ return {
     config = true, -- run require("stay-in-place").setup()
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    cmd = "Refactor",
-    keys = {
-      { "<leader>re", ":Refactor extract ",              mode = "x",          desc = "Extract function" },
-      { "<leader>rf", ":Refactor extract_to_file ",      mode = "x",          desc = "Extract function to file" },
-      { "<leader>rv", ":Refactor extract_var ",          mode = "x",          desc = "Extract variable" },
-      { "<leader>ri", ":Refactor inline_var",            mode = { "x", "n" }, desc = "Inline variable" },
-      { "<leader>rI", ":Refactor inline_func",           mode = "n",          desc = "Inline function" },
-      { "<leader>rb", ":Refactor extract_block",         mode = "n",          desc = "Extract block" },
-      { "<leader>rf", ":Refactor extract_block_to_file", mode = "n",          desc = "Extract block to file" },
-    },
-    config = true
+    "chentoast/marks.nvim",
+    event = "BufEnter",
+    config = true,
   },
 
-  -- LSP Base
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ LSP Base                                                │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "neovim/nvim-lspconfig",
     lazy = false,
@@ -131,7 +133,9 @@ return {
     },
   },
 
-  -- LSP Cmp
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ LSP Cmp                                                 │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -146,7 +150,14 @@ return {
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-calc",
       "saadparwaiz1/cmp_luasnip",
-      { "L3MON4D3/LuaSnip", dependencies = "rafamadriz/friendly-snippets" },
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = "rafamadriz/friendly-snippets",
+        build = "make install_jsregexp",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load { paths = { vim.fn.stdpath("config") .. "/snippets" } }
+        end
+      },
       {
         cond = EcoVim.plugins.ai.tabnine.enabled,
         "tzachar/cmp-tabnine",
@@ -165,11 +176,13 @@ return {
           require("copilot_cmp").setup()
         end,
       },
-      "petertriho/cmp-git"
+      "petertriho/cmp-git",
     },
   },
 
-  -- LSP Addons
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ LSP Addons                                              │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
@@ -246,8 +259,36 @@ return {
       require("lsp-file-operations").setup()
     end
   },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    cmd = "Refactor",
+    keys = {
+      { "<leader>re", ":Refactor extract ",              mode = "x",          desc = "Extract function" },
+      { "<leader>rf", ":Refactor extract_to_file ",      mode = "x",          desc = "Extract function to file" },
+      { "<leader>rv", ":Refactor extract_var ",          mode = "x",          desc = "Extract variable" },
+      { "<leader>ri", ":Refactor inline_var",            mode = { "x", "n" }, desc = "Inline variable" },
+      { "<leader>rI", ":Refactor inline_func",           mode = "n",          desc = "Inline function" },
+      { "<leader>rb", ":Refactor extract_block",         mode = "n",          desc = "Extract block" },
+      { "<leader>rf", ":Refactor extract_block_to_file", mode = "n",          desc = "Extract block to file" },
+    },
+    config = true
+  },
 
-  -- General
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ General                                                 │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "mistricky/codesnap.nvim",
+    build = "make",
+    cmd = "CodeSnapPreviewOn",
+    opts = {
+      watermark = nil
+    }
+  },
   { "AndrewRadev/switch.vim", lazy = false },
   {
     "Wansmer/treesj",
@@ -274,8 +315,8 @@ return {
     "LudoPinelli/comment-box.nvim",
     lazy = false,
     keys = {
-      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", desc = "comment box" },
-      { "<leader>ac", "<cmd>lua require('comment-box').lbox()<CR>", mode = "v",          desc = "comment box" },
+      { "<leader>ac", "<cmd>lua require('comment-box').llbox()<CR>", desc = "comment box" },
+      { "<leader>ac", "<cmd>lua require('comment-box').llbox()<CR>", mode = "v",          desc = "comment box" },
     }
   },
   {
@@ -362,13 +403,8 @@ return {
       }
     },
     keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump()
-        end,
-      },
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,   desc = "Flash" },
+      { "r", mode = "o",               function() require("flash").remote() end, desc = "Remote Flash" },
     },
   },
   {
@@ -490,11 +526,8 @@ return {
       require("plugins.session-manager")
     end,
     keys = {
-      { "<Leader>/sc", "<cmd>SessionManager load_session<CR>",             desc = "choose session" },
-      { "<Leader>/sr", "<cmd>SessionManager delete_session<CR>",           desc = "remove session" },
-      { "<Leader>/sd", "<cmd>SessionManager load_current_dir_session<CR>", desc = "load current dir session" },
-      { "<Leader>/sl", "<cmd>SessionManager load_last_session<CR>",        desc = "load last session" },
-      { "<Leader>/ss", "<cmd>SessionManager save_current_session<CR>",     desc = "save session" },
+      { "<Leader>ps", "<cmd>SessionManager available_commands<CR>",   desc = "session manager" },
+      { "<Leader>pS", "<cmd>SessionManager save_current_session<CR>", desc = "save session" },
     }
   },
   {
@@ -502,13 +535,6 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = true,
-  },
-  {
-    "sunjon/shade.nvim",
-    config = function()
-      require("shade").setup()
-      require("shade").toggle()
-    end,
   },
   {
     "kevinhwang91/nvim-ufo",
@@ -584,7 +610,57 @@ return {
     end,
   },
 
-  -- Snippets & Language & Syntax
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Snippets & Language & Syntax                            │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "chrisgrieser/nvim-scissors",
+    dependencies = "nvim-telescope/telescope.nvim", -- optional
+    opts = {
+      snippetDir = vim.fn.stdpath("config") .. "/snippets",
+    },
+    keys = {
+      "<Leader>asa",
+      "<Leader>ase",
+    },
+    config = function()
+      local present, wk = pcall(require, "which-key")
+      if not present then
+        return
+      end
+
+      wk.register({
+        a = {
+          s = {
+            name = "Snippets",
+            a = { '<cmd>lua require("scissors").addNewSnippet()<CR>', 'Add new snippet' },
+            e = { '<cmd>lua require("scissors").editSnippet()<CR>', 'Edit snippet' },
+          }
+        }
+      }, {
+        mode = "n",     -- NORMAL mode
+        prefix = "<leader>",
+        silent = true,  -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = false, -- use `nowait` when creating keymaps
+      })
+
+      wk.register({
+        a = {
+          s = {
+            name = "Snippets",
+            a = { '<cmd>lua require("scissors").addNewSnippet()<CR>', 'Add new snippet from selection' },
+          }
+        }
+      }, {
+        mode = "x",     -- VISUAL mode
+        prefix = "<leader>",
+        silent = true,  -- use `silent` when creating keymaps
+        noremap = true, -- use `noremap` when creating keymaps
+        nowait = false, -- use `nowait` when creating keymaps
+      })
+    end
+  },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
@@ -630,8 +706,55 @@ return {
     build = "cd formatter && npm i && npm run build",
     config = true,
   },
+  {
+    "johmsalas/text-case.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    -- Author's Note: If default keymappings fail to register (possible config issue in my local setup),
+    -- verify lazy loading functionality. On failure, disable lazy load and report issue
+    -- lazy = false,
+    config = function()
+      require("textcase").setup(
+        {
+          -- Set `default_keymappings_enabled` to false if you don't want automatic keymappings to be registered.
+          default_keymappings_enabled = true,
+          -- `prefix` is only considered if `default_keymappings_enabled` is true. It configures the prefix
+          -- of the keymappings, e.g. `gau ` executes the `current_word` method with `to_upper_case`
+          -- and `gaou` executes the `operator` method with `to_upper_case`.
+          prefix = "gu",
+          -- If `substitude_command_name` is not nil, an additional command with the passed in name
+          -- will be created that does the same thing as "Subs" does.
+          substitude_command_name = nil,
+          -- By default, all methods are enabled. If you set this option with some methods omitted,
+          -- these methods will not be registered in the default keymappings. The methods will still
+          -- be accessible when calling the exact lua function e.g.:
+          -- "<CMD>lua require('textcase').current_word('to_snake_case')<CR>"
+          enabled_methods = {
+            "to_upper_case",
+            "to_lower_case",
+            "to_snake_case",
+            "to_dash_case",
+            "to_title_dash_case",
+            "to_constant_case",
+            "to_dot_case",
+            "to_phrase_case",
+            "to_camel_case",
+            "to_pascal_case",
+            "to_title_case",
+            "to_path_case",
+            "to_upper_phrase_case",
+            "to_lower_phrase_case",
+          },
+        }
+      )
+      require("telescope").load_extension("textcase")
+    end,
+    cmd = { "TextCaseOpenTelescope", "Subs" },
+    keys = { "gu" }
+  },
 
-  -- AI
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ AI                                                      │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "jcdickinson/codeium.nvim",
     cond = EcoVim.plugins.ai.codeium.enabled,
@@ -646,38 +769,61 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cond = EcoVim.plugins.ai.copilot.enabled,
-    event = "InsertEnter",
+    lazy = false,
     config = function()
       require("plugins.copilot")
     end,
   },
   {
-    "Bryley/neoai.nvim",
-    cond = EcoVim.plugins.ai.chatgpt.enabled,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
+    "CopilotC-Nvim/CopilotChat.nvim",
+    event = "VeryLazy",
+    opts = {
+      show_help = "no",
+      prompts = {
+        Explain = "Explain how it works.",
+        Review = "Review the following code and provide concise suggestions.",
+        Tests = "Briefly explain how the selected code works, then generate unit tests.",
+        Refactor = "Refactor the code to improve clarity and readability.",
+      },
     },
-    cmd = {
-      "NeoAI",
-      "NeoAIOpen",
-      "NeoAIClose",
-      "NeoAIToggle",
-      "NeoAIContext",
-      "NeoAIContextOpen",
-      "NeoAIContextClose",
-      "NeoAIInject",
-      "NeoAIInjectCode",
-      "NeoAIInjectContext",
-      "NeoAIInjectContextCode",
-    },
+    build = function()
+      vim.defer_fn(function()
+        vim.cmd("UpdateRemotePlugins")
+        vim.notify("CopilotChat - Updated remote plugins. Please restart Neovim.")
+      end, 3000)
+    end,
     keys = {
-      { "<leader>as", desc = "summarize text" },
-      { "<leader>ag", desc = "generate git message" },
-    },
-    config = true,
+      { "<leader>ccb", ":CopilotChatBuffer<cr>",      desc = "CopilotChat - Buffer" },
+      { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+      { "<leader>cct", "<cmd>CopilotChatTests<cr>",   desc = "CopilotChat - Generate tests" },
+      {
+        "<leader>ccT",
+        "<cmd>CopilotChatVsplitToggle<cr>",
+        desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
+      },
+      {
+        "<leader>ccv",
+        ":CopilotChatVisual",
+        mode = "x",
+        desc = "CopilotChat - Open in vertical split",
+      },
+      {
+        "<leader>ccc",
+        ":CopilotChatInPlace<cr>",
+        mode = { "n", "x" },
+        desc = "CopilotChat - Run in-place code",
+      },
+      {
+        "<leader>ccf",
+        "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
+        desc = "CopilotChat - Fix diagnostic",
+      },
+    }
   },
 
-  -- Git
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Git                                                     │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "lewis6991/gitsigns.nvim",
     event = "BufRead",
@@ -764,7 +910,9 @@ return {
     end
   },
 
-  -- Testing
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Testing                                                 │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "rcarriga/neotest",
     dependencies = {
@@ -794,7 +942,9 @@ return {
     end,
   },
 
-  -- DAP
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ DAP                                                     │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "mfussenegger/nvim-dap",
     config = function()
@@ -828,6 +978,27 @@ return {
       if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
         vim.cmd(":TSInstall dap_repl")
       end
+    end,
+  },
+
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ Format & Lint                                           │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "stevearc/conform.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require('plugins.formatting')
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      require('plugins.linting')
     end,
   },
 }

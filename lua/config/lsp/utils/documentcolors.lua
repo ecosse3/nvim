@@ -107,7 +107,7 @@ function M.buf_attach(bufnr, options)
   options = options or {}
 
   -- VSCode extension also does 200ms debouncing
-  local trigger_update_highlight, timer = require"lsp/utils/defer".debounce_trailing(M.update_highlight,
+  local trigger_update_highlight, timer = require"config.lsp.utils.defer".debounce_trailing(M.update_highlight,
                                                                            options.debounce or 200,
                                                                            false)
 

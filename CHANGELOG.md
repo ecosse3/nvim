@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.9.0](https://github.com/ecosse3/nvim/compare/v3.8.0...v3.9.0) (2024-02-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* **lsp:** move lsp configs inside config directory
+
+### Features
+
+* **cmp:** boost copilot priority ([6da4b80](https://github.com/ecosse3/nvim/commit/6da4b80aa53c693ea20a19d9c40058db4ce91167))
+* **config:** disable ChatGPT by default ([d58d5d2](https://github.com/ecosse3/nvim/commit/d58d5d2957c2fbf50105a0f6548666611922afb4))
+* **dap:** improve config ([a97a93b](https://github.com/ecosse3/nvim/commit/a97a93b3d82fa8c0637704f4287a644fb45d2a86))
+* **formatting:** add conform.nvim & nvim-lint for linting & formatting ([325074d](https://github.com/ecosse3/nvim/commit/325074deba13795d4c2947064158a179a0105fd2))
+* **keymappings:** add quickfix list keymap to <leader>q ([610f504](https://github.com/ecosse3/nvim/commit/610f50453f250138863a7aacb84d6c8a71d2b114))
+* **keymappings:** change save session management keymap to <leader>pS ([7b14813](https://github.com/ecosse3/nvim/commit/7b1481399da926465163feb94cc14d88e45bab9f))
+* **keymappings:** support textsubjects prev selection with <BS> ([ae67b8d](https://github.com/ecosse3/nvim/commit/ae67b8da455bc3170bf57cde40bc25dfff12d034))
+* **keymappings:** use own format function for <leader>cf ([4b5e751](https://github.com/ecosse3/nvim/commit/4b5e7519c92fabdf76b0a9ec47f139d27c7b1b3d))
+* **lazy:** remove "tohtml" default plugin ([508a44d](https://github.com/ecosse3/nvim/commit/508a44d11910de4d69345798b5b97fb4c158a914))
+* **lsp:** automatically enable all LSPs installed by mason ([84e9837](https://github.com/ecosse3/nvim/commit/84e983756bb51bf64486512bccfe8c879aedfb02))
+* **options:** set localleader to ; instead of , (comma) ([125312b](https://github.com/ecosse3/nvim/commit/125312b591028ed7997b17fe21ce01204c5db871))
+* **plugins:** add codesnap instead of carbon.sh ([f918d1a](https://github.com/ecosse3/nvim/commit/f918d1a7d8e731f830e00e2029e6e1277a5e00ea))
+* **plugins:** add copilot chat ([6274b67](https://github.com/ecosse3/nvim/commit/6274b678957868013a8b422eb4891099bd83ea6d))
+* **plugins:** add marks.nvim ([5c8092c](https://github.com/ecosse3/nvim/commit/5c8092c0921788bd58d9d60e142d85a5496157c2))
+* **plugins:** add new textcase plugin with Subs command for smart substitute ([09022a3](https://github.com/ecosse3/nvim/commit/09022a331001312595aeacb7eddc4f2c70a3d3e9))
+* **plugins:** add nvim-bqf ([aaf3d4b](https://github.com/ecosse3/nvim/commit/aaf3d4bcc953bc17e67fe4ebfeb6e0fecad6935b))
+* **plugins:** add nvim-scissors plugin for snippet management ([0e970d9](https://github.com/ecosse3/nvim/commit/0e970d95b71a279dd50f5b26d5fee9012ff3316f))
+* **plugins:** add refactoring.nvim ([04b9144](https://github.com/ecosse3/nvim/commit/04b91440bb8d98c5d3b3795bf09b594d60b9ef95))
+* **plugins:** add remote flash keybinding ([fe5f67c](https://github.com/ecosse3/nvim/commit/fe5f67ce20199c6cffeec56d342e3d47523a27ac))
+* **plugins:** shorten directory path output in printer plugin to match git cwd ([5a96b1a](https://github.com/ecosse3/nvim/commit/5a96b1af0f4ddc55a8528baf921989645f024175))
+* **plugins:** simplify alpha keymappings ([0610a4e](https://github.com/ecosse3/nvim/commit/0610a4ed4fa03305661e526b322a8f14787d6d56))
+* **plugins:** update button keybindings for Alpha plugin ([91e3618](https://github.com/ecosse3/nvim/commit/91e36181dbd7b082d2fbb5adaa9a561206db9360))
+
+
+### Bug Fixes
+
+* **cmp:** don't return from cmp config when one of plugins is not correctly loaded ([07629b5](https://github.com/ecosse3/nvim/commit/07629b5b730012ef180149158d8bc07cf6881104)), closes [#165](https://github.com/ecosse3/nvim/issues/165)
+* **comment:** require ts_context_commentstring after opting our of jsx branch ([a0750d5](https://github.com/ecosse3/nvim/commit/a0750d5717c189206b19639e4c05eac1d5a4b91a))
+* **config:** disable wezterm zen intergration by default ([b6bac9c](https://github.com/ecosse3/nvim/commit/b6bac9cd9ef45f7bd0f59083d185d92b7c80b6b6))
+* **keymappings:** moving forward in jumplist via <C-i> ([ae1c279](https://github.com/ecosse3/nvim/commit/ae1c279ec35625bfc3266e51755a6504d86726d0))
+* **lsp:** directly go to definition instead opening glance if found only one ([dfd83f2](https://github.com/ecosse3/nvim/commit/dfd83f2cb8387ffe15d216c15c99beebae66888d))
+* **lsp:** require path to lsp.function in toggle auto format ([fd03dd0](https://github.com/ecosse3/nvim/commit/fd03dd0f4411f09c47167a1eaf629438407c7a8c))
+* **lsp:** update signs config to new neovim spec ([d2872d8](https://github.com/ecosse3/nvim/commit/d2872d8ee59ae97e041fcef296a7199ed2b1275f))
+* **plugins:** correctly disable indent blanklint in zen mode ([4bd17f6](https://github.com/ecosse3/nvim/commit/4bd17f6be8b8d6b6857f55dbad5181943c24d4c8))
+* **plugins:** fix indent-blankline.nvim setup options ([85e8940](https://github.com/ecosse3/nvim/commit/85e8940fa2d3d9603ccf203883a383910724242c))
+* **plugins:** remove 'shade' since it breaks ([10c1e6d](https://github.com/ecosse3/nvim/commit/10c1e6deb9969efbeadd15b38e28359ad579d599))
+* **typescript:** correctly enable inlay hints lsp for typescript ([ec42ddc](https://github.com/ecosse3/nvim/commit/ec42ddc19c3230b0e71d9f5a8b6a2239b8e5bf5e))
+
+
+### Refactors
+
+* **functions:** extract format function which uses lsp format or eslint ([2db797a](https://github.com/ecosse3/nvim/commit/2db797a8f425e0d65a6f29b82012040b7cf5c477))
+* **lsp:** move lsp configs inside config directory ([ab6879a](https://github.com/ecosse3/nvim/commit/ab6879a322cbe9f56817e19c834acd068096df7b))
+* **plugins:** add luasnip as cmp dependency ([db7e367](https://github.com/ecosse3/nvim/commit/db7e3674fe60f93d5f0a0b14ed55fd54a0b09ca8))
+
 ## [3.8.0](https://github.com/ecosse3/nvim/compare/v3.7.1...v3.8.0) (2023-09-29)
 
 

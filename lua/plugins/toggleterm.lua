@@ -10,11 +10,9 @@ require("toggleterm").setup {
   open_mapping = [[<F12>]],
   ---@diagnostic disable-next-line: unused-local
   on_open = function(term)
-    require('shade').toggle();
   end,
   ---@diagnostic disable-next-line: unused-local
   on_close = function(term)
-    require('shade').toggle();
   end,
   highlights = {
     -- highlights which map to a highlight group name and a table of it's values
