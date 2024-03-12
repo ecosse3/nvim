@@ -13,15 +13,19 @@ local config_dir = fn.stdpath('config')
 -- │ Header                                                   │
 -- ╰──────────────────────────────────────────────────────────╯
 
+-- local header = {
+--   "          ██            ",
+--   "         ░░             ",
+--   " ██    ██ ██ ██████████ ",
+--   "░██   ░██░██░░██░░██░░██",
+--   "░░██ ░██ ░██ ░██ ░██ ░██",
+--   " ░░████  ░██ ░██ ░██ ░██",
+--   "  ░░██   ░██ ███ ░██ ░██",
+--   "   ░░    ░░ ░░░  ░░  ░░ ",
+-- }
+
 local header = {
-  " ████████                           ██            ",
-  "░██░░░░░                           ░░             ",
-  "░██        █████   ██████  ██    ██ ██ ██████████ ",
-  "░███████  ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██",
-  "░██░░░░  ░██  ░░ ░██   ░██░░██ ░██ ░██ ░██ ░██ ░██",
-  "░██      ░██   ██░██   ░██ ░░████  ░██ ░██ ░██ ░██",
-  "░████████░░█████ ░░██████   ░░██   ░██ ███ ░██ ░██",
-  "░░░░░░░░  ░░░░░   ░░░░░░     ░░    ░░ ░░░  ░░  ░░ ",
+  "█▓▒▒░░░NVIM░░░▒▒▓█"
 }
 
 dashboard.section.header.type = "text";
@@ -34,10 +38,24 @@ dashboard.section.header.opts = {
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Heading Info                                             │
 -- ╰──────────────────────────────────────────────────────────╯
-local thingy = io.popen('echo "$(LANG=en_US.UTF-8; date +%a) $(date +%d) $(LANG=en_US.UTF-8; date +%b)" | tr -d "\n"')
+local thingy = nil
+if package.config:sub(1,1) == "\\" then
+  -- Windows
+  thingy = io.popen('cmd /c "set LANG=en_US.UTF-8 && echo %date%"')
+else
+  -- Unix
+  thingy = io.popen('echo "$(LANG=en_US.UTF-8; date +%a) $(date +%d) $(LANG=en_US.UTF-8; date +%b)" | tr -d "\n"')
+end
+
 if thingy == nil then return end
 local date = thingy:read("*a")
 thingy:close()
+
+if date then
+
+date = string.gsub(date, "\n", "")
+
+end
 
 local datetime = os.date " %H:%M"
 
@@ -52,7 +70,7 @@ local hi_top_section = {
 
 local hi_middle_section = {
   type = "text",
-  val = "│                                                │",
+  val = "│                                                      │",
   opts = {
     position = "center",
     hl = "EcovimHeaderInfo"
@@ -61,7 +79,7 @@ local hi_middle_section = {
 
 local hi_bottom_section = {
   type = "text",
-  val = "└───══───══───══───  " .. datetime .. "  ───══───══───══────┘",
+  val = "└─────══───══───══───── " .. datetime .. "  ────══───══───══──────┘",
   opts = {
     position = "center",
     hl = "EcovimHeaderInfo"
