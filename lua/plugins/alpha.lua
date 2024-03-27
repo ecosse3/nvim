@@ -25,7 +25,12 @@ local config_dir = fn.stdpath('config')
 -- }
 
 local header = {
-  "█▓▒▒░░░NVIM░░░▒▒▓█"
+"███╗░░██╗██╗░░░██╗██╗███╗░░░███╗",
+"████╗░██║██║░░░██║██║████╗░████║",
+"██╔██╗██║╚██╗░██╔╝██║██╔████╔██║",
+"██║╚████║░╚████╔╝░██║██║╚██╔╝██║",
+"██║░╚███║░░╚██╔╝░░██║██║░╚═╝░██║",
+"╚═╝░░╚══╝░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝",
 }
 
 dashboard.section.header.type = "text";
@@ -61,7 +66,7 @@ local datetime = os.date " %H:%M"
 
 local hi_top_section = {
   type = "text",
-  val =  "┌────────────   Today is " .. date .. " ────────────┐",
+  val =  "┌──────────────   Today is " .. date .. " ────────────────┐",
   opts = {
     position = "center",
     hl = "EcovimHeaderInfo"

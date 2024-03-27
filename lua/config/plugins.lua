@@ -78,6 +78,9 @@ return {
       { "cljoly/telescope-repo.nvim" },
     },
   },
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ 显示快速修复浮动窗口                                                        │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
@@ -85,6 +88,9 @@ return {
       require('plugins.bqf-init')
     end,
   },
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ 树形菜单插件                                            │
+  -- ╰─────────────────────────────────────────────────────────╯
   {
     "nvim-tree/nvim-tree.lua",
     cmd = {
@@ -106,6 +112,7 @@ return {
     lazy = false,
     config = true, -- run require("stay-in-place").setup()
   },
+  -- 标记跳转
   {
     "chentoast/marks.nvim",
     event = "BufEnter",
@@ -460,7 +467,7 @@ return {
       { "<A-6>",       "<cmd>BufferLineGoToBuffer 6<CR>" },
       { "<A-7>",       "<cmd>BufferLineGoToBuffer 7<CR>" },
       { "<A-8>",       "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<A-9>",       "<cmd>BufferLineGoToBuffer 9<CR>" },
+      { "<A-9>",       "<cmd>BufferLineioToBuffer 9<CR>" },
       { "<Leader>bb",  "<cmd>BufferLineMovePrev<CR>",                desc = "Move back" },
       { "<Leader>bl",  "<cmd>BufferLineCloseLeft<CR>",               desc = "Close Left" },
       { "<Leader>br",  "<cmd>BufferLineCloseRight<CR>",              desc = "Close Right" },
@@ -982,7 +989,7 @@ return {
   },
 
   -- ╭─────────────────────────────────────────────────────────╮
-  -- │ Format & Lint                                           │
+  -- │ Format & Lint 格式化校验                                          │
   -- ╰─────────────────────────────────────────────────────────╯
   {
     "stevearc/conform.nvim",
@@ -1000,5 +1007,38 @@ return {
     config = function()
       require('plugins.linting')
     end,
+  },
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ matchup 关键词匹配                                      │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "andymass/vim-matchup",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+      lvim.builtin.treesitter.matchup.enable = true
+    end
+  },
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ 单词悬浮                                                │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "lewis6991/hover.nvim",
+    lazy = true,
+    config = function()
+      require("plugins.hover")
+    end
+  },
+  -- ╭─────────────────────────────────────────────────────────╮
+  -- │ 图像插件                                                        │
+  -- ╰─────────────────────────────────────────────────────────╯
+  {
+    "edluffy/hologram.nvim",
+    config = function()
+      require("hologram").setup({
+        auto_display = true
+      })
+    end
   },
 }

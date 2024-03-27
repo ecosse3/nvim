@@ -1,5 +1,6 @@
 require 'colorizer'.setup({
   filetypes = {
+    'vue',
     'html',
     'css',
     'javascript',
@@ -10,6 +11,6 @@ require 'colorizer'.setup({
   },
   user_default_options = {
     mode = "background",
-    tailwind = false, -- Enable tailwind colors
+    tailwind = true, -- Enable tailwind colors
   }
 })
