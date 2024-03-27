@@ -51,7 +51,7 @@ keymap("n", "gp", ":bp<CR>", silent)
 keymap("n", "<S-q>", ":lua require('mini.bufremove').delete(0, false)<CR>", silent)
 
 -- Markdown
-keymap("n", "<a-p>", ":MarkdownPreviewToggle", silent)
+keymap("n", "<a-p>", "<CMD>MarkdownPreviewToggle<CR>", silent)
 
 -- Don't yank on delete char
 keymap("n", "x", '"_x', silent)
@@ -135,3 +135,6 @@ keymap("n", "K", function()
     vim.lsp.buf.hover()
   end
 end)
+
+-- Sidebar
+keymap("n", "<C-o>", "<CMD>lua require('sidebar-nvim').toggle()<CR>", silent)
