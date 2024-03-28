@@ -90,7 +90,7 @@ keymap("n", "<C-Down>", "<C-w>-")
 -- Terminal
 keymap("n", "<leader>th", "<CMD>ToggleTerm size=10 direction=horizontal<CR>")
 keymap("n", "<leader>tv", "<CMD>ToggleTerm size=80 direction=vertical<CR>")
-
+keymap("n", "<leader>tf", "<cMD>ToggleTerm direction=float<CR>", {desc = 'float terminal'})
 
 -- Manually invoke speeddating in case switch.vim didn't work
 keymap("n", "<C-a>", ":if !switch#Switch() <bar> call speeddating#increment(v:count1) <bar> endif<CR>", silent)

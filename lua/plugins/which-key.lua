@@ -214,6 +214,8 @@ local normal_mode_mappings = {
     name = 'Table Mode',
     m = { 'toggle' },
     t = { 'tableize' },
+    h = { 'horizontal terminal' },
+    v = { 'vertical terminal' }
   },
 }
 
