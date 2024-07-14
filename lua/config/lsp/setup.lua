@@ -1,7 +1,8 @@
 -- Setup installer & lsp configs
 local mason_ok, mason = pcall(require, "mason")
 local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
-local ufo_config_handler = require("plugins.nvim-ufo").handler
+local ufo_utils = require("utils._ufo")
+local ufo_config_handler = ufo_utils.handler
 
 if not mason_ok or not mason_lsp_ok then
   return
@@ -139,5 +140,5 @@ require("mason-lspconfig").setup_handlers {
 
 require("ufo").setup({
   fold_virt_text_handler = ufo_config_handler,
-  close_fold_kinds = { "imports" },
+  close_fold_kinds_for_ft = { default = { "imports" } },
 })
