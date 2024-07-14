@@ -147,7 +147,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       return
     end
 
-    if vim.bo.filetype == "GitBlame" then
+    if vim.bo.filetype == "blame" then
       local hl_group = "EcovimSecondary"
       vim.opt_local.winbar = " " .. "%#" .. hl_group .. "#" .. require("utils.icons").git .. "Blame" .. "%*"
       return
