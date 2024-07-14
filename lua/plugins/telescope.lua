@@ -84,7 +84,8 @@ return {
       { "<C-p>",      "<CMD>lua require('plugins.telescope.pickers').project_files()<CR>" },
       { "<S-p>",      "<CMD>lua require('plugins.telescope.multi-rg')()<CR>" },
       { "<Leader>pf", "<CMD>lua require('plugins.telescope.pickers').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>" },
-      { "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>" }
+      { "<Leader>pw", "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>" },
+      { "<Leader>sb", "<CMD>lua require('plugins.telescope.pickers').buffer_search()<CR>",                                                                    { desc = "Buffer Search" } }
     }
   }
 }
