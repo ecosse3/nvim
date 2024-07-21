@@ -1,6 +1,7 @@
 return {
   {
     'abecodes/tabout.nvim',
+    enabled = false,
     lazy = false,
     config = function()
       require('tabout').setup {
