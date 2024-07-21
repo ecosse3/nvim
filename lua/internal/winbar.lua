@@ -1,10 +1,5 @@
 local M = {}
 
-local status_navic_ok, navic = pcall(require, "nvim-navic")
-if not status_navic_ok then
-  return
-end
-
 local function isempty(s)
   return s == nil or s == ""
 end
@@ -42,19 +37,17 @@ M.filename = function()
 
     -- Return filename if parent dir doesn't exist
     if (parent_dir == nil or parent_dir == '') then
-      return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. filename .. "%*"
+      return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
     end
 
     -- Return parent dir
-    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#LineNr#" .. parent_dir .. "%*"
+    return " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. parent_dir .. "%*"
   end
 end
 
 M.gps = function()
-  local status_ok, navic_location = pcall(navic.get_location, {})
-  if not status_ok then
-    return
-  end
+  local navic = require('nvim-navic')
+  local navic_location = navic.get_location()
 
   if not navic.is_available() then -- Returns boolean value indicating whether a output can be provided
     return
@@ -66,7 +59,7 @@ M.gps = function()
     return ""
   else
     if not isempty(navic_location) then
-      local hl_group = "LineNr"
+      local hl_group = "Winbar"
       return retval .. " " .. "%#" .. hl_group .. "#" .. EcoVim.icons.caretRight .. "%*" .. " " .. navic_location
     else
       return retval
