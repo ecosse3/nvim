@@ -47,14 +47,10 @@ local handlers = {
     border = EcoVim.ui.float.border,
   }),
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
-  ["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    { virtual_text = EcoVim.lsp.virtual_text }
-  ),
 }
 
 local function on_attach(client, bufnr)
-  -- set up buffer keymaps, etc.
+  vim.lsp.inlay_hint.enable(true, { bufnr })
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
