@@ -1,15 +1,8 @@
-require 'colorizer'.setup({
-  filetypes = {
-    'html',
-    'css',
-    'javascript',
-    'typescript',
-    'typescriptreact',
-    'javascriptreact',
-    'lua'
+return {
+  {
+    "brenoprata10/nvim-highlight-colors",
+    opts = {
+      enable_tailwind = false,
+    }
   },
-  user_default_options = {
-    mode = "background",
-    tailwind = false, -- Enable tailwind colors
-  }
-})
+}
