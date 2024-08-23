@@ -54,10 +54,11 @@ tokyonight.setup({
   on_highlights = function(hl, _color)
     local prompt = "#FFA630"
     local text = "#488dff"
-    local none = "NONE"
+    local none = "None"
 
     hl.TelescopeTitle = {
       fg = prompt,
+      bg = none,
     }
     hl.TelescopeNormal = {
       bg = none,
@@ -65,10 +66,11 @@ tokyonight.setup({
     }
     hl.TelescopeBorder = {
       bg = none,
-      fg = text,
+      fg = none,
     }
     hl.TelescopeMatching = {
       fg = prompt,
+      bg = none,
     }
     hl.MsgArea = {
       fg = c.fg_dark,
@@ -76,79 +78,69 @@ tokyonight.setup({
   end,
 })
 
--- Set Colorscheme
-vim.cmd("colorscheme " .. EcoVim.colorscheme)
-
--- Ecovim Colors
-vim.api.nvim_set_hl(0, "EcovimPrimary", { fg = "#488dff" })
-vim.api.nvim_set_hl(0, "EcovimSecondary", { fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimPrimaryBold", { bold = true, fg = "#488DFF" })
-vim.api.nvim_set_hl(0, "EcovimSecondaryBold", { bold = true, fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimHeader", { bold = true, fg = "#488DFF" })
-vim.api.nvim_set_hl(0, "EcovimHeaderInfo", { bold = true, fg = "#FFA630" })
-vim.api.nvim_set_hl(0, "EcovimFooter", { bold = true, fg = "#FFA630" })
-
-vim.api.nvim_set_hl(0, "EcovimNvimTreeTitle", { bold = true, fg = "#FFA630", bg = "#16161e" })
-
--- Tokyonight Colorscheme Specific Config
-if EcoVim.colorscheme == "tokyonight" then
+local highlights = {
+  -- Ecovim Colors
+  EcovimPrimary                 = { fg = "#488dff" },
+  EcovimSecondary               = { fg = "#FFA630" },
+  EcovimPrimaryBold             = { bold = true, fg = "#488DFF" },
+  EcovimSecondaryBold           = { bold = true, fg = "#FFA630" },
+  EcovimHeader                  = { bold = true, fg = "#488DFF" },
+  EcovimHeaderInfo              = { bold = true, fg = "#FFA630" },
+  EcovimFooter                  = { bold = true, fg = "#FFA630" },
+  EcovimNvimTreeTitle           = { bold = true, fg = "#FFA630", bg = "#16161e" },
   -- Lines
-  vim.api.nvim_set_hl(0, "CursorLineNR", { link = "EcovimSecondary" })
-  vim.api.nvim_set_hl(0, "LineNr", { link = "Comment" })
-
+  CursorLineNR                  = { link = "EcovimSecondary" },
+  LineNr                        = { link = "Comment" },
   -- Floats/Windows
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
-  vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None", fg = "#488DFF" })
-  vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = "None", fg = "#488DFF" })
-  vim.api.nvim_set_hl(0, "BufferTabpageFill", { fg = "None" })
-  vim.api.nvim_set_hl(0, "VertSplit", { bg = "#16161e", fg = "#16161e" })
-  vim.api.nvim_set_hl(0, "BqfPreviewBorder", { link = "FloatBorder" })
-  vim.api.nvim_set_hl(0, "BufferInactiveIndex", { link = "BufferInactive" })
-  vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
-
+  NormalFloat                   = { bg = "None", fg = "None" },
+  FloatBorder                   = { bg = "None", fg = "#488DFF" },
+  WhichKeyFloat                 = { bg = "None", fg = "#488DFF" },
+  BufferTabpageFill             = { fg = "None" },
+  BqfPreviewBorder              = { link = "FloatBorder" },
+  BufferInactiveIndex           = { link = "BufferInactive" },
+  LspInfoBorder                 = { link = "FloatBorder" },
+  VertSplit                     = { bg = "#16161e", fg = "#16161e" },
   -- Tree
-  vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { bg = "None", fg = "None" })
-
+  NvimTreeFolderIcon            = { bg = "None", fg = "None" },
   -- Misc
-  vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { link = "Comment" })
-  vim.api.nvim_set_hl(0, "StatusLine", { bg = "None" })
-  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "None" })
-  vim.api.nvim_set_hl(0, "rainbowcol1", { fg = c.blue, ctermfg = 9 })
-  vim.api.nvim_set_hl(0, "TSRainbowRed", { fg = c.blue, ctermfg = 9 })
-  vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = c.blue, ctermfg = 9 })
-  vim.api.nvim_set_hl(0, "Boolean", { fg = "#F7768E" })
-  vim.api.nvim_set_hl(0, "BufferOffset", { link = "EcovimSecondary" })
-  vim.api.nvim_set_hl(0, "LspInlayHint", { link = "LspCodeLens" })
-
+  GitSignsCurrentLineBlame      = { link = "Comment" },
+  StatusLine                    = { bg = "None" },
+  StatusLineNC                  = { bg = "None" },
+  rainbowcol1                   = { fg = c.blue, ctermfg = 9 },
+  TSRainbowRed                  = { fg = c.blue, ctermfg = 9 },
+  RainbowDelimiterRed           = { fg = c.blue, ctermfg = 9 },
+  Boolean                       = { fg = "#F7768E" },
+  BufferOffset                  = { link = "EcovimSecondary" },
+  LspInlayHint                  = { link = "LspCodeLens" },
   -- Bufferline
-  vim.api.nvim_set_hl(0, "BufferCurrentSign", { fg = c.cyan0 })
-  vim.api.nvim_set_hl(0, "BufferInactiveSign", { bg = "#202331", fg = c.dark3 })
-  vim.api.nvim_set_hl(0, "BufferInactiveMod", { bg = "NONE", fg = c.yellow })
-
-  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { bg = "#16161e", fg = "#16161e" })
-
+  BufferCurrentSign             = { fg = c.cyan0 },
+  BufferInactiveSign            = { bg = "#202331", fg = c.dark3 },
+  BufferInactiveMod             = { bg = "NONE", fg = c.yellow },
+  BufferLineOffsetSeparator     = { bg = "#13141c", fg = "#13141c" },
+  BufferLineSeparator           = { bg = "#13141c", fg = "#13141c" },
   -- Completion Menu Colors
-  local highlights = {
-    CmpItemAbbr = { fg = c.dark3, bg = "NONE" },
-    CmpItemKindClass = { fg = c.orange },
-    CmpItemKindConstructor = { fg = c.purple },
-    CmpItemKindFolder = { fg = c.blue2 },
-    CmpItemKindFunction = { fg = c.blue },
-    CmpItemKindInterface = { fg = c.teal, bg = "NONE" },
-    CmpItemKindKeyword = { fg = c.magneta2 },
-    CmpItemKindMethod = { fg = c.red },
-    CmpItemKindReference = { fg = c.red1 },
-    CmpItemKindSnippet = { fg = c.dark3 },
-    CmpItemKindVariable = { fg = c.cyan, bg = "NONE" },
-    CmpItemKindText = { fg = "LightGrey" },
-    CmpItemMenu = { fg = "#C586C0", bg = "NONE" },
-    CmpItemAbbrMatch = { fg = "#569CD6", bg = "NONE" },
-    CmpItemAbbrMatchFuzzy = { fg = "#569CD6", bg = "NONE" },
-  }
+  CmpItemAbbr                   = { fg = c.dark3, bg = "NONE" },
+  CmpItemKindClass              = { fg = c.orange },
+  CmpItemKindConstructor        = { fg = c.purple },
+  CmpItemKindFolder             = { fg = c.blue2 },
+  CmpItemKindFunction           = { fg = c.blue },
+  CmpItemKindInterface          = { fg = c.teal, bg = "NONE" },
+  CmpItemKindKeyword            = { fg = c.magneta2 },
+  CmpItemKindMethod             = { fg = c.red },
+  CmpItemKindReference          = { fg = c.red1 },
+  CmpItemKindSnippet            = { fg = c.dark3 },
+  CmpItemKindVariable           = { fg = c.cyan, bg = "NONE" },
+  CmpItemKindText               = { fg = "LightGrey" },
+  CmpItemMenu                   = { fg = "#C586C0", bg = "NONE" },
+  CmpItemAbbrMatch              = { fg = "#569CD6", bg = "NONE" },
+  CmpItemAbbrMatchFuzzy         = { fg = "#569CD6", bg = "NONE" },
+  CmpBorderedWindow_FloatBorder = { fg = c.blue0 },
+}
 
-  vim.api.nvim_set_hl(0, "CmpBorderedWindow_FloatBorder", { fg = c.blue0 })
+
+for group, hl in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, hl)
+end
 
 local neovide_highlights = {
   VertSplit                   = { bg = "None", fg = "None" },
@@ -166,3 +158,14 @@ if vim.g.neovide then
     vim.api.nvim_set_hl(0, group, hl)
   end
 end
+
+local fixBufferLineSeparator = function()
+  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", vim.api.nvim_get_hl_by_name('NvimTreeWinSeparator', true))
+  vim.api.nvim_set_hl(0, "BufferLineSeparator", vim.api.nvim_get_hl_by_name('NvimTreeWinSeparator', true))
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = fixBufferLineSeparator,
+})
+
+fixBufferLineSeparator()
