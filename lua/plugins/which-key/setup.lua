@@ -10,292 +10,188 @@ wk.setup {
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     spelling = {
-      enabled = true,              -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20,            -- how many suggestions should be shown in the list?
+      enabled = true,   -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      suggestions = 20, -- how many suggestions should be shown in the list?
     },
-    presets = { operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false,             -- adds help for motions text_objects = false, -- help for text objects triggered after entering an operator
-      windows = false,             -- default bindings on <c-w>
-      nav = false,                 -- misc bindings to work with windows
-      z = false,                   -- bindings for folds, spelling and others prefixed with z
-      g = false,                   -- bindings for prefixed with g
+    presets = {
+      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      motions = false,   -- adds help for motions text_objects = false, -- help for text objects triggered after entering an operator
+      windows = false,   -- default bindings on <c-w>
+      nav = false,       -- misc bindings to work with windows
+      z = false,         -- bindings for folds, spelling and others prefixed with z
+      g = false,         -- bindings for prefixed with g
     },
-  },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
-  operators = { gc = "Comments" },
-  key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
   },
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
     separator = "➜", -- symbol used between a key and it's label
     group = "+", -- symbol prepended to a group
   },
-  window = {
+  win = {
     border = EcoVim.ui.float.border or "rounded", -- none, single, double, shadow, rounded
-    position = "bottom",                          -- bottom, top
-    margin = { 1, 0, 1, 0 },                      -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 },                     -- extra window padding [top, right, bottom, left]
   },
   layout = {
-    height = { min = 4, max = 25 },                                            -- min and max height of the columns
-    width = { min = 20, max = 50 },                                            -- min and max width of the columns
-    spacing = 4,                                                               -- spacing between columns
-    align = "left",                                                            -- align columns left, center or right
+    height = { min = 4, max = 25 }, -- min and max height of the columns
+    width = { min = 20, max = 50 }, -- min and max width of the columns
+    spacing = 4,                    -- spacing between columns
+    align = "left",                 -- align columns left, center or right
   },
-  ignore_missing = false,                                                       -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-  show_help = true,                                                             -- show help message on the command line when the popup is visible
-  -- triggers = "auto", -- automatically setup triggers
-  triggers = { "<leader>", "<LocalLeader>" },                                   -- or specify a list manually
-  triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
-    i = { "j", "k" },
-    v = { "j", "k" },
-  },
+  show_help = true,                 -- show help message on the command line when the popup is visible
 }
 
-local opts = {
-  mode = "n",     -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = false, -- use `nowait` when creating keymaps
-}
+-- ignore
+wk.add({
+  { "<leader><leader>", hidden = true },
+  { "<leader>1",        hidden = true },
+  { "<leader>2",        hidden = true },
+  { "<leader>3",        hidden = true },
+  { "<leader>4",        hidden = true },
+  { "<leader>5",        hidden = true },
+  { "<leader>6",        hidden = true },
+  { "<leader>7",        hidden = true },
+  { "<leader>8",        hidden = true },
+  { "<leader>9",        hidden = true },
+})
 
-local visual_opts = {
-  mode = "v",     -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,  -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = false, -- use `nowait` when creating keymaps
-}
+-- single
+wk.add({
+  { "<leader>=", "<cmd>vertical resize +5<CR>", desc = "resize +5" },
+  { "<leader>-", "<cmd>vertical resize -5<CR>", desc = "resize -5" },
+  { "<leader>v", "<C-W>v",                      desc = "split right" },
+  { "<leader>V", "<C-W>s",                      desc = "split below" },
+  { "<leader>q", desc = "quicklist" },
+})
 
-local normal_mode_mappings = {
-  -- ignore
-  ['1'] = 'which_key_ignore',
-  ['2'] = 'which_key_ignore',
-  ['3'] = 'which_key_ignore',
-  ['4'] = 'which_key_ignore',
-  ['5'] = 'which_key_ignore',
-  ['6'] = 'which_key_ignore',
-  ['7'] = 'which_key_ignore',
-  ['8'] = 'which_key_ignore',
-  ['9'] = 'which_key_ignore',
+wk.add({
+  { "<leader>/",  group = "Ecovim" },
+  { "<leader>/s", group = "Session" },
+  { "<leader>//", "<cmd>Alpha<CR>",       desc = "open dashboard" },
+  { "<leader>/c", "<cmd>e $MYVIMRC<CR>",  desc = "open config" },
+  { "<leader>/i", "<cmd>Lazy<CR>",        desc = "manage plugins" },
+  { "<leader>/u", "<cmd>Lazy update<CR>", desc = "update plugins" },
+})
 
-  -- single
-  ['='] = { '<cmd>vertical resize +5<CR>',                      'resize +5' },
-  ['-'] = { '<cmd>vertical resize -5<CR>',                      'resize +5' },
-  ['v'] = { '<C-W>v',                                           'split right' },
-  ['V'] = { '<C-W>s',                                           'split below' },
-  ['q'] = { 'quicklist' },
+wk.add({
+  { "<leader>a",  group = "Actions",                mode = { "n", "v" } },
+  { "<leader>an", "<cmd>set nonumber!<CR>",         desc = "line numbers" },
+  { "<leader>ar", "<cmd>set norelativenumber!<CR>", desc = "relative number" },
+})
 
-  ['/'] = {
-    name = 'Ecovim',
-    ['/'] = { '<cmd>Alpha<CR>',                                 'open dashboard' },
-    c = { '<cmd>e $MYVIMRC<CR>',                                'open config' },
-    i = { '<cmd>Lazy<CR>',                                      'manage plugins' },
-    u = { '<cmd>Lazy update<CR>',                               'update plugins' },
-    s = {
-      name = 'Session',
-    },
-  },
+wk.add({
+  { "<leader>b",  group = "Buffer" },
+  { "<leader>bs", group = "Sort" },
+  { "<leader>bc", '<cmd>lua require("utils").closeOtherBuffers()<CR>', desc = "Close but current" },
+  { "<leader>bf", "<cmd>bfirst<CR>",                                   desc = "First buffer" },
+})
 
-  a = {
-    name = 'Actions',
-    n = { '<cmd>set nonumber!<CR>',                             'line numbers' },
-    r = { '<cmd>set norelativenumber!<CR>',                     'relative number' },
-  },
+wk.add({
+  { "<leader>c",  group = "LSP",                                      mode = { "n", "v" } },
+  { "<leader>ca", desc = "code action",                               mode = { "n", "v" } },
+  { "<leader>cd", "<cmd>Trouble diagnostics toggle<CR>",              desc = "diagnostics (Trouble)" },
+  { "<leader>cD", "<cmd>Telescope diagnostics wrap_results=true<CR>", desc = "workspace diagnostics" },
+  { "<leader>cf", desc = "format",                                    mode = { "n", "v" } },
+  { "<leader>cl", desc = "line diagnostics" },
+  { "<leader>cr", desc = "rename" },
+  { "<leader>cR", desc = "structural replace" },
+  { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>',                     desc = "toggle format on save" },
+})
 
-  b = {
-    name = 'Buffer',
-    c = { '<cmd>lua require("utils").closeOtherBuffers()<CR>',  'Close but current' },
-    f = { '<cmd>bfirst<CR>',                                    'First buffer' },
-    s = {
-      name = 'Sort',
-    },
-  },
+wk.add({
+  { "<leader>d",  group = "Debug" },
+  { "<leader>da", desc = "attach" },
+  { "<leader>db", desc = "breakpoint" },
+  { "<leader>dc", desc = "continue" },
+  { "<leader>dC", desc = "close UI" },
+  { "<leader>dd", desc = "continue" },
+  { "<leader>dh", desc = "visual hover" },
+  { "<leader>di", desc = "step into" },
+  { "<leader>do", desc = "step over" },
+  { "<leader>dO", desc = "step out" },
+  { "<leader>dr", desc = "repl" },
+  { "<leader>ds", desc = "scopes" },
+  { "<leader>dt", desc = "terminate" },
+  { "<leader>dU", desc = "open UI" },
+  { "<leader>dv", desc = "log variable" },
+  { "<leader>dV", desc = "log variable above" },
+  { "<leader>dw", desc = "watches" },
+})
 
-  c = {
-    name = 'LSP',
-    a = { 'code action' },
-    d = { '<cmd>TroubleToggle<CR>',                           'local diagnostics' },
-    D = { '<cmd>Telescope diagnostics wrap_results=true<CR>', 'workspace diagnostics' },
-    f = { 'format' },
-    l = { 'line diagnostics' },
-    r = { 'rename' },
-    R = { 'structural replace' },
-    t = { '<cmd>LspToggleAutoFormat<CR>',                     'toggle format on save' },
-  },
+wk.add({
+  { "<leader>g",   group = "Git",                                                         mode = { "n", "v" } },
+  { "<leader>ga",  "<cmd>!git add %:p<CR>",                                               desc = 'add current' },
+  { "<leader>gA",  "<cmd>!git add .<CR>",                                                 desc = 'add all' },
+  { "<leader>gb",  "<cmd>BlameToggle window<CR>",                                         desc = 'blame' },
+  { "<leader>gB",  "<cmd>Telescope git_branches<CR>",                                     desc = 'branches' },
+  { "<leader>gc",  group = "Conflict" },
+  { "<leader>gh",  group = "Hunk" },
+  { "<leader>ghr", desc = "reset hunk",                                                   mode = { "v" } },
+  { "<leader>ghs", desc = "stage hunk",                                                   mode = { "v" } },
+  { "<leader>gi",  "<cmd>Octo issue list<CR>",                                            desc = 'Issues List' },
+  { "<leader>gl",  group = "Log" },
+  { "<leader>glA", "<cmd>lua require('plugins.telescope.pickers').my_git_commits()<CR>",  desc = 'commits (Telescope)' },
+  { "<leader>gla", "<cmd>LazyGitFilter<CR>",                                              desc = 'commits' },
+  { "<leader>glC", "<cmd>lua require('plugins.telescope.pickers').my_git_bcommits()<CR>", desc = 'buffer commits (Telescope)' },
+  { "<leader>glc", "<cmd>LazyGitFilterCurrentFile<CR>",                                   desc = 'buffer commits' },
+  { "<leader>gm",  desc = 'blame line' },
+  { "<leader>gp",  "<cmd>Octo pr list<CR>",                                               desc = 'Pull Requests List' },
+  { "<leader>gs",  "<cmd>Telescope git_status<CR>",                                       desc = 'telescope status' },
+  { "<leader>gw",  group = "Worktree" },
+  { "<leader>gww", desc = 'worktrees' },
+  { "<leader>gwc", desc = 'create worktree' },
+})
 
-  d = {
-    name = 'Debug',
-    a = { 'attach' },
-    b = { 'breakpoint' },
-    c = { 'continue' },
-    C = { 'close UI' },
-    d = { 'continue' },
-    h = { 'visual hover' },
-    i = { 'step into' },
-    o = { 'step over' },
-    O = { 'step out' },
-    r = { 'repl' },
-    s = { 'scopes' },
-    t = { 'terminate' },
-    U = { 'open UI' },
-    v = { 'log variable' },
-    V = { 'log variable above' },
-    w = { 'watches' },
-  },
+wk.add({
+  { "<leader>p",  group = "Project" },
+  { "<leader>pf", desc = { "file" } },
+  { "<leader>pw", desc = { "word" } },
+  { "<leader>pl", "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", desc = "list" },
+  { "<leader>pr", desc = { "refactor" },                                                                                                                                                                                         mode = { "v", "n" } },
+  { "<leader>pt", "<cmd>TodoTrouble<CR>",                                                                                                                                                                                        desc = "todo" },
+})
 
-  g = {
-    name = 'Git',
-    a = { '<cmd>!git add %:p<CR>',                                        'add current' },
-    A = { '<cmd>!git add .<CR>',                                          'add all' },
-    b = { '<cmd>BlameToggle window<CR>',                                  'blame' },
-    B = { '<cmd>Telescope git_branches<CR>',                              'branches' },
-    c = {
-      name = 'Conflict',
-    },
-    h = {
-      name = 'Hunk',
-    },
-    i = { '<cmd>Octo issue list<CR>',                                     'Issues List' },
-    l = {
-      name = 'Log',
-      A = {'<cmd>lua require("plugins.telescope.pickers").my_git_commits()<CR>',  'commits (Telescope)'},
-      a = {'<cmd>LazyGitFilter<CR>',                                            'commits'},
-      C = {'<cmd>lua require("plugins.telescope.pickers").my_git_bcommits()<CR>', 'buffer commits (Telescope)'},
-      c = {'<cmd>LazyGitFilterCurrentFile<CR>',                                 'buffer commits'},
-    },
-    m = { 'blame line' },
-    p = { '<cmd>Octo pr list<CR>',                                        'Pull Requests List' },
-    s = { '<cmd>Telescope git_status<CR>',                                'telescope status' },
-    w = {
-      name = 'Worktree',
-      w = 'worktrees',
-      c = 'create worktree',
-    }
-  },
+wk.add({
+  { "<leader>r", group = "Refactor", mode = { "n", "v" } },
+})
 
-  p = {
-    name = 'Project',
-    f = { 'file' },
-    w = { 'word' },
-    l = { "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", 'list' },
-    r = { 'refactor' },
-    t = { "<cmd>TodoTrouble<CR>", 'todo' },
-  },
+wk.add({
+  { "<leader>s",  group = "Search" },
+  { "<leader>sc", "<cmd>Telescope colorscheme<CR>",                                  desc = "color schemes" },
+  { "<leader>sd", "<cmd>lua require('plugins.telescope.pickers').edit_neovim()<CR>", desc = "dotfiles" },
+  { "<leader>sh", "<cmd>Telescope oldfiles hidden=true<CR>",                         desc = "file history" },
+  { "<leader>sH", "<cmd>lua require('plugins.telescope').command_history()<CR>",     desc = "command history" },
+  { "<leader>ss", "<cmd>Telescope search_history theme=dropdown<CR>",                desc = "search history" },
+  { "<leader>sq", "<cmd>Telescope quickfix<CR>",                                     desc = "quickfix list" },
+})
 
-  r = {
-    name = 'Refactor',
-  },
+wk.add({
+  { "<leader>t",  group = "Table Mode",  mode = { "n", "v" } },
+  { "<leader>tm", desc = { "toggle" } },
+  { "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
+})
 
-  s = {
-    name = 'Search',
-    c = { '<cmd>Telescope colorscheme<CR>',                                'color schemes' },
-    d = { '<cmd>lua require("plugins.telescope.pickers").edit_neovim()<CR>', 'dotfiles' },
-    h = { '<cmd>Telescope oldfiles hidden=true<CR>',                       'file history' },
-    H = { '<cmd>lua require("plugins.telescope").command_history()<CR>',   'command history' },
-    s = { '<cmd>Telescope search_history theme=dropdown<CR>',              'search history' },
-    q = { '<cmd>Telescope quickfix<CR>', 'quickfix list' },
-  },
-
-  t = {
-    name = 'Table Mode',
-    m = { 'toggle' },
-    t = { 'tableize' },
-  },
-}
-
-local visual_mode_mappings = {
-  -- single
-  ["s"] = { "<cmd>'<,'>sort<CR>",               'sort' },
-
-  a = {
-    name = "Actions",
-  },
-
-  c = {
-    name = "LSP",
-    a = { 'range code action' },
-    f = { 'range format' },
-  },
-
-  g = {
-    name = "Git",
-    h = {
-      name = "Hunk",
-      r = "reset hunk",
-      s = "stage hunk",
-    },
-  },
-
-  p = {
-    name = "Project",
-    r = { 'refactor' },
-  },
-
-  r = {
-    name = "Refactor",
-  },
-
-  t = {
-    name = "Table Mode",
-    t = { 'tableize' },
-  },
-}
-
--- ╭──────────────────────────────────────────────────────────╮
--- │ Register                                                 │
--- ╰──────────────────────────────────────────────────────────╯
-
-wk.register(normal_mode_mappings, opts)
-wk.register(visual_mode_mappings, visual_opts)
+wk.add({
+  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } }
+})
 
 local function attach_markdown(bufnr)
-  wk.register({
-    a = {
-      name = "Actions",
-      m = { '<cmd>MarkdownPreviewToggle<CR>', 'markdown preview' },
-    }
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { "<leader>a",  group = "Actions",                buffer = bufnr },
+    { "<leader>am", "<cmd>MarkdownPreviewToggle<CR>", desc = "markdown preview", mode = "n", buffer = bufnr },
   })
 end
 
 local function attach_typescript(bufnr)
-  wk.register({
-    c = {
-      name = "LSP",
-      e = { '<cmd>TSC<CR>',                               'workspace errors (TSC)'},
-      F = { '<cmd>TSToolsFixAll<CR>',                     'fix all' },
-      i = { '<cmd>TSToolsAddMissingImports<CR>',          'import all'},
-      o = { '<cmd>TSToolsOrganizeImports<CR>',            'organize imports'},
-      s = { '<cmd>TSToolsSortImports<CR>',                'sort imports'},
-      u = { '<cmd>TSToolsRemoveUnused<CR>',               'remove unused' },
-    }
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { "<leader>c",  group = "LSP",                          buffer = bufnr },
+    { "<leader>ce", "<cmd>TSC<CR>",                         desc = "workspace errors (TSC)", buffer = bufnr },
+    { "<leader>cF", "<cmd>VtsExec fix_all<CR>",             desc = "fix all",                buffer = bufnr },
+    { "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", desc = "import all",             buffer = bufnr },
+    { "<leader>co", "<cmd>VtsExec organize_imports<CR>",    desc = "organize imports",       buffer = bufnr },
+    { "<leader>cs", "<cmd>VtsExec source_actions<CR>",      desc = "source actions",         buffer = bufnr },
+    { "<leader>cu", "<cmd>VtsExec remove_unused<CR>",       desc = "remove unused",          buffer = bufnr },
+    { "<leader>cV", "<cmd>VtsExec select_ts_version<CR>",   desc = "select TS version",      buffer = bufnr },
+    { "<leader>cF", "<cmd>VtsExec file_references<CR>",     desc = "file references",        buffer = bufnr },
   })
 end
 
@@ -304,12 +200,12 @@ local function attach_npm(bufnr)
     n = {
       name = "NPM",
       c = { '<cmd>lua require("package-info").change_version()<CR>', 'change version' },
-      d = { '<cmd>lua require("package-info").delete()<CR>',         'delete package' },
-      h = { "<cmd>lua require('package-info').hide()<CR>",           'hide'},
-      i = { '<cmd>lua require("package-info").install()<CR>',        'install new package' },
-      r = { '<cmd>lua require("package-info").reinstall()<CR>',      'reinstall dependencies' },
-      s = { '<cmd>lua require("package-info").show()<CR>',           'show' },
-      u = { '<cmd>lua require("package-info").update()<CR>',         'update package'},
+      d = { '<cmd>lua require("package-info").delete()<CR>', 'delete package' },
+      h = { "<cmd>lua require('package-info').hide()<CR>", 'hide' },
+      i = { '<cmd>lua require("package-info").install()<CR>', 'install new package' },
+      r = { '<cmd>lua require("package-info").reinstall()<CR>', 'reinstall dependencies' },
+      s = { '<cmd>lua require("package-info").show()<CR>', 'show' },
+      u = { '<cmd>lua require("package-info").update()<CR>', 'update package' },
     }
   }, {
     buffer = bufnr,
@@ -322,36 +218,21 @@ local function attach_npm(bufnr)
 end
 
 local function attach_zen(bufnr)
-  wk.register({
-    ["z"] = { '<cmd>ZenMode<CR>',               'zen' },
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { "<leader>z", "<cmd>ZenMode<CR>", buffer = bufnr, desc = "zen", nowait = false, remap = false },
   })
 end
 
 local function attach_jest(bufnr)
-  wk.register({
-    j = {
-      name = "Jest",
-      f = { '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>', 'run current file' },
-      i = { '<cmd>lua require("neotest").summary.toggle()<CR>', 'toggle info panel' },
-      j = { '<cmd>lua require("neotest").run.run()<CR>', 'run nearest test' },
-      l = { '<cmd>lua require("neotest").run.run_last()<CR>', 'run last test' },
-      o = { '<cmd>lua require("neotest").output.open({ enter = true })<CR>', 'open test output' },
-      s = { '<cmd>lua require("neotest").run.stop()<CR>', 'stop' },
-    }
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { buffer = bufnr },
+    { "<leader>j",   group = "Jest", },
+    { "<leader>jf",  "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",   desc = "run current file" },
+    { "<leader>ji",  "<cmd>lua require('neotest').summary.toggle()<CR>",              desc = "toggle info panel" },
+    { "<leader>jj",  "<cmd>lua require('neotest').run.run()<CR>",                     desc = "run nearest test" },
+    { "<leader>jl",  "<cmd>lua require('neotest').run.run_last()<CR>",                desc = "run last test" },
+    { "<leader>jo",  "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "open test output" },
+    { "<leader>js",  "<cmd>lua require('neotest').run.stop()<CR>",                    desc = "stop" },
   })
 end
 
@@ -384,20 +265,6 @@ local function attach_nvim_tree(bufnr)
     nowait = false, -- use `nowait` when creating keymaps
   })
 end
-
-wk.register({
-  c = {
-    c = {
-      name = "Copilot Chat",
-    }
-  }
-}, {
-  mode = "n",
-  prefix = "<leader>",
-  silent = true,
-  noremap = true,
-  nowait = false,
-})
 
 return {
   attach_markdown = attach_markdown,
