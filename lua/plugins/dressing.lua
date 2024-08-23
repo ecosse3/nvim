@@ -35,7 +35,7 @@ return {
 
         win_options = {
           -- Window transparency (0-100)
-          winblend = 0,
+          winblend = 10,
           -- Change default highlight groups (see :help winhl)
           winhighlight = "",
         },
