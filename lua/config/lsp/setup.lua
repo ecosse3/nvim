@@ -72,8 +72,19 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
+  ["vtsls"] = function()
+    require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+
+    lspconfig.vtsls.setup({
+      capabilities = capabilities,
+      handlers = require("config.lsp.servers.tsserver").handlers,
+      on_attach =require("config.lsp.servers.tsserver").on_attach,
+      settings = require("config.lsp.servers.tsserver").settings,
+    })
+  end,
+
   ["tsserver"] = function()
-    -- Skip since we use typescript-tools.nvim
+    -- Skip since we use vtsls
   end,
 
   ["tailwindcss"] = function()
@@ -123,7 +134,7 @@ require("mason-lspconfig").setup_handlers {
     })
   end,
 
-  ["vuels"] = function ()
+  ["vuels"] = function()
     lspconfig.vuels.setup({
       filetypes = require("config.lsp.servers.vuels").filetypes,
       handlers = handlers,
