@@ -2,6 +2,115 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/ecosse3/nvim/compare/v3.9.0...v4.0.0) (2024-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+#### This version contains breaking changes in the way how files are structured and how plugins are loaded. The `lua/config/plugins.lua` file with all plugins is deprecated and each plugin is managed separately via file inside `plugins` directory.
+
+* **lsp:** integrate vtsls for TypeScript language support
+* **plugins:** new external blame setup
+* **plugins:** add new ultimate-autopairs configuration
+* **plugins:** setup for package-info.nvim
+* **plugins:** printer setup
+* **plugins:** refactoring plugin configuration
+* **plugins:** scissors plugin configuration
+* **plugins:** session manager configuration and key mappings
+* **plugins:** setup for Alpha.nvim dashboard plugin
+* **plugins:** spectre plugin with refactor key mappings
+* **plugins:** spider.lua plugin configuration
+* **plugins:** add stay-in-place plugin configuration
+* **plugins:** remove custom telescope pickers and git functions
+* **plugins:** new configuration for todo-comments plugin
+* **plugins:** new NvimTree key bindings and configuration
+* **plugins:** add treesj plugin configuration
+* **plugins:** update trouble plugin configuration
+* **plugins:** Zen Mode setup with custom configurations
+* **plugins:** deprecate plugins.lua file and manage plugins by separate file inside plugins directory
+
+### Features
+
+* add buffer search picker to Telescope plugin ([a99b13d](https://github.com/ecosse3/nvim/commit/a99b13d54768dc0fcda5caf543e6b3acd998cf41))
+* add initial implementation of codesnap.nvim plugin ([d8ad99e](https://github.com/ecosse3/nvim/commit/d8ad99e0caaad983ee89d4f14032fcaa37ea632d))
+* **autocmds:** attach jest commands to *spec.ts/tsx files ([89709b6](https://github.com/ecosse3/nvim/commit/89709b6c531258d63b883f04d6f90fcd1f836dda))
+* include markdown as a recognized file type for rendering ([c3cfd04](https://github.com/ecosse3/nvim/commit/c3cfd042848577f287f069e03a9856e9438f60cc))
+* **lsp:** integrate vtsls for TypeScript language support ([e48d4da](https://github.com/ecosse3/nvim/commit/e48d4da6346e5d07d37afa983fdce447e704096a))
+* **neovide:** add Neovide specific configurations and keymaps ([fa69013](https://github.com/ecosse3/nvim/commit/fa690138a0510083ad2c0db5fa28ae4cf9e7c0f0))
+* **neovide:** adjust transparency settings for Neovide compatibility ([f683a3a](https://github.com/ecosse3/nvim/commit/f683a3a9f828a015e0682b09ad1265dec6346874))
+* **plugins:** add fidget.nvim plugin for enhanced UI feedback ([b44584c](https://github.com/ecosse3/nvim/commit/b44584c3cd7d38e405eaf9e1929e01d69227b91e))
+* **plugins:** add markdown-preview plugin configuration ([c57a840](https://github.com/ecosse3/nvim/commit/c57a840081f0de179b4c9df673062fd6267a7142))
+* **plugins:** add marks.nvim plugin with BufEnter event trigger ([5883e87](https://github.com/ecosse3/nvim/commit/5883e872f2c78ab3f87727dd73986f8cca10bed6))
+* **plugins:** add new smart-splits plugin configuration ([9835bbf](https://github.com/ecosse3/nvim/commit/9835bbfc3804f17d4456d981d37acb9f6f1e72ca))
+* **plugins:** add new tabout.lua plugin ([bc26910](https://github.com/ecosse3/nvim/commit/bc2691016f4e00e5407c95222df7bf3b48e2c8c5))
+* **plugins:** add new ultimate-autopairs configuration ([619c25d](https://github.com/ecosse3/nvim/commit/619c25dae3b2ddb338878c5c7c4f5cdd1a292791))
+* **plugins:** add nvim-bqf ([7f1e1d3](https://github.com/ecosse3/nvim/commit/7f1e1d3b14035a2f3e89c090b4c669ad613d0e94))
+* **plugins:** add text-case plugin for text manipulation ([1be6651](https://github.com/ecosse3/nvim/commit/1be665100d99c039761bf70e5440e7fb5e1b37f4))
+* **plugins:** add treesitter configuration for auto closing tags ([0a69a4f](https://github.com/ecosse3/nvim/commit/0a69a4f21a9853149fa38131b290627a230aca27))
+* **plugins:** add ufo utils handler and update config handler ([6a3bc6e](https://github.com/ecosse3/nvim/commit/6a3bc6e62368218f16dacdc9c0e9e9de3196d75d))
+* **plugins:** add vim-table-mode plugin for markdown files ([bb53b1a](https://github.com/ecosse3/nvim/commit/bb53b1a24ebd081ce17d2d06add8f2772946a64f))
+* **plugins:** create base plugins initialization file with general plugins & subdirectories config ([5753e43](https://github.com/ecosse3/nvim/commit/5753e438f94f4b41a86a50e0c8db63ccc9dd4128))
+* **plugins:** integrate echasnovski mini.align and mini.ai plugins ([729cbac](https://github.com/ecosse3/nvim/commit/729cbacde58e5f23a4d51c181cc86d3e9a2cbcfb))
+* **plugins:** integrate new markdown rendering plugin with dependencies ([9a1f758](https://github.com/ecosse3/nvim/commit/9a1f758ffd5a51d859c987de0229a3f0db5b28b4))
+* **plugins:** new external blame setup ([10bcb31](https://github.com/ecosse3/nvim/commit/10bcb310a3a5a44367f882ee4c7c359c5317f8e2))
+* **plugins:** remove custom documentcolors and replace colorizer with nvim-highlight-colors plugin ([5d411e3](https://github.com/ecosse3/nvim/commit/5d411e3d77b903598d429067cb79842caf48165d))
+* **plugins:** replace null-ls with conform & nvim-lint ([8c60d74](https://github.com/ecosse3/nvim/commit/8c60d74244cce10a6f7b0c234de51f633f2154b8))
+* **plugins:** setup codeium and copilot AI integrations ([ab63e37](https://github.com/ecosse3/nvim/commit/ab63e37dc0a71089c68856b1c1bd28f79eb0a933))
+* **plugins:** update copilot chat to canary version ([c2a2b6f](https://github.com/ecosse3/nvim/commit/c2a2b6f0d56eea22e2d0796d14766bbee3a4c9eb))
+* **plugins:** update noice config ([91d25cf](https://github.com/ecosse3/nvim/commit/91d25cf143b410632c303c2c78ec703c0e34c513))
+* **plugins:** update nvim notify plugin ([892650e](https://github.com/ecosse3/nvim/commit/892650e311ca18a1ae8578b4a99a9796f9108253))
+* **queries:** extend jsx element for typescriptreact queries ([e8ba48e](https://github.com/ecosse3/nvim/commit/e8ba48efc2899f43ef5538130dfe24d77af671aa))
+* **utils:** add is_plugin_loaded function for lazy loading plugins ([072aa2d](https://github.com/ecosse3/nvim/commit/072aa2dde6cfd8c14a0896cb3335307861979be7))
+* **utils:** add utility functions for table manipulation ([615a01c](https://github.com/ecosse3/nvim/commit/615a01c5af00b88d90a8b8dcf51186f2ab0be21e))
+
+
+### Bug Fixes
+
+* **colorscheme:** correct 'none' values in highlight definitions ([b364497](https://github.com/ecosse3/nvim/commit/b364497bb7de0105b0eee036f4c55d5ee14f0a5e))
+* **functions:** format on save ([830e804](https://github.com/ecosse3/nvim/commit/830e804b95a558929a97e638c4c7f7ae4bf6e0cf))
+* **which-key:** wk.add function to registering keymaps in which-key ([5632309](https://github.com/ecosse3/nvim/commit/56323097ba3c6e1487939aa063e4ae8479bbe0b7))
+
+
+### Refactors
+
+* **colorscheme:** configure 'FiraCode Nerd Font' and 'tokyonight-night' colorscheme ([4ac3eb4](https://github.com/ecosse3/nvim/commit/4ac3eb4658d0e506ada56b9f05c5c56c6f3d1f58))
+* consolidate and simplify which-key mappings ([1e0974e](https://github.com/ecosse3/nvim/commit/1e0974e2ed6b2814d5fef58be154d7369601fea8))
+* **dap:** reorganize DAP setup for modular configuration ([e795b60](https://github.com/ecosse3/nvim/commit/e795b6092eb893127e9ccd2c10782d627ce62820))
+* **keymappings:** change local leader map from ; to , (comma) ([c9d6ab2](https://github.com/ecosse3/nvim/commit/c9d6ab2c21b491a37a0a0bd5e01e402cd9ec7d03))
+* **lsp:** enable inlay hints & virtual text by default ([8e43c71](https://github.com/ecosse3/nvim/commit/8e43c71a782254b12cf0cd24c7fae53ea00380c5))
+* **lsp:** lsp plugins ([dbaa3b6](https://github.com/ecosse3/nvim/commit/dbaa3b662d656b643dba52fb20521901b235a434))
+* **plugins:** add flash.nvim with lazy loading in separate file ([3be5836](https://github.com/ecosse3/nvim/commit/3be5836a1e4758032987bca31e29ca6a917ae7c0))
+* **plugins:** add keymaps and setup for toggleterm plugin ([e1d374f](https://github.com/ecosse3/nvim/commit/e1d374fd099eebf939aa2dda9503e60236cd1133))
+* **plugins:** add setup.lua for which-key plugin ([e60a2fd](https://github.com/ecosse3/nvim/commit/e60a2fdd04f8d98b639601a3721361a352e25ede))
+* **plugins:** add stay-in-place plugin configuration ([ffd8df6](https://github.com/ecosse3/nvim/commit/ffd8df6a159d9e47989774320e3fd53b45320f31))
+* **plugins:** add treesj plugin configuration ([30c4731](https://github.com/ecosse3/nvim/commit/30c4731602b5b3757be1aefe1b5aea4b35d97194))
+* **plugins:** change barbar to bufferline ([450891d](https://github.com/ecosse3/nvim/commit/450891d5727055ef054a4e723ff1b08633d79058))
+* **plugins:** clean up unused cinnamon plugin setup ([0c33c86](https://github.com/ecosse3/nvim/commit/0c33c8696ee109cbd5149c2a29cb0c52250ebe27))
+* **plugins:** deprecate plugins.lua file and manage plugins by separate file inside plugins directory ([d28830a](https://github.com/ecosse3/nvim/commit/d28830a356e4992d9ef0d2db448b8d0ac4b7cdbc))
+* **plugins:** general testing plugins file ([380264a](https://github.com/ecosse3/nvim/commit/380264a2f7bef3ef80540ff4682af47f37b48495))
+* **plugins:** move git plugins configuration to a single file ([65b843c](https://github.com/ecosse3/nvim/commit/65b843c935ff2be1496340714d6ddd63e3c61318))
+* **plugins:** move multicursor functionality with smoka7/multicursors.nvim plugin ([2cc4567](https://github.com/ecosse3/nvim/commit/2cc4567c697570b0602c7a79e4ba14ceb0c9a0d7))
+* **plugins:** navic & winbar ([7dff7f3](https://github.com/ecosse3/nvim/commit/7dff7f329445a216405e0a63a02ccb616dda9077))
+* **plugins:** new configuration for todo-comments plugin ([8469d63](https://github.com/ecosse3/nvim/commit/8469d631afd79d203e44df6c51162e4bc4870225))
+* **plugins:** new NvimTree key bindings and configuration ([9aea1c8](https://github.com/ecosse3/nvim/commit/9aea1c8fe507abcb0b2b4a1f2d378cb3d8a45cdd))
+* **plugins:** printer setup ([48c7e22](https://github.com/ecosse3/nvim/commit/48c7e22cbe6325065cc51ce6841b73e44e220d73))
+* **plugins:** refactoring plugin configuration ([1aae97f](https://github.com/ecosse3/nvim/commit/1aae97f8c88bbd7900edcf18cd49fb354abc980e))
+* **plugins:** remove custom telescope pickers and git functions ([7cff815](https://github.com/ecosse3/nvim/commit/7cff8159a68f25cac9da664ce3579b06b1a692ce))
+* **plugins:** remove gps plugin configuration ([c57d794](https://github.com/ecosse3/nvim/commit/c57d794aa8292cc73b68f0f4546972254140c006))
+* **plugins:** require numb.nvim in separate file ([ed3bd2f](https://github.com/ecosse3/nvim/commit/ed3bd2ffee35e6e2c6fae3d4fc74520d17ed937b))
+* **plugins:** require nvim-web-devicons in separate file ([1503e34](https://github.com/ecosse3/nvim/commit/1503e34baa3a730afaa021a4e183118e820da74f))
+* **plugins:** restructure and enhance indentation plugin configuration ([44350b0](https://github.com/ecosse3/nvim/commit/44350b0740910c1d0d2b034d74a38aef262fa332))
+* **plugins:** scissors plugin configuration ([c6817b6](https://github.com/ecosse3/nvim/commit/c6817b6f169bdcaaded80866f21f83ffb4da75d3))
+* **plugins:** session manager configuration and key mappings ([88dc9d7](https://github.com/ecosse3/nvim/commit/88dc9d7ceae75ddc77691edf98e307f905c950aa))
+* **plugins:** setup for Alpha.nvim dashboard plugin ([a731f11](https://github.com/ecosse3/nvim/commit/a731f113978624eb5b0512819944df39e1f34b3d))
+* **plugins:** setup for package-info.nvim ([dbf2d29](https://github.com/ecosse3/nvim/commit/dbf2d2924d3702510da401dc5e041b55fcf1a976))
+* **plugins:** simplify trouble.nvim configuration ([d898ef8](https://github.com/ecosse3/nvim/commit/d898ef80e3d8758ebda6438da870a0f06d56685e))
+* **plugins:** spectre plugin with refactor key mappings ([5d7ab3e](https://github.com/ecosse3/nvim/commit/5d7ab3e358e02702ff54e131408692c4ed53be01))
+* **plugins:** spider.lua plugin configuration ([8e84f5f](https://github.com/ecosse3/nvim/commit/8e84f5fe73738217e46dc1b3ce3b5b79978ccfab))
+* **plugins:** streamline cmp and luasnip configuration ([b246919](https://github.com/ecosse3/nvim/commit/b2469199dd27bf0e25a26913e7bad3e4f818ac1a))
+* **plugins:** update trouble plugin configuration ([d0a44d3](https://github.com/ecosse3/nvim/commit/d0a44d3411a447f24d1d1003d235f7af4f1868b0))
+* **plugins:** Zen Mode setup with custom configurations ([d4d7e0b](https://github.com/ecosse3/nvim/commit/d4d7e0bb1dd52e1bc3e3ec32b71038ed85597062))
+
 ## [3.9.0](https://github.com/ecosse3/nvim/compare/v3.8.0...v3.9.0) (2024-02-25)
 
 
