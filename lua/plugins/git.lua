@@ -309,63 +309,43 @@ return {
       })
 
       local function attach_octo(bufnr)
-        wk.register({
-          a = { name = "Assignee" },
-          c = { name = "Comment" },
-          g = { name = "Go To" },
-          i = { name = "Issue" },
-          l = { name = "Label" },
-          p = {
-            name = "Pull Request",
-            r = { '<cmd>Octo pr ready<CR>', 'mark draft as ready to review' },
-            s = { '<cmd>Octo pr checks<CR>', 'status of all checks' },
-            m = { name = "Manage pull request" },
-            M = { name = "Merge" },
-          },
-          r = { name = "Reaction" },
-          s = { name = "Submit" },
-          t = {
-            name = "Thread",
-            r = { '<cmd>Octo thread resolve<CR>', 'resolve thread' },
-            u = { '<cmd>Octo thread unresolve<CR>', 'unresolve thread' },
-          },
-          v = { name = "Reviewer" },
-          R = {
-            name = "Review",
-            s = { '<cmd>Octo review start<CR>', 'start review' },
-            r = { '<cmd>Octo review resume<CR>', 'resume' },
-            m = {
-              name = "Manage review",
-              d = { '<cmd>Octo review discard<CR>', 'delete pending review' },
-              s = { '<cmd>Octo review submit<CR>', 'submit review' },
-              c = { '<cmd>Octo review comments<CR>', 'view pending comments' },
-              p = { '<cmd>Octo review commit<CR>', 'pick a commit' },
-            },
-          }
-        }, {
-          buffer = bufnr,
-          mode = { "n", "x" }, -- NORMAL/VISUAL mode
-          prefix = "<LocalLeader>",
-          silent = true,       -- use `silent` when creating keymaps
-          noremap = true,      -- use `noremap` when creating keymaps
-          nowait = false,      -- use `nowait` when creating keymaps
+        wk.add({
+          { buffer = bufnr,     mode = { "n", "x" } },
+          { "<LocalLeader>a",   "<cmd>Octo assignee<CR>",         desc = "Assignee" },
+          { "<LocalLeader>c",   "<cmd>Octo comment<CR>",          desc = "Comment" },
+          { "<LocalLeader>g",   "<cmd>Octo goto<CR>",             desc = "Go To" },
+          { "<LocalLeader>i",   "<cmd>Octo issue<CR>",            desc = "Issue" },
+          { "<LocalLeader>l",   "<cmd>Octo label<CR>",            desc = "Label" },
+          { "<LocalLeader>p",   group = "Pull Request" },
+          { "<LocalLeader>pr",  "<cmd>Octo pr ready<CR>",         desc = "mark draft as ready to review" },
+          { "<LocalLeader>ps",  "<cmd>Octo pr checks<CR>",        desc = "status of all checks" },
+          { "<LocalLeader>pm",  "<cmd>Octo pr manage<CR>",        desc = "Manage pull request" },
+          { "<LocalLeader>pM",  "<cmd>Octo pr merge<CR>",         desc = "Merge" },
+          { "<LocalLeader>r",   "<cmd>Octo reaction<CR>",         desc = "Reaction" },
+          { "<LocalLeader>s",   group = "Submit" },
+          { "<LocalLeader>t",   group = "Thread" },
+          { "<LocalLeader>tr",  "<cmd>Octo thread resolve<CR>",   desc = "resolve thread" },
+          { "<LocalLeader>tu",  "<cmd>Octo thread unresolve<CR>", desc = "unresolve thread" },
+          { "<LocalLeader>v",   "<cmd>Octo reviewer<CR>",         desc = "Reviewer" },
+          { "<LocalLeader>R",   group = "Review" },
+          { "<LocalLeader>Rs",  "<cmd>Octo review start<CR>",     desc = "start review" },
+          { "<LocalLeader>Rr",  "<cmd>Octo review resume<CR>",    desc = "resume" },
+          { "<LocalLeader>Rm",  group = "Manage Review" },
+          { "<LocalLeader>Rmd", "<cmd>Octo review discard<CR>",   desc = "delete pending review" },
+          { "<LocalLeader>Rms", "<cmd>Octo review submit<CR>",    desc = "submit review" },
+          { "<LocalLeader>Rmc", "<cmd>Octo review comments<CR>",  desc = "view pending comments" },
+          { "<LocalLeader>Rmp", "<cmd>Octo review commit<CR>",    desc = "pick a commit" },
         })
       end
 
+
       -- Review buffer
       local function attach_conf(bufnr)
-        wk.register({
-          c = { name = "Comment" },
-          s = { name = "Suggestion" },
-
-          q = { '<cmd>Octo review close<CR>', 'quit review' },
-        }, {
-          buffer = bufnr,
-          mode = { "n", "x", "v" }, -- NORMAL mode
-          prefix = "<LocalLeader>",
-          silent = true,            -- use `silent` when creating keymaps
-          noremap = true,           -- use `noremap` when creating keymaps
-          nowait = false,           -- use `nowait` when creating keymaps
+        wk.add({
+          { buffer = bufnr,   mode = { "n", "x", "v" } },
+          { "<LocalLeader>c", desc = "Comment" },
+          { "<LocalLeader>s", desc = "Suggestion" },
+          { "<LocalLeader>q", "<cmd>Octo review close<CR>", desc = "quit review" },
         })
       end
 

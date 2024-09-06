@@ -183,37 +183,30 @@ end
 
 local function attach_typescript(bufnr)
   wk.add({
-    { "<leader>c",  group = "LSP",                          buffer = bufnr },
-    { "<leader>ce", "<cmd>TSC<CR>",                         desc = "workspace errors (TSC)", buffer = bufnr },
-    { "<leader>cF", "<cmd>VtsExec fix_all<CR>",             desc = "fix all",                buffer = bufnr },
-    { "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", desc = "import all",             buffer = bufnr },
-    { "<leader>co", "<cmd>VtsExec organize_imports<CR>",    desc = "organize imports",       buffer = bufnr },
-    { "<leader>cs", "<cmd>VtsExec source_actions<CR>",      desc = "source actions",         buffer = bufnr },
-    { "<leader>cu", "<cmd>VtsExec remove_unused<CR>",       desc = "remove unused",          buffer = bufnr },
-    { "<leader>cV", "<cmd>VtsExec select_ts_version<CR>",   desc = "select TS version",      buffer = bufnr },
-    { "<leader>cF", "<cmd>VtsExec file_references<CR>",     desc = "file references",        buffer = bufnr },
+    { buffer = bufnr },
+    { "<leader>c",  group = "LSP",                          },
+    { "<leader>ce", "<cmd>TSC<CR>",                         desc = "workspace errors (TSC)"  },
+    { "<leader>cF", "<cmd>VtsExec fix_all<CR>",             desc = "fix all"                 },
+    { "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", desc = "import all"              },
+    { "<leader>co", "<cmd>VtsExec organize_imports<CR>",    desc = "organize imports"        },
+    { "<leader>cs", "<cmd>VtsExec source_actions<CR>",      desc = "source actions"          },
+    { "<leader>cu", "<cmd>VtsExec remove_unused<CR>",       desc = "remove unused"           },
+    { "<leader>cV", "<cmd>VtsExec select_ts_version<CR>",   desc = "select TS version"       },
+    { "<leader>cF", "<cmd>VtsExec file_references<CR>",     desc = "file references"         },
   })
 end
 
 local function attach_npm(bufnr)
-  wk.register({
-    n = {
-      name = "NPM",
-      c = { '<cmd>lua require("package-info").change_version()<CR>', 'change version' },
-      d = { '<cmd>lua require("package-info").delete()<CR>', 'delete package' },
-      h = { "<cmd>lua require('package-info').hide()<CR>", 'hide' },
-      i = { '<cmd>lua require("package-info").install()<CR>', 'install new package' },
-      r = { '<cmd>lua require("package-info").reinstall()<CR>', 'reinstall dependencies' },
-      s = { '<cmd>lua require("package-info").show()<CR>', 'show' },
-      u = { '<cmd>lua require("package-info").update()<CR>', 'update package' },
-    }
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { buffer = bufnr },
+    { "<leader>n",   group = "NPM" },
+    { "<leader>nc",  '<cmd>lua require("package-info").change_version()<CR>', desc = "change version" },
+    { "<leader>nd",  '<cmd>lua require("package-info").delete()<CR>',         desc = "delete package" },
+    { "<leader>nh",  "<cmd>lua require('package-info').hide()<CR>",           desc = "hide" },
+    { "<leader>ni",  '<cmd>lua require("package-info").install()<CR>',        desc = "install new package" },
+    { "<leader>nr",  '<cmd>lua require("package-info").reinstall()<CR>',      desc = "reinstall dependencies" },
+    { "<leader>ns",  '<cmd>lua require("package-info").show()<CR>',           desc = "show" },
+    { "<leader>nu",  '<cmd>lua require("package-info").update()<CR>',         desc = "update package" },
   })
 end
 
@@ -237,32 +230,20 @@ local function attach_jest(bufnr)
 end
 
 local function attach_spectre(bufnr)
-  wk.register({
-    ["R"] = { '[SPECTRE] Replace all' },
-    ["o"] = { '[SPECTRE] Show options' },
-    ["q"] = { '[SPECTRE] Send all to quicklist' },
-    ["v"] = { '[SPECTRE] Change view mode' },
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { buffer = bufnr },
+    { "<LocalLeader>r", desc = "Replace all" },
+    { "<LocalLeader>o", desc = "Show options" },
+    { "<LocalLeader>q", desc = "Send all to Quicklist" },
+    { "<LocalLeader>v", desc = "Change view mode" },
   })
 end
 
 local function attach_nvim_tree(bufnr)
-  wk.register({
-    ["="] = { "<cmd>NvimTreeResize +5<CR>", "resize +5" },
-    ["-"] = { "<cmd>NvimTreeResize -5<CR>", "resize +5" },
-  }, {
-    buffer = bufnr,
-    mode = "n",     -- NORMAL mode
-    prefix = "<leader>",
-    silent = true,  -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = false, -- use `nowait` when creating keymaps
+  wk.add({
+    { buffer = bufnr },
+    { "<leader>=", "<cmd>NvimTreeResize +5<CR>", desc = "resize +5" },
+    { "<leader>-", "<cmd>NvimTreeResize -5<CR>", desc = "resize +5" },
   })
 end
 
