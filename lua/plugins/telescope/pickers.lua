@@ -43,7 +43,7 @@ end
 -- Custom pickers
 
 M.edit_neovim = function()
-  builtin.git_files(
+  builtin.find_files(
     require('telescope.themes').get_dropdown({
       color_devicons   = true,
       cwd              = "~/.config/nvim",
