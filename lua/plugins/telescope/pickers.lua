@@ -88,6 +88,8 @@ end
 M.buffer_search = function()
   builtin.buffers(
     require('telescope.themes').get_dropdown({
+      sort_mru       = true,
+      sort_lastused  = true,
       previewer      = false,
       color_devicons = true,
       winblend       = 4,

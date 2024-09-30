@@ -55,6 +55,7 @@ return {
               ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
               ["<C-s>"] = actions.cycle_previewers_next,
               ["<C-a>"] = actions.cycle_previewers_prev,
+              ["<C-d>"] = actions.delete_buffer,
               -- ["<C-h>"] = "which_key",
               ["<ESC>"] = actions.close,
             },
