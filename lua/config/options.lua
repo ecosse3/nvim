@@ -87,8 +87,8 @@ if vim.g.neovide then
   vim.g.neovide_transparency = 0.9
 
   vim.keymap.set({ 'n', 'v' }, '<D-c>', '"+y')  -- Copy
-  vim.keymap.set({'n', 'v'}, '<D-v>', '"*p')    -- Paste normal/visual mode
-  vim.keymap.set({'c', 'i'}, '<D-v>', '<C-R>+') -- Paste command/insert mode
+  vim.keymap.set({ 'n', 'v' }, '<D-v>', '"*p')  -- Paste normal/visual mode
+  vim.keymap.set({ 'c', 'i' }, '<D-v>', '<C-R>+') -- Paste command/insert mode
 
   vim.opt.fillchars:append('vert: ');
 end
