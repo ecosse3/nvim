@@ -33,12 +33,14 @@ local handlers = {
 local settings = {
   typescript = {
     inlayHints = {
-      parameterNames = { enabled = "literals" },
-      parameterTypes = { enabled = false },
-      variableTypes = { enabled = false },
-      propertyDeclarationTypes = { enabled = true },
-      functionLikeReturnTypes = { enabled = false },
-      enumMemberValues = { enabled = true },
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
     },
     suggest = {
       includeCompletionsForModuleExports = false,
@@ -46,12 +48,14 @@ local settings = {
   },
   javascript = {
     inlayHints = {
-      parameterNames = { enabled = "literals" },
-      parameterTypes = { enabled = false },
-      variableTypes = { enabled = false },
-      propertyDeclarationTypes = { enabled = true },
-      functionLikeReturnTypes = { enabled = false },
-      enumMemberValues = { enabled = true },
+      includeInlayParameterNameHints = 'all',
+      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = true,
     },
     suggest = {
       includeCompletionsForModuleExports = false,

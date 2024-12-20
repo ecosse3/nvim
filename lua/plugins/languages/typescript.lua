@@ -1,15 +1,5 @@
 return {
   {
-    "yioneko/nvim-vtsls",
-    event = { "BufReadPre", "BufNewFile" },
-    ft = { "typescript", "typescriptreact" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
-  },
-
-  {
     "razak17/tailwind-fold.nvim",
     opts = {
       min_chars = 50,

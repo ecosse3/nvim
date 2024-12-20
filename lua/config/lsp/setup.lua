@@ -1,12 +1,9 @@
 -- Setup installer & lsp configs
-local mason_ok, mason = pcall(require, "mason")
-local mason_lsp_ok, mason_lsp = pcall(require, "mason-lspconfig")
+local mason = require("mason")
+local mason_lsp =  require("mason-lspconfig")
 local ufo_utils = require("utils._ufo")
 local ufo_config_handler = ufo_utils.handler
-
-if not mason_ok or not mason_lsp_ok then
-  return
-end
+local lspconfig = require("lspconfig")
 
 mason.setup({
   ui = {
@@ -27,7 +24,7 @@ mason_lsp.setup({
     "lua_ls",
     "prismals",
     "tailwindcss",
-    "tsserver"
+    "ts_ls"
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -39,7 +36,6 @@ mason_lsp.setup({
   automatic_installation = true,
 })
 
-local lspconfig = require("lspconfig")
 
 local handlers = {
   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -49,16 +45,23 @@ local handlers = {
   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = EcoVim.ui.float.border }),
 }
 
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = {
+--     "documentation",
+--     "detail",
+--     "additionalTextEdits",
+--   },
+-- }
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true,
+-- }
+
 local function on_attach(client, bufnr)
   vim.lsp.inlay_hint.enable(true, { bufnr })
 end
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
 
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
@@ -72,7 +75,7 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  ["vtsls"] = function()
+  --[[ ["vtsls"] = function()
     require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 
     lspconfig.vtsls.setup({
@@ -81,15 +84,27 @@ require("mason-lspconfig").setup_handlers {
       on_attach =require("config.lsp.servers.tsserver").on_attach,
       settings = require("config.lsp.servers.tsserver").settings,
     })
-  end,
+  end, ]]
 
-  ["tsserver"] = function()
-    -- Skip since we use vtsls
+  ["ts_ls"] = function()
+    lspconfig.ts_ls.setup({
+      capabilities = capabilities,
+      handlers = require("config.lsp.servers.tsserver").handlers,
+      on_attach = require("config.lsp.servers.tsserver").on_attach,
+      settings = require("config.lsp.servers.tsserver").settings,
+    })
   end,
 
   ["tailwindcss"] = function()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    capabilities.textDocument.colorProvider = { dynamicRegistration = false }
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
+
     lspconfig.tailwindcss.setup({
-      capabilities = require("config.lsp.servers.tailwindcss").capabilities,
+      capabilities = capabilities,
       filetypes = require("config.lsp.servers.tailwindcss").filetypes,
       handlers = handlers,
       init_options = require("config.lsp.servers.tailwindcss").init_options,
