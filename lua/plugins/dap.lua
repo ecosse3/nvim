@@ -148,7 +148,7 @@ return {
       require("dap-vscode-js").setup({
         debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
         debugger_cmd = { "js-debug-adapter" },
-        adapters = { "chrome", "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+        adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
       })
 
       -- ╭──────────────────────────────────────────────────────────╮
@@ -181,15 +181,18 @@ return {
                 end)
               end)
             end,
-            port = 9222,
-            webRoot = vim.fn.getcwd(),
+            webRoot = '${workspaceFolder}',
             protocol = 'inspector',
             sourceMaps = true,
             userDataDir = false,
             skipFiles = { "<node_internals>/**", "node_modules/**", "${workspaceFolder}/node_modules/**" },
             resolveSourceMapLocations = {
+              "${webRoot}/*",
+              "${webRoot}/apps/**/**",
               "${workspaceFolder}/apps/**/**",
-              "${workspaceFolder}/**",
+              "${webRoot}/packages/**/**",
+              "${workspaceFolder}/packages/**/**",
+              "${workspaceFolder}/*",
               "!**/node_modules/**",
             }
           },
@@ -201,7 +204,7 @@ return {
             args = { "${file}" },
             sourceMaps = true,
             protocol = "inspector",
-            runtimeExecutable = "npm",
+            runtimeExecutable = "pnpm",
             runtimeArgs = {
               "run-script", "dev"
             },
@@ -283,6 +286,14 @@ return {
             cwd = vim.fn.getcwd(),
             processId = dap_utils.pick_process,
             skipFiles = { "<node_internals>/**" },
+          },
+          {
+            name = 'Next.js: debug server-side (pwa-node)',
+            type = 'pwa-node',
+            request = 'attach',
+            port = 9231,
+            skipFiles = { '<node_internals>/**', 'node_modules/**' },
+            cwd = '${workspaceFolder}',
           },
         }
       end
