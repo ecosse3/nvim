@@ -50,15 +50,6 @@ return {
       }
     end,
     keys = {
-      { "<Space>1",    "<cmd>BufferLineGoToBuffer 1<CR>" },
-      { "<Space>2",    "<cmd>BufferLineGoToBuffer 2<CR>" },
-      { "<Space>3",    "<cmd>BufferLineGoToBuffer 3<CR>" },
-      { "<Space>4",    "<cmd>BufferLineGoToBuffer 4<CR>" },
-      { "<Space>5",    "<cmd>BufferLineGoToBuffer 5<CR>" },
-      { "<Space>6",    "<cmd>BufferLineGoToBuffer 6<CR>" },
-      { "<Space>7",    "<cmd>BufferLineGoToBuffer 7<CR>" },
-      { "<Space>8",    "<cmd>BufferLineGoToBuffer 8<CR>" },
-      { "<Space>9",    "<cmd>BufferLineGoToBuffer 9<CR>" },
       { "<A-1>",       "<cmd>BufferLineGoToBuffer 1<CR>" },
       { "<A-2>",       "<cmd>BufferLineGoToBuffer 2<CR>" },
       { "<A-3>",       "<cmd>BufferLineGoToBuffer 3<CR>" },
