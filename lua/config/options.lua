@@ -1,7 +1,7 @@
 local options = {
   clipboard      = "unnamed,unnamedplus",   --- Copy-paste between vim and everything else
   cmdheight      = 0,                       --- Give more space for displaying messages
-  completeopt    = "menu,menuone,noselect", --- Better autocompletion
+  completeopt    = "menu,menuone,preview", --- Better autocompletion
   cursorline     = true,                    --- Highlight of current line
   emoji          = false,                   --- Fix emoji display
   expandtab      = true,                    --- Use spaces instead of tabs
@@ -40,7 +40,7 @@ local options = {
   backup         = false,                   --- Recommended by coc
   --- Concealed text is completely hidden unless it has a custom replacement character defined (needed for dynamically showing tailwind classes)
   conceallevel   = 2,
-  concealcursor  = "",                      --- Set to an empty string to expand tailwind class when on cursorline 
+  concealcursor  = "",                      --- Set to an empty string to expand tailwind class when on cursorline
   encoding       = "utf-8",                 --- The encoding displayed
   errorbells     = false,                   --- Disables sound effect for errors
   fileencoding   = "utf-8",                 --- The encoding written to file
