@@ -2,6 +2,10 @@ return {
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
+    dependencies = {
+      "ibhagwan/fzf-lua",
+      { "junegunn/fzf", build = "./install --bin" }
+    },
     init = function()
       -- Configure the UI aspect of the quickfix window
       local fn = vim.fn
