@@ -33,3 +33,19 @@ vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
   callback = function() pwk.attach_spectre(0) end })
 vim.api.nvim_create_autocmd("FileType", { pattern = "NvimTree",
   callback = function() pwk.attach_nvim_tree(0) end })
+
+-- File Type Plugin Lazy Loading
+local lazy = vim.api.nvim_create_augroup("lazy", {})
+vim.api.nvim_create_autocmd(
+  "UIEnter",
+  {
+    group = lazy,
+    pattern = { "*.test.ts", "*.test.tsx", "*.spec.ts", "*.spec.tsx", "*.test.js", "*.spec.js" },
+    callback = function()
+      print("lazy loading lua plugins")
+      require "lazy.loader".load({
+        plugins = { "neotest", }
+      })
+    end
+  }
+)
