@@ -20,11 +20,13 @@ local prompts = {
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = false,
     branch = "canary",
     event = "VeryLazy",
     opts = {
       show_help = "no",
       prompts = prompts,
+      model = 'claude-3.5-sonnet', -- GPT model to use, see ':CopilotChatModels' for available models
     },
     keys = {
       { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
@@ -38,7 +40,7 @@ return {
       {
         "<leader>ccf",
         "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
-        desc = "CopilotChat Fix Diagnostic",
+        desc = "CopilotChat - Fix Diagnostic",
       },
     }
   },
