@@ -21,6 +21,7 @@ return {
           typescript = { { "prettied", "prettier", "sql-formatter" } },
           typescriptreact = { { "prettied", "prettier" } },
           yaml = { "prettier" },
+          xml = { "xmlformatter" }
         },
       })
 
