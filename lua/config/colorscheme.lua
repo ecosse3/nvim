@@ -94,6 +94,7 @@ local highlights = {
   -- Floats/Windows
   NormalFloat                   = { bg = "None", fg = "None" },
   FloatBorder                   = { bg = "None", fg = "#488DFF" },
+  Pmenu                         = { bg = "None", fg = "#488DFF" },
   WhichKeyFloat                 = { bg = "None", fg = "#488DFF" },
   BufferTabpageFill             = { fg = "None" },
   BqfPreviewBorder              = { link = "FloatBorder" },
