@@ -1,6 +1,7 @@
 return {
   {
     "olimorris/codecompanion.nvim",
+    enabled = EcoVim.plugins.ai.codecompanion.enabled or true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
