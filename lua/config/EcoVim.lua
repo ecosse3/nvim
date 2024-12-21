@@ -22,9 +22,6 @@ EcoVim = {
       codecompanion = {
         enabled = true,
       },
-      codeium = {
-        enabled = false,
-      },
       copilot = {
         enabled = true,
       },
