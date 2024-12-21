@@ -28,9 +28,6 @@ EcoVim = {
       copilot = {
         enabled = true,
       },
-      tabnine = {
-        enabled = false,
-      },
     },
     completion = {
       select_first_on_enter = false,
