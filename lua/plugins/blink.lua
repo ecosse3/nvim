@@ -1,7 +1,10 @@
+local snippet_trigger_text = ";"
+
 return {
   {
     'saghen/blink.cmp',
     lazy = false, -- lazy loading handled internally
+    version = "*",
     dependencies = {
       {
         "saghen/blink.compat",
@@ -38,9 +41,12 @@ return {
       -- your own keymap.
       keymap = {
         preset = 'super-tab',
+        ["<S-k>"] = { "scroll_documentation_up", "fallback" },
+        ["<S-j>"] = { "scroll_documentation_down", "fallback" }
       },
 
       snippets = {
+        preset = 'luasnip',
         expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
         active = function(filter)
           if filter and filter.direction then
@@ -52,14 +58,20 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'luasnip', 'buffer', 'codecompanion', 'copilot' },
+        default = {
+          'lsp',
+          'path',
+          'snippets',
+          'buffer',
+          'codecompanion',
+          'copilot',
+        },
         cmdline = {},
 
         providers = {
           codecompanion = {
             name = "CodeCompanion",
             module = "codecompanion.providers.completion.blink",
-            enabled = true,
           },
           copilot = {
             name = "copilot",
@@ -97,7 +109,7 @@ return {
           show_on_trigger_character = true,
           -- When both this and show_on_trigger_character are true, will show the completion window
           -- when the cursor comes after a trigger character when entering insert mode
-          show_on_insert_on_trigger_character = false,
+          show_on_insert_on_trigger_character = true,
           -- List of trigger characters (on top of `show_on_blocked_trigger_characters`) that won't trigger
           -- the completion window when the cursor comes after a trigger character when
           -- entering insert mode/accepting an item
@@ -114,11 +126,13 @@ return {
 
         -- experimental auto-brackets support
         accept = {
-          auto_brackets = { enabled = true },
+          auto_brackets = { enabled = false },
         },
 
         documentation = {
           auto_show = true,
+          auto_show_delay_ms = 500,
+          treesitter_highlighting = true,
           window = {
             border = EcoVim.ui.float.border,
           }
