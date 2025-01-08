@@ -5,6 +5,23 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      {
+        "LiadOz/nvim-dap-repl-highlights",
+        config = true,
+        dependencies = {
+          "mfussenegger/nvim-dap",
+          "nvim-treesitter/nvim-treesitter",
+        },
+        build = function()
+          if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
+            vim.cmd(":TSInstall dap_repl")
+          end
+        end,
+      },
+    },
     config = function()
       local present_dapui, dapui = pcall(require, "dapui")
       local present_dap, dap = pcall(require, "dap")
@@ -119,14 +136,17 @@ return {
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ Icons                                                    │
       -- ╰──────────────────────────────────────────────────────────╯
-      vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapConditionalBreakpoint", { text = "🟡", texthl = "", linehl = "", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
 
       -- ╭──────────────────────────────────────────────────────────╮
       -- │ Keybindings                                              │
       -- ╰──────────────────────────────────────────────────────────╯
       keymap("n", "<Leader>da", "<CMD>lua require('dap').continue()<CR>", opts)
       keymap("n", "<Leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>", opts)
+      keymap("n", "<Leader>dB", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+        opts)
       keymap("n", "<Leader>dd", "<CMD>lua require('dap').continue()<CR>", opts)
       keymap("n", "<Leader>dh", "<CMD>lua require('dapui').eval()<CR>", opts)
       keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
@@ -140,20 +160,6 @@ return {
       keymap("n", "<Leader>ds", "<CMD>lua require('dapui').float_element('scopes', { enter = true })<CR>", opts)
       keymap("n", "<Leader>dr", "<CMD>lua require('dapui').float_element('repl', { enter = true })<CR>", opts)
 
-      -- ╭──────────────────────────────────────────────────────────╮
-      -- │ Adapters                                                 │
-      -- ╰──────────────────────────────────────────────────────────╯
-
-      -- VSCODE JS (Node/Chrome/Terminal/Jest)
-      require("dap-vscode-js").setup({
-        debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
-        debugger_cmd = { "js-debug-adapter" },
-        adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-      })
-
-      -- ╭──────────────────────────────────────────────────────────╮
-      -- │ Configurations                                           │
-      -- ╰──────────────────────────────────────────────────────────╯
       local exts = {
         "javascript",
         "typescript",
@@ -162,6 +168,32 @@ return {
         "vue",
         "svelte",
       }
+      -- ╭──────────────────────────────────────────────────────────╮
+      -- │ Adapters                                                 │
+      -- ╰──────────────────────────────────────────────────────────╯
+      dap.adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = { vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
+        }
+      }
+
+      dap.adapters["pwa-chrome"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = { vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
+        }
+      }
+
+      -- ╭──────────────────────────────────────────────────────────╮
+      -- │ Configurations                                           │
+      -- ╰──────────────────────────────────────────────────────────╯
 
       for i, ext in ipairs(exts) do
         dap.configurations[ext] = {
@@ -195,6 +227,14 @@ return {
               "${workspaceFolder}/*",
               "!**/node_modules/**",
             }
+          },
+          {
+            name = 'Next.js: debug server-side (pwa-node)',
+            type = 'pwa-node',
+            request = 'attach',
+            port = 9231,
+            skipFiles = { '<node_internals>/**', 'node_modules/**' },
+            cwd = '${workspaceFolder}',
           },
           {
             type = "pwa-node",
@@ -277,7 +317,16 @@ return {
               return vim.fn.input("Select port: ", 9222)
             end,
             webRoot = "${workspaceFolder}",
-            skipFiles = { "<node_internals>/**", "node_modules/**" },
+            skipFiles = { "<node_internals>/**", "node_modules/**", "${workspaceFolder}/node_modules/**" },
+            resolveSourceMapLocations = {
+              "${webRoot}/*",
+              "${webRoot}/apps/**/**",
+              "${workspaceFolder}/apps/**/**",
+              "${webRoot}/packages/**/**",
+              "${workspaceFolder}/packages/**/**",
+              "${workspaceFolder}/*",
+              "!**/node_modules/**",
+            }
           },
           {
             type = "pwa-node",
@@ -286,14 +335,6 @@ return {
             cwd = vim.fn.getcwd(),
             processId = dap_utils.pick_process,
             skipFiles = { "<node_internals>/**" },
-          },
-          {
-            name = 'Next.js: debug server-side (pwa-node)',
-            type = 'pwa-node',
-            request = 'attach',
-            port = 9231,
-            skipFiles = { '<node_internals>/**', 'node_modules/**' },
-            cwd = '${workspaceFolder}',
           },
         }
       end
@@ -308,24 +349,6 @@ return {
       "<Leader>do",
       "<Leader>dO",
       "<Leader>dt",
-    },
-    dependencies = {
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      "mxsdev/nvim-dap-vscode-js",
-      {
-        "LiadOz/nvim-dap-repl-highlights",
-        config = true,
-        dependencies = {
-          "mfussenegger/nvim-dap",
-          "nvim-treesitter/nvim-treesitter",
-        },
-        build = function()
-          if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
-            vim.cmd(":TSInstall dap_repl")
-          end
-        end,
-      },
     },
   },
 }
