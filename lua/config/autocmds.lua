@@ -19,14 +19,6 @@ vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md",
   callback = function() pwk.attach_markdown(0) end })
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" },
   callback = function() pwk.attach_npm(0) end })
-vim.api.nvim_create_autocmd("FileType",
-  { pattern = "*",
-    callback = function()
-      if EcoVim.plugins.zen.enabled and vim.bo.filetype ~= "alpha" then
-        pwk.attach_zen(0)
-      end
-    end
-  })
 vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx", "*spec.ts", "*spec.tsx" },
   callback = function() pwk.attach_jest(0) end })
 vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",

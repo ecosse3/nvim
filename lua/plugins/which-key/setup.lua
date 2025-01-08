@@ -207,12 +207,6 @@ local function attach_npm(bufnr)
   })
 end
 
-local function attach_zen(bufnr)
-  wk.add({
-    { "<leader>z", "<cmd>ZenMode<CR>", buffer = bufnr, desc = "zen", nowait = false, remap = false },
-  })
-end
-
 local function attach_jest(bufnr)
   wk.add({
     { buffer = bufnr },
@@ -248,7 +242,6 @@ return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
   attach_npm = attach_npm,
-  attach_zen = attach_zen,
   attach_jest = attach_jest,
   attach_spectre = attach_spectre,
   attach_nvim_tree = attach_nvim_tree,
