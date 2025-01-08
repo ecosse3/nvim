@@ -140,26 +140,6 @@ return {
       vim.fn.sign_define("DapConditionalBreakpoint", { text = "🟡", texthl = "", linehl = "", numhl = "" })
       vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
 
-      -- ╭──────────────────────────────────────────────────────────╮
-      -- │ Keybindings                                              │
-      -- ╰──────────────────────────────────────────────────────────╯
-      keymap("n", "<Leader>da", "<CMD>lua require('dap').continue()<CR>", opts)
-      keymap("n", "<Leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>", opts)
-      keymap("n", "<Leader>dB", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
-        opts)
-      keymap("n", "<Leader>dd", "<CMD>lua require('dap').continue()<CR>", opts)
-      keymap("n", "<Leader>dh", "<CMD>lua require('dapui').eval()<CR>", opts)
-      keymap("n", "<Leader>di", "<CMD>lua require('dap').step_into()<CR>", opts)
-      keymap("n", "<Leader>do", "<CMD>lua require('dap').step_out()<CR>", opts)
-      keymap("n", "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>", opts)
-      keymap("n", "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>", opts)
-      keymap("n", "<Leader>du", "<CMD>lua require('dapui').open()<CR>", opts)
-      keymap("n", "<Leader>dc", "<CMD>lua require('dapui').close()<CR>", opts)
-
-      keymap("n", "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>", opts)
-      keymap("n", "<Leader>ds", "<CMD>lua require('dapui').float_element('scopes', { enter = true })<CR>", opts)
-      keymap("n", "<Leader>dr", "<CMD>lua require('dapui').float_element('repl', { enter = true })<CR>", opts)
-
       local exts = {
         "javascript",
         "typescript",
@@ -340,15 +320,20 @@ return {
       end
     end,
     keys = {
-      "<Leader>da",
-      "<Leader>db",
-      "<Leader>dc",
-      "<Leader>dd",
-      "<Leader>dh",
-      "<Leader>di",
-      "<Leader>do",
-      "<Leader>dO",
-      "<Leader>dt",
+      { "<Leader>da", "<CMD>lua require('dap').continue()<CR>",                                             desc = "Continue" },
+      { "<Leader>db", "<CMD>lua require('dap').toggle_breakpoint()<CR>",                                    desc = "Toggle Breakpoint" },
+      { "<Leader>dB", "<CMD>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", desc = "Conditional Breakpoint" },
+      { "<Leader>dd", "<CMD>lua require('dap').continue()<CR>",                                             desc = "Continue" },
+      { "<Leader>dh", "<CMD>lua require('dapui').eval()<CR>",                                               desc = "Evaluate" },
+      { "<Leader>di", "<CMD>lua require('dap').step_into()<CR>",                                            desc = "Step Into" },
+      { "<Leader>do", "<CMD>lua require('dap').step_out()<CR>",                                             desc = "Step Out" },
+      { "<Leader>dO", "<CMD>lua require('dap').step_over()<CR>",                                            desc = "Step Over" },
+      { "<Leader>dt", "<CMD>lua require('dap').terminate()<CR>",                                            desc = "Terminate" },
+      { "<Leader>du", "<CMD>lua require('dapui').open()<CR>",                                               desc = "Open UI" },
+      { "<Leader>dc", "<CMD>lua require('dapui').close()<CR>",                                              desc = "Close UI" },
+      { "<Leader>dw", "<CMD>lua require('dapui').float_element('watches', { enter = true })<CR>",           desc = "Watches" },
+      { "<Leader>ds", "<CMD>lua require('dapui').float_element('scopes', { enter = true })<CR>",            desc = "Scopes" },
+      { "<Leader>dr", "<CMD>lua require('dapui').float_element('repl', { enter = true })<CR>",              desc = "REPL" },
     },
   },
 }

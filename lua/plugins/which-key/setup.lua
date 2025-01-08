@@ -99,22 +99,6 @@ wk.add({
 
 wk.add({
   { "<leader>d",  group = "Debug" },
-  { "<leader>da", desc = "attach" },
-  { "<leader>db", desc = "breakpoint" },
-  { "<leader>dc", desc = "continue" },
-  { "<leader>dC", desc = "close UI" },
-  { "<leader>dd", desc = "continue" },
-  { "<leader>dh", desc = "visual hover" },
-  { "<leader>di", desc = "step into" },
-  { "<leader>do", desc = "step over" },
-  { "<leader>dO", desc = "step out" },
-  { "<leader>dr", desc = "repl" },
-  { "<leader>ds", desc = "scopes" },
-  { "<leader>dt", desc = "terminate" },
-  { "<leader>dU", desc = "open UI" },
-  { "<leader>dv", desc = "log variable" },
-  { "<leader>dV", desc = "log variable above" },
-  { "<leader>dw", desc = "watches" },
 })
 
 wk.add({
