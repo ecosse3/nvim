@@ -134,6 +134,10 @@ return {
           current = "DiffAdd",
         },
       })
+
+      vim.api.nvim_set_hl(0, "GitConflictIncoming", { bg = "#293919" })
+      vim.api.nvim_set_hl(0, "GitConflictIncomingLabel", { bold = true, bg = "#698F3F" })
+
     end,
     keys = {
       { "<Leader>gcb", '<cmd>GitConflictChooseBoth<CR>',   desc = 'choose both' },
