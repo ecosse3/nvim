@@ -1,6 +1,6 @@
 -- Setup installer & lsp configs
 local mason = require("mason")
-local mason_lsp =  require("mason-lspconfig")
+local mason_lsp = require("mason-lspconfig")
 local ufo_utils = require("utils._ufo")
 local ufo_config_handler = ufo_utils.handler
 local lspconfig = require("lspconfig")
@@ -92,6 +92,9 @@ require("mason-lspconfig").setup_handlers {
       handlers = require("config.lsp.servers.tsserver").handlers,
       on_attach = require("config.lsp.servers.tsserver").on_attach,
       settings = require("config.lsp.servers.tsserver").settings,
+      init_options = {
+        preferences = { includeCompletionsForModuleExports = false }
+      },
     })
   end,
 
@@ -110,6 +113,9 @@ require("mason-lspconfig").setup_handlers {
       init_options = require("config.lsp.servers.tailwindcss").init_options,
       on_attach = require("config.lsp.servers.tailwindcss").on_attach,
       settings = require("config.lsp.servers.tailwindcss").settings,
+      flags = {
+        debounce_text_changes = 1000,
+      },
     })
   end,
 
@@ -128,6 +134,11 @@ require("mason-lspconfig").setup_handlers {
       handlers = handlers,
       on_attach = require("config.lsp.servers.eslint").on_attach,
       settings = require("config.lsp.servers.eslint").settings,
+      flags = {
+        allow_incremental_sync = false,
+        debounce_text_changes = 1000,
+        exit_timeout = 1500,
+      },
     })
   end,
 
