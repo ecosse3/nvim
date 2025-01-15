@@ -24,7 +24,6 @@ mason_lsp.setup({
     "lua_ls",
     "prismals",
     "tailwindcss",
-    "ts_ls"
   },
   -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
   -- This setting has no relation with the `ensure_installed` setting.
@@ -46,21 +45,17 @@ local handlers = {
 }
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
--- capabilities.textDocument.completion.completionItem.resolveSupport = {
---   properties = {
---     "documentation",
---     "detail",
---     "additionalTextEdits",
---   },
--- }
--- capabilities.textDocument.foldingRange = {
---   dynamicRegistration = false,
---   lineFoldingOnly = true,
--- }
 
 local function on_attach(client, bufnr)
   vim.lsp.inlay_hint.enable(true, { bufnr })
+end
+
+-- Global override for floating preview border
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or EcoVim.ui.float.border or "rounded" -- default to EcoVim border
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
 require("mason-lspconfig").setup_handlers {
@@ -73,29 +68,6 @@ require("mason-lspconfig").setup_handlers {
       capabilities = capabilities,
       handlers = handlers,
     }
-  end,
-
-  --[[ ["vtsls"] = function()
-    require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-
-    lspconfig.vtsls.setup({
-      capabilities = capabilities,
-      handlers = require("config.lsp.servers.tsserver").handlers,
-      on_attach =require("config.lsp.servers.tsserver").on_attach,
-      settings = require("config.lsp.servers.tsserver").settings,
-    })
-  end, ]]
-
-  ["ts_ls"] = function()
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      handlers = require("config.lsp.servers.tsserver").handlers,
-      on_attach = require("config.lsp.servers.tsserver").on_attach,
-      settings = require("config.lsp.servers.tsserver").settings,
-      init_options = {
-        preferences = { includeCompletionsForModuleExports = false }
-      },
-    })
   end,
 
   ["tailwindcss"] = function()

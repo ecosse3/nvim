@@ -98,24 +98,24 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>d",  group = "Debug" },
+  { "<leader>d", group = "Debug" },
 })
 
 wk.add({
-  { "<leader>g",   group = "Git",                                                         mode = { "n", "v" } },
-  { "<leader>ga",  "<cmd>!git add %:p<CR>",                                               desc = 'add current' },
-  { "<leader>gA",  "<cmd>!git add .<CR>",                                                 desc = 'add all' },
-  { "<leader>gb",  "<cmd>BlameToggle window<CR>",                                         desc = 'blame' },
-  { "<leader>gB",  "<cmd>Telescope git_branches<CR>",                                     desc = 'branches' },
+  { "<leader>g",   group = "Git",                     mode = { "n", "v" } },
+  { "<leader>ga",  "<cmd>!git add %:p<CR>",           desc = 'add current' },
+  { "<leader>gA",  "<cmd>!git add .<CR>",             desc = 'add all' },
+  { "<leader>gb",  "<cmd>BlameToggle window<CR>",     desc = 'blame' },
+  { "<leader>gB",  "<cmd>Telescope git_branches<CR>", desc = 'branches' },
   { "<leader>gc",  group = "Conflict" },
   { "<leader>gh",  group = "Hunk" },
-  { "<leader>ghr", desc = "reset hunk",                                                   mode = { "v" } },
-  { "<leader>ghs", desc = "stage hunk",                                                   mode = { "v" } },
-  { "<leader>gi",  "<cmd>Octo issue list<CR>",                                            desc = 'Issues List' },
+  { "<leader>ghr", desc = "reset hunk",               mode = { "v" } },
+  { "<leader>ghs", desc = "stage hunk",               mode = { "v" } },
+  { "<leader>gi",  "<cmd>Octo issue list<CR>",        desc = 'Issues List' },
   { "<leader>gl",  group = "Log" },
   { "<leader>gm",  desc = 'blame line' },
-  { "<leader>gp",  "<cmd>Octo pr list<CR>",                                               desc = 'Pull Requests List' },
-  { "<leader>gs",  "<cmd>Telescope git_status<CR>",                                       desc = 'telescope status' },
+  { "<leader>gp",  "<cmd>Octo pr list<CR>",           desc = 'Pull Requests List' },
+  { "<leader>gs",  "<cmd>Telescope git_status<CR>",   desc = 'telescope status' },
   { "<leader>gw",  group = "Worktree" },
   { "<leader>gww", desc = 'worktrees' },
   { "<leader>gwc", desc = 'create worktree' },
@@ -123,11 +123,11 @@ wk.add({
 
 wk.add({
   { "<leader>p",  group = "Project" },
-  { "<leader>pf", desc =  "file"  },
-  { "<leader>pw", desc =  "word"  },
+  { "<leader>pf", desc = "file" },
+  { "<leader>pw", desc = "word" },
   { "<leader>pl", "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", desc = "list" },
-  { "<leader>pr", desc =  "refactor",     mode = { "v", "n" } },
-  { "<leader>pt", "<cmd>TodoTrouble<CR>", desc = "todo" },
+  { "<leader>pr", desc = "refactor",                                                                                                                                                                                             mode = { "v", "n" } },
+  { "<leader>pt", "<cmd>TodoTrouble<CR>",                                                                                                                                                                                        desc = "todo" },
 })
 
 wk.add({
@@ -165,15 +165,15 @@ end
 local function attach_typescript(bufnr)
   wk.add({
     { buffer = bufnr },
-    { "<leader>c",  group = "LSP",                          },
-    { "<leader>ce", "<cmd>TSC<CR>",                         desc = "workspace errors (TSC)"  },
-    { "<leader>cF", "<cmd>VtsExec fix_all<CR>",             desc = "fix all"                 },
-    { "<leader>ci", "<cmd>VtsExec add_missing_imports<CR>", desc = "import all"              },
-    { "<leader>co", "<cmd>VtsExec organize_imports<CR>",    desc = "organize imports"        },
-    { "<leader>cs", "<cmd>VtsExec source_actions<CR>",      desc = "source actions"          },
-    { "<leader>cu", "<cmd>VtsExec remove_unused<CR>",       desc = "remove unused"           },
-    { "<leader>cV", "<cmd>VtsExec select_ts_version<CR>",   desc = "select TS version"       },
-    { "<leader>cF", "<cmd>VtsExec file_references<CR>",     desc = "file references"         },
+    { "<leader>c",   group = "LSP", },
+    { "<leader>ce",  "<cmd>TSC<CR>",                      desc = "workspace errors (TSC)" },
+    { "<leader>cF",  "<cmd>TSToolsFixAll<CR>",            desc = "fix all" },
+    { "<leader>ci",  "<cmd>TSToolsAddMissingImports<CR>", desc = "import all" },
+    { "<leader>co",  "<cmd>TSToolsOrganizeImports<CR>",   desc = "organize imports" },
+    { "<leader>cs",  "<cmd>TSToolsSortImports<CR>",       desc = "sort imports" },
+    { "<leader>cu",  "<cmd>TSToolsRemoveUnused<CR>",      desc = "remove unused" },
+    { "<leader>cR",  "<cmd>TSToolsRenameFile<CR>",        desc = "rename file" },
+    { "<leader>cF",  "<cmd>TSToolsFileReferences<CR>",    desc = "file references" },
   })
 end
 
@@ -217,8 +217,8 @@ end
 local function attach_nvim_tree(bufnr)
   wk.add({
     { buffer = bufnr },
-    { "<leader>=", "<cmd>NvimTreeResize +5<CR>", desc = "resize +5" },
-    { "<leader>-", "<cmd>NvimTreeResize -5<CR>", desc = "resize +5" },
+    { "<leader>=",   "<cmd>NvimTreeResize +5<CR>", desc = "resize +5" },
+    { "<leader>-",   "<cmd>NvimTreeResize -5<CR>", desc = "resize +5" },
   })
 end
 
