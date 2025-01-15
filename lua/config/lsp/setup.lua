@@ -70,6 +70,15 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
+  ["ts_ls"] = function()
+    require("typescript-tools").setup({
+      capabilities = capabilities or vim.lsp.protocol.make_client_capabilities(),
+      handlers = require("config.lsp.servers.tsserver").handlers,
+      on_attach = require("config.lsp.servers.tsserver").on_attach,
+      settings = require("config.lsp.servers.tsserver").settings,
+    })
+  end,
+
   ["tailwindcss"] = function()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.textDocument.colorProvider = { dynamicRegistration = false }
