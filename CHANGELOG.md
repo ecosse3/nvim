@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/ecosse3/nvim/compare/v4.1.0...v4.1.1) (2025-01-15)
+
+
+### Bug Fixes
+
+* **lsp:** properly initialize typescript-tools ([ec14639](https://github.com/ecosse3/nvim/commit/ec14639b92d36d6655ee443395c051257b95b4ec))
+
 ## [4.1.0](https://github.com/ecosse3/nvim/compare/v4.0.0...v4.1.0) (2025-01-15)
 
 
