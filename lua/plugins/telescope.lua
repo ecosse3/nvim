@@ -15,7 +15,6 @@ return {
     "nvim-telescope/telescope.nvim",
     config = function()
       require('telescope').load_extension('fzf')
-      require('telescope').load_extension('repo')
       require("telescope").load_extension("git_worktree")
       local actions = require('telescope.actions')
 
@@ -78,17 +77,16 @@ return {
       { "nvim-lua/popup.nvim" },
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "cljoly/telescope-repo.nvim" },
     },
     cmd = "Telescope",
     keys = {
-      { "<C-p>",       "<CMD>lua require('plugins.telescope.pickers').project_files({ horizontal = true })<CR>" },
-      { "<S-p>",       "<CMD>lua require('plugins.telescope.multi-rg')()<CR>" },
-      { "<Leader>pf",  "<CMD>lua require('plugins.telescope.pickers').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>" },
-      { "<Leader>pw",  "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>" },
-      { "<Leader>sb",  "<CMD>lua require('plugins.telescope.pickers').buffer_search()<CR>",                                                                    { desc = "Buffer Search" } },
-      { "<Leader>glA", "<cmd>lua require('plugins.telescope.pickers').my_git_commits()<CR>",                                                                   { desc = "commits (Telescope)" } },
-      { "<Leader>glC", "<cmd>lua require('plugins.telescope.pickers').my_git_bcommits()<CR>",                                                                  { desc = "buffer commits (Telescope)" } },
+      -- { "<C-p>",       "<CMD>lua require('plugins.telescope.pickers').project_files({ horizontal = true })<CR>" },
+      -- { "<S-p>",       "<CMD>lua require('plugins.telescope.multi-rg')()<CR>" },
+      -- { "<Leader>pf",  "<CMD>lua require('plugins.telescope.pickers').project_files({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<CR>" },
+      -- { "<Leader>pw",  "<CMD>lua require('telescope.builtin').grep_string({ initial_mode = 'normal' })<CR>" },
+      -- { "<Leader>sb",  "<CMD>lua require('plugins.telescope.pickers').buffer_search()<CR>",                                                                    { desc = "Buffer Search" } },
+      -- { "<Leader>glA", "<cmd>lua require('plugins.telescope.pickers').my_git_commits()<CR>",                                                                   { desc = "commits (Telescope)" } },
+      -- { "<Leader>glC", "<cmd>lua require('plugins.telescope.pickers').my_git_bcommits()<CR>",                                                                  { desc = "buffer commits (Telescope)" } },
     }
   }
 }

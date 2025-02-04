@@ -88,8 +88,6 @@ wk.add({
 wk.add({
   { "<leader>c",  group = "LSP",                                      mode = { "n", "v" } },
   { "<leader>ca", desc = "code action",                               mode = { "n", "v" } },
-  { "<leader>cd", "<cmd>Trouble diagnostics toggle<CR>",              desc = "diagnostics (Trouble)" },
-  { "<leader>cD", "<cmd>Telescope diagnostics wrap_results=true<CR>", desc = "workspace diagnostics" },
   { "<leader>cf", desc = "format",                                    mode = { "n", "v" } },
   { "<leader>cl", desc = "line diagnostics" },
   { "<leader>cr", desc = "rename" },
@@ -106,7 +104,6 @@ wk.add({
   { "<leader>ga",  "<cmd>!git add %:p<CR>",           desc = 'add current' },
   { "<leader>gA",  "<cmd>!git add .<CR>",             desc = 'add all' },
   { "<leader>gb",  "<cmd>BlameToggle window<CR>",     desc = 'blame' },
-  { "<leader>gB",  "<cmd>Telescope git_branches<CR>", desc = 'branches' },
   { "<leader>gc",  group = "Conflict" },
   { "<leader>gh",  group = "Hunk" },
   { "<leader>ghr", desc = "reset hunk",               mode = { "v" } },
@@ -115,7 +112,6 @@ wk.add({
   { "<leader>gl",  group = "Log" },
   { "<leader>gm",  desc = 'blame line' },
   { "<leader>gp",  "<cmd>Octo pr list<CR>",           desc = 'Pull Requests List' },
-  { "<leader>gs",  "<cmd>Telescope git_status<CR>",   desc = 'telescope status' },
   { "<leader>gw",  group = "Worktree" },
   { "<leader>gww", desc = 'worktrees' },
   { "<leader>gwc", desc = 'create worktree' },
@@ -125,7 +121,6 @@ wk.add({
   { "<leader>p",  group = "Project" },
   { "<leader>pf", desc = "file" },
   { "<leader>pw", desc = "word" },
-  { "<leader>pl", "<cmd>lua require'telescope'.extensions.repo.cached_list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh', '/Library/', '/%.cocoapods/'}}<CR>", desc = "list" },
   { "<leader>pr", desc = "refactor",                                                                                                                                                                                             mode = { "v", "n" } },
   { "<leader>pt", "<cmd>TodoTrouble<CR>",                                                                                                                                                                                        desc = "todo" },
 })
@@ -136,13 +131,6 @@ wk.add({
 
 wk.add({
   { "<leader>s",  group = "Search" },
-  { "<leader>sc", "<cmd>Telescope colorscheme<CR>",                                  desc = "color schemes" },
-  { "<leader>sd", "<cmd>lua require('plugins.telescope.pickers').edit_neovim()<CR>", desc = "dotfiles" },
-  { "<leader>sf", "<cmd>Telescope find_files<CR>",                                   desc = "files" },
-  { "<leader>sh", "<cmd>Telescope oldfiles hidden=true<CR>",                         desc = "file history" },
-  { "<leader>sH", "<cmd>lua require('plugins.telescope').command_history()<CR>",     desc = "command history" },
-  { "<leader>ss", "<cmd>Telescope search_history theme=dropdown<CR>",                desc = "search history" },
-  { "<leader>sq", "<cmd>Telescope quickfix<CR>",                                     desc = "quickfix list" },
 })
 
 wk.add({

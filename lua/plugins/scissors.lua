@@ -2,7 +2,7 @@ return {
   {
     "chrisgrieser/nvim-scissors",
     event = "BufEnter",
-    dependencies = "nvim-telescope/telescope.nvim", -- optional
+    dependencies = "nvim-telescope/telescope.nvim",
     opts = {
       snippetDir = vim.fn.stdpath("config") .. "/snippets",
     },

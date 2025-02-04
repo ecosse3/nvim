@@ -117,10 +117,9 @@ return {
       end
 
       dashboard.section.buttons.val = {
-        button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>Telescope find_files<CR>", {}),
-        button("w", icons.word .. " " .. "Find Word",
-          "<cmd>lua require('plugins.telescope.multi-rg')()<CR>", {}),
-        button("h", icons.fileRecent .. " " .. "Recents", "<cmd>Telescope oldfiles hidden=true<CR>", {}),
+        button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>lua Snacks.picker.smart()<CR>", {}),
+        button("w", icons.word .. " " .. "Find Word", "<cmd>lua Snacks.picker.grep()<CR>", {}),
+        button("h", icons.fileRecent .. " " .. "Recents", "<cmd>lua Snacks.picker.recent()<CR>", {}),
         button("l", icons.timer .. " " .. "Load Last Session", "<cmd>SessionManager load_last_session<CR>",
           {}),
         button("u", icons.packageDown .. " " .. "Update Plugins", "<cmd>Lazy update<CR>", {}),
