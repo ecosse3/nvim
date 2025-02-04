@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
+
+
+### Features
+
+* **cmp:** change blink copilot provider & enable ghost text ([3dc8c98](https://github.com/ecosse3/nvim/commit/3dc8c988ce0ab1e8429b7c4aed83d0c3cf2b367b))
+* **keymappings:** adjust font size keymap ([dc7a3b0](https://github.com/ecosse3/nvim/commit/dc7a3b0afec92aa7f30e9f8cc7ea76d8a084580c))
+* **options:** update vert fill char ([82f071f](https://github.com/ecosse3/nvim/commit/82f071fd04bc665a454c1532cf151547d18f5020))
+* **picker:** replace telescope.nvim with Snacks Picker ([74c9866](https://github.com/ecosse3/nvim/commit/74c9866759dd840fcf622ac9adf2333de536f138))
+* **plugins:** add treesitter context indent plugin ([c23fd2b](https://github.com/ecosse3/nvim/commit/c23fd2be90358e78ea4b04ffbf4fd7d22da99401))
+* **plugins:** enable Snacks Bigfile ([46a07f6](https://github.com/ecosse3/nvim/commit/46a07f66cd7b9a1b623ecae3f7e40c67eabdbe0d))
+* **plugins:** enable Snacks Statuscolumn ([a2c293a](https://github.com/ecosse3/nvim/commit/a2c293a7df4bdd0b78b28bdefccbbbfa02369d2c))
+* **plugins:** replace dressing.nvim with Snacks Input ([0a4c46e](https://github.com/ecosse3/nvim/commit/0a4c46e86c8002a169ddecf83ea8079cc7efd060))
+* **plugins:** replace mini.bufremove with Snacks BufDelete ([052b468](https://github.com/ecosse3/nvim/commit/052b4685ce9ce84df71bba44ed6cbcddae5d6ea3))
+* **plugins:** replace notify plugin with Snacks Notifier ([dffe40a](https://github.com/ecosse3/nvim/commit/dffe40a3f6e861134d085512ebf28804e1d1d617))
+* **plugins:** replace Nvim Tree with Snacks Explorer & adjust color scheme ([686b596](https://github.com/ecosse3/nvim/commit/686b5967cec615a17fa53949e00ef78c0bd29118))
+
+
+### Bug Fixes
+
+* **formatting:** typo in prettierd formatter ([35d89b7](https://github.com/ecosse3/nvim/commit/35d89b7bc8ea8456d089960051570eddbe9b3bac)), closes [#186](https://github.com/ecosse3/nvim/issues/186)
+
 ### [4.1.1](https://github.com/ecosse3/nvim/compare/v4.1.0...v4.1.1) (2025-01-15)
 
 
