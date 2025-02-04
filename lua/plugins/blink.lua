@@ -11,7 +11,7 @@ return {
         opts = { impersonate_nvim_cmp = true },
       },
       "rafamadriz/friendly-snippets",
-      "giuxtaposition/blink-cmp-copilot",
+      "fang2hou/blink-copilot",
       -- "David-Kunz/cmp-npm",
       {
         "L3MON4D3/LuaSnip",
@@ -75,7 +75,11 @@ return {
           },
           copilot = {
             name = "copilot",
-            module = "blink-cmp-copilot",
+            module = "blink-copilot",
+            opts = {
+              max_completions = 3,
+              max_attempts = 4,
+            },
             score_offset = 100,
             async = true,
             transform_items = function(_, items)
@@ -139,7 +143,7 @@ return {
         },
 
         ghost_text = {
-          enabled = false,
+          enabled = true,
         },
 
       },
