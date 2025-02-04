@@ -20,16 +20,16 @@ tokyonight.setup({
     functions = "NONE",
     variables = "NONE",
     -- Background styles. Can be "dark", "transparent" or "normal"
-    sidebars = vim.g.neovide and "transparent" or "dark", -- style for sidebars, see below
-    floats = vim.g.neovide and "transparent" or "dark",   -- style for floating windows
+    sidebars = vim.g.neovide and "dark" or "dark",                 -- style for sidebars, see below
+    floats = vim.g.neovide and "dark" or "dark",                   -- style for floating windows
   },
-  sidebars = { "qf", "help" },                            -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3,                                   -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-  hide_inactive_statusline = false,                       -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false,                                   -- dims inactive windows
-  lualine_bold = false,                                   -- When `true`, section headers in the lualine theme will be bold
+  sidebars = { "qf", "help", "snacks_layout_box", "snacks_picker_list" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  day_brightness = 0.3,                                                   -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  hide_inactive_statusline = false,                                       -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false,                                                   -- dims inactive windows
+  lualine_bold = false,                                                   -- When `true`, section headers in the lualine theme will be bold
 
-  cache = true,                                           -- When set to true, the theme will be cached for better performance
+  cache = true,                                                           -- When set to true, the theme will be cached for better performance
   ---@type table<string, boolean|{enabled:boolean}>
   plugins = {
     -- enable all plugins when not using lazy.nvim
@@ -92,21 +92,21 @@ local highlights = {
   CursorLineNR                  = { link = "EcovimSecondary" },
   LineNr                        = { link = "Comment" },
   -- Floats/Windows
-  NormalFloat                   = { bg = "None", fg = "None" },
-  FloatBorder                   = { bg = "None", fg = "#488DFF" },
-  Pmenu                         = { bg = "None", fg = "#488DFF" },
-  WhichKeyFloat                 = { bg = "None", fg = "#488DFF" },
-  BufferTabpageFill             = { fg = "None" },
+  -- FloatBorder                   = { bg = "None", fg = "#488DFF" },
+  -- Pmenu                         = { bg = "None", fg = "#488DFF" },
+  -- WhichKeyFloat                 = { bg = "None", fg = "#488DFF" },
+  -- BufferTabpageFill             = { fg = "None" },
   BqfPreviewBorder              = { link = "FloatBorder" },
   BufferInactiveIndex           = { link = "BufferInactive" },
   LspInfoBorder                 = { link = "FloatBorder" },
-  VertSplit                     = { bg = "#16161e", fg = "#16161e" },
+  VertSplit                     = { bg = "NONE", fg = "#16161E" },
+  WinSeparator                  = { bg = "NONE", fg = "#16161E" },
   -- Tree
   NvimTreeFolderIcon            = { bg = "None", fg = "None" },
   -- Misc
   GitSignsCurrentLineBlame      = { link = "Comment" },
-  StatusLine                    = { bg = "None" },
-  StatusLineNC                  = { bg = "None" },
+  -- StatusLine                    = { bg = "None" },
+  -- StatusLineNC                  = { bg = "None" },
   rainbowcol1                   = { fg = c.blue, ctermfg = 9 },
   TSRainbowRed                  = { fg = c.blue, ctermfg = 9 },
   RainbowDelimiterRed           = { fg = c.blue, ctermfg = 9 },
@@ -114,11 +114,14 @@ local highlights = {
   BufferOffset                  = { link = "EcovimSecondary" },
   LspInlayHint                  = { link = "LspCodeLens" },
   -- Bufferline
+  BufferLineFill                = { bg = "#16161E", fg = "#565F89" },
+  BufferLineTabSelected         = { bg = "#16161E", fg = "#7AA2F7" },
+  BufferLineBufferSelected      = { bg = "#16161E", fg = "#C0CAF5", bold = true },
   BufferCurrentSign             = { fg = c.cyan0 },
   BufferInactiveSign            = { bg = "#202331", fg = c.dark3 },
   BufferInactiveMod             = { bg = "NONE", fg = c.yellow },
-  BufferLineOffsetSeparator     = { bg = "#13141c", fg = "#13141c" },
-  BufferLineSeparator           = { bg = "#13141c", fg = "#13141c" },
+  -- BufferLineOffsetSeparator     = { bg = "#13141c", fg = "#13141c" },
+  -- BufferLineSeparator           = { bg = "#13141c", fg = "#13141c" },
   -- Completion Menu Colors
   CmpItemAbbr                   = { fg = c.dark3, bg = "NONE" },
   CmpItemKindClass              = { fg = c.orange },
@@ -144,14 +147,17 @@ for group, hl in pairs(highlights) do
 end
 
 local neovide_highlights = {
-  VertSplit                   = { bg = "None", fg = "None" },
-  NvimTreeWinSeparator        = { bg = "None", fg = "None" },
-  WinSeparator                = { bg = "None", fg = "None" },
-  BufferLineSeparator         = { bg = "None", fg = "None" },
-  BufferTypeSeparator         = { bg = "None", fg = "None" },
-  BufferLineOffsetSeparator   = { bg = "None", fg = "None" },
-  BufferLineSeparatorSelected = { bg = "None", fg = "None" },
-  QuickFixLine                = { bg = "None", fg = "None" },
+  -- VertSplit                   = { bg = "#16161E", fg = "#1A1B26" },
+  -- NvimTreeWinSeparator        = { bg = "#16161E", fg = "None" },
+  -- WinSeparator                = { bg = "#16161E", fg = "#16161E" },
+  -- BufferLineBuffer            = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferLineTab               = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferLineFill              = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferLineTabSelected       = { bg = "#1A1B26", fg = "#7AA2F7" },
+  -- BufferLineSeparator         = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferTypeSeparator         = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferLineOffsetSeparator   = { bg = "#1A1B26", fg = "#1A1B26" },
+  -- BufferLineSeparatorSelected = { bg = "#1A1B26", fg = "#1A1B26" },
 }
 
 if vim.g.neovide then
@@ -160,13 +166,13 @@ if vim.g.neovide then
   end
 end
 
-local fixBufferLineSeparator = function()
-  vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", vim.api.nvim_get_hl_by_name('NvimTreeWinSeparator', true))
-  vim.api.nvim_set_hl(0, "BufferLineSeparator", vim.api.nvim_get_hl_by_name('NvimTreeWinSeparator', true))
-end
+-- local fixBufferLineSeparator = function()
+--   vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", vim.api.nvim_get_hl_by_name('WinSeparator', true))
+--   vim.api.nvim_set_hl(0, "BufferLineSeparator", vim.api.nvim_get_hl_by_name('Separator', true))
+-- end
+--
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = fixBufferLineSeparator,
+-- })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = fixBufferLineSeparator,
-})
-
-fixBufferLineSeparator()
+-- fixBufferLineSeparator()

@@ -16,7 +16,7 @@ return {
             Snacks.bufdelete(n)
           end,
           show_buffer_close_icons = false,
-          separator_style = { "|", "|" },
+          separator_style = { "", "" },
           always_show_bufferline = true,
           style_preset = bufferline.style_preset.no_italic,
           numbers = function(opts)
@@ -30,11 +30,11 @@ return {
           end,
           offsets = {
             {
-              filetype = "NvimTree",
-              text = "File Explorer",
+              filetype = "snacks_layout_box",
+              text = "",
               highlight = "EcovimNvimTreeTitle",
               text_align = "center",
-              separator = true,
+              separator = false,
             },
           },
         },
