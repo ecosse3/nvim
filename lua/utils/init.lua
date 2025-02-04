@@ -134,4 +134,11 @@ M.is_plugin_loaded = function(plugin_name)
   return plugin and plugin.loaded
 end
 
+M.adjust_font_size = function (amount)
+  local current_size = vim.o.guifont:match("%d+")
+  local new_size = current_size + amount
+  vim.o.guifont = vim.o.guifont:gsub("%d+", new_size)
+end
+
+
 return M
