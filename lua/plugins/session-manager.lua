@@ -30,7 +30,7 @@ return {
         group = config_group,
         callback = function()
           require('nvim-tree.api').tree.toggle(false, true)
-          require('notify')('Session loaded!', 'info', { title = 'Session Manager' })
+          vim.notify('Session loaded!', 'info', { title = 'Session Manager' })
         end,
       })
 
@@ -38,8 +38,8 @@ return {
         pattern = "SessionSavePost",
         group = config_group,
         callback = function()
-          require('notify')('Session saved!', 'info', { title = 'Session Manager', bufid = 0 })
           require('nvim-tree.api').tree.toggle(false, true)
+          vim.notify('Session saved!', 'info', { title = 'Session Manager', bufid = 0 })
         end,
       })
     end,

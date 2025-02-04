@@ -63,15 +63,15 @@ M.handle_job_data = function(data)
 end
 
 M.log = function(message, title)
-  require('notify')(message, "info", { title = title or "Info" })
+  vim.notify(message, "info", { title = title or "Info" })
 end
 
 M.warnlog = function(message, title)
-  require('notify')(message, "warn", { title = title or "Warning" })
+  vim.notify(message, "warn", { title = title or "Warning" })
 end
 
 M.errorlog = function(message, title)
-  require('notify')(message, "error", { title = title or "Error" })
+  vim.notify(message, "error", { title = title or "Error" })
 end
 
 M.jobstart = function(cmd, on_finish)
