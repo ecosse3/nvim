@@ -4,25 +4,16 @@ return {
     event = "VeryLazy",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      {
-        "echasnovski/mini.bufremove",
-        version = "*",
-        config = function()
-          require("mini.bufremove").setup({
-            silent = true,
-          })
-        end,
-      },
     },
     config = function()
       local bufferline = require("bufferline")
       bufferline.setup {
         options = {
           close_command = function(n)
-            require("mini.bufremove").delete(n, false)
+            Snacks.bufdelete(n)
           end,
           right_mouse_command = function(n)
-            require("mini.bufremove").delete(n, false)
+            Snacks.bufdelete(n)
           end,
           show_buffer_close_icons = false,
           separator_style = { "|", "|" },

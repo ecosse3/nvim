@@ -124,20 +124,6 @@ M.add_whitespaces = function(number)
   return string.rep(" ", number)
 end
 
-M.closeOtherBuffers = function()
-  for _, e in ipairs(require("bufferline").get_elements().elements) do
-    vim.schedule(function()
-      if e.id == vim.api.nvim_get_current_buf() then
-        return
-      elseif pcall(require, 'mini.bufremove') then
-        require('mini.bufremove').delete(e.id, false)
-      else
-        vim.cmd("bd " .. e.id)
-      end
-    end)
-  end
-end
-
 M.is_plugin_loaded = function(plugin_name)
   local lazy_status_ok, lazy = pcall(require, "lazy")
   if not lazy_status_ok then
