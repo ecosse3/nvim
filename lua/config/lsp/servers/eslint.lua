@@ -23,10 +23,15 @@ M.settings = {
     enable = false,
     mode = "all"
   },
+  experimental = {
+    useFlatConfig = false
+  },
   format = true,
   nodePath = "",
   onIgnoredFiles = "off",
-  packageManager = "npm",
+  problems = {
+    shortenToSingleLine = false
+  },
   quiet = false,
   rulesCustomizations = {},
   run = "onType",
