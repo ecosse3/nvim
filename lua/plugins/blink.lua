@@ -34,6 +34,9 @@ return {
 
     ---@module 'blink.cmp'
     opts = {
+      cmdline = {},
+      term = {},
+
       -- 'default' for mappings similar to built-in completion
       -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
@@ -66,7 +69,6 @@ return {
           'codecompanion',
           'copilot',
         },
-        cmdline = {},
 
         providers = {
           codecompanion = {
@@ -92,6 +94,11 @@ return {
               return items
             end,
           },
+          buffer = {
+            opts = {
+              max_items = 10,
+            }
+          }
           -- npm = {
           --   name = 'npm',
           --   module = 'blink.compat.source',
