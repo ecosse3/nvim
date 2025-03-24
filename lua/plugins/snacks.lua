@@ -87,6 +87,10 @@ return {
       { "<leader>gs",  function() Snacks.picker.git_status() end,                              desc = "git status" },
       { "<leader>glA", function() Snacks.picker.git_log() end,                                 desc = "log" },
       { "<leader>glC", function() Snacks.picker.git_log_file() end,                            desc = "file commits" },
+      -- ╭─────────────────────────────────────────────────────────╮
+      -- │ Terminal                                                │
+      -- ╰─────────────────────────────────────────────────────────╯
+      { "<F12>",       function() Snacks.terminal.toggle() end,                                desc = "terminal toggle",             mode = { "n", "t" } },
     },
   }
 }
