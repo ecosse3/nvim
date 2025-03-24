@@ -5,6 +5,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
+      "j-hui/fidget.nvim",
       { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
     keys = {
@@ -117,7 +118,9 @@ return {
           })
         end,
       },
-
-    }
+    },
+    init = function()
+      require("utils.codecompanion-fidget"):init()
+    end,
   }
 }
