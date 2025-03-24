@@ -121,8 +121,6 @@ wk.add({
   { "<leader>p",  group = "Project" },
   { "<leader>pf", desc = "file" },
   { "<leader>pw", desc = "word" },
-  { "<leader>pr", desc = "refactor",                                                                                                                                                                                             mode = { "v", "n" } },
-  { "<leader>pt", "<cmd>TodoTrouble<CR>",                                                                                                                                                                                        desc = "todo" },
 })
 
 wk.add({
