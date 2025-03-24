@@ -87,6 +87,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
       "neotest-summary",
       "toggleterm",
       "octo",
+      "dapui_hover",
     }
 
     if vim.api.nvim_win_get_config(0).relative ~= "" then
