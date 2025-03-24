@@ -76,6 +76,7 @@ return {
 
       { "<leader>sf",  function() Snacks.picker.files() end,                                   desc = "files" },
       { "<leader>sb",  function() Snacks.picker.buffers() end,                                 desc = "buffers" },
+      { "<leader>sg",  function() Snacks.picker.grep_buffers() end,                            desc = "grep open buffers" },
       { "<leader>sh",  function() Snacks.picker.recent() end,                                  desc = "recent files" },
       { "<leader>sH",  function() Snacks.picker.command_history() end,                         desc = "command history" },
       { "<leader>ss",  function() Snacks.picker.search_history() end,                          desc = "search history" },
