@@ -76,7 +76,10 @@ require("mason-lspconfig").setup_handlers {
       handlers = require("config.lsp.servers.tsserver").handlers,
       on_attach = require("config.lsp.servers.tsserver").on_attach,
       settings = require("config.lsp.servers.tsserver").settings,
-      root_dir = lspconfig.util.root_pattern("package.json"),
+      root_dir = function(fname)
+        -- Find the closest package.json to the current file
+        return lspconfig.util.find_package_json_ancestor(fname) or vim.fn.getcwd()
+      end,
       single_file_support = false
     })
   end,
