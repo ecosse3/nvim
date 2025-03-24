@@ -6,20 +6,25 @@ return {
       local conform = require("conform")
 
       conform.setup({
+        default_format_opts = {
+          lsp_format = "fallback",
+          stop_after_first = true,
+        },
         formatters_by_ft = {
-          css = { { "prettierd", "prettier" } },
-          graphql = { { "prettierd", "prettier" } },
-          html = { { "prettierd", "prettier" } },
-          javascript = { { "prettierd", "prettier" } },
-          javascriptreact = { { "prettierd", "prettier" } },
-          json = { { "prettierd", "prettier" } },
+          css = { "prettierd", "prettier" },
+          graphql = { "prettierd", "prettier" },
+          html = { "prettierd", "prettier" },
+          hcl = { "hclfmt" },
+          javascript = { "prettierd", "prettier" },
+          javascriptreact = { "prettierd", "prettier" },
+          json = { "prettierd", "prettier" },
           lua = { "stylua" },
-          markdown = { { "prettierd", "prettier" } },
+          markdown = { "prettierd", "prettier" },
           python = { "isort", "black" },
           sql = { "sql-formatter" },
-          svelte = { { "prettierd", "prettier" } },
-          typescript = { { "prettierd", "prettier", "sql-formatter" } },
-          typescriptreact = { { "prettierd", "prettier" } },
+          svelte = { "prettierd", "prettier" },
+          typescript = { "prettierd", "prettier", "sql-formatter" },
+          typescriptreact = { "prettierd", "prettier" },
           yaml = { "prettier" },
           xml = { "xmlformatter" }
         },
