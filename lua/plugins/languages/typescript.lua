@@ -35,18 +35,13 @@ return {
   },
 
   {
-    "laytan/tailwind-sorter.nvim",
-    cmd = {
-      "TailwindSort",
-      "TailwindSortOnSaveToggle"
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
     },
-    keys = {
-      { "<Leader>cS", "<CMD>TailwindSortOnSaveToggle<CR>", desc = "toggle Tailwind CSS classes sort on save" },
-
-    },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
-    build = "cd formatter && npm i && npm run build",
-    config = true,
+    opts = {}
   },
 
   {
