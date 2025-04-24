@@ -23,9 +23,7 @@
 - Automatic Treesitter-based folding with imports folded by default
 - Current code context via [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - Beautiful and functional custom statusline built with [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim) 
-- Git management with [Lazygit](https://github.com/jesseduffield/lazygit), custom telescope commits view with [git-delta](https://github.com/dandavison/delta), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim), custom git blame
-
-And of course usage of [telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua), [barbar](https://github.com/romgrk/barbar.nvim), [cmp](https://github.com/hrsh7th/nvim-cmp), [treesitter](https://github.com/nvim-treesitter/nvim-treesitter), [blankline](https://github.com/lukas-reineke/indent-blankline.nvim) & more!
+- Git management with [Lazygit](https://github.com/jesseduffield/lazygit), [gitsigns](https://github.com/lewis6991/gitsigns.nvim) & [diffview](https://github.com/sindrets/diffview.nvim), custom git blame
 
 ## Screenshots
 
@@ -53,14 +51,6 @@ Which Key Menu
 Lazygit
 
 ![Lazygit](./.screenshots/4-lazygit.png)
-
-Telescope
-
-![Telescope](./.screenshots/4-telescope.png)
-
-Git Commits w/ Telescope
-
-![Commits](./.screenshots/4-bcommits.png)
 
 Git Side Blame
 
