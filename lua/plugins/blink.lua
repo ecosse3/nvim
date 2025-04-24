@@ -12,7 +12,7 @@ return {
       },
       "rafamadriz/friendly-snippets",
       "fang2hou/blink-copilot",
-      -- "David-Kunz/cmp-npm",
+      "David-Kunz/cmp-npm",
       {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
@@ -34,7 +34,10 @@ return {
 
     ---@module 'blink.cmp'
     opts = {
-      cmdline = {},
+      enabled = function() return 'force' end,
+      cmdline = {
+        enabled = true,
+      },
       term = {},
 
       -- 'default' for mappings similar to built-in completion
@@ -44,6 +47,21 @@ return {
       -- your own keymap.
       keymap = {
         preset = 'super-tab',
+        ["<Tab>"] = {
+          function(cmp)
+            if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+              cmp.hide()
+              return require("copilot-lsp.nes").apply_pending_nes()
+            end
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
         ["<S-k>"] = { "scroll_documentation_up", "fallback" },
         ["<S-j>"] = { "scroll_documentation_down", "fallback" }
       },
@@ -68,6 +86,9 @@ return {
           'buffer',
           'codecompanion',
           'copilot',
+          'avante_commands',
+          'avante_mentions',
+          'avante_files'
         },
 
         providers = {
@@ -98,19 +119,34 @@ return {
             opts = {
               max_items = 10,
             }
-          }
-          -- npm = {
-          --   name = 'npm',
-          --   module = 'blink.compat.source',
-          --
-          --   -- all blink.cmp source config options work as normal:
-          --   -- score_offset = -3,
-          --
-          --   opts = {
-          --     ignore = {},
-          --     only_semantic_versions = false,
-          --   },
-          -- },
+          },
+          avante_commands = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 90, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_files = {
+            name = "avante_commands",
+            module = "blink.compat.source",
+            score_offset = 100, -- show at a higher priority than lsp
+            opts = {},
+          },
+          avante_mentions = {
+            name = "avante_mentions",
+            module = "blink.compat.source",
+            score_offset = 1000, -- show at a higher priority than lsp
+            opts = {},
+          },
+          npm = {
+            name = 'npm',
+            module = 'blink.compat.source',
+            score_offset = -3,
+            opts = {
+              ignore = {},
+              only_semantic_versions = false,
+            },
+          },
         }
       },
 
