@@ -8,7 +8,18 @@ return {
     opts = {
       bigfile      = { enabled = true },
       dashboard    = { enabled = false },
-      indent       = { enabled = false },
+      indent       = {
+        enabled = true,
+        animate = {
+          enabled = true,
+          style = "out",
+          easing = "linear",
+          duration = {
+            step = 15, -- ms per step
+            total = 400, -- maximum duration
+          },
+        },
+      },
       input        = { enabled = true },
       notifier     = { enabled = true },
       explorer     = { enabled = true },
@@ -43,12 +54,22 @@ return {
           },
         },
       },
-      quickfile    = { enabled = false },
+      quickfile    = { enabled = true },
       scroll       = { enabled = false },
       statuscolumn = {
         enabled = true,
       },
       words        = { enabled = false },
+      zen = {
+        on_open = function (win)
+          Snacks.indent.disable(win)
+          vim.opt.relativenumber = false
+        end,
+        on_close = function (win)
+          Snacks.indent.enable(win)
+          vim.opt.relativenumber = true
+        end
+      }
     },
     keys = {
       -- ╭─────────────────────────────────────────────────────────╮
