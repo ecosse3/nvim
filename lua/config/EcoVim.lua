@@ -19,8 +19,11 @@ EcoVim = {
   plugins = {
     -- Make sure to reload nvim & "Update Plugins" after change
     ai = {
-      codecompanion = {
+      avante = {
         enabled = true,
+      },
+      codecompanion = {
+        enabled = false,
       },
       copilot = {
         enabled = true,
@@ -29,10 +32,6 @@ EcoVim = {
     completion = {
       select_first_on_enter = false,
     },
-    -- Completely replaces the UI for messages, cmdline and the popupmenu
-    experimental_noice = {
-      enabled = true,
-    },
     -- Enables moving by subwords and skips significant punctuation with w, e, b motions
     jump_by_subwords = {
       enabled = false,
@@ -40,7 +39,7 @@ EcoVim = {
     rooter = {
       -- Removing package.json from list in Monorepo Frontend Project can be helpful
       -- By that your live_grep will work related to whole project, not specific package
-      patterns = { ".git", "package.json", "_darcs", ".bzr", ".svn", "Makefile" }, -- Default
+      patterns = { ".git", "pnpm-workspace.yaml", "package.json", "_darcs", ".bzr", ".svn", "Makefile" }, -- Default
     },
   },
   -- Please keep it
