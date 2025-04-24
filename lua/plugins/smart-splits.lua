@@ -16,8 +16,15 @@ return {
       vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
       vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
       vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-      vim.keymap.set('n', '<C-l>', '<C-w>l')
+      -- vim.keymap.set('n', '<C-l>', '<C-w>l')
       -- vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right) -- This is temporary because it doesn't work with Snacks Explorer
+      vim.keymap.set("n", "<C-l>", function()
+        if vim.bo.filetype == "snacks_picker_list" then
+          vim.cmd("wincmd l")
+        else
+          require("smart-splits").move_cursor_right()
+        end
+      end)
       vim.keymap.set('n', '<C-\\>', require('smart-splits').move_cursor_previous)
       -- swapping buffers between windows
       vim.keymap.set('n', '<leader><leader>h', require('smart-splits').swap_buf_left)
