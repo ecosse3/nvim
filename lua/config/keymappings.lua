@@ -2,7 +2,6 @@ local keymap = vim.keymap.set
 local silent = { silent = true }
 
 table.unpack = table.unpack or unpack -- 5.1 compatibility
-
 -- Fix moving forward in jumplist via <C-i>
 keymap("n", "<C-I>", "<C-I>", silent)
 
