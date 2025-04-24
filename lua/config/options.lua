@@ -12,6 +12,7 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
   mouse          = "a",                     --- Enable mouse
+  guifont        = EcoVim.ui.font,
   number         = true,                    --- Shows current line number
   pumheight      = 10,                      --- Max num of items in completion menu
   relativenumber = true,                    --- Enables relative number
@@ -32,6 +33,7 @@ local options = {
   updatetime     = 100,                     --- Faster completion
   viminfo        = "'1000",                 --- Increase the size of file history
   wildignore     = "*node_modules/**",      --- Don't search inside Node.js modules (works for gutentag)
+  winborder      = EcoVim.ui.float.border,
   wrap           = false,                   --- Display long lines as just one line
   writebackup    = false,                   --- Not needed
   -- Neovim defaults
@@ -80,13 +82,13 @@ if vim.g.neovide then
   vim.opt.guifont = EcoVim.ui.font
   vim.g.neovide_floating_blur_amount_x = 2.0
   vim.g.neovide_floating_blur_amount_y = 2.0
-  vim.g.neovide_floating_corner_radius = 0.85
+  vim.g.neovide_floating_corner_radius = 0.0
   vim.g.neovide_floating_shadow = false
   vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
   vim.g.neovide_input_use_logo = 1
   vim.g.neovide_refresh_rate = 144
   vim.g.neovide_scale_factor = 1.1
-  vim.g.neovide_transparency = 0.95
+  vim.g.neovide_opacity = 0.95
   vim.g.neovide_underline_stroke_scale = 0.5
   vim.g.neovide_window_blurred = true
 
