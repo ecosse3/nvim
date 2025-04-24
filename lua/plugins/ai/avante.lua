@@ -2,22 +2,24 @@ return {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    enabled = false,
+    enabled = EcoVim.plugins.ai.avante.enabled or true,
     lazy = false,
     version = false,
     opts = {
       provider = "copilot",
       copilot = {
-        model = "claude-3.7-sonnet"
+        model = "claude-3.7-sonnet",
+        max_tokens = 120000,
       },
       auto_suggestions_provider = "copilot",
       behaviour = {
-        auto_suggestions = false, -- Experimental stage
+        auto_suggestions = true,
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
         support_paste_from_clipboard = true,
         minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+        enable_cursor_planning_mode = true,
       },
       hints = { enabled = true },
     },
