@@ -1,5 +1,5 @@
-local M = {}
-
+-- Configure the TypeScript server settings for use with typescript-tools
+-- Note: This file is NOT used with vim.lsp.config since typescript-tools replaces tsserver LSP
 local filter = require("config.lsp.utils.filter").filter
 local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
@@ -96,8 +96,8 @@ local on_attach = function(client, bufnr)
   require("plugins.which-key.setup").attach_typescript(bufnr)
 end
 
-M.handlers = handlers
-M.settings = settings
-M.on_attach = on_attach
-
-return M
+return {
+  handlers = handlers,
+  settings = settings,
+  on_attach = on_attach
+}

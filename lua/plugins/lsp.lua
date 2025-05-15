@@ -1,35 +1,63 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    lazy = false,
-    dependencies = {
-      "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-    },
-    config = function()
-      require('config.lsp.setup')
-      require('config.lsp.config')
-      require('config.lsp.functions')
-    end
-  },
+    {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            {
+                "mason-org/mason.nvim",
+                "mason-org/mason-lspconfig.nvim",
+                keys = {
+                    { "<leader>cm", "<cmd>Mason<CR>", desc = "Mason" },
+                },
+            },
+        },
+        config = function()
+            -- Load diagnostic configuration
+            require('config.lsp.config')
+            -- Load LSP functions
+            require('config.lsp.functions')
 
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    keys = {
-      { "<leader>cm", "<cmd>Mason<CR>", desc = "Mason" },
-    },
-  },
+            -- Set up Mason
+            require("mason").setup({
+                ui = {
+                    border = EcoVim.ui.float.border or "rounded",
+                }
+            })
 
-  {
-    "antosha417/nvim-lsp-file-operations",
-    event = "LspAttach",
-    dependencies = {
-      { "nvim-lua/plenary.nvim" },
-      { "nvim-tree/nvim-tree.lua" },
+            -- Set up Mason-lspconfig
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "bashls",
+                    "cssls",
+                    "eslint",
+                    "graphql",
+                    "html",
+                    "jsonls",
+                    "lua_ls",
+                    "prismals",
+                    "tailwindcss",
+                },
+                -- Automatically enable installed servers via vim.lsp.enable
+                -- Exclude ts_ls as it's handled by typescript-tools.nvim
+                automatic_enable = {
+                    exclude = { "ts_ls" }
+                },
+            })
+
+            -- Load LSP configurations using vim.lsp.config API
+            require('config.lsp')
+        end
     },
-    config = function()
-      require("lsp-file-operations").setup()
-    end
-  },
+
+    {
+        "antosha417/nvim-lsp-file-operations",
+        event = "LspAttach",
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-tree/nvim-tree.lua" },
+        },
+        config = function()
+            require("lsp-file-operations").setup()
+        end
+    },
 }
