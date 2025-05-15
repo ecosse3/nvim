@@ -7,21 +7,25 @@ return {
     version = false,
     opts = {
       provider = "copilot",
+      mode = "agentic", -- The default mode for interaction. "agentic" uses tools to automatically generate code, "legacy" uses the old planning method to generate code.
+      auto_suggestions_provider = "copilot",
+      behaviour = {
+        auto_apply_diff_after_generation = false,
+        auto_focus_sidebar = true,
+        auto_set_highlight_group = true,
+        auto_set_keymaps = true,
+        auto_suggestions = false,
+        enable_cursor_planning_mode = true,
+        jump_result_buffer_on_finish = false,
+        minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
+        support_paste_from_clipboard = true,
+      },
+      hints = { enabled = true },
       copilot = {
         model = "claude-3.7-sonnet",
         max_tokens = 120000,
+        disable_tools = true, -- disable tools!
       },
-      auto_suggestions_provider = "copilot",
-      behaviour = {
-        auto_suggestions = true,
-        auto_set_highlight_group = true,
-        auto_set_keymaps = true,
-        auto_apply_diff_after_generation = false,
-        support_paste_from_clipboard = true,
-        minimize_diff = true, -- Whether to remove unchanged lines when applying a code block
-        enable_cursor_planning_mode = true,
-      },
-      hints = { enabled = true },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -49,7 +53,7 @@ return {
         },
       },
       {
-        'MeanderingProgrammer/render-markdown.nvim',
+        "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
         },
