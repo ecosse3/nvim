@@ -41,7 +41,13 @@ return {
             description = "Insert open buffers",
             opts = {
               contains_code = true,
-              provider = "telescope", -- default|telescope|mini_pick|fzf_lua
+              provider = "default", -- default|telescope|mini_pick|fzf_lua
+            },
+            keymap = {
+              modes = {
+                i = "<C-b>",
+                n = { "<C-b>", "gb" },
+              },
             },
           },
           ["fetch"] = {
@@ -57,7 +63,7 @@ return {
             opts = {
               contains_code = true,
               max_lines = 1000,
-              provider = "telescope", -- default|telescope|mini_pick|fzf_lua
+              provider = "default", -- default|telescope|mini_pick|fzf_lua
             },
           },
           ["files"] = {
@@ -66,7 +72,7 @@ return {
             opts = {
               contains_code = true,
               max_lines = 1000,
-              provider = "telescope", -- default|telescope|mini_pick|fzf_lua
+              provider = "default", -- default|telescope|mini_pick|fzf_lua
             },
           },
           ["help"] = {
@@ -74,7 +80,7 @@ return {
             description = "Insert content from help tags",
             opts = {
               contains_code = false,
-              provider = "telescope", -- telescope|mini_pick|fzf_lua
+              provider = "default", -- telescope|mini_pick|fzf_lua
             },
           },
           ["now"] = {
@@ -89,7 +95,7 @@ return {
             description = "Insert symbols for a selected file",
             opts = {
               contains_code = true,
-              provider = "telescope", -- default|telescope|mini_pick|fzf_lua
+              provider = "default", -- default|telescope|mini_pick|fzf_lua
             },
           },
           ["terminal"] = {
