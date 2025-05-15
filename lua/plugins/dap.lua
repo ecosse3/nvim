@@ -77,8 +77,8 @@ return {
         layouts = {
           {
             elements = {
-              { id = "breakpoints", size = 0.25 },
               { id = "watches",     size = 0.25 },
+              { id = "breakpoints", size = 0.25 },
             },
             size = 40, -- 40 columns
             position = "left",
