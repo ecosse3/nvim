@@ -88,7 +88,7 @@ local settings = {
   expose_as_code_action = "all",
   complete_function_calls = false,
   include_completions_with_insert_text = true,
-  code_lens = "implementations_only",
+  code_lens = "off",
 }
 
 local on_attach = function(client, bufnr)
