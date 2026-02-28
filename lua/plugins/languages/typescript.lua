@@ -52,17 +52,6 @@ return {
 			show_unknown_classes = true, -- Shows the unknown classes popup
 		},
 	},
-
-	{
-		"luckasRanarison/tailwind-tools.nvim",
-		name = "tailwind-tools",
-		build = ":UpdateRemotePlugins",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {},
-	},
-
 	{
 		"axelvc/template-string.nvim",
 		event = "InsertEnter",
