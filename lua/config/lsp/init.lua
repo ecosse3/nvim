@@ -61,6 +61,20 @@ require("config.lsp.servers.graphql")
 require("config.lsp.servers.prismals")
 require("config.lsp.servers.denols")
 
+-- vim.lsp.config("tsgo", {
+--     cmd = { vim.loop.os_homedir() .. "/Projects/typescript-go/built/local/tsgo", "lsp", "-stdio" },
+--     filetypes = {
+--         "javascript",
+--         "javascriptreact",
+--         "javascript.jsx",
+--         "typescript",
+--         "typescriptreact",
+--         "typescript.tsx",
+--     },
+--     root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+-- })
+-- vim.lsp.enable("tsgo")
+
 -- Setup UFO for folding
 require("ufo").setup({
     fold_virt_text_handler = ufo_config_handler,
