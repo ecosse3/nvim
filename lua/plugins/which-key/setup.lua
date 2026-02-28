@@ -65,6 +65,19 @@ wk.add({
   { "<leader>v", "<C-W>v",                      desc = "split right" },
   { "<leader>V", "<C-W>s",                      desc = "split below" },
   { "<leader>q", desc = "quicklist" },
+  { "<leader>,", desc = "quickfix prev" },
+  { "<leader>.", desc = "quickfix next" },
+  { "<leader>h", desc = "harpoon menu" },
+  { "<leader>H", desc = "harpoon add file" },
+  { "<leader>[", desc = "harpoon prev" },
+  { "<leader>]", desc = "harpoon next" },
+  { "<leader>m", desc = "add cursor below" },
+  { "<leader>f", desc = "format file", mode = { "n", "v" } },
+  { "<leader>l", desc = "lint file" },
+  { "<leader>y", desc = "yazi file manager", mode = { "n", "v" } },
+  { "<leader>D", desc = "database (sqlit)" },
+  { "<leader>x", desc = "delete cursor" },
+  { "<leader>A", desc = "align cursors" },
 })
 
 wk.add({
@@ -138,8 +151,8 @@ wk.add({
 
 wk.add({
   { "<leader>t",  group = "Table Mode",  mode = { "n", "v" } },
-  { "<leader>tm", desc = { "toggle" } },
-  { "<leader>tt", desc = { "tableize" }, mode = { "n", "v" } },
+  { "<leader>tm", desc = "toggle" },
+  { "<leader>tt", desc = "tableize", mode = { "n", "v" } },
 })
 
 wk.add({
