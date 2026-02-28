@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd(
     group = lazy,
     pattern = { "*.test.ts", "*.test.tsx", "*.spec.ts", "*.spec.tsx", "*.test.js", "*.spec.js" },
     callback = function()
-      print("lazy loading lua plugins")
       require "lazy.loader".load({
         plugins = { "neotest", }
       })
