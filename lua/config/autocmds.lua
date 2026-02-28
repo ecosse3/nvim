@@ -40,3 +40,15 @@ vim.api.nvim_create_autocmd(
     end
   }
 )
+
+-- Load user custom autocmds from EcoVim.autocmds
+if EcoVim.autocmds then
+  for name, config in pairs(EcoVim.autocmds) do
+    vim.api.nvim_create_autocmd(config.event, {
+      pattern = config.pattern,
+      command = config.command,
+      callback = config.callback,
+      desc = "EcoVim: " .. name,
+    })
+  end
+end

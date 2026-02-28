@@ -6,9 +6,6 @@ return {
 			{
 				"mason-org/mason.nvim",
 				"mason-org/mason-lspconfig.nvim",
-				keys = {
-					{ "<leader>cm", "<cmd>Mason<CR>", desc = "Mason" },
-				},
 			},
 		},
 		config = function()
@@ -25,41 +22,58 @@ return {
 			})
 
 			-- Set up Mason-lspconfig
+			local default_servers = {
+				"bashls",
+				"biome",
+				"clangd",
+				"cssls",
+				"denols",
+				"dockerls",
+				"eslint",
+				"graphql",
+				"html",
+				"jsonls",
+				"lua_ls",
+				"marksman",
+				"oxlint",
+				"prismals",
+				"pyright",
+				"sqlls",
+				"tailwindcss",
+				"terraformls",
+				"tflint",
+				"tsgo",
+				"vuels",
+				"yamlls",
+			}
+
+			-- Merge default servers with user custom servers
+			local ensure_installed = vim.list_extend(default_servers, EcoVim.lsp.ensure_installed or {})
+
 			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"bashls",
-					"biome",
-					"clangd",
-					"cssls",
-					"denols",
-					"dockerls",
-					"eslint",
-					"graphql",
-					"html",
-					"jsonls",
-					"lua_ls",
-					"marksman",
-					"oxlint",
-					"prismals",
-					"pyright",
-					"sqlls",
-					"tailwindcss",
-					"terraformls",
-					"tflint",
-					"tsgo",
-					"vuels",
-					"yamlls",
-				},
+				ensure_installed = ensure_installed,
 				-- Automatically enable installed servers via vim.lsp.enable
-				-- Exclude ts_ls as it's handled by typescript-tools.nvim
 				automatic_enable = {
-					exclude = { "ts_ls", "copilot" },
+					exclude = EcoVim.lsp.exclude or { "ts_ls", "copilot" },
 				},
 			})
 
 			-- Load LSP configurations using vim.lsp.config API
 			require("config.lsp")
+
+			-- Load user custom LSP server configs
+			for name, config in pairs(EcoVim.lsp.servers or {}) do
+				vim.lsp.config(name, config)
+				vim.lsp.enable(name)
+			end
 		end,
+		keys = {
+			{ "<leader>cm", "<cmd>Mason<CR>", desc = "Mason LSP manager" },
+			{ "<leader>cli", "<cmd>LspInfo<CR>", desc = "LSP Info" },
+			{ "<leader>clr", "<cmd>LspRestart<CR>", desc = "LSP Restart" },
+			{ "<leader>cls", "<cmd>LspStop<CR>", desc = "LSP Stop" },
+			{ "<leader>clS", "<cmd>LspStart<CR>", desc = "LSP Start" },
+		},
 	},
 
 	{

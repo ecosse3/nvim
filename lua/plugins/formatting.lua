@@ -5,29 +5,34 @@ return {
     config = function()
       local conform = require("conform")
 
+      local default_formatters = {
+        css = { "prettierd", "prettier" },
+        graphql = { "prettierd", "prettier" },
+        html = { "prettierd", "prettier" },
+        hcl = { "hclfmt" },
+        javascript = { "biome", "prettierd", "prettier" },
+        javascriptreact = { "biome", "prettierd", "prettier" },
+        json = { "prettierd", "prettier" },
+        lua = { "stylua" },
+        markdown = { "prettierd", "prettier" },
+        python = { "isort", "black" },
+        sql = { "sql-formatter" },
+        svelte = { "prettierd", "prettier" },
+        typescript = { "biome", "prettierd", "prettier", "sql-formatter" },
+        typescriptreact = { "biome", "prettierd", "prettier" },
+        yaml = { "prettier" },
+        xml = { "xmlformatter" }
+      }
+      
+      -- Merge with user custom formatters
+      local formatters_by_ft = vim.tbl_deep_extend("force", default_formatters, EcoVim.formatters or {})
+
       conform.setup({
         default_format_opts = {
           lsp_format = "fallback",
           stop_after_first = true,
         },
-        formatters_by_ft = {
-          css = { "prettierd", "prettier" },
-          graphql = { "prettierd", "prettier" },
-          html = { "prettierd", "prettier" },
-          hcl = { "hclfmt" },
-          javascript = { "biome", "prettierd", "prettier" },
-          javascriptreact = { "biome", "prettierd", "prettier" },
-          json = { "prettierd", "prettier" },
-          lua = { "stylua" },
-          markdown = { "prettierd", "prettier" },
-          python = { "isort", "black" },
-          sql = { "sql-formatter" },
-          svelte = { "prettierd", "prettier" },
-          typescript = { "biome", "prettierd", "prettier", "sql-formatter" },
-          typescriptreact = { "biome", "prettierd", "prettier" },
-          yaml = { "prettier" },
-          xml = { "xmlformatter" }
-        },
+        formatters_by_ft = formatters_by_ft,
       })
 
       vim.keymap.set({ "n" }, "<leader>f", function()

@@ -147,5 +147,19 @@ M.adjust_font_size = function (amount)
   vim.o.guifont = guifont:gsub("%d+", new_size)
 end
 
+-- Apply user plugin overrides from EcoVim.plugin_overrides
+-- Usage in plugin config: opts = require("utils").apply_plugin_overrides("plugin_name", default_opts)
+M.apply_plugin_overrides = function(plugin_name, default_opts)
+  if EcoVim.plugin_overrides and EcoVim.plugin_overrides[plugin_name] then
+    local override = EcoVim.plugin_overrides[plugin_name]
+    if type(override) == "function" then
+      return override(default_opts) or default_opts
+    elseif type(override) == "table" then
+      return vim.tbl_deep_extend("force", default_opts, override)
+    end
+  end
+  return default_opts
+end
+
 
 return M

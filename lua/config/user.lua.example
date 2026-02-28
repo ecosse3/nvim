@@ -1,0 +1,184 @@
+--[[
+  ╔════════════════════════════════════════════════════════════════╗
+  ║                     EcoVim User Configuration                  ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║  This is YOUR personal configuration file.                    ║
+  ║  It is gitignored and won't be tracked by git.                ║
+  ║                                                                ║
+  ║  HOW IT WORKS:                                                ║
+  ║  1. EcoVim.lua loads first (default settings)                 ║
+  ║  2. This file loads second (YOUR overrides)                   ║
+  ║  3. Your settings take priority over defaults                 ║
+  ║                                                                ║
+  ║  TO CUSTOMIZE:                                                ║
+  ║  1. Copy this file: cp user.lua.example user.lua              ║
+  ║  2. Edit user.lua with your preferences                       ║
+  ║  3. Restart Neovim or run :luafile %                         ║
+  ║                                                                ║
+  ║  UPDATING ECOVIM:                                             ║
+  ║  Since this file is gitignored, you can safely run:           ║
+  ║     git pull                                                  ║
+  ║  Without worrying about merge conflicts!                      ║
+  ╚════════════════════════════════════════════════════════════════╝
+--]]
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 1. APPEARANCE                                                │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Change the colorscheme (default: "tokyonight-night")
+-- Available: "tokyonight-night", "tokyonight-storm", "tokyonight-day"
+-- EcoVim.colorscheme = "tokyonight-storm"
+
+-- Change GUI font (for Neovide, etc.)
+-- EcoVim.ui.font = { "JetBrainsMono Nerd Font", ":h14" }
+
+-- Change floating window border style
+-- Available: "rounded", "single", "double", "shadow", "none"
+-- EcoVim.ui.float.border = "single"
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 2. LSP (Language Servers)                                    │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Add additional LSP servers to auto-install
+-- These will be installed via Mason on next startup
+-- EcoVim.lsp.ensure_installed = { "rust_analyzer", "gopls", "clangd" }
+
+-- Exclude LSP servers from auto-enabling
+-- (Useful if you want to configure them manually)
+-- EcoVim.lsp.exclude = { "ts_ls", "copilot", "rust_analyzer" }
+
+-- Add custom LSP server configuration
+-- See: https://neovim.io/doc/user/lsp.html
+-- EcoVim.lsp.servers.mylsp = {
+--   cmd = { "my-lsp", "--stdio" },
+--   filetypes = { "javascript", "typescript" },
+--   root_markers = { ".git", "package.json" },
+-- }
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 3. FORMATTING & LINTING                                      │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Override default formatters per filetype
+-- The first available formatter will be used
+-- EcoVim.formatters = {
+--   javascript = { "prettierd", "prettier" },
+--   typescript = { "prettierd" },
+--   lua = { "stylua" },
+-- }
+
+-- Override default linters per filetype
+-- EcoVim.linters = {
+--   javascript = { "eslint_d", "oxlint" },
+--   typescript = { "eslint_d" },
+-- }
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 4. KEYMAPS                                                   │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Disable default keymaps by setting them to false
+-- This prevents EcoVim from creating these mappings
+-- EcoVim.keys.s = false        -- Disable flash.nvim 's' key
+-- EcoVim.keys["<C-e>"] = false -- Disable file explorer
+
+-- Note: To ADD custom keymaps, use config/keymappings.lua instead
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 5. AUTOCOMMANDS                                              │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Add custom autocmds that run automatically
+-- EcoVim.autocmds.auto_save = {
+--   event = "FocusLost",                    -- Trigger event
+--   pattern = "*",                          -- File pattern
+--   command = "silent! wa",                 -- Command to run
+-- }
+
+-- EcoVim.autocmds.highlight_yank = {
+--   event = "TextYankPost",
+--   pattern = "*",
+--   callback = function()
+--     vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+--   end,
+-- }
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 6. PLUGIN OVERRIDES                                          │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Override ANY plugin configuration without modifying plugin files
+-- This is the most powerful customization option!
+
+-- Example: Change Snacks picker layout
+-- EcoVim.plugin_overrides.snacks = function(opts)
+--   opts.picker.layout = "vertical"
+--   opts.picker.preview = false
+--   return opts
+-- end
+
+-- Example: Customize blink.cmp
+-- EcoVim.plugin_overrides.blink = function(opts)
+--   opts.completion.menu.auto_show = false
+--   return opts
+-- end
+
+-- Example: Override any plugin with a table
+-- EcoVim.plugin_overrides.todo_comments = {
+--   signs = false,
+--   highlight = { keyword = "bg" },
+-- }
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 7. PLUGIN TOGGLES                                            │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Enable/disable specific AI plugins
+-- EcoVim.plugins.ai.avante.enabled = false
+-- EcoVim.plugins.ai.copilot.enabled = false
+-- EcoVim.plugins.ai.opencode.enabled = true
+
+-- Completion settings
+-- EcoVim.plugins.completion.select_first_on_enter = true
+
+-- Enable jump by subwords (better word navigation)
+-- EcoVim.plugins.jump_by_subwords.enabled = true
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 8. STATUSLINE                                                │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Show full path in statusline
+-- EcoVim.statusline.path_enabled = true
+-- EcoVim.statusline.path = "absolute"  -- or "relative"
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 9. DIRECT VIM OPTIONS                                        │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- You can also set raw vim options here
+-- vim.opt.tabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = false
+-- vim.opt.number = false
+-- vim.opt.relativenumber = false
+
+
+--[[
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  NEED MORE HELP?                                               ║
+  ║  • See README.md for full documentation                        ║
+  ║  • Check lua/plugins/ for plugin configurations               ║
+  ║  • Visit: https://github.com/ecosse3/nvim                     ║
+  ╚════════════════════════════════════════════════════════════════╝
+--]]
