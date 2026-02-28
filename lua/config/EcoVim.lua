@@ -22,12 +22,12 @@ EcoVim = {
       avante = {
         enabled = true,
       },
-      codecompanion = {
-        enabled = false,
-      },
       copilot = {
         enabled = true,
       },
+      opencode = {
+        enabled = true,
+      }
     },
     completion = {
       select_first_on_enter = false,
