@@ -10,7 +10,6 @@ return {
   -- ╰─────────────────────────────────────────────────────────╯
   { "AndrewRadev/switch.vim", lazy = false },
   { "tpope/vim-repeat",       lazy = false },
-  { "tpope/vim-speeddating",  lazy = false },
   {
     "airblade/vim-rooter",
     event = "VeryLazy",

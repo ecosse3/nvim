@@ -52,6 +52,10 @@ wk.add({
   { "<leader>7",        hidden = true },
   { "<leader>8",        hidden = true },
   { "<leader>9",        hidden = true },
+  { "<leader><left>",        hidden = true },
+  { "<leader><right>",        hidden = true },
+  { "<leader><up>",        hidden = true },
+  { "<leader><down>",        hidden = true },
 })
 
 -- single
@@ -129,6 +133,7 @@ wk.add({
 
 wk.add({
   { "<leader>s",  group = "Search" },
+  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } }
 })
 
 wk.add({
@@ -138,7 +143,7 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } }
+  { "<leader>o",  group = "Opencode" },
 })
 
 local function attach_markdown(bufnr)

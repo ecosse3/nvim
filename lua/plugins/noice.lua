@@ -4,7 +4,9 @@ return {
     event = "VeryLazy",
     enabled = false,
     opts = {
-      messages = { enabled = false },
+      messages = {
+        enabled = true,
+      },
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
