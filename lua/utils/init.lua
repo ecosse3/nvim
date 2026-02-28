@@ -135,9 +135,16 @@ M.is_plugin_loaded = function(plugin_name)
 end
 
 M.adjust_font_size = function (amount)
-  local current_size = vim.o.guifont:match("%d+")
-  local new_size = current_size + amount
-  vim.o.guifont = vim.o.guifont:gsub("%d+", new_size)
+  local guifont = vim.o.guifont
+  if guifont == "" then
+    guifont = "FiraCode Nerd Font:h14"
+  end
+  local current_size = guifont:match("%d+")
+  if not current_size then
+    current_size = 14
+  end
+  local new_size = tonumber(current_size) + amount
+  vim.o.guifont = guifont:gsub("%d+", new_size)
 end
 
 

@@ -12,7 +12,7 @@ local options = {
   ignorecase     = true,                    --- Needed for smartcase
   laststatus     = 3,                       --- Have a global statusline at the bottom instead of one for each window
   mouse          = "a",                     --- Enable mouse
-  guifont        = EcoVim.ui.font,
+  -- guifont set below for GUI clients
   number         = true,                    --- Shows current line number
   pumheight      = 10,                      --- Max num of items in completion menu
   relativenumber = true,                    --- Enables relative number
@@ -53,7 +53,6 @@ local options = {
 local globals = {
   mapleader                   = ' ',        --- Map leader key to SPC
   maplocalleader              = ',',        --- Map local leader key to comma
-  speeddating_no_mappings     = 1,          --- Disable default mappings for speeddating
 }
 
 vim.opt.shortmess:append('c');
@@ -79,7 +78,7 @@ end
 
 if vim.g.neovide then
   vim.opt.title = true
-  vim.opt.guifont = EcoVim.ui.font
+  -- Font is set in ~/.config/neovide/config.toml
   vim.g.neovide_floating_blur_amount_x = 2.0
   vim.g.neovide_floating_blur_amount_y = 2.0
   vim.g.neovide_floating_corner_radius = 0.0
