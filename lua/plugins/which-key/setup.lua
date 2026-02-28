@@ -78,6 +78,7 @@ wk.add({
   { "<leader>D", desc = "database (sqlit)" },
   { "<leader>x", desc = "delete cursor" },
   { "<leader>A", desc = "align cursors" },
+  { "<leader>gv", desc = "restore cursors" },
 })
 
 wk.add({
@@ -106,7 +107,6 @@ wk.add({
   { "<leader>c",  group = "LSP",                                      mode = { "n", "v" } },
   { "<leader>ca", desc = "code action",                               mode = { "n", "v" } },
   { "<leader>cf", desc = "format",                                    mode = { "n", "v" } },
-  { "<leader>cl", desc = "line diagnostics" },
   { "<leader>cr", desc = "rename" },
   { "<leader>cR", desc = "structural replace" },
   { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>',                     desc = "toggle format on save" },
@@ -138,10 +138,6 @@ wk.add({
   { "<leader>p",  group = "Project" },
   { "<leader>pf", desc = "file" },
   { "<leader>pw", desc = "word" },
-})
-
-wk.add({
-  { "<leader>r", group = "Refactor", mode = { "n", "v" } },
 })
 
 wk.add({
