@@ -28,14 +28,27 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls",
+					"biome",
+					"clangd",
 					"cssls",
+					"denols",
+					"dockerls",
 					"eslint",
 					"graphql",
 					"html",
 					"jsonls",
 					"lua_ls",
+					"marksman",
+					"oxlint",
 					"prismals",
+					"pyright",
+					"sqlls",
 					"tailwindcss",
+					"terraformls",
+					"tflint",
+					"tsgo",
+					"vuels",
+					"yamlls",
 				},
 				-- Automatically enable installed servers via vim.lsp.enable
 				-- Exclude ts_ls as it's handled by typescript-tools.nvim

@@ -15,6 +15,9 @@ return {
         typescriptreact = { "eslint_d" },
         svelte = { "eslint_d" },
         python = { "pylint" },
+        dockerfile = { "hadolint" },
+        terraform = { "tflint" },
+        hcl = { "tflint" },
       }
 
       vim.keymap.set("n", "<leader>l", function()
