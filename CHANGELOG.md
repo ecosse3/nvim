@@ -59,6 +59,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **ui:** add global font and border settings, update Neovide configuration ([e354b3f](https://github.com/ecosse3/nvim/commit/e354b3f9cd93c1908e786e2be1d630f488a1fa05))
 * **ui:** enhance Snacks configuration with animated indentation and zen mode ([189dea5](https://github.com/ecosse3/nvim/commit/189dea53d50b0ad4f8d77221b2b52562b0cee6b8))
 * **winbar:** exclude dapui_hover ft from winbar ([2fd0af3](https://github.com/ecosse3/nvim/commit/2fd0af3d7a6f5c173986a95ed1199f135a83dbc1))
+* **lsp:** add capability-based keymaps with `has` field for conditional keybinding registration ([83fadbc](https://github.com/ecosse3/nvim/commit/83fadbc))
 
 ### Configuration
 
