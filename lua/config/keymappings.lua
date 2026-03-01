@@ -96,22 +96,7 @@ keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", silent)
-keymap("n", "<leader>cf", "<cmd>lua require('config.lsp.functions').format()<CR>", silent)
-keymap("v", "<leader>cf", function()
-  local start_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, "<"))
-  local end_row, _ = table.unpack(vim.api.nvim_buf_get_mark(0, ">"))
-
-  vim.lsp.buf.format({
-    range = {
-      ["start"] = { start_row, 0 },
-      ["end"] = { end_row, 0 },
-    },
-    async = true,
-  })
-end, silent)
 keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
 keymap("n", "K", function()
