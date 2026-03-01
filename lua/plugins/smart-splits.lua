@@ -13,6 +13,7 @@ return {
 			vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
 			vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
 			-- moving between splits
+			-- Note: <D-S-h/j/k/l> use Cmd+Shift because macOS blocks Cmd+h for "Hide"
 			vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
 			vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
 			vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
@@ -23,10 +24,10 @@ return {
 					require("smart-splits").move_cursor_right()
 				end
 			end)
-			vim.keymap.set("n", "<D-h>", require("smart-splits").move_cursor_left)
-			vim.keymap.set("n", "<D-j>", require("smart-splits").move_cursor_down)
-			vim.keymap.set("n", "<D-k>", require("smart-splits").move_cursor_up)
-			vim.keymap.set("n", "<D-l>", function()
+			vim.keymap.set("n", "<D-S-h>", require("smart-splits").move_cursor_left)
+			vim.keymap.set("n", "<D-S-j>", require("smart-splits").move_cursor_down)
+			vim.keymap.set("n", "<D-S-k>", require("smart-splits").move_cursor_up)
+			vim.keymap.set("n", "<D-S-l>", function()
 				if vim.bo.filetype == "snacks_picker_list" then
 					vim.cmd("wincmd l")
 				else
