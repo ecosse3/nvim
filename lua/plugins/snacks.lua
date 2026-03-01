@@ -68,11 +68,11 @@ return {
 			zen = {
 				on_open = function(win)
 					Snacks.indent.disable(win)
-					vim.opt.relativenumber = false
+					vim.wo.relativenumber = false
 				end,
 				on_close = function(win)
 					Snacks.indent.enable(win)
-					vim.opt.relativenumber = true
+					vim.wo.relativenumber = true
 				end,
 			},
 		},

@@ -69,7 +69,7 @@ vim.opt.fillchars:append('vert:▕');
 vim.opt.fillchars:append('vertleft:▕');
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+  vim.o[k] = v
 end
 
 for k, v in pairs(globals) do
@@ -77,7 +77,7 @@ for k, v in pairs(globals) do
 end
 
 if vim.g.neovide then
-  vim.opt.title = true
+  vim.o.title = true
   -- Font is set in ~/.config/neovide/config.toml
   vim.g.neovide_floating_blur_amount_x = 2.0
   vim.g.neovide_floating_blur_amount_y = 2.0

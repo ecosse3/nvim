@@ -167,11 +167,11 @@
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- You can also set raw vim options here
--- vim.opt.tabstop = 4
--- vim.opt.shiftwidth = 4
--- vim.opt.expandtab = false
--- vim.opt.number = false
--- vim.opt.relativenumber = false
+-- vim.o.tabstop = 4
+-- vim.o.shiftwidth = 4
+-- vim.o.expandtab = false
+-- vim.o.number = false
+-- vim.o.relativenumber = false
 
 
 --[[

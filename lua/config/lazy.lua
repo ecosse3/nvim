@@ -9,7 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.o.runtimepath = lazypath .. "," .. vim.o.runtimepath
 
 require("lazy").setup("plugins", {
   defaults = { lazy = false },
