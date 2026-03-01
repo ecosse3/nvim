@@ -100,6 +100,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **lsp:** remove duplicate hover handler definitions ([cffb54c](https://github.com/ecosse3/nvim/commit/cffb54ca1cbb12bbcd5685a84709ec1849c0294d))
 * **plugins:** remove indent-blankline plugin ([1b91480](https://github.com/ecosse3/nvim/commit/1b91480ac621a5447acd5729cc145ec2e49dcb9c))
 * **plugins:** remove refactoring.nvim - LSP code actions provide similar functionality ([9545c7a](https://github.com/ecosse3/nvim/commit/9545c7a))
+* **smart-splits:** change `<D-h/j/k/l>` to `<D-S-h/j/k/l>` to bypass macOS Cmd+h "Hide" shortcut ([1d18c3a](https://github.com/ecosse3/nvim/commit/1d18c3a))
 * **ui:** adjust noice plugin settings for improved LSP display ([3ab054c](https://github.com/ecosse3/nvim/commit/3ab054c37bab57351a851127c876a7c2fbe0b5cf))
 
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
