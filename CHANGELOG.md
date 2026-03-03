@@ -192,6 +192,16 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **options:** increase updatetime from 100ms to 300ms ([5381f9f](https://github.com/ecosse3/nvim/commit/5381f9f))
 
+#### Final Review Pass
+
+* **plugins:** remove disabled tabout plugin ([01b5d3b](https://github.com/ecosse3/nvim/commit/01b5d3b))
+* **lsp:** rename volar to vue_ls for mason-lspconfig v2.1.0 compatibility ([b37d502](https://github.com/ecosse3/nvim/commit/b37d502))
+* **todo-comments:** remove redundant event field conflicting with lazy=false ([f169475](https://github.com/ecosse3/nvim/commit/f169475))
+* **avante:** remove redundant event field conflicting with lazy=false ([bfcd5b3](https://github.com/ecosse3/nvim/commit/bfcd5b3))
+* **diffview:** move requires inside functions to avoid load-time errors ([53b9ce4](https://github.com/ecosse3/nvim/commit/53b9ce4))
+* **winbar:** add augroup to prevent duplicate autocmds on re-source ([7e40938](https://github.com/ecosse3/nvim/commit/7e40938))
+* **utils:** guard require('utils') with pcall in functions.lua ([7799141](https://github.com/ecosse3/nvim/commit/7799141))
+
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
 
