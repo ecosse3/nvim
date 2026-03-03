@@ -97,5 +97,8 @@ EcoVim = {
 
 local user_config = vim.fn.stdpath("config") .. "/lua/config/user.lua"
 if vim.uv.fs_stat(user_config) then
-  dofile(user_config)
+  local ok, err = pcall(dofile, user_config)
+  if not ok then
+    vim.notify("Error loading user config: " .. err, vim.log.levels.ERROR, { title = "EcoVim" })
+  end
 end
