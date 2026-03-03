@@ -23,15 +23,13 @@ end
 M.first_ecovim_run()
 
 local present, win = pcall(require, "lspconfig.ui.windows")
-if not present then
-  return
-end
-
-local _default_opts = win.default_opts
-win.default_opts = function(options)
-  local opts = _default_opts(options)
-  opts.border = EcoVim.ui.float.border
-  return opts
+if present then
+  local _default_opts = win.default_opts
+  win.default_opts = function(options)
+    local opts = _default_opts(options)
+    opts.border = EcoVim.ui.float.border
+    return opts
+  end
 end
 
 -- https://github.com/lunarmodules/Penlight/blob/master/lua/pl/utils.lua
