@@ -13,7 +13,8 @@ vim.lsp.config.bashls = {
 	},
 	root_dir = function(fname, on_dir)
 		-- Find root directory containing typical bash project files
-		local util = require("lspconfig.util")
+		local ok, util = pcall(require, "lspconfig.util")
+		if not ok then return end
 		local roots = util.root_pattern(".git", ".bashrc", "shell.nix")(fname)
 		if roots then
 			on_dir(roots)

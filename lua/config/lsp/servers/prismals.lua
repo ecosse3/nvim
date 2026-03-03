@@ -16,7 +16,8 @@ vim.lsp.config.prismals = {
     },
   },
   root_dir = function(fname, on_dir)
-    local util = require("lspconfig.util")
+    local ok, util = pcall(require, "lspconfig.util")
+    if not ok then return end
     local root_patterns = {
       "schema.prisma",
       "prisma/schema.prisma",
