@@ -1,7 +1,6 @@
 return {
   {
     "rareitems/printer.nvim",
-    event = "BufEnter",
     ft = {
       "lua",
       "javascript",
