@@ -1,4 +1,7 @@
-local progress = require("fidget.progress")
+local ok, progress = pcall(require, "fidget.progress")
+if not ok then
+  return { init = function() end }
+end
 
 local M = {}
 
