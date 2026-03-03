@@ -9,7 +9,7 @@ return {
 				debounce = 600, -- Increase to reduce costs and avoid rate limits
 				provider_options = {
 					openai_compatible = {
-						api_key = "OPENROUTER_API_KEY",
+						api_key = os.getenv("OPENROUTER_API_KEY"),
 						end_point = "https://openrouter.ai/api/v1/chat/completions",
 						model = "moonshotai/kimi-k2",
 						name = "Openrouter",
