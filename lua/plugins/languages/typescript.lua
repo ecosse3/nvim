@@ -72,61 +72,30 @@ return {
 
 	{
 		"dmmulroy/ts-error-translator.nvim",
+		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		config = true,
 	},
 
 	{
 		"monaqa/dial.nvim",
-		config = function()
-			vim.keymap.set("n", "<C-a>", function()
-				require("dial.map").manipulate("increment", "normal")
-			end)
-			vim.keymap.set("n", "<C-x>", function()
-				require("dial.map").manipulate("decrement", "normal")
-			end)
-			vim.keymap.set("n", "g<C-a>", function()
-				require("dial.map").manipulate("increment", "gnormal")
-			end)
-			vim.keymap.set("n", "g<C-x>", function()
-				require("dial.map").manipulate("decrement", "gnormal")
-			end)
-			vim.keymap.set("x", "<C-a>", function()
-				require("dial.map").manipulate("increment", "visual")
-			end)
-			vim.keymap.set("x", "<C-x>", function()
-				require("dial.map").manipulate("decrement", "visual")
-			end)
-			vim.keymap.set("x", "g<C-a>", function()
-				require("dial.map").manipulate("increment", "gvisual")
-			end)
-			vim.keymap.set("x", "g<C-x>", function()
-				require("dial.map").manipulate("decrement", "gvisual")
-			end)
-			vim.keymap.set("n", "<D-a>", function()
-				require("dial.map").manipulate("increment", "normal")
-			end)
-			vim.keymap.set("n", "<D-x>", function()
-				require("dial.map").manipulate("decrement", "normal")
-			end)
-			vim.keymap.set("n", "g<D-a>", function()
-				require("dial.map").manipulate("increment", "gnormal")
-			end)
-			vim.keymap.set("n", "g<D-x>", function()
-				require("dial.map").manipulate("decrement", "gnormal")
-			end)
-			vim.keymap.set("x", "<D-a>", function()
-				require("dial.map").manipulate("increment", "visual")
-			end)
-			vim.keymap.set("x", "<D-x>", function()
-				require("dial.map").manipulate("decrement", "visual")
-			end)
-			vim.keymap.set("x", "g<D-a>", function()
-				require("dial.map").manipulate("increment", "gvisual")
-			end)
-			vim.keymap.set("x", "g<D-x>", function()
-				require("dial.map").manipulate("decrement", "gvisual")
-			end)
-		end,
+		keys = {
+			{ "<C-a>", function() require("dial.map").manipulate("increment", "normal") end, mode = "n" },
+			{ "<C-x>", function() require("dial.map").manipulate("decrement", "normal") end, mode = "n" },
+			{ "g<C-a>", function() require("dial.map").manipulate("increment", "gnormal") end, mode = "n" },
+			{ "g<C-x>", function() require("dial.map").manipulate("decrement", "gnormal") end, mode = "n" },
+			{ "<C-a>", function() require("dial.map").manipulate("increment", "visual") end, mode = "x" },
+			{ "<C-x>", function() require("dial.map").manipulate("decrement", "visual") end, mode = "x" },
+			{ "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual") end, mode = "x" },
+			{ "g<C-x>", function() require("dial.map").manipulate("decrement", "gvisual") end, mode = "x" },
+			{ "<D-a>", function() require("dial.map").manipulate("increment", "normal") end, mode = "n" },
+			{ "<D-x>", function() require("dial.map").manipulate("decrement", "normal") end, mode = "n" },
+			{ "g<D-a>", function() require("dial.map").manipulate("increment", "gnormal") end, mode = "n" },
+			{ "g<D-x>", function() require("dial.map").manipulate("decrement", "gnormal") end, mode = "n" },
+			{ "<D-a>", function() require("dial.map").manipulate("increment", "visual") end, mode = "x" },
+			{ "<D-x>", function() require("dial.map").manipulate("decrement", "visual") end, mode = "x" },
+			{ "g<D-a>", function() require("dial.map").manipulate("increment", "gvisual") end, mode = "x" },
+			{ "g<D-x>", function() require("dial.map").manipulate("decrement", "gvisual") end, mode = "x" },
+		},
 	},
 
 	{
