@@ -43,7 +43,7 @@ return {
 				"terraformls",
 				"tflint",
 				"tsgo",
-				"volar",
+				"vue_ls",
 				"yamlls",
 			}
 

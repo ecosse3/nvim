@@ -1,7 +1,8 @@
--- Configure volar (Vue Language Server) with Neovim 0.11 API
--- Replaces deprecated vuels (Vetur)
-vim.lsp.config.volar = {
-  filetypes = { "vue", "typescript", "javascript" },
+-- Configure vue_ls (Vue Language Server) with Neovim 0.11 API
+-- Note: mason-lspconfig v2.1.0 renamed "volar" to "vue_ls"
+-- In hybrid mode, ts_ls/vtsls handles TypeScript; vue_ls handles .vue only
+vim.lsp.config.vue_ls = {
+  filetypes = { "vue" },
 
   on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
@@ -14,7 +15,7 @@ vim.lsp.config.volar = {
   },
 
   settings = {
-    volar = {
+    vue = {
       codeLens = {
         references = true,
         pugTools = false,
