@@ -2,7 +2,6 @@ return {
   {
     "folke/todo-comments.nvim",
     lazy = false,
-    event = "BufEnter",
     opts = {
       signs = true,      -- show icons in the signs column
       sign_priority = 8, -- sign priority
