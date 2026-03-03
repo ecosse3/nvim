@@ -89,23 +89,6 @@ else
   keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 end
 
--- LSP
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition" })
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", { desc = "Goto References" })
-keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto Type Definition" })
-keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float({ border = 'rounded', max_width = 100 })<CR>", silent)
-keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
-keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded', max_width = 100 }})<CR>", silent)
-keymap("n", "K", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
-end)
-
 -- Adjust font size
 keymap("n", "<M-=>", function() require('utils').adjust_font_size(1) end, silent)
 keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silent)

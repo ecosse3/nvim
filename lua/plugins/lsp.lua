@@ -67,44 +67,49 @@ return {
 				vim.lsp.enable(name)
 			end
 		end,
-		opts = {
-			servers = {
-				['*'] = {
-					keys = {
-						-- Only set this keymap for servers that support code actions
-						{ "<leader>cA", vim.lsp.buf.code_action, desc = "Code Action", has = "codeAction", mode = { "n", "v" } },
-						-- Multiple capabilities for file rename
-						{ "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-						-- Only for servers with rename support
-						{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename Symbol" },
-						-- Only for servers with references support
-						{ "gr", function() vim.lsp.buf.references({ includeDeclaration = false }) end, desc = "Goto References", has = "references" },
-						-- Only for servers with hover support
-						{ "K", vim.lsp.buf.hover, desc = "Hover", has = "hover" },
-						-- Only for servers with signature help
-						{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp", mode = { "n", "i" } },
-						-- Only for servers with type definition
-						{ "gy", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
-						-- Only for servers with document symbol
-						{ "<leader>ss", vim.lsp.buf.document_symbol, desc = "Document Symbols" },
-						-- Only for servers with workspace symbol
-						{ "<leader>sS", vim.lsp.buf.workspace_symbol, desc = "Workspace Symbols" },
-						-- Only for servers with implementation
-						{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-						-- Only for servers with document formatting
-						{ "<leader>cf", function() require('config.lsp.functions').format() end, desc = "Format Document" },
-						-- Only for servers with range formatting
-						{ "<leader>cf", vim.lsp.buf.format, desc = "Format Range", mode = "v" },
-					}
-				}
-			}
-		},
 		keys = {
+			-- Mason
 			{ "<leader>cm", "<cmd>Mason<CR>", desc = "Mason LSP manager" },
 			{ "<leader>cli", "<cmd>LspInfo<CR>", desc = "LSP Info" },
 			{ "<leader>clr", "<cmd>LspRestart<CR>", desc = "LSP Restart" },
 			{ "<leader>cls", "<cmd>LspStop<CR>", desc = "LSP Stop" },
 			{ "<leader>clS", "<cmd>LspStart<CR>", desc = "LSP Start" },
+
+			-- Navigation
+			{ "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
+			{ "gr", function() vim.lsp.buf.references({ includeDeclaration = false }) end, desc = "Goto References" },
+			{ "gy", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
+			{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+
+			-- Info
+			{ "K", function()
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover()
+				end
+			end, desc = "Hover / Peek Fold" },
+			{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", mode = { "n", "i" } },
+
+			-- Diagnostics
+			{ "gl", function() vim.diagnostic.open_float({ border = "rounded", max_width = 100 }) end, desc = "Line Diagnostics" },
+			{ "]g", function() vim.diagnostic.jump({ count = 1, float = { border = "rounded", max_width = 100 } }) end, desc = "Next Diagnostic" },
+			{ "[g", function() vim.diagnostic.jump({ count = -1, float = { border = "rounded", max_width = 100 } }) end, desc = "Prev Diagnostic" },
+
+			-- Code actions
+			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
+			{ "<C-Space>", vim.lsp.buf.code_action, desc = "Code Action" },
+
+			-- Refactoring
+			{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename Symbol" },
+			{ "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
+
+			-- Formatting
+			{ "<leader>cf", vim.lsp.buf.format, desc = "Format Document" },
+			{ "<leader>cf", vim.lsp.buf.format, desc = "Format Range", mode = "v" },
+
+			-- Symbols
+			{ "<leader>ss", vim.lsp.buf.document_symbol, desc = "Document Symbols" },
+			{ "<leader>sS", vim.lsp.buf.workspace_symbol, desc = "Workspace Symbols" },
 		},
 	},
 
