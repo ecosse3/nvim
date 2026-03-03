@@ -48,8 +48,10 @@ vim.api.nvim_create_autocmd(
 
 -- Load user custom autocmds from EcoVim.autocmds
 if EcoVim.autocmds then
+  local user_group = vim.api.nvim_create_augroup("ecovim_user_autocmds", {})
   for name, config in pairs(EcoVim.autocmds) do
     vim.api.nvim_create_autocmd(config.event, {
+      group = config.group or user_group,
       pattern = config.pattern,
       command = config.command,
       callback = config.callback,
