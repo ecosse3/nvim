@@ -18,15 +18,16 @@ if wk_present then
   local pwk_present, pwk = pcall(require, "plugins.which-key.setup")
   if not pwk_present then return end
 
-  vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md",
+  local wk_group = vim.api.nvim_create_augroup("ecovim_whichkey_ft", {})
+  vim.api.nvim_create_autocmd("BufEnter", { group = wk_group, pattern = "*.md",
     callback = function() pwk.attach_markdown(0) end })
-  vim.api.nvim_create_autocmd("BufEnter", { pattern = { "package.json" },
+  vim.api.nvim_create_autocmd("BufEnter", { group = wk_group, pattern = { "package.json" },
     callback = function() pwk.attach_npm(0) end })
-  vim.api.nvim_create_autocmd("BufEnter", { pattern = { "*test.js", "*test.ts", "*test.tsx", "*spec.ts", "*spec.tsx" },
+  vim.api.nvim_create_autocmd("BufEnter", { group = wk_group, pattern = { "*test.js", "*test.ts", "*test.tsx", "*spec.ts", "*spec.tsx" },
     callback = function() pwk.attach_jest(0) end })
-  vim.api.nvim_create_autocmd("FileType", { pattern = "spectre_panel",
+  vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "spectre_panel",
     callback = function() pwk.attach_spectre(0) end })
-  vim.api.nvim_create_autocmd("FileType", { pattern = "NvimTree",
+  vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "NvimTree",
     callback = function() pwk.attach_nvim_tree(0) end })
 end
 
