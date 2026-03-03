@@ -135,20 +135,20 @@ return {
 				end,
 				desc = "explorer",
 			},
-			-- {
-			-- 	"<C-p>",
-			-- 	function()
-			-- 		Snacks.picker.smart()
-			-- 	end,
-			-- 	desc = "smart files",
-			-- },
-			-- {
-			-- 	"<D-p>",
-			-- 	function()
-			-- 		Snacks.picker.smart()
-			-- 	end,
-			-- 	desc = "smart files",
-			-- },
+			{
+				"<C-p>",
+				function()
+					Snacks.picker.smart()
+				end,
+				desc = "smart files",
+			},
+			{
+				"<D-p>",
+				function()
+					Snacks.picker.smart()
+				end,
+				desc = "smart files",
+			},
 			{
 				"<S-p>",
 				function()
@@ -292,19 +292,5 @@ return {
 				mode = { "n", "t" },
 			},
 		},
-	},
-	{
-		"dtormoen/neural-open.nvim",
-		dependencies = {
-			"folke/snacks.nvim",
-		},
-		-- NeuralOpen implements lazy loading internally. It needs to be loaded for recency tracking to work.
-		lazy = false,
-		keys = {
-			{ "<C-p>", "<Plug>(NeuralOpen)", desc = "Neural Open Files" },
-			{ "<D-p>", "<Plug>(NeuralOpen)", desc = "Neural Open Files" },
-		},
-		-- opts are optional. NeuralOpen will automatically use the defaults below.
-		opts = {},
 	},
 }

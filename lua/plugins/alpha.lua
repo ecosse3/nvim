@@ -29,8 +29,8 @@ return {
         "░░░░░░░░  ░░░░░   ░░░░░░     ░░    ░░ ░░░  ░░  ░░ ",
       }
 
-      dashboard.section.header.type = "text";
-      dashboard.section.header.val = header;
+      dashboard.section.header.type = "text"
+      dashboard.section.header.val = header
       dashboard.section.header.opts = {
         position = "center",
         hl = "EcovimHeader",
@@ -117,7 +117,7 @@ return {
       end
 
       dashboard.section.buttons.val = {
-        button("f", icons.fileNoBg .. " " .. "Find File", "<Plug>(NeuralOpen)", {}),
+        button("f", icons.fileNoBg .. " " .. "Find File", "<cmd>lua Snacks.picker.smart()<CR>", {}),
         button("w", icons.word .. " " .. "Find Word", "<cmd>lua Snacks.picker.grep()<CR>", {}),
         button("h", icons.fileRecent .. " " .. "Recents", "<cmd>lua Snacks.picker.recent()<CR>", {}),
         button("l", icons.timer .. " " .. "Load Last Session", "<cmd>SessionManager load_last_session<CR>",
