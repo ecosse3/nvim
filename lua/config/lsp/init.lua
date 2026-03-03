@@ -41,14 +41,6 @@ vim.lsp.config('*', {
     end,
 })
 
--- Override floating preview border
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or EcoVim.ui.float.border or "rounded"
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 -- Load all the LSP server configurations from individual files
 require("config.lsp.servers.lua_ls")
 require("config.lsp.servers.jsonls")
