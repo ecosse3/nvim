@@ -20,8 +20,8 @@ M.get_relative_gitpath = function()
   return relative_gitpath
 end
 
-M.sleep = function(n)
-  os.execute("sleep " .. tonumber(n))
+M.sleep = function(n, callback)
+  vim.defer_fn(callback or function() end, tonumber(n) * 1000)
 end
 
 M.toggle_quicklist = function()
