@@ -92,7 +92,7 @@ local settings = {
 }
 
 local on_attach = function(client, bufnr)
-  vim.lsp.inlay_hint.enable(true, { bufnr })
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   require("plugins.which-key.setup").attach_typescript(bufnr)
 end
 
