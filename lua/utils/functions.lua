@@ -1,4 +1,7 @@
-local utils = require('utils')
+local ok, utils = pcall(require, 'utils')
+if not ok then
+  utils = {}
+end
 
 local async_present, async = pcall(require, "plenary.async")
 
