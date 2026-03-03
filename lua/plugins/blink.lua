@@ -54,7 +54,6 @@ return {
 			-- your own keymap.
 			keymap = {
 				preset = "super-tab",
-        ['<A-y>'] = require('minuet').make_blink_map(),
 				["<Tab>"] = {
 					function(cmp)
 						if vim.b[vim.api.nvim_get_current_buf()].nes_state then
@@ -108,7 +107,6 @@ return {
 					"avante_commands",
 					"avante_mentions",
 					"avante_files",
-          "minuet"
 				},
 
 				providers = {
@@ -131,15 +129,6 @@ return {
 							return items
 						end,
 					},
-          minuet = {
-            name = 'minuet',
-            module = 'minuet.blink',
-            async = true,
-            -- Should match minuet.config.request_timeout * 1000,
-            -- since minuet.config.request_timeout is in seconds
-            timeout_ms = 3000,
-            score_offset = 50, -- Gives minuet higher priority among suggestions
-          },
 					buffer = {
 						-- opts = {
 						-- 	max_items = 10,
