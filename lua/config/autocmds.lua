@@ -1,13 +1,15 @@
 -- Highlight on yank
+local yank_group = vim.api.nvim_create_augroup("ecovim_yank_highlight", {})
 vim.api.nvim_create_autocmd("TextYankPost",
-  { callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 100 }) end })
+  { group = yank_group, callback = function() vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 100 }) end })
 -- Disable diagnostics in node_modules (0 is current buffer only)
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*/node_modules/*", command = "lua vim.diagnostic.enable(false, { bufnr = 0 })" })
+local buf_settings_group = vim.api.nvim_create_augroup("ecovim_buf_settings", {})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { group = buf_settings_group, pattern = "*/node_modules/*", command = "lua vim.diagnostic.enable(false, { bufnr = 0 })" })
 -- Enable spell checking for certain file types
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" },
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { group = buf_settings_group, pattern = { "*.txt", "*.md", "*.tex" },
   command = "setlocal spell" })
 -- Show `` in specific files
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" },
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { group = buf_settings_group, pattern = { "*.txt", "*.md", "*.json" },
   command = "setlocal conceallevel=0" })
 
 -- Attach specific keybindings in which-key for specific filetypes
