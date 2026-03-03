@@ -40,11 +40,7 @@ return {
       -- │ Heading Info                                             │
       -- ╰──────────────────────────────────────────────────────────╯
 
-      local thingy = io.popen(
-      'echo "$(LANG=en_us_88591; date +%a) $(date +%d) $(LANG=en_us_88591; date +%b)" | tr -d "\n"')
-      if thingy == nil then return end
-      local date = thingy:read("*a")
-      thingy:close()
+      local date = os.date("%a %d %b")
 
       local datetime = os.date " %H:%M"
 
