@@ -30,63 +30,63 @@
 local icons = require("utils.icons")
 
 EcoVim = {
-  -- Theme Configuration
-  colorscheme = "tokyonight-night",
-  
-  -- UI Settings
-  ui = {
-    font = { "FiraCode Nerd Font", ":h14" },
-    float = { border = "rounded" },
-  },
-  
-  -- Plugin Settings
-  plugins = {
-    ai = {
-      avante = { enabled = true },
-      copilot = { enabled = true },
-      opencode = { enabled = true },
-    },
-    completion = {
-      select_first_on_enter = false,
-    },
-    jump_by_subwords = {
-      enabled = false,
-    },
-    rooter = {
-      patterns = { ".git", "pnpm-workspace.yaml", "package.json", "_darcs", ".bzr", ".svn", "Makefile" },
-    },
-  },
-  
-  -- LSP Configuration (add servers in user.lua)
-  lsp = {
-    ensure_installed = {},
-    exclude = { "ts_ls", "copilot" },
-    servers = {},
-  },
-  
-  -- Formatting Configuration (override in user.lua)
-  formatters = {},
-  
-  -- Linting Configuration (override in user.lua)
-  linters = {},
-  
-  -- Keymap Configuration (disable keys in user.lua)
-  keys = {},
-  
-  -- Autocmd Configuration (add in user.lua)
-  autocmds = {},
-  
-  -- Plugin Override Functions (define in user.lua)
-  plugin_overrides = {},
-  
-  -- Statusline Configuration
-  statusline = {
-    path_enabled = false,
-    path = "relative",
-  },
-  
-  -- Icons (required)
-  icons = icons,
+	-- Theme Configuration
+	colorscheme = "tokyonight-night",
+
+	-- UI Settings
+	ui = {
+		font = { "FiraCode Nerd Font", ":h14" },
+		float = { border = "rounded" },
+	},
+
+	-- Plugin Settings
+	plugins = {
+		ai = {
+			avante = { enabled = true },
+			copilot = { enabled = true },
+			opencode = { enabled = true },
+		},
+		completion = {
+			select_first_on_enter = false,
+		},
+		jump_by_subwords = {
+			enabled = false,
+		},
+		rooter = {
+			patterns = { ".git", "pnpm-workspace.yaml", "package.json", "_darcs", ".bzr", ".svn", "Makefile" },
+		},
+	},
+
+	-- LSP Configuration (add servers in user.lua)
+	lsp = {
+		ensure_installed = {},
+		exclude = { "ts_ls", "copilot" },
+		servers = {},
+	},
+
+	-- Formatting Configuration (override in user.lua)
+	formatters = {},
+
+	-- Linting Configuration (override in user.lua)
+	linters = {},
+
+	-- Keymap Configuration (disable keys in user.lua)
+	keys = {},
+
+	-- Autocmd Configuration (add in user.lua)
+	autocmds = {},
+
+	-- Plugin Override Functions (define in user.lua)
+	plugin_overrides = {},
+
+	-- Statusline Configuration
+	statusline = {
+		path_enabled = false,
+		path = "relative",
+	},
+
+	-- Icons (required)
+	icons = icons,
 }
 
 --[[
@@ -97,8 +97,8 @@ EcoVim = {
 
 local user_config = vim.fn.stdpath("config") .. "/lua/config/user.lua"
 if vim.uv.fs_stat(user_config) then
-  local ok, err = pcall(dofile, user_config)
-  if not ok then
-    vim.notify("Error loading user config: " .. err, vim.log.levels.ERROR, { title = "EcoVim" })
-  end
+	local ok, err = pcall(dofile, user_config)
+	if not ok then
+		vim.notify("Error loading user config: " .. err, vim.log.levels.ERROR, { title = "EcoVim" })
+	end
 end
