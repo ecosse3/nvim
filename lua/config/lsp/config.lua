@@ -134,7 +134,7 @@ local function au(typ, pattern, cmdOrFn)
 	end
 end
 
-au({ 'CursorHold', 'InsertLeave' }, nil, function()
+au('CursorHold', nil, function()
 	local opts = {
 		focusable = false,
 		scope = 'cursor',
