@@ -1,17 +1,26 @@
 local M = {}
 
+function M.format()
+  local ok, conform = pcall(require, "conform")
+  if ok then
+    conform.format({ bufnr = 0, lsp_fallback = true })
+  else
+    vim.lsp.buf.format({ bufnr = 0 })
+  end
+end
+
 function M.enable_format_on_save()
   local group = vim.api.nvim_create_augroup("format_on_save", { clear = false })
   vim.api.nvim_create_autocmd("BufWritePre", {
     callback = M.format,
     group = group,
   })
-  require("notify")("Enabled format on save", "info", { title = "LSP", timeout = 2000 })
+  vim.notify("Enabled format on save", vim.log.levels.INFO, { title = "LSP" })
 end
 
 function M.disable_format_on_save()
   vim.api.nvim_del_augroup_by_name("format_on_save")
-  require("notify")("Disabled format on save", "info", { title = "LSP", timeout = 2000 })
+  vim.notify("Disabled format on save", vim.log.levels.INFO, { title = "LSP" })
 end
 
 function M.toggle_format_on_save()
