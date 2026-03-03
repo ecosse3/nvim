@@ -2,6 +2,11 @@ return {
   {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
+    keys = {
+      { "<up>", mode = { "n", "v" }, desc = "Add cursor above" },
+      { "<down>", mode = { "n", "v" }, desc = "Add cursor below" },
+      { "<leader>m", mode = { "n", "v" }, desc = "Match add cursor" },
+    },
     config = function()
       local mc = require("multicursor-nvim")
 
