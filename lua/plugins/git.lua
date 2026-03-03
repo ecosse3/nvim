@@ -173,18 +173,6 @@ return {
 	},
 
 	{
-		"ThePrimeagen/git-worktree.nvim",
-		lazy = false,
-		config = function()
-			require("plugins.git.worktree")
-		end,
-		keys = {
-			{ "<Leader>gww", desc = "worktrees" },
-			{ "<Leader>gwc", desc = "create worktree" },
-		},
-	},
-
-	{
 		"pwntester/octo.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",

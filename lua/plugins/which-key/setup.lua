@@ -130,9 +130,6 @@ wk.add({
   { "<leader>gl",  group = "Log" },
   { "<leader>gm",  desc = 'blame line' },
   { "<leader>gp",  "<cmd>Octo pr list<CR>",           desc = 'Pull Requests List' },
-  { "<leader>gw",  group = "Worktree" },
-  { "<leader>gww", desc = 'worktrees' },
-  { "<leader>gwc", desc = 'create worktree' },
 })
 
 wk.add({
