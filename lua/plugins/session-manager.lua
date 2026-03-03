@@ -1,13 +1,12 @@
-local path_present, Path = pcall(require, "plenary.path")
-if not path_present then
-  return
-end
-
 return {
   {
     "Shatur/neovim-session-manager",
     lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
     config = function()
+      local Path = require("plenary.path")
       local config_group = vim.api.nvim_create_augroup('SessionManagerGroup', {})
 
       require('session_manager').setup {
