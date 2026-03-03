@@ -83,25 +83,25 @@ vim.diagnostic.config({
   float = {
     source = false,
     format = function(diagnostic)
-      local code = diagnostic and diagnostic.user_data and diagnostic.user_data.lsp.code
+      local code = diagnostic and diagnostic.code
 
       if not diagnostic.source or not code then
         return string.format('%s', diagnostic.message)
       end
 
       if diagnostic.source == 'eslint' then
-        for _, table in pairs(codes) do
-          if vim.tbl_contains(table, code) then
-            return string.format('%s [%s]', table.icon .. diagnostic.message, code)
+        for _, entry in pairs(codes) do
+          if vim.tbl_contains(entry, code) then
+            return string.format('%s [%s]', entry.icon .. diagnostic.message, code)
           end
         end
 
         return string.format('%s [%s]', diagnostic.message, code)
       end
 
-      for _, table in pairs(codes) do
-        if vim.tbl_contains(table, code) then
-          return table.message
+      for _, entry in pairs(codes) do
+        if vim.tbl_contains(entry, code) then
+          return entry.message
         end
       end
 
