@@ -218,46 +218,46 @@ return {
 					border = EcoVim.ui.float.border,
 				},
 			},
+
+			appearance = {
+				kind_icons = {
+					Copilot = "",
+					Text = "󰉿",
+					Method = "󰊕",
+					Function = "󰊕",
+					Constructor = "󰒓",
+
+					Field = "󰜢",
+					Variable = "󰆦",
+					Property = "󰖷",
+
+					Class = "󱡠",
+					Interface = "󱡠",
+					Struct = "󱡠",
+					Module = "󰅩",
+
+					Unit = "󰪚",
+					Value = "󰦨",
+					Enum = "󰦨",
+					EnumMember = "󰦨",
+
+					Keyword = "󰻾",
+					Constant = "󰏿",
+
+					Snippet = "󱄽",
+					Color = "󰏘",
+					File = "󰈔",
+					Reference = "󰬲",
+					Folder = "󰉋",
+					Event = "󱐋",
+					Operator = "󰪚",
+					TypeParameter = "󰬛",
+				},
+			},
 		},
 		-- allows extending the enabled_providers array elsewhere in your config
 		-- without having to redefine it
 		opts_extend = { "sources.default" },
-
-		appearance = {
-			kind_icons = {
-				Copilot = "",
-				Text = "󰉿",
-				Method = "󰊕",
-				Function = "󰊕",
-				Constructor = "󰒓",
-
-				Field = "󰜢",
-				Variable = "󰆦",
-				Property = "󰖷",
-
-				Class = "󱡠",
-				Interface = "󱡠",
-				Struct = "󱡠",
-				Module = "󰅩",
-
-				Unit = "󰪚",
-				Value = "󰦨",
-				Enum = "󰦨",
-				EnumMember = "󰦨",
-
-				Keyword = "󰻾",
-				Constant = "󰏿",
-
-				Snippet = "󱄽",
-				Color = "󰏘",
-				File = "󰈔",
-				Reference = "󰬲",
-				Folder = "󰉋",
-				Event = "󱐋",
-				Operator = "󰪚",
-				TypeParameter = "󰬛",
-			},
-		},
 	},
 
 	-- LSP servers and clients communicate what features they support through "capabilities".
