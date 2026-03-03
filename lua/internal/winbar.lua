@@ -68,6 +68,7 @@ M.gps = function()
 end
 
 vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost" }, {
+  group = vim.api.nvim_create_augroup("EcoVimWinbar", { clear = true }),
   callback = function()
     local winbar_filetype_exclude = {
       "help",
