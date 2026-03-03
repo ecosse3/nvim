@@ -70,12 +70,16 @@ end
 
 highlight_cursorword()
 
+local cursorword_group = vim.api.nvim_create_augroup("ecovim_cursorword", {})
+
 vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+  group = cursorword_group,
   pattern = '*',
   callback = cursor_moved,
 })
 
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'BufWinEnter' }, {
+  group = cursorword_group,
   pattern = '*',
   callback = disable_cursorword,
 })
