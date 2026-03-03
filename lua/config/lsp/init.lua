@@ -77,10 +77,13 @@ require("config.lsp.servers.denols")
 -- vim.lsp.enable("tsgo")
 
 -- Setup UFO for folding
-require("ufo").setup({
-    fold_virt_text_handler = ufo_config_handler,
-    close_fold_kinds_for_ft = { default = { "imports" } },
-})
+local ufo_ok, ufo = pcall(require, "ufo")
+if ufo_ok then
+    ufo.setup({
+        fold_virt_text_handler = ufo_config_handler,
+        close_fold_kinds_for_ft = { default = { "imports" } },
+    })
+end
 
 -- Note: Server enabling is now handled by mason-lspconfig's automatic_enable feature
 return {}
