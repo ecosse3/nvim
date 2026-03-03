@@ -3,7 +3,11 @@ if not present then
   return
 end
 
-local c = require("tokyonight.colors").setup()
+local colors_ok, colors_mod = pcall(require, "tokyonight.colors")
+if not colors_ok then
+  return
+end
+local c = colors_mod.setup()
 
 -- ╭──────────────────────────────────────────────────────────╮
 -- │ Setup Colorscheme                                        │
