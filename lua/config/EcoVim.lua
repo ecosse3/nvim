@@ -96,6 +96,6 @@ EcoVim = {
 --]]
 
 local user_config = vim.fn.stdpath("config") .. "/lua/config/user.lua"
-if vim.loop.fs_stat(user_config) then
+if vim.uv.fs_stat(user_config) then
   dofile(user_config)
 end
