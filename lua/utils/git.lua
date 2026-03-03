@@ -8,7 +8,7 @@ local function process_abbrev_head(gitdir, head_str, path)
   end
 
   if head_str == "HEAD" then
-    return vim.fn.trim(M.run_git_cmd("cd " .. path .. " && git --no-pager rev-parse --short HEAD"))
+    return vim.fn.trim(M.run_git_cmd({ "git", "-C", path, "--no-pager", "rev-parse", "--short", "HEAD" }))
   end
 
   return head_str
@@ -46,7 +46,7 @@ end
 function M.get_repo_info()
   local cwd = vim.fn.expand "%:p:h"
   local data = vim.fn.trim(
-    M.run_git_cmd("cd " .. cwd .. " && git --no-pager rev-parse --show-toplevel --absolute-git-dir --abbrev-ref HEAD")
+    M.run_git_cmd({ "git", "-C", cwd, "--no-pager", "rev-parse", "--show-toplevel", "--absolute-git-dir", "--abbrev-ref", "HEAD" })
   )
   local results = utils.split(data, "\n")
 
