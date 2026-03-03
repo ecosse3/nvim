@@ -178,13 +178,6 @@ return {
 		config = function()
 			require("plugins.git.worktree")
 		end,
-		opts = {
-			change_directory_command = "cd", -- default: "cd",
-			update_on_change = true, -- default: true,
-			update_on_change_command = "e .", -- default: "e .",
-			clearjumps_on_change = true, -- default: true,
-			autopush = false, -- default: false,
-		},
 		keys = {
 			{ "<Leader>gww", desc = "worktrees" },
 			{ "<Leader>gwc", desc = "create worktree" },
