@@ -176,7 +176,6 @@ return {
 		"pwntester/octo.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
 		cmd = {
@@ -186,6 +185,7 @@ return {
 			local wk = require("which-key")
 
 			require("octo").setup({
+				picker = "snacks",
 				mappings = {
 					issue = {
 						close_issue = { lhs = "<LocalLeader>ic", desc = "close issue" },
