@@ -1,7 +1,6 @@
 return {
 	{
 		"yetone/avante.nvim",
-		event = "VeryLazy",
 		enabled = EcoVim.plugins.ai.avante.enabled,
 		lazy = false,
 		version = false,
