@@ -10,11 +10,11 @@ local handlers = {
     }
   ),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
+    vim.lsp.handlers["textDocument/publishDiagnostics"],
     { virtual_text = true }
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
-    if vim.tbl_islist(result) and #result > 1 then
+    if vim.islist(result) and #result > 1 then
       local filtered_result = filter(result, filterReactDTS)
       return vim.lsp.handlers["textDocument/definition"](err, filtered_result, method, ...)
     end
