@@ -11,7 +11,8 @@ vim.lsp.config('*', {
         ),
     },
     capabilities = (function()
-        local capabilities = require('blink.cmp').get_lsp_capabilities()
+        local blink_ok, blink = pcall(require, 'blink.cmp')
+        local capabilities = blink_ok and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()
 
         -- Improved folding support
         capabilities.textDocument.foldingRange = {
