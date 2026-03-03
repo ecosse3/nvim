@@ -10,7 +10,7 @@ function M.format()
 end
 
 function M.enable_format_on_save()
-  local group = vim.api.nvim_create_augroup("format_on_save", { clear = false })
+  local group = vim.api.nvim_create_augroup("format_on_save", { clear = true })
   vim.api.nvim_create_autocmd("BufWritePre", {
     callback = M.format,
     group = group,
