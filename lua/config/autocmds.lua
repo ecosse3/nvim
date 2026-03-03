@@ -13,7 +13,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", 
 -- Attach specific keybindings in which-key for specific filetypes
 local wk_present, _ = pcall(require, "which-key")
 if wk_present then
-  local _, pwk = pcall(require, "plugins.which-key.setup")
+  local pwk_present, pwk = pcall(require, "plugins.which-key.setup")
+  if not pwk_present then return end
 
   vim.api.nvim_create_autocmd("BufEnter", { pattern = "*.md",
     callback = function() pwk.attach_markdown(0) end })
