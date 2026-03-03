@@ -121,7 +121,7 @@ return {
 	},
 
 	{
-		"sindrets/diffview.nvim",
+		"dlyongemallo/diffview.nvim",
 		lazy = false,
 		enabled = true,
 		-- event = "BufRead",
@@ -137,6 +137,7 @@ return {
 
 	{
 		"NeilGirdhar/git-conflict.nvim",
+		enabled = false,
 		lazy = false,
 		event = "BufRead",
 		version = "*",
