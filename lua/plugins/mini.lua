@@ -1,13 +1,13 @@
 return {
   {
     "echasnovski/mini.align",
-    lazy = false,
+    event = "VeryLazy",
     version = "*",
     opts = {}
   },
   {
     "echasnovski/mini.ai",
-    lazy = false,
+    event = "VeryLazy",
     version = "*",
     config = function()
       require("mini.ai").setup()
