@@ -90,9 +90,9 @@ else
 end
 
 -- LSP
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
-keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", silent)
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Goto Definition" })
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", { desc = "Goto References" })
+keymap("n", "gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Goto Type Definition" })
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
 keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.code_action()<CR>", silent)

@@ -111,12 +111,6 @@ wk.add({
   { "<leader>cr", desc = "rename" },
   { "<leader>cR", desc = "rename file" },
   { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>',                     desc = "toggle format on save" },
-  { "gd",         desc = "goto definition" },
-  { "gr",         desc = "goto references" },
-  { "gy",         desc = "goto type definition" },
-  { "gi",         desc = "goto implementation" },
-  { "K",          desc = "hover" },
-  { "L",          desc = "signature help",                             mode = { "n", "i" } },
 })
 
 wk.add({

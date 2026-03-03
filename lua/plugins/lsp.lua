@@ -74,12 +74,9 @@ return {
 						-- Only set this keymap for servers that support code actions
 						{ "<leader>cA", vim.lsp.buf.code_action, desc = "Code Action", has = "codeAction", mode = { "n", "v" } },
 						-- Multiple capabilities for file rename
-						{ "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File",
-							has = { "workspace/didRenameFiles", "workspace/willRenameFiles" } },
+						{ "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
 						-- Only for servers with rename support
-						{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename Symbol", has = "rename" },
-						-- Only for servers with definition support
-						{ "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
+						{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename Symbol" },
 						-- Only for servers with references support
 						{ "gr", function() vim.lsp.buf.references({ includeDeclaration = false }) end, desc = "Goto References", has = "references" },
 						-- Only for servers with hover support
@@ -87,17 +84,17 @@ return {
 						-- Only for servers with signature help
 						{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp", mode = { "n", "i" } },
 						-- Only for servers with type definition
-						{ "gy", vim.lsp.buf.type_definition, desc = "Goto Type Definition", has = "typeDefinition" },
+						{ "gy", vim.lsp.buf.type_definition, desc = "Goto Type Definition" },
 						-- Only for servers with document symbol
-						{ "<leader>ss", vim.lsp.buf.document_symbol, desc = "Document Symbols", has = "documentSymbol" },
+						{ "<leader>ss", vim.lsp.buf.document_symbol, desc = "Document Symbols" },
 						-- Only for servers with workspace symbol
-						{ "<leader>sS", vim.lsp.buf.workspace_symbol, desc = "Workspace Symbols", has = "workspaceSymbol" },
+						{ "<leader>sS", vim.lsp.buf.workspace_symbol, desc = "Workspace Symbols" },
 						-- Only for servers with implementation
-						{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation", has = "implementation" },
+						{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
 						-- Only for servers with document formatting
-						{ "<leader>cf", function() require('config.lsp.functions').format() end, desc = "Format Document", has = "documentFormatting" },
+						{ "<leader>cf", function() require('config.lsp.functions').format() end, desc = "Format Document" },
 						-- Only for servers with range formatting
-						{ "<leader>cf", vim.lsp.buf.format, desc = "Format Range", has = "documentRangeFormatting", mode = "v" },
+						{ "<leader>cf", vim.lsp.buf.format, desc = "Format Range", mode = "v" },
 					}
 				}
 			}
