@@ -9,12 +9,19 @@ M.first_ecovim_run = function()
   local is_first_run = utils.file_exists('/tmp/first-ecovim-run')
 
   if is_first_run then
-    async.run(function()
+    if not async_present then
       vim.notify("Welcome to Ecovim! Hope you'll have a nice experience!", "info",
         { title = "Ecovim", timeout = 5000 })
       vim.notify("Please install treesitter servers manually by :TSInstall command.", "info",
         { title = "Installation", timeout = 10000 })
-    end)
+    else
+      async.run(function()
+        vim.notify("Welcome to Ecovim! Hope you'll have a nice experience!", "info",
+          { title = "Ecovim", timeout = 5000 })
+        vim.notify("Please install treesitter servers manually by :TSInstall command.", "info",
+          { title = "Installation", timeout = 10000 })
+      end)
+    end
     local suc = os.remove('/tmp/first-ecovim-run')
     if (not suc) then print("Error: Couldn't remove /tmp/first-ecovim-run!") end
   end
