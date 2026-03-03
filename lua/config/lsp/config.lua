@@ -143,12 +143,12 @@ au('CursorHold', nil, function()
 	vim.diagnostic.open_float(nil, opts)
 end)
 
-au('InsertEnter', nil, function()
-	vim.diagnostic.enable(false)
+au('InsertEnter', nil, function(args)
+	vim.diagnostic.enable(false, { bufnr = args.buf })
 end)
 
-au('InsertLeave', nil, function()
-	vim.diagnostic.enable(true)
+au('InsertLeave', nil, function(args)
+	vim.diagnostic.enable(true, { bufnr = args.buf })
 end)
 
 -- UI
