@@ -129,7 +129,7 @@ local highlights = {
   CmpItemKindFolder             = { fg   = c.blue2 },
   CmpItemKindFunction           = { fg   = c.blue },
   CmpItemKindInterface          = { fg   = c.teal, bg    = "NONE" },
-  CmpItemKindKeyword            = { fg   = c.magneta2 },
+  CmpItemKindKeyword            = { fg   = c.magenta2 },
   CmpItemKindMethod             = { fg   = c.red },
   CmpItemKindReference          = { fg   = c.red1 },
   CmpItemKindSnippet            = { fg   = c.dark3 },
