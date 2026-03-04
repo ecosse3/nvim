@@ -285,27 +285,21 @@ No merge conflicts with your personal settings!
 
 ## Keybindings
 
-Currently I have no idea how to write for you my whole workflow of using Ecovim config in React.js projects I am working on,\
-but I can write you the most useful custom key bindings by the frequency I use them.
-
 Space (SPC) is my Leader key.
 
+> **Tip:** Press `SPC` in normal mode to open the which-key menu and explore all available keybindings interactively.
+
 <details>
-<summary>File Explorer</summary>
+<summary>File Explorer (Snacks)</summary>
 
-### File Explorer
+### File Explorer (Snacks)
 
-| Key Bindings | Description                                   |
-|--------------|-----------------------------------------------|
-| <C - e>      | Open File Explorer                            |
-| Backspace    | Back to file explorer (in editor normal mode) |
-| g?           | Open commands menu                            |
-| a            | Create new file/directory                     |
-| x            | Cut                                           |
-| c            | Copy                                          |
-| y            | Copy name                                     |
-| r            | Rename                                        |
-| I            | Toggle git ignore files                       |
+| Key Bindings | Description                                |
+|--------------|--------------------------------------------|
+| `<C-e>`      | Toggle Snacks file explorer                |
+| `<D-e>`      | Toggle Snacks file explorer (macOS Cmd+E)  |
+
+The Snacks explorer uses its own keybindings when focused. Press `?` inside the explorer to see all available actions (create, rename, copy, delete, etc.).
 
 </details>
 
@@ -314,70 +308,273 @@ Space (SPC) is my Leader key.
 
 ### Searching
 
-| Key Bindings | Description         |
-|--------------|---------------------|
-| <C - p>      | Neural Open (AI-powered file finder) |
-| <S - p>      | Live grep (Snacks picker) |
-| s            | Flash.nvim jump to any word  |
-| SPC s d      | Search dotfiles     |
-| SPC s h      | Search file history |
-| SPC s s      | Search history      |
+| Key Bindings | Description                        |
+|--------------|------------------------------------|
+| `<C-p>`      | Smart file finder (Snacks picker)  |
+| `<S-p>`      | Live grep (Snacks picker)          |
+| `s`          | Flash jump to any word             |
+| `S`          | Flash treesitter selection         |
+| `SPC s f`    | Find files                         |
+| `SPC s b`    | Find buffers                       |
+| `SPC s g`    | Git grep                           |
+| `SPC s o`    | Grep open buffers                  |
+| `SPC s h`    | Recent files                       |
+| `SPC s H`    | Command history                    |
+| `SPC s s`    | Search history                     |
+| `SPC s q`    | Quickfix list                      |
+| `SPC s c`    | Color schemes                      |
+| `SPC s d`    | Search dotfiles (nvim config)      |
+| `SPC s t`    | Search TODOs                       |
+| `SPC s T`    | Search TODO/FIX/FIXME              |
+| `]t`         | Next TODO comment                  |
+| `[t`         | Previous TODO comment              |
 
 </details>
 
 <details>
 <summary>Working with LSP</summary>
 
-### Working with LSP:
+### Working with LSP
 
-| Key Bindings           | Description                                       |
-|------------------------|---------------------------------------------------|
-| <C - Space> or SPC c a | Code action                                       |
-| <S - K>                | Show documentation under cursor                   |
-| gd                     | Go to definition                                  |
-| gr                     | Go to references                                  |
-| ]g                     | Go to next diagnostic                             |
-| [g                     | Go to prev diagnostic                             |
-| SPC c f                | Format document (usually ESLint/Prettier)         |
-| SPC c r                | Rename                                            |
-| SPC c q                | Quick fix - when I exactly know if it will fix it |
-| SPC c d                | Local diagnostics list                            |
-| SPC c o                | Organize imports                                  |
+| Key Bindings           | Description                             |
+|------------------------|-----------------------------------------|
+| `gd`                   | Go to definition                        |
+| `gr`                   | Go to references                        |
+| `gy`                   | Go to type definition                   |
+| `gi`                   | Go to implementation                    |
+| `K`                    | Hover documentation / peek fold         |
+| `L`                    | Signature help (normal & insert mode)   |
+| `gl`                   | Line diagnostics                        |
+| `]g`                   | Next diagnostic                         |
+| `[g`                   | Previous diagnostic                     |
+| `<C-Space>` / `SPC c a`| Code action                             |
+| `SPC c f`              | Format document (LSP)                   |
+| `SPC c r`              | Rename symbol (live preview)            |
+| `SPC c R`              | Rename file                             |
+| `SPC c d`              | Diagnostics list (Snacks picker)        |
+| `SPC c t`              | Toggle format on save                   |
+| `SPC c u`              | Toggle symbol usage                     |
+| `SPC c m`              | Mason LSP manager                       |
+| `SPC c l i`            | LSP Info                                |
+| `SPC c l r`            | LSP Restart                             |
+| `SPC c l s`            | LSP Stop                                |
+| `SPC c l S`            | LSP Start                               |
+| `SPC s s`              | Document symbols                        |
+| `SPC s S`              | Workspace symbols                       |
+
+</details>
+
+<details>
+<summary>TypeScript / React (buffer-local)</summary>
+
+### TypeScript / React (buffer-local)
+
+These keybindings are available in TypeScript/JavaScript buffers:
+
+| Key Bindings | Description                          |
+|--------------|--------------------------------------|
+| `SPC c e`    | Workspace errors (TSC)               |
+| `SPC c i`    | Add missing imports                  |
+| `SPC c o`    | Organize imports                     |
+| `SPC c s`    | Sort imports                         |
+| `SPC c u`    | Remove unused imports                |
+| `SPC c v`    | Show Tailwind CSS values             |
+| `<C-a>`      | Smart increment (numbers, booleans, dates, const/let, &&/\|\|, etc.) |
+| `<C-x>`      | Smart decrement                      |
+
+</details>
+
+<details>
+<summary>Formatting & Linting</summary>
+
+### Formatting & Linting
+
+| Key Bindings       | Description                              |
+|--------------------|------------------------------------------|
+| `SPC f`            | Format file (conform.nvim)               |
+| `SPC f` (visual)   | Format selection                         |
+| `SPC l`            | Lint file (nvim-lint)                    |
 
 </details>
 
 <details>
 <summary>Working with Git</summary>
 
-### Working with Git:
+### Working with Git
 
-| Key Bindings | Description                                                                                                                              |
-|--------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| SPC g g      | Lazygit - for committing and branch change                                                                                               |
-| SPC g s      | Git status (Snacks picker) - when I want to change/search file I am working on with git changes                                                    |
-| ]c           | Go to next change hunk                                                                                                                   |
-| [c           | Go to prev change hunk                                                                                                                   |
-| SPC g d      | Advanced powerful diff view with many filters for debugging code, checking previous changes etc.                                         |
-| SPC g m      | View hunk diff of a line under cursor                                                                                                    |
-| SPC g h r    | Reset changed hunk under cursor - I like to check quickly what I have changed in that line and then just type 'u' to go back             |
-| SPC g h s    | Stage hunk under cursor - Sometimes it's faster than selecting lines in Lazygit, so I can stage specific lines and then just do a commit |
-| SPC g l c    | Quick check of previous commit in current buffer, <C-s> inside to switch preview                                                         |
+| Key Bindings | Description                                                             |
+|--------------|-------------------------------------------------------------------------|
+| `SPC g g`    | Lazygit                                                                 |
+| `SPC g s`    | Git status (Snacks picker)                                              |
+| `SPC g f`    | Git files (Snacks picker)                                               |
+| `SPC g a`    | Git add current file                                                    |
+| `SPC g A`    | Git add all                                                             |
+| `SPC g b`    | Blame panel (git-blame)                                                 |
+| `SPC g m`    | Blame line (full commit)                                                |
+| `SPC g d`    | Diff file history (diffview)                                            |
+| `SPC g D`    | Diff view open                                                          |
+| `SPC g S`    | Diff view status                                                        |
+| `SPC g i`    | GitHub issues list (Octo)                                               |
+| `SPC g p`    | GitHub pull requests list (Octo)                                        |
+| `SPC g L`    | Copy git URL for selection (gitlinker)                                  |
+| `]c`         | Next change hunk                                                        |
+| `[c`         | Previous change hunk                                                    |
+| **Hunk actions** |                                                                     |
+| `SPC g h s`  | Stage hunk                                                              |
+| `SPC g h r`  | Reset hunk                                                              |
+| `SPC g h S`  | Stage buffer                                                            |
+| `SPC g h R`  | Reset buffer                                                            |
+| `SPC g h u`  | Undo stage hunk                                                         |
+| `SPC g h p`  | Preview hunk                                                            |
+| `SPC g h d`  | Diff hunk                                                               |
+| `SPC g h t`  | Toggle deleted                                                          |
+| **Git log** |                                                                          |
+| `SPC g l a`  | Lazygit log (cwd)                                                       |
+| `SPC g l c`  | Lazygit current file history                                            |
+| `SPC g l A`  | Git log (Snacks picker)                                                 |
+| `SPC g l C`  | File commits (Snacks picker)                                            |
 
 </details>
 
 <details>
 <summary>Working with Project</summary>
 
-### Working with Project:
+### Working with Project
 
-| Key Bindings | Description                                                                                                                                                                                                                                                                             |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <C - e>      | Toggles Snacks file explorer                                                                                                                                                                                                                                                         |
-| SPC p w      | Find word under cursor in project - very useful to find where component is used. Just use binding and type '<'. There is a lot of alternatives like LSP references but I like it with Snacks picker and to not find only references but whole text under cursor.                            |
-| SPC p f      | Find file under cursor in project - it finds files in project which contains text under cursor. Useful when you name directories by component name in React and wants to go quickly to file. 'gd' is better but in some projects without TS or with mixed JS/TS it cannot work properly |
-| SPC p l      | Switch between projects (Snacks picker)                                                                                                                                                                                                         |
-| SPC p t      | Finds TODOs/NOTES in project                                                                                                                                                                                                                                                            |
-| SPC p s      | Save session to load it later from Dashboard                                                                                                                                                                                                                                            |
+| Key Bindings | Description                                           |
+|--------------|-------------------------------------------------------|
+| `SPC p w`    | Grep word under cursor in project (Snacks picker)     |
+| `SPC p l`    | Switch between projects (Snacks picker)               |
+| **Search & Replace (grug-far)** |                                      |
+| `SPC p r r`  | Open search & replace                                 |
+| `SPC p r a`  | Search & replace (ast-grep engine)                    |
+| `SPC p r w`  | Search & replace word under cursor                    |
+| `SPC p r W`  | Search & replace word under cursor in current file    |
+| `SPC p r f`  | Search & replace in current file                      |
+| **Sessions** |                                                       |
+| `SPC p s s`  | Save current session                                  |
+| `SPC p s l`  | Load session                                          |
+| `SPC p s L`  | Load last session                                     |
+| `SPC p s m`  | Session manager commands                              |
+
+</details>
+
+<details>
+<summary>AI & Agents</summary>
+
+### AI & Agents
+
+| Key Bindings | Description                                  |
+|--------------|----------------------------------------------|
+| **Copilot NES** |                                           |
+| `<Tab>`      | Accept/navigate Copilot NES suggestion       |
+| **Avante** (when enabled) |                                  |
+| `SPC a a`    | Toggle Avante sidebar                        |
+| Uses Avante default keybindings — see `:h avante` for full list |  |
+| **Opencode** (when enabled) |                                |
+| `SPC o`      | Opencode group (see which-key)               |
+| **MCPHub**   |                                              |
+| `:MCPHub`    | Open MCP Hub                                 |
+
+</details>
+
+<details>
+<summary>Debugging (DAP)</summary>
+
+### Debugging (DAP)
+
+| Key Bindings | Description                 |
+|--------------|-----------------------------|
+| `SPC d a`    | Continue                    |
+| `SPC d d`    | Continue                    |
+| `SPC d b`    | Toggle breakpoint           |
+| `SPC d B`    | Conditional breakpoint      |
+| `SPC d i`    | Step into                   |
+| `SPC d o`    | Step out                    |
+| `SPC d O`    | Step over                   |
+| `SPC d h`    | Evaluate expression         |
+| `SPC d t`    | Terminate                   |
+| `SPC d u`    | Open DAP UI                 |
+| `SPC d c`    | Close DAP UI                |
+| `SPC d w`    | Float watches               |
+| `SPC d s`    | Float scopes                |
+| `SPC d r`    | Float REPL                  |
+
+Pre-configured for Chrome, Node.js (pwa-node), Next.js server-side, Jest, Vitest, and Deno.
+
+</details>
+
+<details>
+<summary>Testing (Jest / Neotest)</summary>
+
+### Testing (Jest / Neotest)
+
+Available in TypeScript/JavaScript buffers:
+
+| Key Bindings | Description             |
+|--------------|-------------------------|
+| `SPC j j`    | Run nearest test        |
+| `SPC j f`    | Run current file        |
+| `SPC j l`    | Run last test           |
+| `SPC j o`    | Open test output        |
+| `SPC j i`    | Toggle info panel       |
+| `SPC j s`    | Stop                    |
+
+</details>
+
+<details>
+<summary>Harpoon</summary>
+
+### Harpoon
+
+| Key Bindings | Description              |
+|--------------|--------------------------|
+| `SPC H`      | Add file to Harpoon      |
+| `SPC h`      | Open Harpoon menu        |
+| `SPC 1-4`    | Jump to Harpoon file 1-4 |
+| `SPC [`      | Previous Harpoon file    |
+| `SPC ]`      | Next Harpoon file        |
+
+</details>
+
+<details>
+<summary>Multi-cursor</summary>
+
+### Multi-cursor
+
+Using [jake-stewart/multicursor.nvim](https://github.com/jake-stewart/multicursor.nvim):
+
+| Key Bindings    | Description                              |
+|-----------------|------------------------------------------|
+| `<Up>`          | Add cursor above                         |
+| `<Down>`        | Add cursor below                         |
+| `SPC m`         | Add cursor at next match of word         |
+| `<Left>`        | Rotate to next cursor                    |
+| `<Right>`       | Rotate to previous cursor                |
+| `SPC x`         | Delete cursor                            |
+| `<C-LeftMouse>` | Add/remove cursor with mouse             |
+| `<C-q>`         | Toggle cursor                            |
+| `<Esc>`         | Clear cursors (or enable if disabled)    |
+| `SPC g v`       | Restore cursors                          |
+| `SPC A`         | Align cursor columns                     |
+
+</details>
+
+<details>
+<summary>Window & Split Management</summary>
+
+### Window & Split Management
+
+| Key Bindings          | Description                  |
+|-----------------------|------------------------------|
+| `SPC v`               | Split right                  |
+| `SPC V`               | Split below                  |
+| `<C-h/j/k/l>`        | Move between splits          |
+| `<A-h/j/k/l>`        | Resize splits                |
+| `SPC SPC h/j/k/l`    | Swap buffer between splits   |
+| `SPC =`               | Resize +5                    |
+| `SPC -`               | Resize -5                    |
+| `<C-\>`              | Previous split               |
 
 </details>
 
@@ -388,10 +585,12 @@ Space (SPC) is my Leader key.
 
 | Key Bindings | Description                |
 |--------------|----------------------------|
-| gcc          | Create/remove comment      |
-| gc (visual)  | Create/remove comment      |
-| gcO          | Create comment line before |
-| gco          | Create comment line after  |
+| `gcc`        | Toggle line comment        |
+| `gbc`        | Toggle block comment       |
+| `gc` (visual)| Toggle comment             |
+| `gcO`        | Add comment line before    |
+| `gco`        | Add comment line after     |
+| `SPC a c`    | Comment box                |
 
 </details>
 
@@ -402,47 +601,98 @@ Space (SPC) is my Leader key.
 
 | Key Bindings | Description                                                                       |
 |--------------|-----------------------------------------------------------------------------------|
-| ga (visual)  | Aligns selection based on separator (comma, semi-colon, colon etc.)               |
-| SPC t m      | Enables Table Mode. Do it in markdown file with some table and you will see magic |
-| SPC t i C    | (Only when Table Mode Enabled) Insert column before                               |
-| SPC t i c    | (Only when Table Mode Enabled) Insert column after                                |
-| SPC t d c    | (Only when Table Mode Enabled) Delete column                                      |
-| SPC t d r    | (Only when Table Mode Enabled) Delete row                                         |
-| SPC t s      | (Only when Table Mode Enabled) Sort table alphabetically                          |
+| `ga` (visual)| Aligns selection based on separator (comma, semi-colon, colon etc.) via `mini.align` |
+| `SPC t m`    | Toggle Table Mode (activates in markdown files via `vim-table-mode`)              |
+| `SPC t i C`  | (Table Mode) Insert column before                                                 |
+| `SPC t i c`  | (Table Mode) Insert column after                                                  |
+| `SPC t d c`  | (Table Mode) Delete column                                                        |
+| `SPC t d r`  | (Table Mode) Delete row                                                           |
+| `SPC t s`    | (Table Mode) Sort table alphabetically                                            |
 
 </details>
 
 <details>
-<summary>Other</summary>
+<summary>NPM Package Management</summary>
 
-### Other VERY useful bindings
+### NPM Package Management
 
-| Key Bindings | Description                                                                                                                                                                               |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <S - q>      | Smartly closes current buffer without breaking UI                                                                                                                                         |
-| <D - s>      | Save file (macOS Cmd+S) |
-| <D - q> / <D - w> | Close buffer (macOS Cmd+Q/W) |
-| <D - d> / <D - u> | Half-page scroll down/up (macOS Cmd+D/U) |
-| <D - i>      | Jump forward in jumplist (macOS Cmd+I) |
-| <C - a>      | It is not only increases number, but switches between true/false/const/let/function/arrow function/increment dates etc.                                                                   |
-| <C - n>      | Finds next occurrence (like *) of word and puts multi-cursor there. Then you can go to Insert mode, Append, Change or Delete. [Read more](https://github.com/mg979/vim-visual-multi/wiki) |
-| <C - o>      | Jumps to previous cursor in jumplist. I use it very often.                                                                                                                                |
-| v <ENTER>    | Smartly selects next subjects of current treesitter context                                                                                                                               |
-| s            | Standalone jump to any word with `folke/flash.nvim`                                                                                                                                       |
-| ciq          | Change inside ANY quotes (`` or '' or "" etc.) with `mini.ai`                                                                                                                             |
-| cib          | Change inside ANY brackets ({} or [] or () etc.) with `mini.ai`                                                                                                                           |
-| za           | Toggle folds. By LSP and nvim-ufo they are automatically added to supported files in smart way.                                                                                           |
-| zM           | Close all folds                                                                                                                                                                           |
-| zR           | Open all folds                                                                                                                                                                            |
-| zr           | Open all folds except imports/comments                                                                                                                                                    |
-| gJ           | Smartly joins lines based on treesitter                                                                                                                                                   |
-| gS           | Smartly splits lines based on treesitter. I do if VERY often when I want to put import element to new lines (e.g. import { A, B, C, D, E } from ...)                                      |
-| < F12 >      | Opens/closes terminal                                                                                                                                                                     |
-| ~            | Switch function arguments smartly                                                                                                                                                         |
+Available in `package.json` buffers:
+
+| Key Bindings | Description                |
+|--------------|----------------------------|
+| `SPC n s`    | Show package versions      |
+| `SPC n h`    | Hide package versions      |
+| `SPC n u`    | Update package             |
+| `SPC n i`    | Install new package        |
+| `SPC n d`    | Delete package             |
+| `SPC n r`    | Reinstall dependencies     |
+| `SPC n c`    | Change version             |
 
 </details>
 
-Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps. 
+<details>
+<summary>Zen Mode</summary>
+
+### Zen Mode
+
+| Key Bindings | Description     |
+|--------------|-----------------|
+| `SPC z`      | Zen mode        |
+| `SPC Z`      | Zoom mode       |
+
+</details>
+
+<details>
+<summary>Other Useful Bindings</summary>
+
+### Other Useful Bindings
+
+| Key Bindings       | Description                                                                      |
+|--------------------|----------------------------------------------------------------------------------|
+| `<S-q>`            | Smartly close current buffer without breaking UI                                 |
+| `<D-s>`            | Save file (macOS Cmd+S)                                                          |
+| `<D-q>` / `<D-w>`  | Close buffer (macOS Cmd+Q/W)                                                    |
+| `<D-d>` / `<D-u>`  | Half-page scroll down/up (macOS Cmd+D/U)                                        |
+| `<D-i>`            | Jump forward in jumplist (macOS Cmd+I)                                           |
+| `<C-o>`            | Jump to previous position in jumplist                                            |
+| `<Tab>` / `<S-Tab>` | Cycle through buffers                                                           |
+| `<BS>`             | Jump to first non-blank character                                                |
+| `H`                | Jump to first non-blank character                                                |
+| `v <CR>`           | Smartly select next treesitter subject (repeat to expand)                        |
+| `ciq`              | Change inside ANY quotes (`` or '' or "" etc.) via `mini.ai`                     |
+| `cib`              | Change inside ANY brackets ({} or [] or () etc.) via `mini.ai`                   |
+| `za`               | Toggle fold                                                                      |
+| `zM`               | Close all folds                                                                  |
+| `zR`               | Open all folds                                                                   |
+| `zr`               | Open all folds except imports/comments                                           |
+| `gJ`               | Smart join lines (treesitter-based via treesj)                                   |
+| `~`                | Swap function arguments (treesitter)                                             |
+| `gP`               | Print debug variable under cursor (printer.nvim)                                 |
+| `<F12>`            | Toggle terminal                                                                  |
+| `SPC q`            | Toggle quickfix list                                                             |
+| `SPC ,` / `SPC .`  | Previous / next quickfix item                                                   |
+| `SPC y`            | Open Yazi file manager                                                           |
+| `SPC D`            | Open database (sqlit)                                                            |
+| **Snippets** |                                                                                       |
+| `SPC a s a`        | Add new snippet                                                                  |
+| `SPC a s e`        | Edit snippet                                                                     |
+| **EcoVim** |                                                                                         |
+| `SPC / /`          | Open dashboard                                                                   |
+| `SPC / c`          | Open config                                                                      |
+| `SPC / i`          | Manage plugins (Lazy)                                                            |
+| `SPC / u`          | Update plugins                                                                   |
+| `SPC a n`          | Toggle line numbers                                                              |
+| `SPC a r`          | Toggle relative numbers                                                          |
+| **Treesitter textobjects** |                                                                          |
+| `]]` / `[[`        | Next / previous JSX element                                                      |
+| `]f` / `[f`        | Next / previous function start                                                   |
+| `]m` / `[m`        | Next / previous class start                                                      |
+| `af` / `if`        | Select around / inside function                                                  |
+| `ac` / `ic`        | Select around / inside class                                                     |
+
+</details>
+
+Check out the which-key menu and [keymappings.lua](https://github.com/ecosse3/nvim/blob/master/lua/config/keymappings.lua) for most used maps.
 
 
 ## Performance
