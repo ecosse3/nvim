@@ -64,7 +64,7 @@ return {
       -- local rightbracket = u 'e0b1' -- Angle.
       -- }}}2
 
-      gl.short_line_list = { 'NvimTree', 'vista', 'dbui', 'packer', 'tagbar' }
+      gl.short_line_list = { 'snacks_layout_box', 'vista', 'dbui', 'packer', 'tagbar' }
       local gls = gl.section
 
       local bgcolor = function()
