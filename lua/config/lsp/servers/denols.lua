@@ -26,20 +26,16 @@ vim.lsp.config.denols = {
 	init_options = {
 		enable = true,
 		lint = true,
-		unstable = false,
-		importMap = "./import_map.json",
+		unstable = {},
 	},
 	settings = {
 		deno = {
 			enable = true,
 			lint = true,
-			unstable = false,
 			suggest = {
 				imports = {
 					hosts = {
 						["https://deno.land"] = true,
-						["https://cdn.nest.land"] = true,
-						["https://crux.land"] = true,
 					},
 				},
 			},
@@ -68,4 +64,3 @@ vim.lsp.config.denols = {
 	-- To avoid conflicts with tsserver or other JavaScript/TypeScript LSPs
 	single_file_support = false,
 }
-
