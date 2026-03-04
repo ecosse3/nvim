@@ -11,7 +11,19 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
+-- Build user plugin override specs from EcoVim.plugin_overrides
+-- Users can define overrides in user.lua like:
+--   EcoVim.plugin_overrides["snacks.nvim"] = { picker = { layout = "vertical" } }
+--   EcoVim.plugin_overrides["blink.cmp"] = function(_, opts) opts.completion.menu.auto_show = false end
+local spec = { { import = "plugins" } }
+for plugin_name, override in pairs(EcoVim.plugin_overrides) do
+  if type(override) == "function" or type(override) == "table" then
+    spec[#spec + 1] = { plugin_name, opts = override }
+  end
+end
+
+require("lazy").setup({
+  spec = spec,
   defaults = { lazy = false },
   install = { colorscheme = { "tokyonight" } },
   checker = { enabled = true },
