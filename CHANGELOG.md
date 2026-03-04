@@ -223,8 +223,13 @@ Completely dropped `telescope.nvim` — all picker functionality is now provided
 
 #### Monorepo & Project Management
 
-* **config:** improve monorepo support — detect pnpm, Turborepo, Nx, Lerna, Rush root markers; remove package.json from rooter patterns
-* **config:** add `EcoVim.plugins.projects` and `EcoVim.plugins.rooter` user overrides
+* **config:** improve monorepo support — detect pnpm, Turborepo, Nx, Lerna, Rush root markers; remove package.json from rooter patterns ([f672f6b](https://github.com/ecosse3/nvim/commit/f672f6b))
+* **config:** add `EcoVim.plugins.projects` and `EcoVim.plugins.rooter` user overrides ([f672f6b](https://github.com/ecosse3/nvim/commit/f672f6b))
+* **config:** rewrite `plugin_overrides` to use lazy.nvim spec injection (fix non-functional override system) ([41c6445](https://github.com/ecosse3/nvim/commit/41c6445))
+
+#### Plugin Enhancements
+
+* **plugins:** configure dial.nvim augends for boolean toggling (true/false, yes/no, on/off, enable/disable, &&/||) ([e5df55a](https://github.com/ecosse3/nvim/commit/e5df55a))
 
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
