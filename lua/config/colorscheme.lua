@@ -91,7 +91,7 @@ local highlights = {
   EcovimHeader                  = { bold = true, fg = "#488DFF" },
   EcovimHeaderInfo              = { bold = true, fg = "#FFA630" },
   EcovimFooter                  = { bold = true, fg = "#FFA630" },
-  EcovimNvimTreeTitle           = { bold = true, fg = "#FFA630", bg = "#16161e" },
+  EcovimExplorerTitle            = { bold = true, fg = "#FFA630", bg = "#16161e" },
   -- Lines
   CursorLineNR                  = { link = "EcovimSecondary" },
   LineNr                        = { link = "Comment" },
@@ -105,8 +105,6 @@ local highlights = {
   LspInfoBorder                 = { link = "FloatBorder" },
   VertSplit                     = { bg = "NONE", fg = "#16161E" },
   WinSeparator                  = { bg = "NONE", fg = "#16161E" },
-  -- Tree
-  NvimTreeFolderIcon            = { bg = "None", fg = "None" },
   -- Misc
   GitSignsCurrentLineBlame      = { link = "Comment" },
   -- StatusLine                    = { bg = "None" },
@@ -153,7 +151,6 @@ end
 
 local neovide_highlights = {
   -- VertSplit                   = { bg = "#16161E", fg = "#1A1B26" },
-  -- NvimTreeWinSeparator        = { bg = "#16161E", fg = "None" },
   -- WinSeparator                = { bg = "#16161E", fg = "#16161E" },
   -- BufferLineBuffer            = { bg = "#1A1B26", fg = "#1A1B26" },
   -- BufferLineTab               = { bg = "#1A1B26", fg = "#1A1B26" },

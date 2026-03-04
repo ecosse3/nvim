@@ -33,7 +33,7 @@ return {
 						{
 							filetype = "snacks_layout_box",
 							text = "",
-							highlight = "EcovimNvimTreeTitle",
+							highlight = "EcovimExplorerTitle",
 							text_align = "center",
 							separator = false,
 						},
