@@ -29,6 +29,84 @@
 
 local icons = require("utils.icons")
 
+---@class EcoVimAI
+---@field enabled boolean
+
+---@class EcoVimPluginsAI
+---@field avante EcoVimAI
+---@field copilot EcoVimAI
+---@field opencode EcoVimAI
+
+---@class EcoVimPluginsCompletion
+---@field select_first_on_enter boolean Select first completion item when pressing Enter
+---@field ghost_text boolean Show inline completion preview (ghost text)
+
+---@class EcoVimPluginsJumpBySubwords
+---@field enabled boolean
+
+---@class EcoVimPluginsGit
+---@field blame_line boolean Show inline git blame on current line
+
+---@class EcoVimPluginsRooter
+---@field patterns string[] Root detection patterns for vim-rooter
+
+---@class EcoVimPluginsProjects
+---@field dev string[] Directories to scan for projects
+---@field patterns string[] Patterns to detect project root directories
+
+---@class EcoVimPlugins
+---@field ai EcoVimPluginsAI AI plugin toggles
+---@field completion EcoVimPluginsCompletion Completion settings
+---@field jump_by_subwords EcoVimPluginsJumpBySubwords
+---@field git EcoVimPluginsGit Git integration settings
+---@field rooter EcoVimPluginsRooter Root detection settings
+---@field projects EcoVimPluginsProjects Project management settings
+
+---@class EcoVimUIFloat
+---@field border "rounded"|"single"|"double"|"shadow"|"none" Floating window border style
+
+---@class EcoVimUI
+---@field font string[] GUI font settings (e.g. { "FiraCode Nerd Font", ":h14" })
+---@field float EcoVimUIFloat Floating window settings
+
+---@class EcoVimLSPServerConfig
+---@field cmd? string[] Command to start the server
+---@field filetypes? string[] File types the server handles
+---@field root_markers? string[] Root directory markers
+---@field settings? table Server-specific settings
+
+---@class EcoVimLSP
+---@field typescript_server "tsgo"|"ts_ls" TypeScript server: "tsgo" (fast, native) or "ts_ls" (classic)
+---@field ensure_installed string[] Additional LSP servers to install via Mason
+---@field exclude string[] LSP servers to not auto-enable
+---@field servers table<string, EcoVimLSPServerConfig> Custom LSP server configurations
+---@field format_on_save boolean Auto-format on save (toggle at runtime with :LspToggleAutoFormat)
+---@field inlay_hints boolean Show inlay hints from LSP servers
+
+---@class EcoVimStatusline
+---@field path_enabled boolean Show file path in statusline
+---@field path "relative"|"absolute" Path display style
+
+---@class EcoVimAutocmd
+---@field event string|string[] Trigger event(s)
+---@field pattern? string|string[] File pattern(s)
+---@field command? string Vim command to run
+---@field callback? function Lua callback to run
+
+---@class EcoVimConfig
+---@field colorscheme string Theme name (e.g. "tokyonight-night")
+---@field ui EcoVimUI UI settings
+---@field plugins EcoVimPlugins Plugin settings
+---@field lsp EcoVimLSP LSP configuration
+---@field formatters table<string, string[]> Override formatters per filetype
+---@field linters table<string, string[]> Override linters per filetype
+---@field keys table<string, false> Disable default keymaps by setting to false
+---@field autocmds table<string, EcoVimAutocmd> Custom autocommands
+---@field plugin_overrides table<string, function|table> Override any plugin configuration
+---@field statusline EcoVimStatusline Statusline configuration
+---@field icons table<string, string> Icon definitions
+
+---@type EcoVimConfig
 EcoVim = {
 	-- Theme Configuration
 	colorscheme = "tokyonight-night",
