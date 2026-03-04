@@ -2,3 +2,4 @@ spell
 .DS_Store
 snippets
 lua/config/user.lua
+/AGENTS.md
