@@ -231,6 +231,14 @@ Completely dropped `telescope.nvim` — all picker functionality is now provided
 
 * **plugins:** configure dial.nvim augends for boolean toggling (true/false, yes/no, on/off, enable/disable, &&/||) ([e5df55a](https://github.com/ecosse3/nvim/commit/e5df55a))
 
+#### User Config Options
+
+* **config:** add `EcoVim.lsp.format_on_save` option (default: false) for automatic formatting on save ([cc550a9](https://github.com/ecosse3/nvim/commit/cc550a9))
+* **config:** add `EcoVim.lsp.inlay_hints` option (default: true) to toggle inlay hints globally ([439d187](https://github.com/ecosse3/nvim/commit/439d187))
+* **config:** add `EcoVim.plugins.completion.ghost_text` option (default: true) to toggle ghost text ([a671818](https://github.com/ecosse3/nvim/commit/a671818))
+* **config:** add `EcoVim.plugins.git.blame_line` option (default: true) to toggle inline git blame ([82f9d9f](https://github.com/ecosse3/nvim/commit/82f9d9f))
+* **lsp:** fix diagnostic float borders to use `EcoVim.ui.float.border` instead of hardcoded "rounded" ([bc0cf85](https://github.com/ecosse3/nvim/commit/bc0cf85))
+
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
 
