@@ -77,6 +77,8 @@ All notable changes to this project will be documented in this file. See [standa
 * **readme:** add macOS Cmd keybindings documentation ([06e209d](https://github.com/ecosse3/nvim/commit/06e209d))
 * **readme:** add sponsor/support section ([06e209d](https://github.com/ecosse3/nvim/commit/06e209d))
 * **readme:** add comprehensive configuration guide ([06e209d](https://github.com/ecosse3/nvim/commit/06e209d))
+* **readme:** add user config options, defaults, and tips section ([ef46db2](https://github.com/ecosse3/nvim/commit/ef46db2))
+* **readme:** rewrite keybindings section with accurate, comprehensive mappings ([7f46cf5](https://github.com/ecosse3/nvim/commit/7f46cf5))
 
 
 ### Bug Fixes
@@ -92,6 +94,11 @@ All notable changes to this project will be documented in this file. See [standa
 * **plugins:** replace tailwind-tools with nvim-highlight-colors ([987eba6](https://github.com/ecosse3/nvim/commit/987eba6e1d007efa1f1dd15f062382bbe1442520))
 * **plugins:** update conform setup ([09679b0](https://github.com/ecosse3/nvim/commit/09679b0d8021e335b1cd27dd0c27dc25aa7f9969))
 * **which-key:** fix table mode description syntax (tables to strings) ([e89cdfb](https://github.com/ecosse3/nvim/commit/e89cdfb))
+* **plugins:** remove nvim-lsp-file-operations (doesn't support snacks explorer) ([08b0c49](https://github.com/ecosse3/nvim/commit/08b0c49))
+* **plugins:** remove dead attach_nvim_tree function and autocmd ([590fa27](https://github.com/ecosse3/nvim/commit/590fa27))
+* **ui:** rename EcovimNvimTreeTitle to EcovimExplorerTitle and remove dead NvimTree highlights ([220f014](https://github.com/ecosse3/nvim/commit/220f014))
+* **ui:** replace NvimTree with snacks filetypes in winbar/cursorword exclusions ([f197967](https://github.com/ecosse3/nvim/commit/f197967))
+* **plugins:** replace NvimTree with snacks_layout_box in galaxyline short_line_list ([cc9d954](https://github.com/ecosse3/nvim/commit/cc9d954))
 
 
 ### Refactors
