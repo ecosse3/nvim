@@ -101,7 +101,7 @@ return {
 			{ "<C-Space>", vim.lsp.buf.code_action, desc = "Code Action" },
 
 			-- Refactoring
-			{ "<leader>cr", vim.lsp.buf.rename, desc = "Rename Symbol" },
+			-- <leader>cr (Rename Symbol) is handled by inc-rename.nvim
 			{ "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
 
 			-- Formatting
