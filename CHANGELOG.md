@@ -212,6 +212,14 @@ Completely dropped `telescope.nvim` — all picker functionality is now provided
 * **octo:** switch to snacks picker and remove telescope dependency ([6faadb8](https://github.com/ecosse3/nvim/commit/6faadb8))
 * **plugins:** remove telescope.nvim entirely ([a297755](https://github.com/ecosse3/nvim/commit/a297755))
 
+#### New Plugins
+
+* **diagnostics:** add tiny-inline-diagnostic.nvim for inline diagnostic display ([257a3da](https://github.com/ecosse3/nvim/commit/257a3da))
+* **lsp:** add SchemaStore.nvim for JSON/YAML schema support (500+ schemas) ([4fe317a](https://github.com/ecosse3/nvim/commit/4fe317a))
+* **lsp:** add inc-rename.nvim for live-preview LSP rename (`<leader>cr`) ([4c68a83](https://github.com/ecosse3/nvim/commit/4c68a83))
+* **nextjs:** add boundary.nvim to visualize 'use client' RSC boundaries ([04f7cf4](https://github.com/ecosse3/nvim/commit/04f7cf4))
+* **lsp:** add symbol-usage.nvim for reference/implementation counts (`<leader>cu`) ([818f373](https://github.com/ecosse3/nvim/commit/818f373))
+
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
 
