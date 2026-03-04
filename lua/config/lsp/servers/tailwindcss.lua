@@ -1,18 +1,9 @@
 vim.lsp.config.tailwindcss = {
-	capabilities = (function()
-		local blink_ok, blink = pcall(require, "blink.cmp")
-		local capabilities = blink_ok and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem.snippetSupport = true
-		capabilities.textDocument.colorProvider = { dynamicRegistration = false }
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
-		return capabilities
-	end)(),
-
 	on_attach = function(client, bufnr)
-		-- Empty on_attach maintained from original config
+		-- Ensure colorProvider is supported for inline color swatches
+		if client.server_capabilities then
+			client.server_capabilities.colorProvider = true
+		end
 	end,
 
 	filetypes = { "html", "mdx", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
@@ -26,6 +17,11 @@ vim.lsp.config.tailwindcss = {
 
 	settings = {
 		tailwindCSS = {
+			classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+			includeLanguages = {
+				typescript = "javascript",
+				typescriptreact = "javascript",
+			},
 			lint = {
 				cssConflict = "warning",
 				invalidApply = "error",
@@ -33,7 +29,6 @@ vim.lsp.config.tailwindcss = {
 				invalidScreen = "error",
 				invalidTailwindDirective = "error",
 				invalidVariant = "error",
-				recommendedVariantOrder = "warning",
 			},
 			experimental = {
 				classRegex = {
@@ -46,6 +41,8 @@ vim.lsp.config.tailwindcss = {
 					{ "classnames\\(([^)]*)\\)", "'([^']*)'" },
 					{ "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
 					{ "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]" },
+					{ "twMerge\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]" },
+					{ "twJoin\\(([^)]*)\\)", "[\"'`]([^\"'`]*)[\"'`]" },
 				},
 			},
 			validate = true,
@@ -53,7 +50,7 @@ vim.lsp.config.tailwindcss = {
 	},
 
 	flags = {
-		debounce_text_changes = 1000,
+		debounce_text_changes = 500,
 		exit_timeout = 1000,
 	},
 }
