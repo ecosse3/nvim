@@ -33,4 +33,13 @@ end
 
 vim.api.nvim_create_user_command("LspToggleAutoFormat", 'lua require("config.lsp.functions").toggle_format_on_save()', {})
 
+-- Enable format on save at startup if configured (silently)
+if EcoVim.lsp.format_on_save then
+	local group = vim.api.nvim_create_augroup("format_on_save", { clear = true })
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		callback = M.format,
+		group = group,
+	})
+end
+
 return M
