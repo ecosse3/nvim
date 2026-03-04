@@ -92,7 +92,9 @@ local settings = {
 }
 
 local on_attach = function(client, bufnr)
-  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  if EcoVim.lsp.inlay_hints then
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  end
   require("plugins.which-key.setup").attach_typescript(bufnr)
 end
 

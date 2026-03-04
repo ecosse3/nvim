@@ -37,7 +37,9 @@ vim.lsp.config('*', {
         return capabilities
     end)(),
     on_attach = function(client, bufnr)
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        if EcoVim.lsp.inlay_hints then
+            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
     end,
 })
 

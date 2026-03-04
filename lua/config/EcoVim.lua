@@ -83,6 +83,7 @@ EcoVim = {
 		exclude = { "ts_ls", "copilot" },
 		servers = {},
 		format_on_save = false,
+		inlay_hints = true,
 	},
 
 	-- Formatting Configuration (override in user.lua)
