@@ -110,6 +110,12 @@ All notable changes to this project will be documented in this file. See [standa
 * **lsp:** remove redundant signatureHelp border handlers (handled by global `winborder`) and redundant publishDiagnostics override ([96396ff](https://github.com/ecosse3/nvim/commit/96396ff))
 * **lsp:** add missing graphql config root patterns (`.graphqlrc.ts`, `.graphqlrc.toml`, `graphql.config.ts`, `graphql.config.toml`) ([ba260b2](https://github.com/ecosse3/nvim/commit/ba260b2))
 
+#### TypeScript Server Toggle
+
+* **lsp:** add `EcoVim.lsp.typescript_server` option to switch between `tsgo` (default) and `ts_ls` — inactive server is auto-excluded ([afedba3](https://github.com/ecosse3/nvim/commit/afedba3))
+* **lsp:** replace TSTools keybindings with standard LSP code actions (organize imports, add missing imports, remove unused, fix all) ([dff91a9](https://github.com/ecosse3/nvim/commit/dff91a9))
+* **lsp:** pass buffer diagnostics to TypeScript code actions — diagnostic-dependent actions like `addMissingImports` now work correctly ([0daba30](https://github.com/ecosse3/nvim/commit/0daba30))
+
 
 ### Refactors
 
