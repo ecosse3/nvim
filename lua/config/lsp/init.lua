@@ -53,6 +53,7 @@ require("config.lsp.servers.bashls")
 require("config.lsp.servers.graphql")
 require("config.lsp.servers.prismals")
 require("config.lsp.servers.denols")
+require("config.lsp.servers.yamlls")
 
 -- vim.lsp.config("tsgo", {
 --     cmd = { vim.loop.os_homedir() .. "/Projects/typescript-go/built/local/tsgo", "lsp", "-stdio" },
