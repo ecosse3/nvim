@@ -92,9 +92,9 @@ return {
 			{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", mode = { "n", "i" } },
 
 			-- Diagnostics
-			{ "gl", function() vim.diagnostic.open_float({ border = "rounded", max_width = 100 }) end, desc = "Line Diagnostics" },
-			{ "]g", function() vim.diagnostic.jump({ count = 1, float = { border = "rounded", max_width = 100 } }) end, desc = "Next Diagnostic" },
-			{ "[g", function() vim.diagnostic.jump({ count = -1, float = { border = "rounded", max_width = 100 } }) end, desc = "Prev Diagnostic" },
+			{ "gl", function() vim.diagnostic.open_float({ border = EcoVim.ui.float.border, max_width = 100 }) end, desc = "Line Diagnostics" },
+			{ "]g", function() vim.diagnostic.jump({ count = 1, float = { border = EcoVim.ui.float.border, max_width = 100 } }) end, desc = "Next Diagnostic" },
+			{ "[g", function() vim.diagnostic.jump({ count = -1, float = { border = EcoVim.ui.float.border, max_width = 100 } }) end, desc = "Prev Diagnostic" },
 
 			-- Code actions
 			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
