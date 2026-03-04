@@ -221,6 +221,11 @@ Completely dropped `telescope.nvim` — all picker functionality is now provided
 * **lsp:** add symbol-usage.nvim for reference/implementation counts (`<leader>cu`) ([818f373](https://github.com/ecosse3/nvim/commit/818f373))
 * **lsp:** add lazydev.nvim for Neovim Lua API completions ([e310e59](https://github.com/ecosse3/nvim/commit/e310e59))
 
+#### Monorepo & Project Management
+
+* **config:** improve monorepo support — detect pnpm, Turborepo, Nx, Lerna, Rush root markers; remove package.json from rooter patterns
+* **config:** add `EcoVim.plugins.projects` and `EcoVim.plugins.rooter` user overrides
+
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
 

@@ -56,6 +56,7 @@
 - [yazi.nvim](https://github.com/mikavilpas/yazi.nvim) - terminal file manager
 - [harpoon](https://github.com/ThePrimeagen/harpoon) - quick file navigation
 - [multicursor](https://github.com/jake-stewart/multicursor.nvim) - multi-cursor editing
+- Monorepo-aware root detection (pnpm, Turborepo, Nx, Lerna, Rush)
 
 
 </td>
@@ -66,6 +67,7 @@
 - [SchemaStore](https://github.com/b0o/SchemaStore.nvim) - 500+ JSON/YAML schemas
 - [inc-rename](https://github.com/smjonas/inc-rename.nvim) - live-preview rename
 - [symbol-usage](https://github.com/Wansmer/symbol-usage.nvim) - reference counts
+- [lazydev](https://github.com/folke/lazydev.nvim) - Neovim Lua API completions
 - [grug-far](https://github.com/MagicDuck/grug-far.nvim) - search & replace
 - [text-case](https://github.com/johmsalas/text-case.nvim) - case conversion
 - [scissors](https://github.com/chrisgrieser/nvim-scissors) - snippet editing
@@ -101,6 +103,7 @@ EcoVim ships with deep TypeScript and React/Next.js integration out of the box:
 | **Reference counts** | [symbol-usage](https://github.com/Wansmer/symbol-usage.nvim) | Show usage counts above functions/components |
 | **Live rename** | [inc-rename](https://github.com/smjonas/inc-rename.nvim) | Preview LSP rename as you type |
 | **JSON/YAML schemas** | [SchemaStore](https://github.com/b0o/SchemaStore.nvim) | Auto-schemas for tsconfig, package.json, etc. |
+| **Lua API completions** | [lazydev](https://github.com/folke/lazydev.nvim) | Neovim Lua API types for `vim.*`, plugins |
 
 ### 🚀 Performance
 - **Startup time**: ~90ms (measured on M1 Mac)
@@ -206,11 +209,18 @@ EcoVim.autocmds.auto_save = {
   command = "silent! wa",
 }
 
--- Override any plugin config
-EcoVim.plugin_overrides.snacks = function(opts)
+-- Override any plugin config (use repo name, e.g., "snacks.nvim")
+EcoVim.plugin_overrides["snacks.nvim"] = function(_, opts)
   opts.picker.layout = "vertical"
-  return opts
 end
+
+-- Configure project directories (for <leader>pl project picker)
+EcoVim.plugins.projects.dev = { "~/Projects", "~/Work" }
+
+-- Rooter supports monorepo tools out of the box:
+-- pnpm, Turborepo, Nx, Lerna, Rush
+-- Add package.json back to rooter if you don't use monorepos
+-- EcoVim.plugins.rooter.patterns = { ".git", "package.json" }
 
 -- Custom vim options
 vim.opt.tabstop = 4
@@ -233,6 +243,9 @@ vim.opt.shiftwidth = 4
 | `keys` | table | Disable default keymaps: `keys.s = false` |
 | `autocmds` | table | Add custom autocmds |
 | `plugin_overrides` | table | Override any plugin configuration |
+| `plugins.rooter.patterns` | table | Root detection patterns for vim-rooter |
+| `plugins.projects.dev` | table | Directories to scan for projects |
+| `plugins.projects.patterns` | table | Patterns to detect project roots |
 
 ### Updating EcoVim
 

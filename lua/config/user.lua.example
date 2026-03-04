@@ -2,23 +2,24 @@
   ╔════════════════════════════════════════════════════════════════╗
   ║                     EcoVim User Configuration                  ║
   ╠════════════════════════════════════════════════════════════════╣
-  ║  This is YOUR personal configuration file.                    ║
-  ║  It is gitignored and won't be tracked by git.                ║
+  ║  This is YOUR personal configuration file.                     ║
+  ║  It is gitignored and won't be tracked by git.                 ║
   ║                                                                ║
-  ║  HOW IT WORKS:                                                ║
-  ║  1. EcoVim.lua loads first (default settings)                 ║
-  ║  2. This file loads second (YOUR overrides)                   ║
-  ║  3. Your settings take priority over defaults                 ║
+  ║  HOW IT WORKS:                                                 ║
+  ║  1. EcoVim.lua loads first (default settings)                  ║
+  ║  2. This file loads second (YOUR overrides)                    ║
   ║                                                                ║
-  ║  TO CUSTOMIZE:                                                ║
-  ║  1. Copy this file: cp user.lua.example user.lua              ║
-  ║  2. Edit user.lua with your preferences                       ║
-  ║  3. Restart Neovim or run :luafile %                         ║
+  ║  Your settings take priority over EcoVim defaults.             ║
   ║                                                                ║
-  ║  UPDATING ECOVIM:                                             ║
-  ║  Since this file is gitignored, you can safely run:           ║
-  ║     git pull                                                  ║
-  ║  Without worrying about merge conflicts!                      ║
+  ║  TO CUSTOMIZE:                                                 ║
+  ║  1. Copy this file: cp user.lua.example user.lua               ║
+  ║  2. Edit user.lua with your preferences                        ║
+  ║  3. Restart Neovim or run :luafile %                           ║
+  ║                                                                ║
+  ║  UPDATING ECOVIM:                                              ║
+  ║  Since this file is gitignored, you can safely run:            ║
+  ║     git pull                                                   ║
+  ║  Without worrying about merge conflicts!                       ║
   ╚════════════════════════════════════════════════════════════════╝
 --]]
 
@@ -28,6 +29,7 @@
 
 -- Change the colorscheme (default: "tokyonight-night")
 -- Available: "tokyonight-night", "tokyonight-storm", "tokyonight-day"
+-- You can install your own!
 -- EcoVim.colorscheme = "tokyonight-storm"
 
 -- Change GUI font (for Neovide, etc.)
@@ -35,7 +37,7 @@
 
 -- Change floating window border style
 -- Available: "rounded", "single", "double", "shadow", "none"
--- EcoVim.ui.float.border = "single"
+-- EcoVim.ui.float.border = "rounded"
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
@@ -116,22 +118,21 @@
 
 -- Override ANY plugin configuration without modifying plugin files
 -- This is the most powerful customization option!
+-- Use the plugin's repo name (e.g., "snacks.nvim", "blink.cmp", "todo-comments.nvim")
 
--- Example: Change Snacks picker layout
--- EcoVim.plugin_overrides.snacks = function(opts)
+-- Example: Change Snacks picker layout (function receives plugin and opts)
+-- EcoVim.plugin_overrides["snacks.nvim"] = function(_, opts)
 --   opts.picker.layout = "vertical"
 --   opts.picker.preview = false
---   return opts
 -- end
 
 -- Example: Customize blink.cmp
--- EcoVim.plugin_overrides.blink = function(opts)
+-- EcoVim.plugin_overrides["blink.cmp"] = function(_, opts)
 --   opts.completion.menu.auto_show = false
---   return opts
 -- end
 
--- Example: Override any plugin with a table
--- EcoVim.plugin_overrides.todo_comments = {
+-- Example: Override any plugin with a table (deep-merged with defaults)
+-- EcoVim.plugin_overrides["todo-comments.nvim"] = {
 --   signs = false,
 --   highlight = { keyword = "bg" },
 -- }
@@ -154,7 +155,28 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 8. STATUSLINE                                                │
+-- │ 8. PROJECT & MONOREPO SETTINGS                               │
+-- ╰──────────────────────────────────────────────────────────────╯
+
+-- Configure which directories are scanned for projects (<leader>pl)
+-- EcoVim.plugins.projects.dev = { "~/Projects", "~/.config" }
+
+-- Configure how project roots are detected
+-- Default uses only .git to avoid sub-package false positives in monorepos
+-- EcoVim.plugins.projects.patterns = { ".git" }
+
+-- Configure vim-rooter patterns (determines cwd when opening files)
+-- Supports monorepo tools: pnpm, Turborepo, Nx, Lerna, Rush
+-- Default excludes package.json to prevent cwd from changing to sub-packages
+-- If you don't use monorepos, you may want to add "package.json" back
+-- EcoVim.plugins.rooter.patterns = {
+--   "pnpm-workspace.yaml", "turbo.json", "nx.json", "lerna.json", "rush.json",
+--   ".git", "package.json",
+-- }
+
+
+-- ╭──────────────────────────────────────────────────────────────╮
+-- │ 9. STATUSLINE                                                │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Show full path in statusline
@@ -163,7 +185,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 9. DIRECT VIM OPTIONS                                        │
+-- │ 10. DIRECT VIM OPTIONS                                       │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- You can also set raw vim options here
