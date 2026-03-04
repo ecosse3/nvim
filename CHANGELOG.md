@@ -100,6 +100,16 @@ All notable changes to this project will be documented in this file. See [standa
 * **ui:** replace NvimTree with snacks filetypes in winbar/cursorword exclusions ([f197967](https://github.com/ecosse3/nvim/commit/f197967))
 * **plugins:** replace NvimTree with snacks_layout_box in galaxyline short_line_list ([cc9d954](https://github.com/ecosse3/nvim/commit/cc9d954))
 
+#### LSP Server Config Audit
+
+* **lsp:** remove deprecated eslint `experimental.useFlatConfig` and `useESLintClass`, reduce debounce from 2000ms to 500ms ([9383f7e](https://github.com/ecosse3/nvim/commit/9383f7e))
+* **lsp:** modernize tailwindcss config — add `classAttributes`, `includeLanguages`, twMerge/twJoin class patterns, remove redundant capabilities and deprecated `recommendedVariantOrder` lint rule ([5a783e5](https://github.com/ecosse3/nvim/commit/5a783e5))
+* **lsp:** update deno config for Deno 2.x — remove deprecated `importMap`, dead registries (nest.land, crux.land), use array `unstable` ([9673dac](https://github.com/ecosse3/nvim/commit/9673dac))
+* **lsp:** improve lua_ls config — add `checkThirdParty = false`, remove extreme preload values, remove unnecessary `bit` global ([36d2c5f](https://github.com/ecosse3/nvim/commit/36d2c5f))
+* **lsp:** disable vue_ls `hybridMode` for tsgo compatibility, add `tsdk` path for type resolution ([91c8c38](https://github.com/ecosse3/nvim/commit/91c8c38))
+* **lsp:** remove redundant signatureHelp border handlers (handled by global `winborder`) and redundant publishDiagnostics override ([96396ff](https://github.com/ecosse3/nvim/commit/96396ff))
+* **lsp:** add missing graphql config root patterns (`.graphqlrc.ts`, `.graphqlrc.toml`, `graphql.config.ts`, `graphql.config.toml`) ([ba260b2](https://github.com/ecosse3/nvim/commit/ba260b2))
+
 
 ### Refactors
 
