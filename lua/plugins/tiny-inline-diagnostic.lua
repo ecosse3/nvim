@@ -11,6 +11,8 @@ return {
           enabled = true,
           always_show = true,
         },
+        -- Auto-hide inline diagnostics when vim.diagnostic.open_float() is used (gl keymap)
+        override_open_float = true,
       },
     })
 

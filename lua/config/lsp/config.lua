@@ -122,33 +122,6 @@ vim.diagnostic.config({
   virtual_text = false, -- Disabled: using tiny-inline-diagnostic.nvim instead
 })
 
-local group = vim.api.nvim_create_augroup('OoO', {})
-
-local function au(typ, pattern, cmdOrFn)
-	if type(cmdOrFn) == 'function' then
-		vim.api.nvim_create_autocmd(typ, { pattern = pattern, callback = cmdOrFn, group = group })
-	else
-		vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
-	end
-end
-
-au('CursorHold', nil, function()
-	local opts = {
-		focusable = false,
-		scope = 'cursor',
-		close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter' },
-	}
-	vim.diagnostic.open_float(nil, opts)
-end)
-
-au('InsertEnter', nil, function(args)
-	vim.diagnostic.enable(false, { bufnr = args.buf })
-end)
-
-au('InsertLeave', nil, function(args)
-	vim.diagnostic.enable(true, { bufnr = args.buf })
-end)
-
 -- UI
 
 local lspui_ok, lspui = pcall(require, 'lspconfig.ui.windows')
