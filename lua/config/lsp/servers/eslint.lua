@@ -18,9 +18,6 @@ vim.lsp.config.eslint = {
 			enable = false,
 			mode = "all",
 		},
-		experimental = {
-			useFlatConfig = false,
-		},
 		format = true,
 		nodePath = "",
 		onIgnoredFiles = "off",
@@ -30,7 +27,6 @@ vim.lsp.config.eslint = {
 		quiet = false,
 		rulesCustomizations = {},
 		run = "onType",
-		useESLintClass = false,
 		validate = "on",
 		workingDirectory = {
 			mode = "location",
@@ -38,7 +34,7 @@ vim.lsp.config.eslint = {
 	},
 	flags = {
 		allow_incremental_sync = true,
-		debounce_text_changes = 2000,
+		debounce_text_changes = 500,
 		exit_timeout = 2000,
 	},
 }
