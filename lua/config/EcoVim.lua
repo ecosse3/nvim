@@ -53,6 +53,9 @@ EcoVim = {
 		jump_by_subwords = {
 			enabled = false,
 		},
+		git = {
+			blame_line = true,
+		},
 		rooter = {
 			-- Monorepo root markers (turbo, nx, pnpm, lerna, rush) are listed before .git
 			-- so monorepo roots are preferred over plain git repos.
