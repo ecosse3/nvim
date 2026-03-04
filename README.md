@@ -222,6 +222,12 @@ EcoVim.plugins.projects.dev = { "~/Projects", "~/Work" }
 -- Add package.json back to rooter if you don't use monorepos
 -- EcoVim.plugins.rooter.patterns = { ".git", "package.json" }
 
+-- Toggle features on/off
+EcoVim.lsp.format_on_save = true        -- Enable auto-format on save
+EcoVim.lsp.inlay_hints = false           -- Disable inlay hints
+EcoVim.plugins.completion.ghost_text = false  -- Disable ghost text
+EcoVim.plugins.git.blame_line = false    -- Disable inline git blame
+
 -- Custom vim options
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -229,23 +235,37 @@ vim.opt.shiftwidth = 4
 
 ### Full Configuration Options
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `colorscheme` | string | Theme name (default: "tokyonight-night") |
-| `ui.font` | table | GUI font settings |
-| `ui.float.border` | string | Border style: "rounded", "single", "double" |
-| `plugins.ai.*.enabled` | boolean | Enable/disable AI plugins |
-| `lsp.ensure_installed` | table | Additional LSP servers to install |
-| `lsp.exclude` | table | LSP servers to not auto-enable |
-| `lsp.servers` | table | Custom LSP server configurations |
-| `formatters` | table | Override formatters per filetype |
-| `linters` | table | Override linters per filetype |
-| `keys` | table | Disable default keymaps: `keys.s = false` |
-| `autocmds` | table | Add custom autocmds |
-| `plugin_overrides` | table | Override any plugin configuration |
-| `plugins.rooter.patterns` | table | Root detection patterns for vim-rooter |
-| `plugins.projects.dev` | table | Directories to scan for projects |
-| `plugins.projects.patterns` | table | Patterns to detect project roots |
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `colorscheme` | string | `"tokyonight-night"` | Theme name |
+| `ui.font` | table | | GUI font settings |
+| `ui.float.border` | string | `"rounded"` | Border style: "rounded", "single", "double", "shadow", "none" |
+| `lsp.ensure_installed` | table | `{}` | Additional LSP servers to install via Mason |
+| `lsp.exclude` | table | `{ "ts_ls", "copilot" }` | LSP servers to not auto-enable |
+| `lsp.servers` | table | `{}` | Custom LSP server configurations |
+| `lsp.format_on_save` | boolean | `false` | Auto-format on save (toggle at runtime with `:LspToggleAutoFormat`) |
+| `lsp.inlay_hints` | boolean | `true` | Show inlay hints from LSP servers |
+| `formatters` | table | `{}` | Override formatters per filetype |
+| `linters` | table | `{}` | Override linters per filetype |
+| `keys` | table | | Disable default keymaps: `keys.s = false` |
+| `autocmds` | table | | Add custom autocmds |
+| `plugin_overrides` | table | | Override any plugin configuration |
+| `plugins.ai.*.enabled` | boolean | varies | Enable/disable AI plugins (avante, copilot, opencode) |
+| `plugins.completion.select_first_on_enter` | boolean | `false` | Auto-select first completion item on Enter |
+| `plugins.completion.ghost_text` | boolean | `true` | Show inline completion preview (ghost text) |
+| `plugins.git.blame_line` | boolean | `true` | Show inline git blame on current line |
+| `plugins.rooter.patterns` | table | | Root detection patterns for vim-rooter |
+| `plugins.projects.dev` | table | `{ "~/Projects" }` | Directories to scan for projects |
+| `plugins.projects.patterns` | table | `{ ".git" }` | Patterns to detect project roots |
+
+### Tips
+
+- **Runtime toggles** -- Some options also have runtime commands: `:LspToggleAutoFormat` for format-on-save, `:Gitsigns toggle_current_line_blame` for git blame.
+- **Plugin overrides** let you change ANY plugin's config without forking files. Use the plugin's GitHub repo name (e.g., `"snacks.nvim"`, `"blink.cmp"`). Function overrides receive `(plugin, opts)` -- mutate `opts` directly, no need to return.
+- **Monorepo users** -- EcoVim detects pnpm/Turborepo/Nx/Lerna/Rush roots automatically. The `package.json` is excluded from rooter patterns to prevent `cwd` from scoping to sub-packages.
+- **Non-monorepo users** -- Add `package.json` back: `EcoVim.plugins.rooter.patterns = { ".git", "package.json" }`
+- **Border style** -- `EcoVim.ui.float.border` controls ALL floating windows (hover, diagnostics, completion, signature help). Set it once and everything follows.
+- See `user.lua.example` for the complete reference with all available options and inline documentation.
 
 ### Updating EcoVim
 
