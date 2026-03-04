@@ -202,6 +202,16 @@ All notable changes to this project will be documented in this file. See [standa
 * **winbar:** add augroup to prevent duplicate autocmds on re-source ([7e40938](https://github.com/ecosse3/nvim/commit/7e40938))
 * **utils:** guard require('utils') with pcall in functions.lua ([7799141](https://github.com/ecosse3/nvim/commit/7799141))
 
+#### Telescope Removal
+
+Completely dropped `telescope.nvim` — all picker functionality is now provided by `snacks.nvim`.
+
+* **telescope:** remove unused custom pickers (`pickers.lua`, `multi-rg.lua`) ([18d2bcc](https://github.com/ecosse3/nvim/commit/18d2bcc))
+* **git:** remove git-worktree plugin — use lazygit for worktree management ([8fd3998](https://github.com/ecosse3/nvim/commit/8fd3998))
+* **scissors:** remove telescope dependency — nvim-scissors auto-detects snacks picker ([86800b7](https://github.com/ecosse3/nvim/commit/86800b7))
+* **octo:** switch to snacks picker and remove telescope dependency ([6faadb8](https://github.com/ecosse3/nvim/commit/6faadb8))
+* **plugins:** remove telescope.nvim entirely ([a297755](https://github.com/ecosse3/nvim/commit/a297755))
+
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
 
