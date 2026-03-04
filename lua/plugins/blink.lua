@@ -207,9 +207,9 @@ return {
 					},
 				},
 
-				ghost_text = {
-					enabled = true,
-				},
+			ghost_text = {
+				enabled = EcoVim.plugins.completion.ghost_text,
+			},
 			},
 
 			signature = {

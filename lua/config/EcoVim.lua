@@ -48,6 +48,7 @@ EcoVim = {
 		},
 		completion = {
 			select_first_on_enter = false,
+			ghost_text = true,
 		},
 		jump_by_subwords = {
 			enabled = false,
