@@ -11,7 +11,7 @@ local handlers = {
   ),
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.handlers["textDocument/publishDiagnostics"],
-    { virtual_text = true }
+    { virtual_text = false } -- Using tiny-inline-diagnostic.nvim
   ),
   ["textDocument/definition"] = function(err, result, method, ...)
     if vim.islist(result) and #result > 1 then

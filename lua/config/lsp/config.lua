@@ -119,9 +119,7 @@ vim.diagnostic.config({
   },
   underline = true,
   update_in_insert = false,
-  virtual_text = {
-    prefix = EcoVim.icons.circle,
-  },
+  virtual_text = false, -- Disabled: using tiny-inline-diagnostic.nvim instead
 })
 
 local group = vim.api.nvim_create_augroup('OoO', {})
