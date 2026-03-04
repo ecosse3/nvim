@@ -96,6 +96,30 @@ return {
 			{ "g<D-a>", function() require("dial.map").manipulate("increment", "gvisual") end, mode = "x" },
 			{ "g<D-x>", function() require("dial.map").manipulate("decrement", "gvisual") end, mode = "x" },
 		},
+		config = function()
+			local augend = require("dial.augend")
+			require("dial.config").augends:register_group({
+				default = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.date.alias["%Y/%m/%d"],
+					augend.date.alias["%Y-%m-%d"],
+					augend.date.alias["%m/%d"],
+					augend.date.alias["%H:%M"],
+					augend.constant.new({ elements = { "true", "false" } }),
+					augend.constant.new({ elements = { "True", "False" } }),
+					augend.constant.new({ elements = { "TRUE", "FALSE" } }),
+					augend.constant.new({ elements = { "yes", "no" } }),
+					augend.constant.new({ elements = { "Yes", "No" } }),
+					augend.constant.new({ elements = { "on", "off" } }),
+					augend.constant.new({ elements = { "On", "Off" } }),
+					augend.constant.new({ elements = { "ON", "OFF" } }),
+					augend.constant.new({ elements = { "enable", "disable" } }),
+					augend.constant.new({ elements = { "enabled", "disabled" } }),
+					augend.constant.new({ elements = { "&&", "||" }, word = false }),
+				},
+			})
+		end,
 	},
 
 	{
