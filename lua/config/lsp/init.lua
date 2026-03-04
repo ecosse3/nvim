@@ -51,19 +51,11 @@ require("config.lsp.servers.prismals")
 require("config.lsp.servers.denols")
 require("config.lsp.servers.yamlls")
 
--- vim.lsp.config("tsgo", {
---     cmd = { vim.loop.os_homedir() .. "/Projects/typescript-go/built/local/tsgo", "lsp", "-stdio" },
---     filetypes = {
---         "javascript",
---         "javascriptreact",
---         "javascript.jsx",
---         "typescript",
---         "typescriptreact",
---         "typescript.tsx",
---     },
---     root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
--- })
--- vim.lsp.enable("tsgo")
+-- Load TypeScript server config based on user preference
+-- tsgo is the default (experimental, fast); ts_ls is the stable alternative
+if EcoVim.lsp.typescript_server == "ts_ls" then
+    require("config.lsp.servers.ts_ls")
+end
 
 -- Setup UFO for folding
 local ufo_ok, ufo = pcall(require, "ufo")

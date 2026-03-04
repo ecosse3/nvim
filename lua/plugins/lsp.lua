@@ -22,6 +22,10 @@ return {
 				},
 			})
 
+			-- Determine TypeScript server based on user preference
+			local ts_server = EcoVim.lsp.typescript_server or "tsgo"
+			local ts_exclude = ts_server == "tsgo" and "ts_ls" or "tsgo"
+
 			-- Set up Mason-lspconfig
 			local default_servers = {
 				"bashls",
@@ -43,7 +47,7 @@ return {
 				"tailwindcss",
 				"terraformls",
 				"tflint",
-				"tsgo",
+				ts_server,
 				"vue_ls",
 				"yamlls",
 			}
@@ -51,11 +55,14 @@ return {
 			-- Merge default servers with user custom servers
 			local ensure_installed = vim.list_extend(default_servers, EcoVim.lsp.ensure_installed or {})
 
+			-- Build exclude list: always exclude copilot + the unused TypeScript server
+			local exclude = vim.list_extend({ ts_exclude, "copilot" }, EcoVim.lsp.exclude or {})
+
 			require("mason-lspconfig").setup({
 				ensure_installed = ensure_installed,
 				-- Automatically enable installed servers via vim.lsp.enable
 				automatic_enable = {
-					exclude = EcoVim.lsp.exclude or { "ts_ls", "copilot" },
+					exclude = exclude,
 				},
 			})
 
