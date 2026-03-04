@@ -66,7 +66,6 @@ All notable changes to this project will be documented in this file. See [standa
 * **config:** add user.lua configuration system for customization without merge conflicts ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
 * **config:** add EcoVim.lsp configuration for custom LSP servers ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
 * **config:** add EcoVim.formatters and EcoVim.linters overrides ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
-* **config:** add EcoVim.keys for disabling default keymaps ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
 * **config:** add EcoVim.autocmds for custom autocmds ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
 * **config:** add EcoVim.plugin_overrides for plugin customization ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))
 * **config:** add apply_plugin_overrides utility function ([6ec8f46](https://github.com/ecosse3/nvim/commit/6ec8f46))

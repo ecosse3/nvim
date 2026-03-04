@@ -1,18 +1,11 @@
 local keymap = vim.keymap.set
 local silent = { silent = true }
 
--- Helper to check if keymap is disabled in EcoVim.keys
-local function is_disabled(key)
-  return EcoVim.keys and EcoVim.keys[key] == false
-end
-
 table.unpack = table.unpack or unpack -- 5.1 compatibility
 
 -- Fix moving forward in jumplist via <C-i> and <D-i>
-if not is_disabled("<C-i>") then
-  keymap("n", "<C-I>", "<C-I>", silent)
-  keymap("n", "<D-I>", "<C-I>", silent)
-end
+keymap("n", "<C-I>", "<C-I>", silent)
+keymap("n", "<D-I>", "<C-I>", silent)
 
 -- Add down/up mapping for Cmd
 keymap("n", "<D-d>", "<C-d>", silent)

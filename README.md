@@ -199,9 +199,6 @@ EcoVim.formatters = {
   typescript = { "prettierd" },
 }
 
--- Disable default keymaps
-EcoVim.keys.s = false  -- Disable flash.nvim 's' key
-
 -- Add custom autocmds
 EcoVim.autocmds.auto_save = {
   event = "FocusLost",
@@ -249,7 +246,6 @@ vim.opt.shiftwidth = 4
 | `lsp.inlay_hints` | boolean | `true` | Show inlay hints from LSP servers |
 | `formatters` | table | `{}` | Override formatters per filetype |
 | `linters` | table | `{}` | Override linters per filetype |
-| `keys` | table | | Disable default keymaps: `keys.s = false` |
 | `autocmds` | table | | Add custom autocmds |
 | `plugin_overrides` | table | | Override any plugin configuration |
 | `plugins.ai.*.enabled` | boolean | varies | Enable/disable AI plugins (avante, copilot, opencode) |

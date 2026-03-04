@@ -94,19 +94,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 4. KEYMAPS                                                   │
--- ╰──────────────────────────────────────────────────────────────╯
-
--- Disable default keymaps by setting them to false
--- This prevents EcoVim from creating these mappings
--- EcoVim.keys.s = false        -- Disable flash.nvim 's' key
--- EcoVim.keys["<C-e>"] = false -- Disable file explorer
-
--- Note: To ADD custom keymaps, use config/keymappings.lua instead
-
-
--- ╭──────────────────────────────────────────────────────────────╮
--- │ 5. AUTOCOMMANDS                                              │
+-- │ 4. AUTOCOMMANDS                                              │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Add custom autocmds that run automatically
@@ -126,7 +114,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 6. PLUGIN OVERRIDES                                          │
+-- │ 5. PLUGIN OVERRIDES                                          │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Override ANY plugin configuration without modifying plugin files
@@ -152,7 +140,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 7. PLUGIN TOGGLES                                            │
+-- │ 6. PLUGIN TOGGLES                                            │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Enable/disable specific AI plugins
@@ -175,7 +163,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 8. PROJECT & MONOREPO SETTINGS                               │
+-- │ 7. PROJECT & MONOREPO SETTINGS                               │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Configure which directories are scanned for projects (<leader>pl)
@@ -196,7 +184,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 9. STATUSLINE                                                │
+-- │ 8. STATUSLINE                                                │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- Show full path in statusline
@@ -205,7 +193,7 @@
 
 
 -- ╭──────────────────────────────────────────────────────────────╮
--- │ 10. DIRECT VIM OPTIONS                                       │
+-- │ 9. DIRECT VIM OPTIONS                                        │
 -- ╰──────────────────────────────────────────────────────────────╯
 
 -- You can also set raw vim options here

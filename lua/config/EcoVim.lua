@@ -100,7 +100,6 @@ local icons = require("utils.icons")
 ---@field lsp EcoVimLSP LSP configuration
 ---@field formatters table<string, string[]> Override formatters per filetype
 ---@field linters table<string, string[]> Override linters per filetype
----@field keys table<string, false> Disable default keymaps by setting to false
 ---@field autocmds table<string, EcoVimAutocmd> Custom autocommands
 ---@field plugin_overrides table<string, function|table> Override any plugin configuration
 ---@field statusline EcoVimStatusline Statusline configuration
@@ -175,9 +174,6 @@ EcoVim = {
 
 	-- Linting Configuration (override in user.lua)
 	linters = {},
-
-	-- Keymap Configuration (disable keys in user.lua)
-	keys = {},
 
 	-- Autocmd Configuration (add in user.lua)
 	autocmds = {},
