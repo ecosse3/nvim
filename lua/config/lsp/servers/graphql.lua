@@ -34,10 +34,14 @@ vim.lsp.config.graphql = {
       '.graphqlrc.yaml',
       '.graphqlrc.yml',
       '.graphqlrc.js',
+      '.graphqlrc.ts',
+      '.graphqlrc.toml',
       'graphql.config.json',
       'graphql.config.js',
+      'graphql.config.ts',
       'graphql.config.yaml',
-      'graphql.config.yml'
+      'graphql.config.yml',
+      'graphql.config.toml',
     }
     local root = util.root_pattern(unpack(root_patterns))(fname)
     if root then
