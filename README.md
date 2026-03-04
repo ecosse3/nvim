@@ -28,6 +28,7 @@
 - Custom [galaxyline](https://github.com/glepnir/galaxyline.nvim) statusline
 - [Snacks.nvim](https://github.com/folke/snacks.nvim) - explorer, picker, notifications
 - [tiny-glimmer](https://github.com/rachartier/tiny-glimmer.nvim) - highlight animations
+- [tiny-inline-diagnostic](https://github.com/rachartier/tiny-inline-diagnostic.nvim) - enhanced diagnostics
 - [todo-comments](https://github.com/folke/todo-comments.nvim) - TODO highlighting
 - [which-key](https://github.com/folke/which-key.nvim) - keybinding helper
 
@@ -38,6 +39,7 @@
 - TypeScript, React, Next.js, Vue
 - [TailwindCSS](https://tailwindcss.com/) with color highlighting
 - [blink.cmp](https://github.com/Saghen/blink.cmp) - completion engine
+- [boundary.nvim](https://github.com/Kenzo-Wada/boundary.nvim) - RSC `'use client'` markers
 - NPM package info in package.json
 - [Jest](https://github.com/facebook/jest) testing & coverage
 - [treesj](https://github.com/Wansmer/treesj) - smart split/join lines
@@ -61,11 +63,12 @@
 
 ### 🔍 Code Quality
 - Native LSP via [mason.nvim](https://github.com/williamboman/mason.nvim)
-- Treesitter-based folding
+- [SchemaStore](https://github.com/b0o/SchemaStore.nvim) - 500+ JSON/YAML schemas
+- [inc-rename](https://github.com/smjonas/inc-rename.nvim) - live-preview rename
+- [symbol-usage](https://github.com/Wansmer/symbol-usage.nvim) - reference counts
 - [grug-far](https://github.com/MagicDuck/grug-far.nvim) - search & replace
 - [text-case](https://github.com/johmsalas/text-case.nvim) - case conversion
 - [scissors](https://github.com/chrisgrieser/nvim-scissors) - snippet editing
-- [codesnap](https://github.com/mistricky/codesnap.nvim) - code screenshots
 
 </td>
 <td valign="top" width="33%">
@@ -81,6 +84,23 @@
 </td>
 </tr>
 </table>
+
+### 📘 TypeScript & React Features
+
+EcoVim ships with deep TypeScript and React/Next.js integration out of the box:
+
+| Feature | Plugin | Description |
+|---------|--------|-------------|
+| **Type checking** | [tsc.nvim](https://github.com/dmmulroy/tsc.nvim) | Async project-wide `tsc --noEmit` with quickfix |
+| **Error translation** | [ts-error-translator](https://github.com/dmmulroy/ts-error-translator.nvim) | Human-readable TypeScript errors |
+| **RSC boundaries** | [boundary.nvim](https://github.com/Kenzo-Wada/boundary.nvim) | Visualize `'use client'` directive usage in Next.js |
+| **Template strings** | [template-string](https://github.com/axelvc/template-string.nvim) | Auto-convert to template literals on `${}` |
+| **Tailwind values** | [tw-values](https://github.com/MaximilianLloyd/tw-values.nvim) | Preview resolved Tailwind class values |
+| **Tailwind fold** | [tailwind-fold](https://github.com/razak17/tailwind-fold.nvim) | Fold long Tailwind class strings |
+| **Smart increment** | [dial.nvim](https://github.com/monaqa/dial.nvim) | Cycle true/false, const/let, increment dates |
+| **Reference counts** | [symbol-usage](https://github.com/Wansmer/symbol-usage.nvim) | Show usage counts above functions/components |
+| **Live rename** | [inc-rename](https://github.com/smjonas/inc-rename.nvim) | Preview LSP rename as you type |
+| **JSON/YAML schemas** | [SchemaStore](https://github.com/b0o/SchemaStore.nvim) | Auto-schemas for tsconfig, package.json, etc. |
 
 ### 🚀 Performance
 - **Startup time**: ~90ms (measured on M1 Mac)
