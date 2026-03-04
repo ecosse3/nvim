@@ -219,6 +219,7 @@ Completely dropped `telescope.nvim` — all picker functionality is now provided
 * **lsp:** add inc-rename.nvim for live-preview LSP rename (`<leader>cr`) ([4c68a83](https://github.com/ecosse3/nvim/commit/4c68a83))
 * **nextjs:** add boundary.nvim to visualize 'use client' RSC boundaries ([04f7cf4](https://github.com/ecosse3/nvim/commit/04f7cf4))
 * **lsp:** add symbol-usage.nvim for reference/implementation counts (`<leader>cu`) ([818f373](https://github.com/ecosse3/nvim/commit/818f373))
+* **lsp:** add lazydev.nvim for Neovim Lua API completions ([e310e59](https://github.com/ecosse3/nvim/commit/e310e59))
 
 ## [4.2.0](https://github.com/ecosse3/nvim/compare/v4.1.1...v4.2.0) (2025-02-04)
 
