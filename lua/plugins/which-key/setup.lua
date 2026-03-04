@@ -165,13 +165,19 @@ local function attach_typescript(bufnr)
     { buffer = bufnr },
     { "<leader>c",   group = "LSP", },
     { "<leader>ce",  "<cmd>TSC<CR>",                      desc = "workspace errors (TSC)" },
-    { "<leader>cF",  "<cmd>TSToolsFixAll<CR>",            desc = "fix all" },
-    { "<leader>ci",  "<cmd>TSToolsAddMissingImports<CR>", desc = "import all" },
-    { "<leader>co",  "<cmd>TSToolsOrganizeImports<CR>",   desc = "organize imports" },
-    { "<leader>cs",  "<cmd>TSToolsSortImports<CR>",       desc = "sort imports" },
-    { "<leader>cu",  "<cmd>TSToolsRemoveUnused<CR>",      desc = "remove unused" },
-    { "<leader>cR",  "<cmd>TSToolsRenameFile<CR>",        desc = "rename file" },
-    { "<leader>cF",  "<cmd>TSToolsFileReferences<CR>",    desc = "file references" },
+    { "<leader>co",  function()
+      vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" }, diagnostics = {} }, apply = true })
+    end, desc = "organize imports" },
+    { "<leader>ci",  function()
+      vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports" }, diagnostics = {} }, apply = true })
+    end, desc = "import all" },
+    { "<leader>cu",  function()
+      vim.lsp.buf.code_action({ context = { only = { "source.removeUnused" }, diagnostics = {} }, apply = true })
+    end, desc = "remove unused" },
+    { "<leader>cF",  function()
+      vim.lsp.buf.code_action({ context = { only = { "source.fixAll" }, diagnostics = {} }, apply = true })
+    end, desc = "fix all" },
+    { "<leader>cR",  function() Snacks.rename.rename_file() end, desc = "rename file" },
   })
 end
 

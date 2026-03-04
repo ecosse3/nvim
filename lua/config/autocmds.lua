@@ -27,6 +27,18 @@ if wk_present then
     callback = function() pwk.attach_jest(0) end })
   vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "spectre_panel",
     callback = function() pwk.attach_spectre(0) end })
+
+  -- Attach TypeScript keybindings when tsgo or ts_ls connects
+  local ts_servers = { tsgo = true, ts_ls = true }
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = wk_group,
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client and ts_servers[client.name] then
+        pwk.attach_typescript(args.buf)
+      end
+    end,
+  })
 end
 
 -- File Type Plugin Lazy Loading
