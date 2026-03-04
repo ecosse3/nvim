@@ -212,19 +212,10 @@ local function attach_spectre(bufnr)
   })
 end
 
-local function attach_nvim_tree(bufnr)
-  wk.add({
-    { buffer = bufnr },
-    { "<leader>=",   "<cmd>NvimTreeResize +5<CR>", desc = "resize +5" },
-    { "<leader>-",   "<cmd>NvimTreeResize -5<CR>", desc = "resize +5" },
-  })
-end
-
 return {
   attach_markdown = attach_markdown,
   attach_typescript = attach_typescript,
   attach_npm = attach_npm,
   attach_jest = attach_jest,
   attach_spectre = attach_spectre,
-  attach_nvim_tree = attach_nvim_tree,
 }

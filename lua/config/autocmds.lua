@@ -27,8 +27,6 @@ if wk_present then
     callback = function() pwk.attach_jest(0) end })
   vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "spectre_panel",
     callback = function() pwk.attach_spectre(0) end })
-  vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "NvimTree",
-    callback = function() pwk.attach_nvim_tree(0) end })
 end
 
 -- File Type Plugin Lazy Loading
