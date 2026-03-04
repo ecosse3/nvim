@@ -4,12 +4,6 @@ local ufo_config_handler = ufo_utils.handler
 
 -- Setup default configs for all LSP clients
 vim.lsp.config('*', {
-    handlers = {
-        ["textDocument/signatureHelp"] = vim.lsp.with(
-            vim.lsp.handlers.signature_help,
-            { border = EcoVim.ui.float.border or "rounded" }
-        ),
-    },
     capabilities = (function()
         local blink_ok, blink = pcall(require, 'blink.cmp')
         local capabilities = blink_ok and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()

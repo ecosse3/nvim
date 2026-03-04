@@ -4,15 +4,8 @@ local filter = require("config.lsp.utils.filter").filter
 local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
 local handlers = {
-  ["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-      border = EcoVim.ui.float.border or "rounded",
-    }
-  ),
-  ["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.handlers["textDocument/publishDiagnostics"],
-    { virtual_text = false } -- Using tiny-inline-diagnostic.nvim
-  ),
+  -- Note: signatureHelp border is handled globally by vim.o.winborder
+  -- Note: virtual_text is disabled globally via vim.diagnostic.config in config.lua
   ["textDocument/definition"] = function(err, result, method, ...)
     if vim.islist(result) and #result > 1 then
       local filtered_result = filter(result, filterReactDTS)
