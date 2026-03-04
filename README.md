@@ -225,6 +225,7 @@ EcoVim.plugins.projects.dev = { "~/Projects", "~/Work" }
 -- Toggle features on/off
 EcoVim.lsp.format_on_save = true        -- Enable auto-format on save
 EcoVim.lsp.inlay_hints = false           -- Disable inlay hints
+EcoVim.lsp.typescript_server = "ts_ls"   -- Switch from tsgo to ts_ls
 EcoVim.plugins.completion.ghost_text = false  -- Disable ghost text
 EcoVim.plugins.git.blame_line = false    -- Disable inline git blame
 
@@ -241,7 +242,8 @@ vim.opt.shiftwidth = 4
 | `ui.font` | table | | GUI font settings |
 | `ui.float.border` | string | `"rounded"` | Border style: "rounded", "single", "double", "shadow", "none" |
 | `lsp.ensure_installed` | table | `{}` | Additional LSP servers to install via Mason |
-| `lsp.exclude` | table | `{ "ts_ls", "copilot" }` | LSP servers to not auto-enable |
+| `lsp.exclude` | table | `{ "copilot" }` | LSP servers to not auto-enable |
+| `lsp.typescript_server` | string | `"tsgo"` | TypeScript server: `"tsgo"` (fast, native) or `"ts_ls"` (classic) |
 | `lsp.servers` | table | `{}` | Custom LSP server configurations |
 | `lsp.format_on_save` | boolean | `false` | Auto-format on save (toggle at runtime with `:LspToggleAutoFormat`) |
 | `lsp.inlay_hints` | boolean | `true` | Show inlay hints from LSP servers |
