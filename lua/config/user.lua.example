@@ -52,6 +52,13 @@
 -- (Useful if you want to configure them manually)
 -- EcoVim.lsp.exclude = { "ts_ls", "copilot", "rust_analyzer" }
 
+-- Enable format on save (default: false)
+-- Toggle at runtime with :LspToggleAutoFormat
+-- EcoVim.lsp.format_on_save = true
+
+-- Disable inlay hints (default: true)
+-- EcoVim.lsp.inlay_hints = false
+
 -- Add custom LSP server configuration
 -- See: https://neovim.io/doc/user/lsp.html
 -- EcoVim.lsp.servers.mylsp = {
@@ -149,6 +156,13 @@
 
 -- Completion settings
 -- EcoVim.plugins.completion.select_first_on_enter = true
+
+-- Disable ghost text in completions (default: true)
+-- EcoVim.plugins.completion.ghost_text = false
+
+-- Disable inline git blame on current line (default: true)
+-- Toggle at runtime with :Gitsigns toggle_current_line_blame
+-- EcoVim.plugins.git.blame_line = false
 
 -- Enable jump by subwords (better word navigation)
 -- EcoVim.plugins.jump_by_subwords.enabled = true
