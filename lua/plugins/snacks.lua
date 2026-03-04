@@ -40,6 +40,10 @@ return {
 				sources = {
 					gh_issue = {},
 					gh_pr = {},
+					projects = {
+						patterns = EcoVim.plugins.projects.patterns,
+						dev = EcoVim.plugins.projects.dev,
+					},
 				},
 				previewers = {
 					git = {

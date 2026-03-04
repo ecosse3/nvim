@@ -53,7 +53,27 @@ EcoVim = {
 			enabled = false,
 		},
 		rooter = {
-			patterns = { ".git", "pnpm-workspace.yaml", "package.json", "_darcs", ".bzr", ".svn", "Makefile" },
+			-- Monorepo root markers (turbo, nx, pnpm, lerna, rush) are listed before .git
+			-- so monorepo roots are preferred over plain git repos.
+			-- Note: package.json is intentionally excluded to avoid sub-package detection in monorepos
+			patterns = {
+				"pnpm-workspace.yaml",
+				"turbo.json",
+				"nx.json",
+				"lerna.json",
+				"rush.json",
+				".git",
+				"_darcs",
+				".bzr",
+				".svn",
+				"Makefile",
+			},
+		},
+		projects = {
+			-- Directories to scan for projects (sub-folders matching patterns)
+			dev = { "~/Projects", "~/.config" },
+			-- Patterns to detect project root directories
+			patterns = { ".git" },
 		},
 	},
 
