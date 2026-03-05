@@ -96,7 +96,7 @@ return {
 					vim.lsp.buf.hover()
 				end
 			end, desc = "Hover / Peek Fold" },
-			{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", mode = { "n", "i" } },
+			{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", mode = { "n" } },
 
 			-- Diagnostics
 			{ "gl", function() vim.diagnostic.open_float({ border = EcoVim.ui.float.border, max_width = 100 }) end, desc = "Line Diagnostics" },
