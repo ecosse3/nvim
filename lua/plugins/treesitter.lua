@@ -1,144 +1,103 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    event = "BufReadPre",
-    config = function()
-      require 'nvim-treesitter.configs'.setup {
-        ensure_installed = {
-          "tsx",
-          "typescript",
-          "javascript",
-          "html",
-          "css",
-          "vue",
-          "astro",
-          "svelte",
-          "gitcommit",
-          "graphql",
-          "json",
-          "json5",
-          "lua",
-          "markdown",
-          "prisma",
-          "vim",
-          "dockerfile",
-          "terraform",
-          "hcl",
-          "yaml",
-        },                              -- one of "all", or a list of languages
-        sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
-        ignore_install = { "haskell" }, -- list of parsers to ignore installing
-        highlight = {
-          enable = true,
-          -- disable = { "c", "rust" },  -- list of language that will be disabled
-          -- additional_vim_regex_highlighting = false,
-        },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
+		build = ":TSUpdate",
+		config = function()
+			local function start_ts(buf, lang)
+				if not vim.api.nvim_buf_is_valid(buf) then
+					return
+				end
+				vim.treesitter.start(buf, lang)
+				-- Fold options are window-local; only apply when this buffer is
+				-- the one shown in the current window (async installs finish later).
+				if vim.api.nvim_get_current_buf() == buf then
+					-- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+					vim.wo[0][0].foldmethod = "expr"
+				end
+			end
 
-        incremental_selection = {
-          enable = false,
-          keymaps = {
-            init_selection    = "<leader>gnn",
-            node_incremental  = "<leader>gnr",
-            scope_incremental = "<leader>gne",
-            node_decremental  = "<leader>gnt",
-          },
-        },
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "*" },
+				callback = function(args)
+					local ft = vim.bo[args.buf].filetype
+					local lang = vim.treesitter.language.get_lang(ft)
+					if not lang then
+						return
+					end
 
-        indent = {
-          enable = true
-        },
+					-- Parser already available: start immediately.
+					if vim.treesitter.language.add(lang) then
+						start_ts(args.buf, lang)
+						return
+					end
 
-        textobjects = {
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              ["]]"] = "@jsx.element",
-              ["]f"] = "@function.outer",
-              ["]m"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]F"] = "@function.outer",
-              ["]M"] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[["] = "@jsx.element",
-              ["[f"] = "@function.outer",
-              ["[m"] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[F"] = "@function.outer",
-              ["[M"] = "@class.outer",
-            },
-          },
-          select = {
-            enable = true,
+					-- Otherwise install it (async) and start once it finishes compiling.
+					local available = vim.g.ts_available or require("nvim-treesitter").get_available()
+					vim.g.ts_available = available
+					if vim.tbl_contains(available, lang) then
+						require("nvim-treesitter").install(lang):await(function(err)
+							if err then
+								return
+							end
+							vim.schedule(function()
+								if vim.treesitter.language.add(lang) then
+									start_ts(args.buf, lang)
+								end
+							end)
+						end)
+					end
+				end,
+			})
+		end,
+		dependencies = {
+			"hiphish/rainbow-delimiters.nvim",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
+	},
 
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["~"] = "@parameter.inner",
-            },
-          },
-        },
-
-        textsubjects = {
-          enable = true,
-          prev_selection = '<BS>',
-          keymaps = {
-            ['<CR>'] = 'textsubjects-smart', -- works in visual mode
-          }
-        },
-
-      }
-    end,
-    dependencies = {
-      "hiphish/rainbow-delimiters.nvim",
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      "RRethy/nvim-treesitter-textsubjects",
-    },
-  },
-
-  {
-    "windwp/nvim-ts-autotag",
-    event = "BufReadPre",
-    config = function()
-      require('nvim-ts-autotag').setup({
-        opts = {
-          enable_close = false,          -- Auto close tags
-          enable_rename = true,          -- Auto rename pairs of tags
-          enable_close_on_slash = true   -- Auto close on trailing </
-        },
-        -- Also override individual filetype configs, these take priority.
-        -- Empty by default, useful if one of the "opts" global settings
-        -- doesn't work well in a specific filetype
-        --[[ per_filetype = {
+	{
+		"windwp/nvim-ts-autotag",
+		event = "BufReadPre",
+		config = function()
+			require("nvim-ts-autotag").setup({
+				opts = {
+					enable_close = false, -- Auto close tags
+					enable_rename = true, -- Auto rename pairs of tags
+					enable_close_on_slash = true, -- Auto close on trailing </
+				},
+				-- Also override individual filetype configs, these take priority.
+				-- Empty by default, useful if one of the "opts" global settings
+				-- doesn't work well in a specific filetype
+				--[[ per_filetype = {
             ["html"] = {
               enable_close = false
             }
           } ]]
-      })
-    end
+			})
+		end,
+	},
 
-  },
+	{
+		"m-demare/hlargs.nvim",
+		event = "BufReadPre",
+		config = function()
+			require("hlargs").setup({
+				color = "#ff69b4",
+				highlight = {},
+			})
+		end,
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 
-  {
-    "wurli/contextindent.nvim",
-    -- This is the only config option; you can use it to restrict the files
-    -- which this plugin will affect (see :help autocommand-pattern).
-    opts = { pattern = "*" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-  },
+	{
+		"wurli/contextindent.nvim",
+		-- This is the only config option; you can use it to restrict the files
+		-- which this plugin will affect (see :help autocommand-pattern).
+		opts = { pattern = "*" },
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 }
