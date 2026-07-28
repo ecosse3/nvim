@@ -5,10 +5,8 @@ return {
 		lazy = false,
 		version = false,
 		opts = {
-			provider = "copilot",
-			-- provider = "claude",
+			provider = "claude",
 			mode = "agentic", -- The default mode for interaction. "agentic" uses tools to automatically generate code, "legacy" uses the old planning method to generate code.
-			auto_suggestions_provider = "copilot",
 			behaviour = {
 				auto_apply_diff_after_generation = false,
 				auto_focus_sidebar = true,
@@ -23,26 +21,34 @@ return {
 			hints = { enabled = true },
 			providers = {
 				copilot = {
-					model = "claude-opus-4.5",
-					-- model = "grok-code-fast-1",
+					model = "claude-opus-5",
 					disable_tools = false,
 					extra_request_body = {
 						max_tokens = 200000,
 					},
+				},
+				claude = {
+					endpoint = "https://api.anthropic.com",
+					model = "claude-sonnet-5",
+					timeout = 30000, -- Timeout in milliseconds
 				},
 			},
 			-- system_prompt as function ensures LLM always has latest MCP server state
 			-- This is evaluated for every message, even in existing chats
 			system_prompt = function()
 				local ok, mcphub = pcall(require, "mcphub")
-				if not ok then return "" end
+				if not ok then
+					return ""
+				end
 				local hub = mcphub.get_hub_instance()
 				return hub and hub:get_active_servers_prompt() or ""
 			end,
 			-- Using function prevents requiring mcphub before it's loaded
 			custom_tools = function()
 				local ok, ext = pcall(require, "mcphub.extensions.avante")
-				if not ok then return {} end
+				if not ok then
+					return {}
+				end
 				return { ext.mcp_tool() }
 			end,
 		},
