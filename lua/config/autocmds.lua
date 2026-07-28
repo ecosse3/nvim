@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd(
     group = lazy_group,
     pattern = { "*.test.ts", "*.test.tsx", "*.spec.ts", "*.spec.tsx", "*.test.js", "*.spec.js" },
     callback = function()
-      require("lazy.loader").load({
+      require("lazy").load({
         plugins = { "neotest", }
       })
     end
