@@ -37,7 +37,12 @@ return {
 			enabled = function()
 				-- Disable in snacks picker windows
 				local ft = vim.bo.filetype
-				if ft == "snacks_picker_list" or ft == "snacks_picker_input" or ft:match("^snacks_picker") or ft == "sql" then
+				if
+					ft == "snacks_picker_list"
+					or ft == "snacks_picker_input"
+					or ft:match("^snacks_picker")
+					or ft == "sql"
+				then
 					return false
 				end
 				return "force"
@@ -107,6 +112,7 @@ return {
 					"avante_commands",
 					"avante_mentions",
 					"avante_files",
+					-- "i18n",
 				},
 
 				providers = {
@@ -162,6 +168,11 @@ return {
 							only_semantic_versions = false,
 						},
 					},
+					-- i18n = {
+					-- 	name = "i18n",
+					-- 	module = "i18n.integration.blink_source",
+					-- 	opts = {},
+					-- },
 				},
 			},
 
@@ -182,7 +193,7 @@ return {
 					-- entering insert mode/accepting an item
 					show_on_x_blocked_trigger_characters = { "'", '"', "(", "{" },
 					-- or a function, similar to show_on_blocked_trigger_character
-          prefetch_on_insert = false
+					prefetch_on_insert = false,
 				},
 				menu = {
 					auto_show = true,
@@ -207,9 +218,9 @@ return {
 					},
 				},
 
-			ghost_text = {
-				enabled = EcoVim.plugins.completion.ghost_text,
-			},
+				ghost_text = {
+					enabled = EcoVim.plugins.completion.ghost_text,
+				},
 			},
 
 			signature = {
