@@ -16,7 +16,7 @@ return {
           "nvim-treesitter/nvim-treesitter",
         },
         build = function()
-          if not require("nvim-treesitter.parsers").has_parser("dap_repl") then
+          if not vim.tbl_contains(require("nvim-treesitter").get_installed(), "dap_repl") then
             vim.cmd(":TSInstall dap_repl")
           end
         end,
