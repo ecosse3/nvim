@@ -76,7 +76,6 @@ local icons = require("utils.icons")
 ---@field settings? table Server-specific settings
 
 ---@class EcoVimLSP
----@field typescript_server "tsgo"|"ts_ls" TypeScript server: "tsgo" (fast, native) or "ts_ls" (classic)
 ---@field ensure_installed string[] Additional LSP servers to install via Mason
 ---@field exclude string[] LSP servers to not auto-enable
 ---@field servers table<string, EcoVimLSPServerConfig> Custom LSP server configurations
