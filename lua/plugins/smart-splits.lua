@@ -34,6 +34,13 @@ return {
 					require("smart-splits").move_cursor_right()
 				end
 			end)
+			vim.keymap.set("n", "<D-l>", function()
+				if vim.bo.filetype == "snacks_picker_list" then
+					vim.cmd("wincmd l")
+				else
+					require("smart-splits").move_cursor_right()
+				end
+			end)
 
 			vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
 			-- swapping buffers between windows
