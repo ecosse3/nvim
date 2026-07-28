@@ -1,39 +1,5 @@
 return {
 	{
-		"pmizio/typescript-tools.nvim",
-		enabled = false,
-		-- "Yuki-bun/typescript-tools.nvim",
-		-- branch = "refac-use_native_lsp_api",
-		event = "BufReadPre",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"neovim/nvim-lspconfig",
-			{
-				"saghen/blink.cmp",
-				-- Ensure blink.cmp is loaded before typescript-tools
-				lazy = false,
-				priority = 1000,
-			},
-		},
-		config = function()
-			-- typescript-tools replaces the standard tsserver LSP completely
-			-- This is using the separate plugin setup function, not vim.lsp.config
-			require("typescript-tools").setup({
-				capabilities = require("blink.cmp").get_lsp_capabilities(),
-				handlers = require("config.lsp.servers.tsserver").handlers,
-				on_attach = require("config.lsp.servers.tsserver").on_attach,
-				settings = require("config.lsp.servers.tsserver").settings,
-			})
-		end,
-	},
-
-	{
 		"razak17/tailwind-fold.nvim",
 		opts = {
 			min_chars = 50,
