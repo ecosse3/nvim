@@ -1,60 +1,35 @@
 return {
-  {
-    "numToStr/Comment.nvim",
-    lazy = false,
-    dependencies = "JoosepAlviste/nvim-ts-context-commentstring",
-    config = function()
-      require('ts_context_commentstring').setup()
+	{
+		"echasnovski/mini.comment",
+		version = false,
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+		event = "VeryLazy",
+		config = function()
+			-- Setup context commentstring for JSX/TSX support
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
 
-      require('Comment').setup {
-        ---Add a space b/w comment and the line
-        ---@type boolean
-        padding = true,
-
-        ---Lines to be ignored while comment/uncomment.
-        ---Could be a regex string or a function that returns a regex string.
-        ---Example: Use '^$' to ignore empty lines
-        ---@type string|function
-        ignore = nil,
-
-        ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
-        ---@type table
-        mappings = {
-          ---operator-pending mapping
-          ---Includes `gcc`, `gcb`, `gc[count]{motion}` and `gb[count]{motion}`
-          basic = true,
-          ---extra mapping
-          ---Includes `gco`, `gcO`, `gcA`
-          extra = true,
-          ---extended mapping
-          ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-          extended = false,
-        },
-
-        ---LHS of toggle mapping in NORMAL + VISUAL mode
-        ---@type table
-        toggler = {
-          ---line-comment keymap
-          line = 'gcc',
-          ---block-comment keymap
-          block = 'gbc',
-        },
-
-        ---LHS of operator-pending mapping in NORMAL + VISUAL mode
-        ---@type table
-        opleader = {
-          ---line-comment keymap
-          line = 'gc',
-          ---block-comment keymap
-          block = 'gb',
-        },
-
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-
-        ---Post-hook, called after commenting is done
-        ---@type function|nil
-        post_hook = nil,
-      }
-    end,
-  },
+			require("mini.comment").setup({
+				options = {
+					-- Use ts_context_commentstring to compute commentstring
+					custom_commentstring = function()
+						return require("ts_context_commentstring.internal").calculate_commentstring()
+							or vim.bo.commentstring
+					end,
+					-- Whether to ignore blank lines when commenting
+					ignore_blank_line = false,
+					-- Whether to force single space inner padding
+					pad_comment_parts = true,
+				},
+				-- Uses same keymaps as native nvim commenting:
+				-- gc{motion} - Toggle comment (operator)
+				-- gcc - Toggle comment on current line
+				-- gc - Toggle comment in Visual mode
+				-- Supports v:count and dot-repeat
+			})
+		end,
+	},
 }
