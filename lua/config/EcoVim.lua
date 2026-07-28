@@ -66,7 +66,7 @@ local icons = require("utils.icons")
 ---@field border "rounded"|"single"|"double"|"shadow"|"none" Floating window border style
 
 ---@class EcoVimUI
----@field font string[] GUI font settings (e.g. { "FiraCode Nerd Font", ":h14" })
+---@field font string GUI font settings (e.g. "FiraCode Nerd Font:h14")
 ---@field float EcoVimUIFloat Floating window settings
 
 ---@class EcoVimLSPServerConfig
@@ -111,7 +111,7 @@ EcoVim = {
 
 	-- UI Settings
 	ui = {
-		font = { "FiraCode Nerd Font", ":h14" },
+		font = "FiraCode Nerd Font:h14",
 		float = { border = "rounded" },
 	},
 

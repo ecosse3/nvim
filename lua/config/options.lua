@@ -12,7 +12,6 @@ local options = {
 	ignorecase = true, --- Needed for smartcase
 	laststatus = 3, --- Have a global statusline at the bottom instead of one for each window
 	mouse = "a", --- Enable mouse
-	-- guifont set below for GUI clients
 	number = true, --- Shows current line number
 	pumheight = 10, --- Max num of items in completion menu
 	relativenumber = true, --- Enables relative number
@@ -67,6 +66,7 @@ vim.opt.fillchars:append("foldsep: ")
 vim.opt.fillchars:append("foldclose:")
 vim.opt.fillchars:append("vert:▕")
 vim.opt.fillchars:append("vertleft:▕")
+vim.opt.guifont = EcoVim.ui.font
 
 for k, v in pairs(options) do
 	vim.o[k] = v
@@ -77,8 +77,10 @@ for k, v in pairs(globals) do
 end
 
 if vim.g.neovide then
+	-- Start a named server so nvr can send files to this instance
+	vim.fn.serverstart("/tmp/neovide.pipe")
+
 	vim.o.title = true
-	-- Font is set in ~/.config/neovide/config.toml
 	vim.g.neovide_floating_blur_amount_x = 2.0
 	vim.g.neovide_floating_blur_amount_y = 2.0
 	vim.g.neovide_floating_corner_radius = 0.0
