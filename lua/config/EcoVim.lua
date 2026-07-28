@@ -138,6 +138,7 @@ EcoVim = {
 			-- so monorepo roots are preferred over plain git repos.
 			-- Note: package.json is intentionally excluded to avoid sub-package detection in monorepos
 			patterns = {
+				"package.json",
 				"pnpm-workspace.yaml",
 				"turbo.json",
 				"nx.json",
@@ -160,8 +161,6 @@ EcoVim = {
 
 	-- LSP Configuration (add servers in user.lua)
 	lsp = {
-		-- TypeScript LSP server: "tsgo" (experimental, fast) or "ts_ls" (stable, traditional)
-		typescript_server = "tsgo",
 		ensure_installed = {},
 		exclude = { "copilot" },
 		servers = {},

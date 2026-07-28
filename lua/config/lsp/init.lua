@@ -50,12 +50,7 @@ require("config.lsp.servers.graphql")
 require("config.lsp.servers.prismals")
 require("config.lsp.servers.denols")
 require("config.lsp.servers.yamlls")
-
--- Load TypeScript server config based on user preference
--- tsgo is the default (experimental, fast); ts_ls is the stable alternative
-if EcoVim.lsp.typescript_server == "ts_ls" then
-    require("config.lsp.servers.ts_ls")
-end
+require("config.lsp.servers.tsgo")
 
 -- Setup UFO for folding
 local ufo_ok, ufo = pcall(require, "ufo")
