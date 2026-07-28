@@ -6,21 +6,24 @@ return {
       local conform = require("conform")
 
       local default_formatters = {
-        css = { "prettierd", "prettier" },
-        graphql = { "prettierd", "prettier" },
-        html = { "prettierd", "prettier" },
+        css = { "oxfmt", "biome", "prettierd", "prettier" },
+        scss = { "oxfmt", "biome", "prettierd", "prettier" },
+        graphql = { "oxfmt", "biome", "prettierd", "prettier" },
+        html = { "oxfmt", "biome", "prettierd", "prettier" },
         hcl = { "hclfmt" },
-        javascript = { "biome", "prettierd", "prettier" },
-        javascriptreact = { "biome", "prettierd", "prettier" },
-        json = { "prettierd", "prettier" },
+        javascript = { "oxfmt", "biome", "prettierd", "prettier" },
+        javascriptreact = { "oxfmt", "biome", "prettierd", "prettier" },
+        json = { "oxfmt", "prettierd", "prettier" },
+        jsonc = { "oxfmt", "prettierd", "prettier" },
         lua = { "stylua" },
-        markdown = { "prettierd", "prettier" },
+        markdown = { "oxfmt", "prettierd", "prettier" },
+        mdx = { "oxfmt", "biome", "prettierd", "prettier" },
         python = { "isort", "black" },
         sql = { "sql-formatter" },
         svelte = { "prettierd", "prettier" },
-        typescript = { "biome", "prettierd", "prettier", "sql-formatter" },
-        typescriptreact = { "biome", "prettierd", "prettier" },
-        yaml = { "prettier" },
+        typescript = { "oxfmt", "biome", "prettierd", "prettier", "sql-formatter" },
+        typescriptreact = { "oxfmt", "biome", "prettierd", "prettier" },
+        yaml = { "oxfmt", "prettier" },
         xml = { "xmlformatter" }
       }
       
