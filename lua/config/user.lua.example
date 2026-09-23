@@ -50,7 +50,7 @@
 
 -- Exclude LSP servers from auto-enabling
 -- (Useful if you want to configure them manually)
--- EcoVim.lsp.exclude = { "tsgo", "copilot", "rust_analyzer" }
+-- EcoVim.lsp.exclude = { "tsc", "copilot", "rust_analyzer" }
 
 -- Enable format on save (default: false)
 -- Toggle at runtime with :LspToggleAutoFormat

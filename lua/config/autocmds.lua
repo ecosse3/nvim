@@ -28,12 +28,12 @@ if wk_present then
   vim.api.nvim_create_autocmd("FileType", { group = wk_group, pattern = "spectre_panel",
     callback = function() pwk.attach_spectre(0) end })
 
-  -- Attach TypeScript keybindings when tsgo connects
+  -- Attach TypeScript keybindings when tsc connects
   vim.api.nvim_create_autocmd("LspAttach", {
     group = wk_group,
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
-      if client and client.name == "tsgo" then
+      if client and client.name == "tsc" then
         pwk.attach_typescript(args.buf)
       end
     end,

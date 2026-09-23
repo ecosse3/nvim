@@ -1,6 +1,6 @@
 -- Configure vue_ls (Vue Language Server) with Neovim 0.11 API
 -- Note: mason-lspconfig v2.1.0 renamed "volar" to "vue_ls"
--- Using non-hybrid mode since tsgo doesn't support @vue/typescript-plugin
+-- Using non-hybrid mode since tsc doesn't support @vue/typescript-plugin
 -- In non-hybrid mode, vue_ls handles both template/CSS and TypeScript in .vue files
 vim.lsp.config.vue_ls = {
 	filetypes = { "vue" },

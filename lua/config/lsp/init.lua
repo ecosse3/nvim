@@ -50,7 +50,7 @@ require("config.lsp.servers.graphql")
 require("config.lsp.servers.prismals")
 require("config.lsp.servers.denols")
 require("config.lsp.servers.yamlls")
-require("config.lsp.servers.tsgo")
+require("config.lsp.servers.tsc")
 
 -- Setup UFO for folding
 local ufo_ok, ufo = pcall(require, "ufo")

@@ -1,9 +1,10 @@
--- Configure tsgo (Microsoft's native Go-based TypeScript server)
--- https://github.com/microsoft/typescript-go
+-- Configure tsc (TypeScript 7 native Go-based language server)
+-- https://github.com/microsoft/typescript
+-- Note: tsgo (@typescript/native-preview) is deprecated in favor of tsc
 local filter = require("config.lsp.utils.filter").filter
 local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
-vim.lsp.config.tsgo = {
+vim.lsp.config.tsc = {
 	handlers = {
 		["textDocument/definition"] = function(err, result, method, ...)
 			if vim.islist(result) and #result > 1 then

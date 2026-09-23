@@ -43,7 +43,7 @@ return {
 				"tailwindcss",
 				"terraformls",
 				"tflint",
-				"tsgo",
+				"tsc",
 				"vue_ls",
 				"yamlls",
 			}
