@@ -5,6 +5,12 @@ local filter = require("config.lsp.utils.filter").filter
 local filterReactDTS = require("config.lsp.utils.filterReactDTS").filterReactDTS
 
 vim.lsp.config.tsc = {
+	capabilities = {
+		experimental = {
+			hoverVerbosityLevel = true,
+		},
+	},
+
 	handlers = {
 		["textDocument/definition"] = function(err, result, method, ...)
 			if vim.islist(result) and #result > 1 then
@@ -17,6 +23,7 @@ vim.lsp.config.tsc = {
 
 	settings = {
 		typescript = {
+			maximumHoverLength = 2500,
 			inlayHints = {
 				parameterNames = {
 					enabled = "all",

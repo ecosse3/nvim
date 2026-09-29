@@ -86,12 +86,6 @@ return {
 			{ "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
 
 			-- Info
-			{ "K", function()
-				local winid = require("ufo").peekFoldedLinesUnderCursor()
-				if not winid then
-					vim.lsp.buf.hover()
-				end
-			end, desc = "Hover / Peek Fold" },
 			{ "L", vim.lsp.buf.signature_help, desc = "Signature Help", mode = { "n" } },
 
 			-- Diagnostics
