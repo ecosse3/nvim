@@ -42,7 +42,8 @@ return {
 				end
 			end)
 
-			vim.keymap.set("n", "<C-\\>", require("smart-splits").move_cursor_previous)
+			-- move_cursor_previous was removed in smart-splits v3; use the native equivalent
+			vim.keymap.set("n", "<C-\\>", "<cmd>wincmd p<cr>", { desc = "Previous window" })
 			-- swapping buffers between windows
 			vim.keymap.set("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
 			vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
