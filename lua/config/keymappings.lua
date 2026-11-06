@@ -85,3 +85,40 @@ end
 -- Adjust font size
 keymap("n", "<M-=>", function() require('utils').adjust_font_size(1) end, silent)
 keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silent)
+
+-- Incremental selection (replacement for the removed nvim-treesitter `incremental_selection` module).
+-- Neovim 0.12 ships native visual-mode `an` / `in`, but mini.ai overrides those two keys (around/inside
+-- NEXT object), so we call the native implementation directly instead of replaying `an` / `in`.
+-- Buffer-local, only for real file buffers with a treesitter parser, so <CR>/<Tab> keep working
+-- normally in quickfix, pickers, the dashboard, etc.
+local function ts_select(fn)
+  return function()
+    local ok, select = pcall(require, "vim.treesitter._select") -- private module, may change between versions
+    if ok and vim.treesitter.get_parser(nil, nil, { error = false }) then
+      select[fn](vim.v.count1)
+    else
+      vim.lsp.buf.selection_range(fn == "select_parent" and vim.v.count1 or -vim.v.count1)
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("EcoVimIncrementalSelection", { clear = true }),
+  callback = function(args)
+    if vim.bo[args.buf].buftype ~= "" or not vim.treesitter.language.get_lang(vim.bo[args.buf].filetype) then
+      return
+    end
+    local function map(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buffer = args.buf, silent = true, desc = desc })
+    end
+    -- init_selection: clear search highlight, enter visual mode, select the node under the cursor
+    map("n", "<CR>", function()
+      vim.cmd("nohlsearch")
+      vim.cmd("normal! v")
+      ts_select("select_parent")()
+    end, "Init node selection")
+    map("x", "<CR>", ts_select("select_parent"), "Expand selection to parent node") -- scope_incremental
+    map("x", "<Tab>", ts_select("select_parent"), "Expand selection to parent node") -- node_incremental
+    map("x", "<S-Tab>", ts_select("select_child"), "Shrink selection to child node") -- node_decremental
+  end,
+})
