@@ -121,9 +121,29 @@ return {
 	},
 
 	{
+		"CoreyKaylor/diffbandit.nvim",
+		cmd = {
+			"DiffBandit",
+			"DiffBanditBuffers",
+			"DiffBanditFolderDiff",
+			"DiffBanditGit",
+			"DiffBanditGitCurrent",
+			"DiffBanditCommitPanel",
+			"DiffBanditGitMenu",
+			"DiffBanditGitLog",
+			"DiffBanditGitCommit",
+			"DiffBanditGitCompare",
+			"DiffBanditMerge",
+		},
+		config = function()
+			require("diffbandit").setup()
+		end,
+	},
+
+	{
 		"dlyongemallo/diffview.nvim",
 		lazy = false,
-		enabled = true,
+		enabled = false,
 		-- event = "BufRead",
 		config = function()
 			require("plugins.git.diffview")
@@ -135,42 +155,42 @@ return {
 		},
 	},
 
-	{
-		"NeilGirdhar/git-conflict.nvim",
-		enabled = false,
-		lazy = false,
-		event = "BufRead",
-		version = "*",
-		config = function()
-			-- vim.api.nvim_create_autocmd("User", {
-			--   pattern = "GitConflictDetected",
-			--   callback = function()
-			--     vim.notify("Conflict detected in " .. vim.fn.expand("<afile>"))
-			--   end,
-			-- })
-
-			require("git-conflict").setup({
-				default_mappings = true, -- disable buffer local mapping created by this plugin
-				default_commands = true, -- disable commands created by this plugin
-				disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
-				list_opener = "copen", -- command or function to open the conflicts list
-				highlights = { -- They must have background color, otherwise the default color will be used
-					incoming = "DiffText",
-					current = "DiffAdd",
-				},
-			})
-
-			vim.api.nvim_set_hl(0, "GitConflictIncoming", { bg = "#293919" })
-			vim.api.nvim_set_hl(0, "GitConflictIncomingLabel", { bold = true, bg = "#698F3F" })
-		end,
-		keys = {
-			{ "<Leader>gcb", "<cmd>GitConflictChooseBoth<CR>", desc = "choose both" },
-			{ "<Leader>gcn", "<cmd>GitConflictNextConflict<CR>", desc = "move to next conflict" },
-			{ "<Leader>gcc", "<cmd>GitConflictChooseOurs<CR>", desc = "choose current" },
-			{ "<Leader>gcp", "<cmd>GitConflictPrevConflict<CR>", desc = "move to prev conflict" },
-			{ "<Leader>gci", "<cmd>GitConflictChooseTheirs<CR>", desc = "choose incoming" },
-		},
-	},
+	-- {
+	-- 	"tronikelis/conflict-marker.nvim",
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require("conflict-marker").setup({
+	-- 			on_attach = function(conflict)
+	-- 				local map = function(key, fn)
+	-- 					vim.keymap.set("n", key, fn, { buffer = conflict.bufnr })
+	-- 				end
+	--
+	-- 				local MID = "^=======$"
+	--
+	-- 				vim.keymap.set("n", "[x", function()
+	-- 					vim.cmd("?" .. MID)
+	-- 				end, { buffer = conflict.bufnr })
+	--
+	-- 				vim.keymap.set("n", "]x", function()
+	-- 					vim.cmd("/" .. MID)
+	-- 				end, { buffer = conflict.bufnr })
+	--
+	-- 				map("<Leader>gco", function()
+	-- 					conflict:choose_ours()
+	-- 				end)
+	-- 				map("<Leader>gct", function()
+	-- 					conflict:choose_theirs()
+	-- 				end)
+	-- 				map("<Leader>gcb", function()
+	-- 					conflict:choose_both()
+	-- 				end)
+	-- 				map("<Leader>gcn", function()
+	-- 					conflict:choose_none()
+	-- 				end)
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- },
 
 	{
 		"pwntester/octo.nvim",
@@ -366,5 +386,10 @@ return {
 			{ "<Leader>gL", "<cmd>GitLink<CR>", mode = "x", desc = "get url for selection" },
 		},
 		cmd = "GitLink",
+	},
+
+	{
+		"vuki656/review.nvim",
+		opts = {},
 	},
 }
