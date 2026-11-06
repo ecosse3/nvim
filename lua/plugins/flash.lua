@@ -19,6 +19,14 @@ return {
         end,
         desc = "Flash Treesitter",
       },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
     },
     opts = {
       char = {
@@ -33,15 +41,17 @@ return {
       },
       modes = {
         char = {
-          char_actions = function()
+          -- repeat with the same key: f/t -> next, F/T -> prev (works for t/T too)
+          char_actions = function(motion)
             return {
               [";"] = "next",
-              ["F"] = "left",
-              ["f"] = "right",
+              [","] = "prev",
+              [motion:lower()] = "next",
+              [motion:upper()] = "prev",
             }
           end,
           enabled = true,
-          keys = { "f", "F", "t", "T", ";" },
+          keys = { "f", "F", "t", "T", ";", "," },
           highlight = {
             backdrop = false,
           },
