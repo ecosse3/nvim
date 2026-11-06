@@ -7,6 +7,11 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
+      health = {
+        -- The checker polls nvim_list_uis() every second and errors if ANY attached UI
+        -- (e.g. a second client on the neovide server pipe) reports ext_cmdline/ext_messages.
+        checker = false,
+      },
       messages = {
         enabled = true,
       },
