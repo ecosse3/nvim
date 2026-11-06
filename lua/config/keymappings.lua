@@ -76,15 +76,19 @@ keymap("n", "<leader>q", "<cmd>lua require('utils').toggle_quicklist()<CR>", sil
 --   silent)
 
 -- Open links under cursor in browser with gx
-if vim.fn.has('macunix') == 1 then
+if vim.fn.has("macunix") == 1 then
   keymap("n", "gx", "<cmd>silent execute '!open ' . shellescape('<cWORD>')<CR>", silent)
 else
   keymap("n", "gx", "<cmd>silent execute '!xdg-open ' . shellescape('<cWORD>')<CR>", silent)
 end
 
 -- Adjust font size
-keymap("n", "<M-=>", function() require('utils').adjust_font_size(1) end, silent)
-keymap("n", "<M-->", function() require('utils').adjust_font_size(-1) end, silent)
+keymap("n", "<M-=>", function()
+  require("utils").adjust_font_size(1)
+end, silent)
+keymap("n", "<M-->", function()
+  require("utils").adjust_font_size(-1)
+end, silent)
 
 -- Incremental selection (replacement for the removed nvim-treesitter `incremental_selection` module).
 -- Neovim 0.12 ships native visual-mode `an` / `in`, but mini.ai overrides those two keys (around/inside

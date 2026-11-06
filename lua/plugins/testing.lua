@@ -27,7 +27,7 @@ return {
       "nvim-neotest/neotest-jest",
     },
     config = function()
-      require('neotest').setup {
+      require("neotest").setup({
         adapters = {
           require("neotest-jest")({
             jestCommand = "yarn test",
@@ -38,12 +38,12 @@ return {
           }),
         },
         diagnostic = {
-          enabled = false
+          enabled = false,
         },
         floating = {
           border = EcoVim.ui.float.border or "rounded",
           max_height = 0.6,
-          max_width = 0.6
+          max_width = 0.6,
         },
         highlights = {
           adapter_name = "NeotestAdapterName",
@@ -58,7 +58,7 @@ return {
           passed = "NeotestPassed",
           running = "NeotestRunning",
           skipped = "NeotestSkipped",
-          test = "NeotestTest"
+          test = "NeotestTest",
         },
         icons = {
           child_indent = "│",
@@ -72,23 +72,23 @@ return {
           passed = "✔",
           running = "",
           skipped = "ﰸ",
-          unknown = "?"
+          unknown = "?",
         },
         output = {
           enabled = true,
           open_on_run = true,
         },
         run = {
-          enabled = true
+          enabled = true,
         },
         status = {
-          enabled = true
+          enabled = true,
         },
         strategies = {
           integrated = {
             height = 40,
-            width = 120
-          }
+            width = 120,
+          },
         },
         summary = {
           enabled = true,
@@ -102,10 +102,10 @@ return {
             output = "o",
             run = "r",
             short = "O",
-            stop = "u"
-          }
-        }
-      }
-    end
-  }
+            stop = "u",
+          },
+        },
+      })
+    end,
+  },
 }

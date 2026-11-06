@@ -3,23 +3,23 @@ if not present then
   return
 end
 
-wk.setup {
+wk.setup({
   plugins = {
-    marks = true,     -- shows a list of your marks on ' and `
+    marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created
     spelling = {
-      enabled = true,   -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     presets = {
       operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false,   -- adds help for motions text_objects = false, -- help for text objects triggered after entering an operator
-      windows = false,   -- default bindings on <c-w>
-      nav = false,       -- misc bindings to work with windows
-      z = false,         -- bindings for folds, spelling and others prefixed with z
-      g = false,         -- bindings for prefixed with g
+      motions = false, -- adds help for motions text_objects = false, -- help for text objects triggered after entering an operator
+      windows = false, -- default bindings on <c-w>
+      nav = false, -- misc bindings to work with windows
+      z = false, -- bindings for folds, spelling and others prefixed with z
+      g = false, -- bindings for prefixed with g
     },
   },
   icons = {
@@ -29,41 +29,41 @@ wk.setup {
   },
   win = {
     border = EcoVim.ui.float.border or "rounded", -- none, single, double, shadow, rounded
-    padding = { 2, 2, 2, 2 },                     -- extra window padding [top, right, bottom, left]
+    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
   },
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 4,                    -- spacing between columns
-    align = "left",                 -- align columns left, center or right
+    spacing = 4, -- spacing between columns
+    align = "left", -- align columns left, center or right
   },
-  show_help = true,                 -- show help message on the command line when the popup is visible
-}
+  show_help = true, -- show help message on the command line when the popup is visible
+})
 
 -- ignore
 wk.add({
   { "<leader><leader>", hidden = true },
-  { "<leader>1",        hidden = true },
-  { "<leader>2",        hidden = true },
-  { "<leader>3",        hidden = true },
-  { "<leader>4",        hidden = true },
-  { "<leader>5",        hidden = true },
-  { "<leader>6",        hidden = true },
-  { "<leader>7",        hidden = true },
-  { "<leader>8",        hidden = true },
-  { "<leader>9",        hidden = true },
-  { "<leader><left>",        hidden = true },
-  { "<leader><right>",        hidden = true },
-  { "<leader><up>",        hidden = true },
-  { "<leader><down>",        hidden = true },
+  { "<leader>1", hidden = true },
+  { "<leader>2", hidden = true },
+  { "<leader>3", hidden = true },
+  { "<leader>4", hidden = true },
+  { "<leader>5", hidden = true },
+  { "<leader>6", hidden = true },
+  { "<leader>7", hidden = true },
+  { "<leader>8", hidden = true },
+  { "<leader>9", hidden = true },
+  { "<leader><left>", hidden = true },
+  { "<leader><right>", hidden = true },
+  { "<leader><up>", hidden = true },
+  { "<leader><down>", hidden = true },
 })
 
 -- single
 wk.add({
   { "<leader>=", "<cmd>vertical resize +5<CR>", desc = "resize +5" },
   { "<leader>-", "<cmd>vertical resize -5<CR>", desc = "resize -5" },
-  { "<leader>v", "<C-W>v",                      desc = "split right" },
-  { "<leader>V", "<C-W>s",                      desc = "split below" },
+  { "<leader>v", "<C-W>v", desc = "split right" },
+  { "<leader>V", "<C-W>s", desc = "split below" },
   { "<leader>q", desc = "quicklist" },
   { "<leader>,", desc = "quickfix prev" },
   { "<leader>.", desc = "quickfix next" },
@@ -82,35 +82,35 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>/",  group = "Ecovim" },
+  { "<leader>/", group = "Ecovim" },
   { "<leader>/s", group = "Session" },
-  { "<leader>//", "<cmd>Alpha<CR>",       desc = "open dashboard" },
-  { "<leader>/c", "<cmd>e $MYVIMRC<CR>",  desc = "open config" },
-  { "<leader>/i", "<cmd>Lazy<CR>",        desc = "manage plugins" },
+  { "<leader>//", "<cmd>Alpha<CR>", desc = "open dashboard" },
+  { "<leader>/c", "<cmd>e $MYVIMRC<CR>", desc = "open config" },
+  { "<leader>/i", "<cmd>Lazy<CR>", desc = "manage plugins" },
   { "<leader>/u", "<cmd>Lazy update<CR>", desc = "update plugins" },
 })
 
 wk.add({
-  { "<leader>a",  group = "Actions",                mode = { "n", "v" } },
-  { "<leader>an", "<cmd>set nonumber!<CR>",         desc = "line numbers" },
+  { "<leader>a", group = "Actions", mode = { "n", "v" } },
+  { "<leader>an", "<cmd>set nonumber!<CR>", desc = "line numbers" },
   { "<leader>ar", "<cmd>set norelativenumber!<CR>", desc = "relative number" },
 })
 
 wk.add({
-  { "<leader>b",  group = "Buffer" },
+  { "<leader>b", group = "Buffer" },
   { "<leader>bs", group = "Sort" },
-  { "<leader>bc", '<cmd>lua Snacks.bufdelete.other()<CR>', desc = "Close but current" },
-  { "<leader>bf", "<cmd>bfirst<CR>",                                   desc = "First buffer" },
+  { "<leader>bc", "<cmd>lua Snacks.bufdelete.other()<CR>", desc = "Close but current" },
+  { "<leader>bf", "<cmd>bfirst<CR>", desc = "First buffer" },
 })
 
 wk.add({
-  { "<leader>c",  group = "LSP",                                      mode = { "n", "v" } },
-  { "<leader>ca", desc = "code action",                               mode = { "n", "v" } },
-  { "<leader>cA", desc = "code action (capability)",                   mode = { "n", "v" } },
-  { "<leader>cf", desc = "format",                                    mode = { "n", "v" } },
+  { "<leader>c", group = "LSP", mode = { "n", "v" } },
+  { "<leader>ca", desc = "code action", mode = { "n", "v" } },
+  { "<leader>cA", desc = "code action (capability)", mode = { "n", "v" } },
+  { "<leader>cf", desc = "format", mode = { "n", "v" } },
   { "<leader>cr", desc = "rename" },
   { "<leader>cR", desc = "rename file" },
-  { "<leader>ct", '<cmd>LspToggleAutoFormat<CR>',                     desc = "toggle format on save" },
+  { "<leader>ct", "<cmd>LspToggleAutoFormat<CR>", desc = "toggle format on save" },
 })
 
 wk.add({
@@ -118,44 +118,44 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>g",   group = "Git",                     mode = { "n", "v" } },
-  { "<leader>ga",  "<cmd>!git add %:p<CR>",           desc = 'add current' },
-  { "<leader>gA",  "<cmd>!git add .<CR>",             desc = 'add all' },
-  { "<leader>gb",  "<cmd>BlameToggle window<CR>",     desc = 'blame' },
-  { "<leader>gc",  group = "Conflict" },
-  { "<leader>gh",  group = "Hunk" },
-  { "<leader>ghr", desc = "reset hunk",               mode = { "v" } },
-  { "<leader>ghs", desc = "stage hunk",               mode = { "v" } },
-  { "<leader>gi",  "<cmd>Octo issue list<CR>",        desc = 'Issues List' },
-  { "<leader>gl",  group = "Log" },
-  { "<leader>gm",  desc = 'blame line' },
-  { "<leader>gp",  "<cmd>Octo pr list<CR>",           desc = 'Pull Requests List' },
+  { "<leader>g", group = "Git", mode = { "n", "v" } },
+  { "<leader>ga", "<cmd>!git add %:p<CR>", desc = "add current" },
+  { "<leader>gA", "<cmd>!git add .<CR>", desc = "add all" },
+  { "<leader>gb", "<cmd>BlameToggle window<CR>", desc = "blame" },
+  { "<leader>gc", group = "Conflict" },
+  { "<leader>gh", group = "Hunk" },
+  { "<leader>ghr", desc = "reset hunk", mode = { "v" } },
+  { "<leader>ghs", desc = "stage hunk", mode = { "v" } },
+  { "<leader>gi", "<cmd>Octo issue list<CR>", desc = "Issues List" },
+  { "<leader>gl", group = "Log" },
+  { "<leader>gm", desc = "blame line" },
+  { "<leader>gp", "<cmd>Octo pr list<CR>", desc = "Pull Requests List" },
 })
 
 wk.add({
-  { "<leader>p",  group = "Project" },
+  { "<leader>p", group = "Project" },
   { "<leader>pf", desc = "file" },
   { "<leader>pw", desc = "word" },
 })
 
 wk.add({
-  { "<leader>s",  group = "Search" },
-  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } }
+  { "<leader>s", group = "Search" },
+  { "<leader>s", "<cmd>'<,'>sort<CR>", desc = "sort", mode = { "v" } },
 })
 
 wk.add({
-  { "<leader>t",  group = "Table Mode",  mode = { "n", "v" } },
+  { "<leader>t", group = "Table Mode", mode = { "n", "v" } },
   { "<leader>tm", desc = "toggle" },
   { "<leader>tt", desc = "tableize", mode = { "n", "v" } },
 })
 
 wk.add({
-  { "<leader>o",  group = "Opencode" },
+  { "<leader>o", group = "Opencode" },
 })
 
 local function attach_markdown(bufnr)
   wk.add({
-    { "<leader>a",  group = "Actions",                buffer = bufnr },
+    { "<leader>a", group = "Actions", buffer = bufnr },
     { "<leader>am", "<cmd>MarkdownPreviewToggle<CR>", desc = "markdown preview", mode = "n", buffer = bufnr },
   })
 end
@@ -163,48 +163,82 @@ end
 local function attach_typescript(bufnr)
   wk.add({
     { buffer = bufnr },
-    { "<leader>c",   group = "LSP", },
-    { "<leader>ce",  "<cmd>TSC<CR>",                      desc = "workspace errors (TSC)" },
-    { "<leader>co",  function()
-      vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" }, diagnostics = vim.diagnostic.get(0) }, apply = true })
-    end, desc = "organize imports" },
-    { "<leader>ci",  function()
-      vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports" }, diagnostics = vim.diagnostic.get(0) }, apply = true })
-    end, desc = "import all" },
-    { "<leader>cu",  function()
-      vim.lsp.buf.code_action({ context = { only = { "source.removeUnused" }, diagnostics = vim.diagnostic.get(0) }, apply = true })
-    end, desc = "remove unused" },
-    { "<leader>cF",  function()
-      vim.lsp.buf.code_action({ context = { only = { "source.fixAll" }, diagnostics = vim.diagnostic.get(0) }, apply = true })
-    end, desc = "fix all" },
-    { "<leader>cR",  function() Snacks.rename.rename_file() end, desc = "rename file" },
+    { "<leader>c", group = "LSP" },
+    { "<leader>ce", "<cmd>TSC<CR>", desc = "workspace errors (TSC)" },
+    {
+      "<leader>co",
+      function()
+        vim.lsp.buf.code_action({
+          context = { only = { "source.organizeImports" }, diagnostics = vim.diagnostic.get(0) },
+          apply = true,
+        })
+      end,
+      desc = "organize imports",
+    },
+    {
+      "<leader>ci",
+      function()
+        vim.lsp.buf.code_action({
+          context = { only = { "source.addMissingImports" }, diagnostics = vim.diagnostic.get(0) },
+          apply = true,
+        })
+      end,
+      desc = "import all",
+    },
+    {
+      "<leader>cu",
+      function()
+        vim.lsp.buf.code_action({
+          context = { only = { "source.removeUnused" }, diagnostics = vim.diagnostic.get(0) },
+          apply = true,
+        })
+      end,
+      desc = "remove unused",
+    },
+    {
+      "<leader>cF",
+      function()
+        vim.lsp.buf.code_action({
+          context = { only = { "source.fixAll" }, diagnostics = vim.diagnostic.get(0) },
+          apply = true,
+        })
+      end,
+      desc = "fix all",
+    },
+    {
+      "<leader>cR",
+      function()
+        Snacks.rename.rename_file()
+      end,
+      desc = "rename file",
+    },
   })
 end
 
 local function attach_npm(bufnr)
   wk.add({
     { buffer = bufnr },
-    { "<leader>n",   group = "NPM" },
-    { "<leader>nc",  '<cmd>lua require("package-info").change_version()<CR>', desc = "change version" },
-    { "<leader>nd",  '<cmd>lua require("package-info").delete()<CR>',         desc = "delete package" },
-    { "<leader>nh",  "<cmd>lua require('package-info').hide()<CR>",           desc = "hide" },
-    { "<leader>ni",  '<cmd>lua require("package-info").install()<CR>',        desc = "install new package" },
-    { "<leader>nr",  '<cmd>lua require("package-info").reinstall()<CR>',      desc = "reinstall dependencies" },
-    { "<leader>ns",  '<cmd>lua require("package-info").show()<CR>',           desc = "show" },
-    { "<leader>nu",  '<cmd>lua require("package-info").update()<CR>',         desc = "update package" },
+    { "<leader>n", group = "NPM" },
+    { "<leader>nc", '<cmd>lua require("package-info").change_version()<CR>', desc = "change version" },
+    { "<leader>nd", '<cmd>lua require("package-info").delete()<CR>', desc = "delete package" },
+    { "<leader>nh", "<cmd>lua require('package-info').hide()<CR>", desc = "hide" },
+    { "<leader>ni", '<cmd>lua require("package-info").install()<CR>', desc = "install new package" },
+    { "<leader>nr", '<cmd>lua require("package-info").reinstall()<CR>', desc = "reinstall dependencies" },
+    { "<leader>ns", '<cmd>lua require("package-info").show()<CR>', desc = "show" },
+    { "<leader>nu", '<cmd>lua require("package-info").update()<CR>', desc = "update package" },
   })
 end
 
 local function attach_jest(bufnr)
   wk.add({
     { buffer = bufnr },
-    { "<leader>j",   group = "Jest", },
-    { "<leader>jf",  "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>",   desc = "run current file" },
-    { "<leader>ji",  "<cmd>lua require('neotest').summary.toggle()<CR>",              desc = "toggle info panel" },
-    { "<leader>jj",  "<cmd>lua require('neotest').run.run()<CR>",                     desc = "run nearest test" },
-    { "<leader>jl",  "<cmd>lua require('neotest').run.run_last()<CR>",                desc = "run last test" },
-    { "<leader>jo",  "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "open test output" },
-    { "<leader>js",  "<cmd>lua require('neotest').run.stop()<CR>",                    desc = "stop" },
+    { "<leader>j", group = "Jest" },
+    { "<leader>jf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", desc = "run current file" },
+    { "<leader>ji", "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "toggle info panel" },
+    { "<leader>jj", "<cmd>lua require('neotest').run.run()<CR>", desc = "run nearest test" },
+    { "<leader>jl", "<cmd>lua require('neotest').run.run_last()<CR>", desc = "run last test" },
+    { "<leader>jo", "<cmd>lua require('neotest').output.open({ enter = true })<CR>", desc = "open test output" },
+    { "<leader>js", "<cmd>lua require('neotest').run.stop()<CR>", desc = "stop" },
   })
 end
 
