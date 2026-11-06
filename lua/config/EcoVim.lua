@@ -36,6 +36,7 @@ local icons = require("utils.icons")
 ---@field avante EcoVimAI
 ---@field copilot EcoVimAI
 ---@field opencode EcoVimAI
+---@field claudecode EcoVimAI
 
 ---@class EcoVimPluginsCompletion
 ---@field select_first_on_enter boolean Select first completion item when pressing Enter
@@ -121,6 +122,7 @@ EcoVim = {
 			avante = { enabled = true },
 			copilot = { enabled = true },
 			opencode = { enabled = true },
+			claudecode = { enabled = true },
 		},
 		completion = {
 			select_first_on_enter = false,

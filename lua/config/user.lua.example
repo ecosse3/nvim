@@ -141,6 +141,7 @@
 -- EcoVim.plugins.ai.avante.enabled = false
 -- EcoVim.plugins.ai.copilot.enabled = false
 -- EcoVim.plugins.ai.opencode.enabled = true
+-- EcoVim.plugins.ai.claudecode.enabled = false
 
 -- Completion settings
 -- EcoVim.plugins.completion.select_first_on_enter = true

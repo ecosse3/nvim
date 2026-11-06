@@ -151,6 +151,7 @@ wk.add({
 
 wk.add({
   { "<leader>o", group = "Opencode" },
+  { "<leader>i", group = "AI / Claude Code", mode = { "n", "v" } },
 })
 
 local function attach_markdown(bufnr)
