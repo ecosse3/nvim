@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require("utils")
 
 local M = {}
 
@@ -44,10 +44,18 @@ function M.get_current_branch_name()
 end
 
 function M.get_repo_info()
-  local cwd = vim.fn.expand "%:p:h"
-  local data = vim.fn.trim(
-    M.run_git_cmd({ "git", "-C", cwd, "--no-pager", "rev-parse", "--show-toplevel", "--absolute-git-dir", "--abbrev-ref", "HEAD" })
-  )
+  local cwd = vim.fn.expand("%:p:h")
+  local data = vim.fn.trim(M.run_git_cmd({
+    "git",
+    "-C",
+    cwd,
+    "--no-pager",
+    "rev-parse",
+    "--show-toplevel",
+    "--absolute-git-dir",
+    "--abbrev-ref",
+    "HEAD",
+  }))
   local results = utils.split(data, "\n")
 
   local git_root = results[1]
